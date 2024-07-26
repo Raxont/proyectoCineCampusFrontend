@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "mongo": "^0.1.0",
-    "node": "^20.16.0"
+    "node": "^20.16.0",
+    "validator": "^13.12.0"
   }
 }
