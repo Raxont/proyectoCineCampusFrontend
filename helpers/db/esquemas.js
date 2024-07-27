@@ -21,6 +21,11 @@
       "fecha_adquisicion": {
         "bsonType": "date", // ? El dato debe ser una fecha en formato ISODate
         "description": "La fecha debe ser formato ISODate" // ? Descripción de la propiedad
+      },
+      "estado": {
+        "bsonType": "string", // ? El dato debe ser una fecha en formato ISODate
+        "enum": ["fisico", "en_linea"], // ? Valores permitidos
+        "description": "Solo puede ser fisico o en_linea" // ? Descripción de la propiedad
       }
     }
   }
@@ -166,8 +171,7 @@
       "precio",
       "fecha_inicio",
       "fecha_fin",
-      "id_pelicula",
-      "asiento"
+      "id_pelicula"
     ],
     "properties": { // ? Propiedades del objeto
       "nombre": {

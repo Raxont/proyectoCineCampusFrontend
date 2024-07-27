@@ -70,7 +70,7 @@ export class connect {
 
   //* Abre la conexión a la base de datos
   async #open() {
-    this.conexion = new MongoClient(`${this.getHost}${this.user}:${this.getPass}@${this.getCluster}:${this.port}/`); // ? Crea una nueva instancia de MongoClient con la URI de conexión
+    this.conexion = new MongoClient(`${this.getHost}${this.user}:${this.getPass}@${this.getCluster}:${this.port}/${this.getDbName}`); // ? Crea una nueva instancia de MongoClient con la URI de conexión
     await this.conexion.connect(); // ? Establece la conexión con la base de datos
   }
 
