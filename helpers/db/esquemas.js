@@ -6,7 +6,8 @@
     "identificación_cliente", 
     "id_lugar", 
     "fecha_adquisicion",
-    "estado"
+    "estado",
+    "id_asiento"
     ], 
     "properties": { // ? Propiedades del objeto
       "identificación_cliente": {
@@ -27,6 +28,13 @@
         "bsonType": "string", // ? El dato debe ser una fecha en formato ISODate
         "enum": ["fisico", "en_linea"], // ? Valores permitidos
         "description": "Solo puede ser fisico o en_linea" // ? Descripción de la propiedad
+      },
+      "id_asiento": {
+        "bsonType": "array", // ? El dato debe ser de tipo array
+        "items": { // ? Cada elemento del arreglo
+          "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
+          "description": "Este dato tiene que ser ObjectID" // ? Descripción de la propiedad
+        }
       }
     }
   }
@@ -68,7 +76,6 @@
       },
       "telefono": {
         "bsonType": "array", // ? El dato debe ser un arreglo
-        "description": "Teléfonos del cliente", // ? Descripción de la propiedad
         "items": { // ? Cada elemento del arreglo
           "bsonType": "string", // ? Debe ser una cadena de caracteres
           "pattern": "^[1-9]\\d{9}$", // ? Expresión regular para validar el teléfono
@@ -209,7 +216,8 @@
     "required": [ // ? Campos obligatorios en el objeto
       "tipo_fila",
       "codigo",
-      "incremento"
+      "incremento",
+      "id_lugar"
     ],
     "properties": { // ? Propiedades del objeto
       "tipo_fila": {
@@ -226,6 +234,13 @@
         "bsonType": "double", // ? El dato debe ser un número de tipo double
         "enum": [0, 0.10], // ? Valores permitidos para el incremento
         "description": "Ingrese el número 0 o 0.10" // ? Descripción de la propiedad
+      },
+      "id_lugar": {
+        "bsonType": "array", // ? El dato debe ser de tipo array
+        "items": { // ? Cada elemento del arreglo
+          "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
+          "description": "Este dato tiene que ser ObjectID" // ? Descripción de la propiedad
+        }
       }
     }
   }

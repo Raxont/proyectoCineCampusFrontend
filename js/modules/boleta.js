@@ -18,7 +18,7 @@ export class BoletaRepository extends connect {
   hasPermission(permission) {
     return this.permissions.includes(permission); // ? Retorna el permiso
   }
-  
+
   //* Obtiene todas las boletas
   async getAllboleta() {
     if (!this.hasPermission("view")) {
@@ -43,6 +43,48 @@ export class BoletaRepository extends connect {
     } catch (error) {
       console.error("Error obteniendo la boleta:", error); // ! Manejo de errores
       throw new Error("Error obteniendo la boleta"); // ! Lanza un error si ocurre un problema
+    }
+  }
+
+  //* Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar usando aggregate
+  async getBoletasConFechaInicio(identificacionCliente) {
+    if (!this.hasPermission("view")) {
+      throw new Error("No tienes permiso para ver las boletas."); // ! Lanza un error si el usuario usado no tiene ese permiso
+    }
+    try {
+      //* Pipeline de agregación
+      const pipeline = [
+        {
+          $match: { identificacion_cliente: identificacionCliente }, // ? Filtra por identificación_cliente
+        },
+        {
+          $lookup: {
+            from: "lugar", // ? Nombre de la colección de lugares
+            localField: "id_lugar", // ? Campo en la colección de boletas
+            foreignField: "_id", // ? Campo en la colección de lugares
+            as: "lugar", // ? Nombre del campo en el resultado
+          },
+        },
+        {
+          $unwind: "$lugar", // ? Descompone el array de lugar
+        },
+        {
+          $addFields: {
+            fechaHora_pelicula: "$lugar.fecha_inicio", // ? Añade el campo fecha_inicio al resultado
+          },
+        },
+        {
+          $project: {
+            lugar: 0, // ? Excluye el campo lugar del resultado final
+            _id:0 // ? Excluye el campo _id del resultado final
+          },
+        },
+      ];
+
+      return await this.collection.aggregate(pipeline).toArray(); // ? Ejecuta el pipeline de agregación y convierte el resultado a un array
+    } catch (error) {
+      console.error("Error obteniendo boletas con fecha de inicio:", error); // ! Manejo de errores
+      throw new Error("Error obteniendo boletas con fecha de inicio"); // ! Lanza un error si ocurre un problema
     }
   }
 
