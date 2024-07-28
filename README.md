@@ -1,16 +1,46 @@
-
-
 # Como usar mi repositorio
 
-Tengo un modulo llamado `lugar.js` en el cual manejo el CRUD de mi colección `lugar`, teniendo asi 5 funciones:
+Si desea usar mi proyecto, puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `main()`. En esa parte, defino una constante llamada `action`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
+
+Estos son los datos que permite tomar la constante `action` :
+
+- getAllByDate
+- add
+- update
+- delete
+- getByPelicula
+
+# Lógica de mi código
+
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Además, cuento con cuatro funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
-| `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
-| `getAllLugarByDay`   | *Obtiene todos los lugares por fecha.* La fecha la obtengo con la actual |
-| `addLugar`           | *Agrega un nuevo lugar*                                      |
-| `updateLugar`        | *Actualiza la información de un lugar*                       |
-| `deleteLugar`        | *Elimina un lugar por su ID*                                 |
+| `main`               | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+| `agregarlugar`       | *Función para agregar un lugar*                              |
+| `actualizarlugar`    | *Función para actualizar un lugar*                           |
+| `eliminarlugar`      | *Función para eliminar un lugar*                             |
+
+Dentro de la función `main`, manejo varias opciones según lo requiera el usuario. Son cinco en total:
+
+| Nombre de la opción | Que hace?                                     |
+| ------------------- | --------------------------------------------- |
+| `getAllByDate`      | *Obtiene todos los lugares por fecha de hoy*  |
+| `add`               | *Agrega un nuevo lugar*                       |
+| `update`            | *Actualiza la información de un lugar*        |
+| `delete`            | *Elimina un lugar*                            |
+| `getByPelicula`     | *Obtiene lugares por una película específica* |
+
+Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección `lugar`, con un total de cinco funciones:
+
+| Nombre de la función           | Que hace?                                                    |
+| ------------------------------ | ------------------------------------------------------------ |
+| `hasPermission`                | *Verifica permisos del usuario ingresado*                    |
+| `getAllLugarWithPeliculaByDay` | *Obtiene todos los lugares por fecha y une con la información de las películas.* PD: La fecha la obtengo con la actual |
+| `addLugar`                     | *Agrega un nuevo lugar*                                      |
+| `updateLugar`                  | *Actualiza la información de un lugar*                       |
+| `deleteLugar`                  | *Elimina un lugar por su ID*                                 |
+| `getLugaresByPelicula`         | *Filtra lugares por una película específica*                 |
 
 
 
@@ -18,7 +48,7 @@ Tengo un modulo llamado `lugar.js` en el cual manejo el CRUD de mi colección `l
 
 Se instala la librería `validator.js` para realizar una validación más robusta de los correos electrónicos ingresados en la base de datos, evitando así el uso de patrones de expresión regular para este propósito
 
-## Creación del super usuario y administrador
+# Creación del super usuario y administrador
 
 Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos.
 
@@ -40,7 +70,7 @@ db.createUser({
 })
 ```
 
-## Creación del rol administrador
+# Creación del rol administrador
 
 ```javascript
 db.createRole({
@@ -68,7 +98,7 @@ db.createRole({
 
 ```
 
-## Valores para conectarse a la base de datos como administrador
+# Valores para conectarse a la base de datos como administrador
 
 ```javascript
 MONGO_USER="admin"
