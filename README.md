@@ -48,9 +48,9 @@ Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección 
 
 Se instala la librería `validator.js` para realizar una validación más robusta de los correos electrónicos ingresados en la base de datos, evitando así el uso de patrones de expresión regular para este propósito
 
-# Creación del super usuario y administrador
+# Creación del super usuario, administrador, usuario y usuario vip
 
-Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos.
+Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos de CineCampus.
 
 ```javascript
 db.createUser({
@@ -67,6 +67,26 @@ db.createUser({
     user: "admin",
     pwd:"admin",
     roles:[{role:"admindb",db:"CineCampus"}]
+})
+```
+
+Creación del usuario del CineCampus.
+
+```javascript
+db.createUser({
+    user: "user",
+    pwd:"user",
+    roles:[{role:"cliente",db:"CineCampus"}]
+})
+```
+
+Creación del usuario vip del CineCampus.
+
+```javascript
+db.createUser({
+    user: "vip",
+    pwd:"vip",
+    roles:[{role:"clienteVIP",db:"CineCampus"}]
 })
 ```
 
@@ -95,10 +115,61 @@ db.createRole({
     ],
     roles: []
 })
+```
 
+# Creación del rol usuario estándar
+
+```javascript
+db.createRole({
+  role: "cliente",
+  privileges: [
+    {
+      resource: { db: "CineCampus", collection: "pelicula" },
+      actions: ["find"]
+    },
+    {
+      resource: { db: "CineCampus", collection: "boleta" },
+      actions: ["find", "insert"]
+    },
+    {
+      resource: { db: "CineCampus", collection: "asientos" },
+      actions: ["find"]
+    },
+    {
+      resource: { db: "CineCampus", collection: "cliente" },
+      actions: ["find", "update"]
+    }
+  ],
+  roles: []
+});
+```
+
+# Creación del usuario vip
+
+```javascript
+db.createRole({
+  role: "clienteVIP",
+  privileges: [
+    {
+      resource: { db: "CineCampus", collection: "tarjeta" },
+      actions: ["find", "update"]
+    }
+  ],
+  roles: ["cliente"]
+})
 ```
 
 # Valores para conectarse a la base de datos como administrador
+
+```javascript
+MONGO_USER="admin"
+MONGO_PORT=57340
+MONGO_PWD="admin"
+MONGO_HOST="mongodb://"
+MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
+MONGO_DB="CineCampus"
+USER_PERMISSIONS="view,add,update,delete"
+```
 
 ```javascript
 MONGO_USER="admin"

@@ -5,7 +5,8 @@
     "required": [// ? Campos obligatorios en el objeto
     "identificación_cliente", 
     "id_lugar", 
-    "fecha_adquisicion"
+    "fecha_adquisicion",
+    "estado"
     ], 
     "properties": { // ? Propiedades del objeto
       "identificación_cliente": {
