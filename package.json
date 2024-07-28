@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --watch --env-file=.env main.js -p"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mongo": "^0.1.0",
-    "node": "^20.16.0"
+    "node": "^20.16.0",
+    "validator": "^13.12.0"
   }
 }
