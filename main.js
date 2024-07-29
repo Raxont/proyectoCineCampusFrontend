@@ -16,7 +16,7 @@ async function main(action) {
       const nuevaBoleta = {
         identificacion_cliente: 1234567890,//! Solo es permitido un minimo y un maximo de 10 digitos
         id_lugar: new ObjectId("66a579bb7b00907fab0aee94"), // ! Reemplaza con ObjectId válidos de la base de datos
-        fecha_adquisicion: new Date("2024-08-01T12:00:00Z"), // ! Reemplaza con una fecha valida
+        fecha_adquisicion: new Date(), // ! Reemplaza con una fecha valida
         estado: "en_linea", //! Solo es permitido 'en_linea', 'fisico'
         id_asiento: []
       };
@@ -56,7 +56,7 @@ async function main(action) {
       console.log("Boletas por cliente con fecha de inicio:", boletasConFechaInicio); 
     }
     else if (action === "getAsientos") {
-      //* Si la acción es 'getAsientos', obtiene los asientos disponibles
+      //* Si la acción es 'getAsientos', permite la consulta de la disponibilidad de asientos en una sala para una proyección específica
       const idLugar = new ObjectId("66a579bb7b00907fab0aee94"); // ! Reemplaza con la identificación del lugar que deseas buscar asientos disponibles
       const boletasConFechaInicio = await boletaRepo.getAsientosAvailable(
         idLugar
@@ -105,3 +105,58 @@ async function eliminarBoleta(boletaRepo, id) {
 
 const action = "getAsientos"; //* Acción por defecto el cual debe de ser modificando según la necesidad
 main(action); // * Ejecuta la función principal con la acción definida
+/**
+ *  //* Valor que muestra las boletas por identificación de cliente
+ * @returns Boletas por cliente con fecha de inicio: [
+              {
+                identificacion_cliente: 1234567890,
+                id_lugar: new ObjectId('66a579bb7b00907fab0aee94'),
+                fecha_adquisicion: 2024-07-29T21:07:55.646Z,
+                estado: 'en_linea',
+                id_asiento: [],
+                fechaHora_pelicula: 2024-08-01T10:00:00.000Z
+              }
+            ]
+ */
+
+/**
+ *  //* Valor que muestra la disponibilidad de asientos en una sala
+ * @returns Asientos disponibles: [
+              {
+                _id: new ObjectId('66a804abdf6d8860acf5baf4'),
+                tipo_fila: 'premier',
+                codigo: 'A01',
+                incremento: 10
+              },
+              {
+                _id: new ObjectId('66a804abdf6d8860acf5baf4'),
+                tipo_fila: 'premier',
+                codigo: 'A02',
+                incremento: 10
+              },
+              {
+                _id: new ObjectId('66a804abdf6d8860acf5baf4'),
+                tipo_fila: 'premier',
+                codigo: 'A03',
+                incremento: 10
+              },
+              {
+                _id: new ObjectId('66a804abdf6d8860acf5baf4'),
+                tipo_fila: 'general',
+                codigo: 'B01',
+                incremento: 0
+              },
+              {
+                _id: new ObjectId('66a804abdf6d8860acf5baf4'),
+                tipo_fila: 'general',
+                codigo: 'B02',
+                incremento: 0
+              },
+              {
+                _id: new ObjectId('66a804abdf6d8860acf5baf4'),
+                tipo_fila: 'general',
+                codigo: 'B03',
+                incremento: 0
+              }
+            ]
+ */

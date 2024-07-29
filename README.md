@@ -1,4 +1,50 @@
-# Como usar mi repositorio para la compra de boletos
+# Selección de películas
+
+Si desea usar mi proyecto, puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `main()`. En esa parte, defino una constante llamada `action`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos.
+
+Estos son los datos que permite tomar la constante `action` :
+
+- getAllByDate (Llama la funcion **getAllLugarWithPeliculaByDay**)
+- add (Llama la funcion **addLugar**)
+- update (Llama la funcion **updateLugar**)
+- delete (Llama la funcion **deleteLugar**)
+- getByPelicula (Llama la funcion **getLugaresByPelicula**)
+
+# Lógica de mi código
+
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Además, cuento con cuatro funciones:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `main`               | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+| `agregarlugar`       | *Función para agregar un lugar*                              |
+| `actualizarlugar`    | *Función para actualizar un lugar*                           |
+| `eliminarlugar`      | *Función para eliminar un lugar*                             |
+
+Dentro de la función `main`, manejo varias opciones según lo requiera el usuario:
+
+| Nombre de la opción | Que hace?                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `getAllByDate`      | *Permite la consulta de todas las películas disponibles en el catálogo, con detalles como título, género, duración y horarios de proyección* |
+| `add`               | *Agrega un nuevo lugar*                                      |
+| `update`            | *Actualiza la información de un lugar*                       |
+| `delete`            | *Elimina un lugar*                                           |
+| `getByPelicula`     | *Permite la consulta de información detallada sobre una película específica, incluyendo sinopsis.* |
+
+Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección `lugar`, estas son las funciones que usa:
+
+| Nombre de la función           | Que hace?                                                    |
+| ------------------------------ | ------------------------------------------------------------ |
+| `hasPermission`                | *Verifica permisos del usuario ingresado*                    |
+| `getAllLugarWithPeliculaByDay` | *Obtiene todos los lugares por fecha y une con la información de las películas.* PD: La fecha la obtengo con la actual |
+| `addLugar`                     | *Agrega un nuevo lugar*                                      |
+| `updateLugar`                  | *Actualiza la información de un lugar*                       |
+| `deleteLugar`                  | *Elimina un lugar por su ID*                                 |
+| `getLugaresByPelicula`         | *Filtra lugares por una película específica*                 |
+
+
+
+# Selección de boletos
 
 Si desea usar mi proyecto, puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `main()`. En esa parte, defino una constante llamada `action`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
@@ -35,7 +81,7 @@ Dentro de la función `main`, manejo varias opciones según lo requiera el usuar
 | `getByCliente`      | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar* |
 | `getAsientos`       | *Obtiene los asientos disponibles*                           |
 
-Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección `boleta`, estas son las funciones:
+Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección `boleta`, estas son las funciones que usa:
 
 | Nombre de la función         | Que hace?                                                    |
 | ---------------------------- | ------------------------------------------------------------ |
@@ -43,7 +89,7 @@ Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección
 | `getAllboleta`               | *Obtiene todas las boletas*                                  |
 | `getboletaById`              | *Obtiene una boleta por ID*                                  |
 | `getBoletasWithFecha_Inicio` | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada boleta* |
-| `getAsientosAvailable`       | *Obtiene los asientos disponibles*                           |
+| `getAsientosAvailable`       | *Permite la consulta de la disponibilidad de asientos en una sala para una proyección específica* |
 | `addLugar`                   | *Agrega una nueva boleta*                                    |
 | `updateLugar`                | *Actualiza la información de una boleta*                     |
 | `deleteLugar`                | *Elimina la boleta por su ID*                                |
@@ -126,8 +172,7 @@ db.createRole({
 # Creación del rol usuario estándar
 
 ```javascript
-db.createRole({
-  role: "cliente",
+db.updateRole("cliente", {
   privileges: [
     {
       resource: { db: "CineCampus", collection: "pelicula" },
@@ -144,9 +189,12 @@ db.createRole({
     {
       resource: { db: "CineCampus", collection: "cliente" },
       actions: ["find", "update"]
+    },
+    {
+      resource: { db: "CineCampus", collection: "lugar" },
+      actions: ["find"]
     }
-  ],
-  roles: []
+  ]
 });
 ```
 
@@ -165,7 +213,7 @@ db.createRole({
 })
 ```
 
-# Valores para conectarse a la base de datos como administrador
+# Valores para conectarse a la base de datos como administrador o como usuario en el archivo `.env`
 
 ```javascript
 MONGO_USER="admin"
@@ -178,12 +226,13 @@ USER_PERMISSIONS="view,add,update,delete"
 ```
 
 ```javascript
-MONGO_USER="admin"
+MONGO_USER="user" (Puede usar al usuario "vip")
 MONGO_PORT=57340
-MONGO_PWD="admin"
+MONGO_PWD="user" (Clave del vip "vip")
 MONGO_HOST="mongodb://"
 MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
 MONGO_DB="CineCampus"
-USER_PERMISSIONS="view,add,update,delete"
+USER_PERMISSIONS="view,add"
 ```
 
+Los dos tipos de usuarios diferentes al administrador solo podrían ver y crear en las diferentes colecciones

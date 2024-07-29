@@ -19,9 +19,14 @@ export class BoletaRepository extends connect {
     return this.permissions.includes(permission); // ? Retorna el permiso
   }
 
+  //* Verifica cual es el usuario
+  whoUser(users){
+    return this.user.includes(users); //? Retorna el usuario
+  }
+
   //* Obtiene todas las boletas
   async getAllboleta() {
-    if (!this.hasPermission("view")) {
+    if (!this.hasPermission("view")|| !this.whoUser("admin")) {
       throw new Error("No tienes permiso para ver las boletas."); // ! Lanza un error si el usuario usado no tiene ese permiso
     }
     try {
@@ -34,7 +39,7 @@ export class BoletaRepository extends connect {
 
   //* Obtiene una boleta por id
   async getboletaById(id) {
-    if (!this.hasPermission("view")) {
+    if (!this.hasPermission("view")|| !this.whoUser("admin")) {
       throw new Error("No tienes permiso para ver las boletas."); // ! Lanza un error si el usuario usado no tiene ese permiso
     }
     try {
