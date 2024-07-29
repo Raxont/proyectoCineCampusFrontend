@@ -50,14 +50,22 @@ async function main(action) {
     else if (action === "getByCliente") {
       //* Si la acción es 'getByCliente', obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar
       const identificacionCliente = 1234567890; // ! Reemplaza con la identificación del cliente que deseas buscar
-      const boletasConFechaInicio = await boletaRepo.getBoletasConFechaInicio(
+      const boletasConFechaInicio = await boletaRepo.getBoletasWithFecha_Inicio(
         identificacionCliente
       );
       console.log("Boletas por cliente con fecha de inicio:", boletasConFechaInicio); 
     }
+    else if (action === "getAsientos") {
+      //* Si la acción es 'getAsientos', obtiene los asientos disponibles
+      const idLugar = new ObjectId("66a579bb7b00907fab0aee94"); // ! Reemplaza con la identificación del lugar que deseas buscar asientos disponibles
+      const boletasConFechaInicio = await boletaRepo.getAsientosAvailable(
+        idLugar
+      );
+      console.log("Asientos disponibles:", boletasConFechaInicio); 
+    }
     else {
       console.log(
-        "Acción no válida. Usa 'getAll', 'add', 'update', 'delete', 'getById', 'getByCliente'." //! Esta acción no es válida
+        "Acción no válida. Usa 'getAll', 'add', 'update', 'delete', 'getById', 'getByCliente', 'getAsientos'." //! Esta acción no es válida
       );
     }
   } catch (error) {
@@ -95,5 +103,5 @@ async function eliminarBoleta(boletaRepo, id) {
   }
 }
 
-const action = "add"; //* Acción por defecto el cual debe de ser modificando según la necesidad
+const action = "getAsientos"; //* Acción por defecto el cual debe de ser modificando según la necesidad
 main(action); // * Ejecuta la función principal con la acción definida

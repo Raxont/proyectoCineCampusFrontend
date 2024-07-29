@@ -1,14 +1,16 @@
-# Como usar mi repositorio
+# Como usar mi repositorio para la compra de boletos
 
 Si desea usar mi proyecto, puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `main()`. En esa parte, defino una constante llamada `action`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
 Estos son los datos que permite tomar la constante `action` :
 
-- getAllByDate
-- add
-- update
-- delete
-- getByPelicula
+- getAll (Llama la funcion **getAllboleta**)
+- add (Llama la funcion **agregarBoleta**)
+- update (Llama la funcion **actualizarBoleta**)
+- delete (Llama la funcion **eliminarBoleta**)
+- getById (Llama la funcion **getboletaById**)
+- getByCliente (Llama la funcion **getBoletasWithFecha_Inicio**)
+- getAsientos (Llama la funcion **getAsientosAvailable**)
 
 # Lógica de mi código
 
@@ -17,30 +19,34 @@ Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
 | `main`               | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
-| `agregarlugar`       | *Función para agregar un lugar*                              |
-| `actualizarlugar`    | *Función para actualizar un lugar*                           |
-| `eliminarlugar`      | *Función para eliminar un lugar*                             |
+| `agregarBoleta`      | *Función para agregar una boleta*                            |
+| `actualizarBoleta`   | *Función para actualizar una boleta*                         |
+| `eliminarBoleta`     | *Función para eliminar una boleta*                           |
 
-Dentro de la función `main`, manejo varias opciones según lo requiera el usuario. Son cinco en total:
+Dentro de la función `main`, manejo varias opciones según lo requiera el usuario:
 
-| Nombre de la opción | Que hace?                                     |
-| ------------------- | --------------------------------------------- |
-| `getAllByDate`      | *Obtiene todos los lugares por fecha de hoy*  |
-| `add`               | *Agrega un nuevo lugar*                       |
-| `update`            | *Actualiza la información de un lugar*        |
-| `delete`            | *Elimina un lugar*                            |
-| `getByPelicula`     | *Obtiene lugares por una película específica* |
+| Nombre de la opción | Que hace?                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `getAll`            | *Obtiene todas las boletas*                                  |
+| `agregarBoleta`     | *Agrega una nueva boleta*                                    |
+| `update`            | *Actualiza la información de una boleta*                     |
+| `delete`            | *Elimina una boleta*                                         |
+| `getById`           | *Obtiene una boleta por ID*                                  |
+| `getByCliente`      | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar* |
+| `getAsientos`       | *Obtiene los asientos disponibles*                           |
 
-Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección `lugar`, con un total de cinco funciones:
+Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección `boleta`, estas son las funciones:
 
-| Nombre de la función           | Que hace?                                                    |
-| ------------------------------ | ------------------------------------------------------------ |
-| `hasPermission`                | *Verifica permisos del usuario ingresado*                    |
-| `getAllLugarWithPeliculaByDay` | *Obtiene todos los lugares por fecha y une con la información de las películas.* PD: La fecha la obtengo con la actual |
-| `addLugar`                     | *Agrega un nuevo lugar*                                      |
-| `updateLugar`                  | *Actualiza la información de un lugar*                       |
-| `deleteLugar`                  | *Elimina un lugar por su ID*                                 |
-| `getLugaresByPelicula`         | *Filtra lugares por una película específica*                 |
+| Nombre de la función         | Que hace?                                                    |
+| ---------------------------- | ------------------------------------------------------------ |
+| `hasPermission`              | *Verifica permisos del usuario ingresado*                    |
+| `getAllboleta`               | *Obtiene todas las boletas*                                  |
+| `getboletaById`              | *Obtiene una boleta por ID*                                  |
+| `getBoletasWithFecha_Inicio` | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada boleta* |
+| `getAsientosAvailable`       | *Obtiene los asientos disponibles*                           |
+| `addLugar`                   | *Agrega una nueva boleta*                                    |
+| `updateLugar`                | *Actualiza la información de una boleta*                     |
+| `deleteLugar`                | *Elimina la boleta por su ID*                                |
 
 
 

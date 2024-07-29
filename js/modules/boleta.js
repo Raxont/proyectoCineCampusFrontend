@@ -46,8 +46,8 @@ export class BoletaRepository extends connect {
     }
   }
 
-  //* Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar usando aggregate
-  async getBoletasConFechaInicio(identificacionCliente) {
+  //* Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada boleta
+  async getBoletasWithFecha_Inicio(identificacionCliente) {
     if (!this.hasPermission("view")) {
       throw new Error("No tienes permiso para ver las boletas."); // ! Lanza un error si el usuario usado no tiene ese permiso
     }
@@ -85,6 +85,44 @@ export class BoletaRepository extends connect {
     } catch (error) {
       console.error("Error obteniendo boletas con fecha de inicio:", error); // ! Manejo de errores
       throw new Error("Error obteniendo boletas con fecha de inicio"); // ! Lanza un error si ocurre un problema
+    }
+  }
+  
+  //* Obtiene los asientos disponibles
+  async getAsientosAvailable(idLugar) {
+    if (!this.hasPermission("view")) {
+      throw new Error("No tienes permiso para ver las boletas."); // ! Lanza un error si el usuario usado no tiene ese permiso
+    }
+    try {
+      //* Pipeline de agregación
+      const pipeline = [
+        {
+            $match: { id_lugar: new ObjectId(idLugar) }, // ? Filtra por lugar
+        },
+        {
+          $lookup: {
+            from: "asientos", // ? Nombre de la colección de asientos
+            localField: "id_lugar", // ? Campo en la colección de boletas
+            foreignField: "id_lugar", // ? Campo en la colección de asientos
+            as: "asientos", // ? Nombre del campo en el resultado
+          },
+        },
+        {
+          $unwind: "$asientos", // ? Descompone el array de asiento
+        },
+        {
+         $project: {
+            tipo_fila: "$asientos.tipo_fila", // ? Incluye el campo tipo_fila en el resultado final
+            codigo: "$asientos.codigo", // ? Incluye el campo codigo en el resultado final
+            incremento: "$asientos.incremento", // ? Incluye el campo incremento en el resultado final
+          },
+        },
+      ];
+
+      return await this.collection.aggregate(pipeline).toArray(); // ? Ejecuta el pipeline de agregación y convierte el resultado a un array
+    } catch (error) {
+      console.error("Error obteniendo los asientos disponibles:", error); // ! Manejo de errores
+      throw new Error("Error obteniendo los asientos disponibles"); // ! Lanza un error si ocurre un problema
     }
   }
 
