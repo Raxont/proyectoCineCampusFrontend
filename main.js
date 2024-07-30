@@ -2,7 +2,7 @@ import { asientoRepository } from "./js/modules/asientos.js"; // ? Importa el re
 import { ObjectId } from "mongodb"; // ? Importa el constructor de ObjectId de MongoDB
 
 //* Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'
-async function main(action) {
+async function mainAsientos(action) {
   try {
     const asientoRepo = new asientoRepository(); //* Crea una instancia del repositorio de asiento
 
@@ -37,7 +37,7 @@ async function main(action) {
 }
 
 const action = "returnReserva"; //* Acción por defecto el cual debe de ser modificando según la necesidad
-main(action); // * Ejecuta la función principal con la acción definida
+mainAsientos(action); // * Ejecuta la función principal con la acción definida
 /**
  *  //* Valor que muestra al realizar una reserva de un asiento
  * @returns Asiento actualizado en boleta: {
