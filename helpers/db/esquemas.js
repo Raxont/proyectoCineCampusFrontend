@@ -98,7 +98,7 @@
     "bsonType": "object", // ? El tipo de dato debe ser un objeto
     "required": [ // ? Campos obligatorios en el objeto
         "numero", 
-        "identificación_cliente", 
+        "identificacion_cliente", 
         "fecha_expedicion", 
         "estado"
     ], 
@@ -109,7 +109,7 @@
         "minimum": 100000, // ? Mínimo valor permitido (6 dígitos)
         "maximum": 999999 // ? Máximo valor permitido (6 dígitos)
       },
-      "identificación_cliente": {
+      "identificacion_cliente": {
         "bsonType": "int", // ? El dato debe ser un entero
         "description": "El dato debe ser un entero de 10 dígitos", // ? Descripción de la propiedad
         "minimum": 1000000000, // ? Mínimo valor permitido (10 dígitos)

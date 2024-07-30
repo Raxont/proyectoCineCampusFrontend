@@ -126,6 +126,35 @@ Tengo un módulo llamado `asientos.js`, en el cual manejo el CRUD de mi colecci�
 | `revertAsientoInBoleta` | *Permite la cancelación de una reserva de asiento ya realizada* |
 | `updateAsientoInBoleta` | *Permite la selección y reserva de asientos para una proyección específica* |
 
+# Descuentos y Tarjetas VIP
+
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `maintarjetas()`. En esa parte, defino una constante llamada `actionTarjeta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
+
+Estos son los datos que permite tomar la constante `actionTarjeta` :
+
+- getDescuento (Llama la funcion **priceDiscount**)
+
+# Lógica de mi código
+
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con cuatro funciones:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `maintarjetas`       | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+
+Dentro de la función `maintarjetas`, manejo varias opciones según lo requiera el usuario:
+
+| Nombre de la opción | Que hace?                                           |
+| ------------------- | --------------------------------------------------- |
+| `getDescuento`      | *Permite ver el precio con el descuento si aplica.* |
+
+Tengo un módulo llamado `tarjeta.js`, en el cual manejo el CRUD de mi colección `tarjeta`, estas son las funciones que usa:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
+| `priceDiscount`      | *Permite la verificación de la validez de una tarjeta VIP y aplica el descuento a su compra* |
+
 
 
 # Instalación librería validator.js
