@@ -1,8 +1,8 @@
 # Selección de películas
 
-Si desea usar mi proyecto, puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `main()`. En esa parte, defino una constante llamada `action`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos.
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainLugar()`. En esa parte, defino una constante llamada `actionLugar`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos.
 
-Estos son los datos que permite tomar la constante `action` :
+Estos son los datos que permite tomar la constante `actionLugar` :
 
 - getAllByDate (Llama la funcion **getAllLugarWithPeliculaByDay**)
 - add (Llama la funcion **addLugar**)
@@ -12,16 +12,16 @@ Estos son los datos que permite tomar la constante `action` :
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Además, cuento con cuatro funciones:
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
-| `main`               | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+| `mainLugar`          | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
 | `agregarlugar`       | *Función para agregar un lugar*                              |
 | `actualizarlugar`    | *Función para actualizar un lugar*                           |
 | `eliminarlugar`      | *Función para eliminar un lugar*                             |
 
-Dentro de la función `main`, manejo varias opciones según lo requiera el usuario:
+Dentro de la función `mainLugar`, manejo varias opciones según lo requiera el usuario:
 
 | Nombre de la opción | Que hace?                                                    |
 | ------------------- | ------------------------------------------------------------ |
@@ -44,38 +44,42 @@ Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección 
 
 
 
-# Selección de boletos
+# Compra de Boletos
 
-Si desea usar mi proyecto, puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `main()`. En esa parte, defino una constante llamada `action`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainBoleta()`. En esa parte, defino una constante llamada `actionBoleta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
-Estos son los datos que permite tomar la constante `action` :
+Estos son los datos que permite tomar la constante `actionBoleta` :
 
-- getAllByDate
-- add
-- update
-- delete
-- getByPelicula
+- getAll (Llama la funcion **getAllboleta**)
+- add (Llama la funcion **agregarBoleta**)
+- update (Llama la funcion **actualizarBoleta**)
+- delete (Llama la funcion **eliminarBoleta**)
+- getById (Llama la funcion **getboletaById**)
+- getByCliente (Llama la funcion **getBoletasWithFecha_Inicio**)
+- getAsientos (Llama la funcion **getAsientosAvailable**)
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Además, cuento con cuatro funciones:
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
-| `main`               | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
-| `agregarlugar`       | *Función para agregar un lugar*                              |
-| `actualizarlugar`    | *Función para actualizar un lugar*                           |
-| `eliminarlugar`      | *Función para eliminar un lugar*                             |
+| `mainBoleta`         | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+| `agregarBoleta`      | *Función para agregar una boleta*                            |
+| `actualizarBoleta`   | *Función para actualizar una boleta*                         |
+| `eliminarBoleta`     | *Función para eliminar una boleta*                           |
 
-Dentro de la función `main`, manejo varias opciones según lo requiera el usuario. Son cinco en total:
+Dentro de la función `mainBoleta`, manejo varias opciones según lo requiera el usuario:
 
-| Nombre de la opción | Que hace?                                     |
-| ------------------- | --------------------------------------------- |
-| `getAllByDate`      | *Obtiene todos los lugares por fecha de hoy*  |
-| `add`               | *Agrega un nuevo lugar*                       |
-| `update`            | *Actualiza la información de un lugar*        |
-| `delete`            | *Elimina un lugar*                            |
-| `getByPelicula`     | *Obtiene lugares por una película específica* |
+| Nombre de la opción | Que hace?                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `getAll`            | *Obtiene todas las boletas*                                  |
+| `agregarBoleta`     | *Agrega una nueva boleta*                                    |
+| `update`            | *Actualiza la información de una boleta*                     |
+| `delete`            | *Elimina una boleta*                                         |
+| `getById`           | *Obtiene una boleta por ID*                                  |
+| `getByCliente`      | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar* |
+| `getAsientos`       | *Obtiene los asientos disponibles*                           |
 
 Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección `boleta`, estas son las funciones que usa:
 
@@ -90,15 +94,47 @@ Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección
 | `updateLugar`                | *Actualiza la información de una boleta*                     |
 | `deleteLugar`                | *Elimina la boleta por su ID*                                |
 
+# Asignación de Asientos
+
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainAsientos()`. En esa parte, defino una constante llamada `actionAsientos`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
+
+Estos son los datos que permite tomar la constante `actionAsientos` :
+
+- getReserva (Llama la funcion **updateAsientoInBoleta**)
+- returnReserva (Llama la funcion **revertAsientoInBoleta**)
+
+# Lógica de mi código
+
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con cuatro funciones:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `mainAsientos`       | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+
+Dentro de la función `mainAsientos`, manejo varias opciones según lo requiera el usuario:
+
+| Nombre de la opción | Que hace?                                     |
+| ------------------- | --------------------------------------------- |
+| `getReserva`        | *Permite la selección y reserva de asientos*  |
+| `returnReserva`     | *Cancela una reserva de asiento ya realizada* |
+
+Tengo un módulo llamado `asientos.js`, en el cual manejo el CRUD de mi colección `asientos`, estas son las funciones que usa:
+
+| Nombre de la función    | Que hace?                                                    |
+| ----------------------- | ------------------------------------------------------------ |
+| `hasPermission`         | *Verifica permisos del usuario ingresado*                    |
+| `revertAsientoInBoleta` | *Permite la cancelación de una reserva de asiento ya realizada* |
+| `updateAsientoInBoleta` | *Permite la selección y reserva de asientos para una proyección específica* |
+
 
 
 # Instalación librería validator.js
 
 Se instala la librería `validator.js` para realizar una validación más robusta de los correos electrónicos ingresados en la base de datos, evitando así el uso de patrones de expresión regular para este propósito
 
-# Creación del super usuario y administrador
+# Creación del super usuario, administrador, usuario y usuario vip
 
-Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos.
+Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos de CineCampus.
 
 ```javascript
 db.createUser({
@@ -115,6 +151,26 @@ db.createUser({
     user: "admin",
     pwd:"admin",
     roles:[{role:"admindb",db:"CineCampus"}]
+})
+```
+
+Creación del usuario del CineCampus.
+
+```javascript
+db.createUser({
+    user: "user",
+    pwd:"user",
+    roles:[{role:"cliente",db:"CineCampus"}]
+})
+```
+
+Creación del usuario vip del CineCampus.
+
+```javascript
+db.createUser({
+    user: "vip",
+    pwd:"vip",
+    roles:[{role:"clienteVIP",db:"CineCampus"}]
 })
 ```
 
