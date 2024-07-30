@@ -233,7 +233,8 @@ db.createRole({
 # Creación del rol usuario estándar
 
 ```javascript
-db.updateRole("cliente", {
+db.createRole( {
+  role:"cliente",
   privileges: [
     {
       resource: { db: "CineCampus", collection: "pelicula" },

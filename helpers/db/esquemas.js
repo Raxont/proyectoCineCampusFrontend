@@ -46,7 +46,7 @@
   "$jsonSchema": {
     "bsonType": "object", // ? El tipo de dato debe ser un objeto
     "required": [ // ? Campos obligatorios en el objeto
-        "codigo", 
+        "identificacion", 
         "nombre", 
         "nick", 
         "email", 
@@ -84,8 +84,8 @@
       },
       "estado": {
         "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "enum": ["vip", "normal"], // ? Valores permitidos
-        "description": "Solo puede ser 'vip' o 'normal'" // ? Descripción de la propiedad
+        "enum": ["admindb", "cliente","clienteVIP"], // ? Valores permitidos
+        "description": "Solo puede ser 'admindb' , 'cliente' , 'clienteVIP'" // ? Descripción de la propiedad
       }
     }
   }
