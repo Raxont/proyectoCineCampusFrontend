@@ -5,7 +5,9 @@
     "required": [// ? Campos obligatorios en el objeto
     "identificación_cliente", 
     "id_lugar", 
-    "fecha_adquisicion"
+    "fecha_adquisicion",
+    "estado",
+    "id_asiento"
     ], 
     "properties": { // ? Propiedades del objeto
       "identificación_cliente": {
@@ -26,6 +28,13 @@
         "bsonType": "string", // ? El dato debe ser una fecha en formato ISODate
         "enum": ["fisico", "en_linea"], // ? Valores permitidos
         "description": "Solo puede ser fisico o en_linea" // ? Descripción de la propiedad
+      },
+      "id_asiento": {
+        "bsonType": "array", // ? El dato debe ser de tipo array
+        "items": { // ? Cada elemento del arreglo
+          "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
+          "description": "Este dato tiene que ser ObjectID" // ? Descripción de la propiedad
+        }
       }
     }
   }
@@ -37,7 +46,7 @@
   "$jsonSchema": {
     "bsonType": "object", // ? El tipo de dato debe ser un objeto
     "required": [ // ? Campos obligatorios en el objeto
-        "codigo", 
+        "identificacion", 
         "nombre", 
         "nick", 
         "email", 
@@ -67,7 +76,6 @@
       },
       "telefono": {
         "bsonType": "array", // ? El dato debe ser un arreglo
-        "description": "Teléfonos del cliente", // ? Descripción de la propiedad
         "items": { // ? Cada elemento del arreglo
           "bsonType": "string", // ? Debe ser una cadena de caracteres
           "pattern": "^[1-9]\\d{9}$", // ? Expresión regular para validar el teléfono
@@ -76,8 +84,8 @@
       },
       "estado": {
         "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "enum": ["vip", "normal"], // ? Valores permitidos
-        "description": "Solo puede ser 'vip' o 'normal'" // ? Descripción de la propiedad
+        "enum": ["admindb", "cliente","clienteVIP"], // ? Valores permitidos
+        "description": "Solo puede ser 'admindb' , 'cliente' , 'clienteVIP'" // ? Descripción de la propiedad
       }
     }
   }
@@ -90,7 +98,7 @@
     "bsonType": "object", // ? El tipo de dato debe ser un objeto
     "required": [ // ? Campos obligatorios en el objeto
         "numero", 
-        "identificación_cliente", 
+        "identificacion_cliente", 
         "fecha_expedicion", 
         "estado"
     ], 
@@ -101,7 +109,7 @@
         "minimum": 100000, // ? Mínimo valor permitido (6 dígitos)
         "maximum": 999999 // ? Máximo valor permitido (6 dígitos)
       },
-      "identificación_cliente": {
+      "identificacion_cliente": {
         "bsonType": "int", // ? El dato debe ser un entero
         "description": "El dato debe ser un entero de 10 dígitos", // ? Descripción de la propiedad
         "minimum": 1000000000, // ? Mínimo valor permitido (10 dígitos)
@@ -208,7 +216,8 @@
     "required": [ // ? Campos obligatorios en el objeto
       "tipo_fila",
       "codigo",
-      "incremento"
+      "incremento",
+      "id_lugar"
     ],
     "properties": { // ? Propiedades del objeto
       "tipo_fila": {
@@ -225,6 +234,13 @@
         "bsonType": "double", // ? El dato debe ser un número de tipo double
         "enum": [0, 0.10], // ? Valores permitidos para el incremento
         "description": "Ingrese el número 0 o 0.10" // ? Descripción de la propiedad
+      },
+      "id_lugar": {
+        "bsonType": "array", // ? El dato debe ser de tipo array
+        "items": { // ? Cada elemento del arreglo
+          "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
+          "description": "Este dato tiene que ser ObjectID" // ? Descripción de la propiedad
+        }
       }
     }
   }
