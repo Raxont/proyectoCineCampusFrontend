@@ -37,20 +37,6 @@ export class BoletaRepository extends connect {
     }
   }
 
-  //* Obtiene una boleta por id
-  async getboletaById(id) {
-    if (!this.hasPermission("view")|| !this.whoUser("admin")) {
-      throw new Error("No tienes permiso para ver las boletas."); // ! Lanza un error si el usuario usado no tiene ese permiso
-    }
-    try {
-      const filter = { _id: id }; // ? Filtra el documento por _id
-      return await this.collection.findOne(filter); // ? Retorna el resultado
-    } catch (error) {
-      console.error("Error obteniendo la boleta:", error); // ! Manejo de errores
-      throw new Error("Error obteniendo la boleta"); // ! Lanza un error si ocurre un problema
-    }
-  }
-
   //* Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada boleta
   async getBoletasWithFecha_Inicio(identificacionCliente) {
     if (!this.hasPermission("view")) {

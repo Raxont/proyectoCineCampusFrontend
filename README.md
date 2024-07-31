@@ -12,7 +12,7 @@ Estos son los datos que permite tomar la constante `actionLugar` :
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
@@ -54,13 +54,12 @@ Estos son los datos que permite tomar la constante `actionBoleta` :
 - add (Llama la funcion **agregarBoleta**)
 - update (Llama la funcion **actualizarBoleta**)
 - delete (Llama la funcion **eliminarBoleta**)
-- getById (Llama la funcion **getboletaById**)
 - getByCliente (Llama la funcion **getBoletasWithFecha_Inicio**)
 - getAsientos (Llama la funcion **getAsientosAvailable**)
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
@@ -77,7 +76,6 @@ Dentro de la función `mainBoleta`, manejo varias opciones según lo requiera el
 | `agregarBoleta`     | *Agrega una nueva boleta*                                    |
 | `update`            | *Actualiza la información de una boleta*                     |
 | `delete`            | *Elimina una boleta*                                         |
-| `getById`           | *Obtiene una boleta por ID*                                  |
 | `getByCliente`      | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar* |
 | `getAsientos`       | *Obtiene los asientos disponibles*                           |
 
@@ -105,7 +103,7 @@ Estos son los datos que permite tomar la constante `actionAsientos` :
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
@@ -136,7 +134,7 @@ Estos son los datos que permite tomar la constante `actionTarjeta` :
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
@@ -168,7 +166,7 @@ Estos son los datos que permite tomar la constante `actionCliente` :
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
