@@ -105,7 +105,7 @@ Estos son los datos que permite tomar la constante `actionAsientos` :
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con cuatro funciones:
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
@@ -136,7 +136,7 @@ Estos son los datos que permite tomar la constante `actionTarjeta` :
 
 # Lógica de mi código
 
-Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con cuatro funciones:
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
@@ -155,7 +155,44 @@ Tengo un módulo llamado `tarjeta.js`, en el cual manejo el CRUD de mi colecció
 | `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
 | `priceDiscount`      | *Permite la verificación de la validez de una tarjeta VIP y aplica el descuento a su compra* |
 
+# Roles Definidos
 
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainCliente()`. En esa parte, defino una constante llamada `actionCliente`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
+
+Estos son los datos que permite tomar la constante `actionCliente` :
+
+- create (Llama la funcion **createUser**)
+- showUser (Llama la funcion **showInfoUser**)
+- updateUser (Llama la funcion **UpdateInfoUser**)
+- allRol (Llama la funcion **AllUsersRol**)
+
+# Lógica de mi código
+
+Tengo un archivo principal llamado `main.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `mainCliente`        | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+
+Dentro de la función `mainCliente`, manejo varias opciones según lo requiera el usuario:
+
+| Nombre de la opción | Que hace?                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `create `           | *Crea un nuevo usuario.*                                     |
+| `showUser `         | *Muestra un usuario especifico junto a su tarjeta si aplica.* |
+| `updateUser `       | *Actualiza un nuevo usuario*                                 |
+| `allRol `           | *Muestra todos los usuarios por rol*                         |
+
+Tengo un módulo llamado `cliente.js`, en el cual manejo el CRUD de mi colección `cliente`, estas son las funciones que usa:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
+| `whoUser`            | *Verifica cuál es el usuario*                                |
+| `createUser`         | *Crea el usuario en MongoDB y lo guarda en la colección 'cliente'* |
+| `showInfoUser`       | *Busca el ususario por numero de identificacion*             |
+| `UpdateInfoUser`     | *Actualiza el usuario por numero de identificacion*          |
+| `AllUsersRol`        | *Consulta todos los usuarios del sistema, con la posibilidad de filtrar por rol* |
 
 # Instalación librería validator.js
 
@@ -209,31 +246,35 @@ db.createUser({
 db.createRole({
     role: "admindb",
     privileges: [
-       	{
-                resource: { db: "CineCampus", collection: "" },
-                actions: [
-                    "find", "insert", "update", "remove",
-                    "createCollection", "createIndex", "dropCollection",
-                    "listCollections", "listIndexes", "dropIndex"
-                ]
+        {
+            resource: { db: "CineCampus", collection: "" },
+            actions: [
+                "find", "insert", "update", "remove",
+                "createCollection", "createIndex", "dropCollection",
+                "listCollections", "listIndexes", "dropIndex",
+                "createUser", "dropUser", "grantRole", "revokeRole", "updateUser"
+            ]
         },
         {
             resource: { db: "CineCampus", collection: "system.users" },
-            actions: ["find", "insert", "update", "remove"]
+            actions: ["find", "insert", "update", "remove", "viewUser"]
         },
         {
             resource: { db: "CineCampus", collection: "system.roles" },
-            actions: ["find", "insert", "update", "remove"]
-        },
+            actions: ["find", "insert", "update", "remove", "viewRole"]
+        }
     ],
-    roles: []
+    roles:[ { role: "dbAdmin", db: "CineCampus" },
+					{ role: "readWrite", db: "CineCampus" },
+            { role: "userAdmin", db: "CineCampus" }]
 })
 ```
 
 # Creación del rol usuario estándar
 
 ```javascript
-db.updateRole("cliente", {
+db.createRole( {
+  role:"cliente",
   privileges: [
     {
       resource: { db: "CineCampus", collection: "pelicula" },
