@@ -31,43 +31,56 @@ export class LugarRepository extends connect {
    */
   async getAllLugarWithPeliculaByDay(fechaInicioFiltro) {
     if (!this.hasPermission("view")) {
-      throw new Error("No tienes permiso para ver los lugares."); //  Lanza un error si el usuario usado no tiene ese permiso
+      throw new Error("No tienes permiso para ver los lugares."); // Lanza un error si el usuario no tiene ese permiso
     }
     try {
-      const filter = fechaInicioFiltro
-        ? { fecha_inicio: { $gte: fechaInicioFiltro } }
-        : {}; //  Filtra por fecha
+      // Asegúrate de que la fecha de filtro esté en UTC y sin la parte de tiempo si deseas filtrar por días completos
+      const filterDate = new Date(fechaInicioFiltro);
+      filterDate.setUTCHours(0, 0, 0, 0); // Configura al inicio del día en UTC
+
+      console.log(`Filtrando lugares con fecha_inicio >= ${filterDate.toISOString()}`);
+
+      // Crea un filtro para obtener documentos cuyo fecha_inicio sea mayor o igual a la fecha proporcionada
+      const filter = {
+        fecha_inicio: {
+          $gte: filterDate
+        }
+      };
+
       const pipeline = [
-        { $match: filter }, //  Filtra los documentos en la colección de lugares
+        { $match: filter }, // Filtra los documentos en la colección de lugares
         {
           $lookup: {
-            from: "pelicula", //  Nombre de la colección de películas
-            localField: "id_pelicula", //  Campo en la colección de lugares
-            foreignField: "_id", //  Campo en la colección de películas
+            from: "pelicula", // Nombre de la colección de películas
+            localField: "id_pelicula", // Campo en la colección de lugares
+            foreignField: "_id", // Campo en la colección de películas
             as: "pelicula", // Nombre del campo resultante que contendrá los datos de la película
           },
         },
-        { $unwind: "$pelicula" }, //  Desenvuelve el array de la película para obtener un objeto
+        { $unwind: "$pelicula" }, // Desenvuelve el array de la película para obtener un objeto
         {
           $project: {
-            //  Proyecta los campos específicos que desea en el resultado final
+            // Proyecta los campos específicos que deseas en el resultado final
             titulo: "$pelicula.titulo",
             genero: "$pelicula.genero",
             duracion: "$pelicula.duracion",
             fecha_inicio: 1,
             fecha_fin: 1,
-            _id: 0, //  Excluye el campo _id del resultado
+            _id: 0, // Excluye el campo _id del resultado
           },
         },
       ];
 
-      return await this.collection.aggregate(pipeline).toArray(); //  Ejecuta la agregación y retorna el resultado
+      const resultados = await this.collection.aggregate(pipeline).toArray();
+      console.log('Resultados obtenidos:', resultados);
+
+      return resultados; // Ejecuta la agregación y retorna el resultado
     } catch (error) {
       console.error(
         "Error obteniendo los lugares con detalles de películas:",
         error
-      ); //  Manejo de errores
-      throw new Error("Error obteniendo los lugares con detalles de películas"); //  Lanza un error si ocurre un problema
+      ); // Manejo de errores
+      throw new Error("Error obteniendo los lugares con detalles de películas"); // Lanza un error si ocurre un problema
     }
   }
 

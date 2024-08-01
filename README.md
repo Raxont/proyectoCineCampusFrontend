@@ -224,7 +224,7 @@ Creación del administrador encargado de administrar la base de datos de CineCam
 db.createUser({
     user: "admin",
     pwd:"admin",
-    roles:[{role:"admindb",db:"CineCampus"},
+    roles:[{role:"administrador",db:"CineCampus"},
           { role: "userAdminAnyDatabase", db: "admin" },
           { role: "dbAdminAnyDatabase", db: "admin" }]
 })
@@ -236,7 +236,7 @@ Creación del usuario del CineCampus.
 db.createUser({
     user: "user",
     pwd:"user",
-    roles:[{role:"cliente",db:"CineCampus"}]
+    roles:[{role:"usuarioEstandar",db:"CineCampus"}]
 })
 ```
 
@@ -246,7 +246,7 @@ Creación del usuario vip del CineCampus.
 db.createUser({
     user: "vip",
     pwd:"vip",
-    roles:[{role:"clienteVIP",db:"CineCampus"}]
+    roles:[{role:"usuarioVip",db:"CineCampus"}]
 })
 ```
 
@@ -254,7 +254,7 @@ db.createUser({
 
 ```javascript
 db.createRole({
-    role: "admindb",
+    role: "administrador",
     privileges: [
         {
             resource: { db: "CineCampus", collection: "" },
@@ -276,7 +276,9 @@ db.createRole({
     ],
     roles:[ { role: "dbAdmin", db: "CineCampus" },
 			{ role: "readWrite", db: "CineCampus" },
-            { role: "userAdmin", db: "CineCampus" }]
+            { role: "userAdmin", db: "CineCampus" },
+            { role: "dbOwner", db: "CineCampus" }
+          ]
 })
 ```
 
@@ -284,7 +286,7 @@ db.createRole({
 
 ```javascript
 db.createRole( {
-  role:"cliente",
+  role:"usuarioEstandar",
   privileges: [
     {
       resource: { db: "CineCampus", collection: "pelicula" },
@@ -306,7 +308,8 @@ db.createRole( {
       resource: { db: "CineCampus", collection: "lugar" },
       actions: ["find"]
     }
-  ]
+  ],
+    roles: []
 });
 ```
 
@@ -314,14 +317,14 @@ db.createRole( {
 
 ```javascript
 db.createRole({
-  role: "clienteVIP",
+  role: "usuarioVip",
   privileges: [
     {
       resource: { db: "CineCampus", collection: "tarjeta" },
       actions: ["find", "update"]
     }
   ],
-  roles: ["cliente"]
+  roles: ["usuarioEstandar"]
 })
 ```
 

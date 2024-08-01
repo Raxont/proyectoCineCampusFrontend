@@ -22,8 +22,7 @@ export async function mainLugar(action) {
        * @returns {Array} - Lista de lugares por fecha
        */
       const fechaHoy = new Date(); // Obtiene la fecha actual
-      const lugares = await lugarRepo.getAllLugarWithPeliculaByDay(fechaHoy);
-      console.log("lugar por fecha:", lugares);
+      await lugarRepo.getAllLugarWithPeliculaByDay(fechaHoy);
     } else if (action === "add") {
         /**
        * Si la acción es 'add', agrega un nuevo lugar
@@ -425,12 +424,12 @@ export async function mainCliente(action) {
        * @returns {Object} - Información del cliente creado
        */
       const informacion = {
-        identificacion: "1234567890", //  La cédula se usa como identificador del cliente
-        nombre: "Carlos Andres",
-        nick: "CaAn",
+        identificacion: "1234567890", //  Minimo 10 digitos. La cédula se usa como identificador del cliente 
+        nombre: "user a",
+        nick: "user",
         email: "carlos_andres@gmail.com",
         telefono: ["3139670075"],
-        estado: "cliente" //  Rol que puede tener el cliente
+        estado: "usuarioEstandar" //  Rol que puede tener el cliente
       };
       const resultadoCreado = await tarjetaRepo.createUser(informacion);
       console.log("Cliente creado con éxito:", resultadoCreado);
@@ -445,7 +444,7 @@ export async function mainCliente(action) {
     } else if (action === "updateUser") {
       /**
        * Si la acción es 'updateUser', actualiza la información de un usuario.
-       * ? Valores a usar {identificacion: 1234567890, estado: "cliente", nick: "CaAn"}
+       * ? Valores a usar {identificacion: 1234512345, estado: "usuarioEstandar", nick: "Camilo"}
        * @type {Object} informacion - Información para actualizar un cliente
        * @param {Number} identificacion - Identificación del cliente a actualizar
        * @param {String} estado - Nuevo rol del cliente
@@ -453,20 +452,21 @@ export async function mainCliente(action) {
        * @returns {Object} - Información actualizada del cliente
        */
       const informacion = {
-        identificacion: 1234567890,
-        estado: "cliente", //  Rol que puede tener el cliente
-        nick: "CaAn" // Nick al cual va a actualizar la informacion
+        identificacion: 1234567890, // No se puede modificar
+        estado: "usuarioEstandar", //  Rol que puede tener el cliente
+        nick: "user" // Nick al cual va a actualizar la informacion
+
       };
       const resultadoCreado = await tarjetaRepo.UpdateInfoUser(informacion);
       console.log(resultadoCreado);
     } else if (action === "allRol") {
       /**
        * Si la acción es 'allRol', muestra todos los usuarios por rol.
-       * ? Valores a usar {rol: "cliente"}
+       * ? Valores a usar {rol: "administrador"}
        * @param {String} rol - Rol para filtrar los usuarios
        * @returns {void}
        */
-      await tarjetaRepo.AllUsersRol("cliente"); // Modifica el rol segun desee filtrar
+      await tarjetaRepo.AllUsersRol("usuarioVip"); // Modifica el rol segun desee filtrar
     } else {
       console.log(
         "Acción no válida. Usa 'create' , 'showUser' , 'updateUser' , 'allRol'."

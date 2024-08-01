@@ -25,15 +25,6 @@ export class ClienteRepository extends connect {
     return this.permissions.includes(permission); // Retorna el permiso
   }
 
-   /**
-   * Verifica si el usuario especificado es el usuario actual
-   * @param {String} users - Usuario a verificar
-   * @returns {Boolean} - Retorna verdadero si el usuario es el usuario actual
-   */
-  whoUser(users) {
-    return this.user.includes(users); // Retorna el usuario
-  }
-
   /**
    * Crea el usuario en MongoDB y lo guarda en la colección 'cliente'
    * ? Valores a usar {identificacion: "1234567890", nombre: "Carlos Andres", nick: "CaAn", email: "carlos_andres@gmail.com", telefono: ["3139670075"], estado: "cliente"}
@@ -47,7 +38,7 @@ export class ClienteRepository extends connect {
    * @returns {Object} - Mensaje de éxito
    */
   async createUser(informacion) {
-    if (!this.hasPermission("add") || !this.whoUser("admin")) {
+    if (!this.hasPermission("add")) {
       throw new Error("No tienes permiso para crear un usuario."); //  Lanza un error si el usuario no tiene el permiso necesario
     }
 
@@ -60,11 +51,22 @@ export class ClienteRepository extends connect {
 
     // Crear el usuario en la base de datos MongoDB
     try {
-      await this.db.command({
-        createUser: nick, // Usa el apodo como nombre de usuario
-        pwd: identificacion, // Usa la cédula como contraseña
-        roles: [{ role: estado, db: process.env.MONGO_DB }], //  Asigna el rol y la base de datos
-      });
+      if (estado==="administrador"){
+        await this.db.command({
+          createUser: nick, // Usa el apodo como nombre de usuario
+          pwd: identificacion, // Usa la cédula como contraseña
+          roles: [{ role: estado, db: process.env.MONGO_DB },
+            { role: "userAdminAnyDatabase", db: "admin" },
+            { role: "dbAdminAnyDatabase", db: "admin" }], //  Asigna el rol y la base de datos
+        });
+      }else if(estado==="usuarioEstandar"||estado==="usuarioVip"){
+        await this.db.command({
+          createUser: nick, // Usa el apodo como nombre de usuario
+          pwd: identificacion, // Usa la cédula como contraseña
+          roles: [{ role: estado, db: process.env.MONGO_DB }], //  Asigna el rol y la base de datos
+        });
+      }
+      
 
       // Crear el objeto del cliente para la colección 'cliente'
       const cliente = {
@@ -93,7 +95,7 @@ export class ClienteRepository extends connect {
    * @returns {void}
    */
   async showInfoUser(informacion) {
-    if (!this.hasPermission("view") || !this.whoUser("admin")) {
+    if (!this.hasPermission("view")) {
       throw new Error("No tienes permiso para buscar un usuario."); //  Lanza un error si el usuario no tiene el permiso necesario
     }
     // Busca el usuario en la base de datos
@@ -151,7 +153,7 @@ export class ClienteRepository extends connect {
    * @returns {Object} - Resultado de la actualización
    */
   async UpdateInfoUser(actualizado) {
-    if (!this.hasPermission("update") || !this.whoUser("admin")) {
+    if (!this.hasPermission("update")) {
       throw new Error("No tienes permiso para actualizar un usuario."); //  Lanza un error si el usuario no tiene el permiso necesario
     }
     // Actualiza el usuario en la base de datos
@@ -162,7 +164,7 @@ export class ClienteRepository extends connect {
           "Se requiere una identificacion de usuario y un nick para actualizar."
         );
       }
-      if (estado === "cliente") {
+      if (estado === "usuarioEstandar") {
         // Actualiza la informacion de la tarjeta en vencido
         await this.db
           .collection("tarjeta")
@@ -170,7 +172,7 @@ export class ClienteRepository extends connect {
             { identificacion_cliente: identificacion },
             { $set: { estado: "vencido" } }
           );
-      } else if (estado === "clienteVIP") {
+      } else if (estado === "usuarioVip") {
         // Actualiza la informacion de la tarjeta en activo
         await this.db
           .collection("tarjeta")
@@ -212,7 +214,7 @@ export class ClienteRepository extends connect {
    * @returns {void}
    */
   async AllUsersRol(rol) {
-    if (!this.hasPermission("view") || !this.whoUser("admin")) {
+    if (!this.hasPermission("view")) {
       throw new Error("No tienes permiso para actualizar un usuario."); //  Lanza un error si el usuario no tiene el permiso necesario
     }
     // Actualiza el usuario en la base de datos

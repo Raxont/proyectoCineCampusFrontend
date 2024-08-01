@@ -24,21 +24,12 @@ export class BoletaRepository extends connect {
   }
 
   /**
-   * Verifica si el usuario especificado es el usuario actual
-   * @param {String} users - Usuario a verificar
-   * @returns {Boolean} - Retorna verdadero si el usuario es el usuario actual
-   */
-  whoUser(users){
-    return this.user.includes(users); // Retorna el usuario
-  }
-
-  /**
    * Obtiene todas las boletas
    * @returns {Array} - Lista de boletas
    * @throws {Error} - Lanza un error si el usuario no tiene permiso o si ocurre un problema en la consulta
    */
   async getAllboleta() {
-    if (!this.hasPermission("view")|| !this.whoUser("admin")) {
+    if (!this.hasPermission("view")) {
       throw new Error("No tienes permiso para ver las boletas."); //  Lanza un error si el usuario usado no tiene ese permiso
     }
     try {
@@ -93,7 +84,7 @@ export class BoletaRepository extends connect {
       return await this.collection.aggregate(pipeline).toArray(); // Ejecuta el pipeline de agregación y convierte el resultado a un array
     } catch (error) {
       console.error("Error obteniendo boletas con fecha de inicio:", error); //  Manejo de errores
-      throw new Error("Error obteniendo boletas con fecha de inicio"); // !Lanza un error si ocurre un problema
+      throw new Error("Error obteniendo boletas con fecha de inicio"); // Lanza un error si ocurre un problema
     }
   }
   

@@ -2,8 +2,8 @@ import { mainLugar, mainBoleta, mainAsientos, mainTarjetas, mainCliente } from "
 
     //! Descomente la funcion main que desea usar
     //* Debajo de cada funcion main tiene los valores que estaria mostrando por defeecto
-    const actionLugar = "getByPelicula"; //* Acción por defecto el cual debe de ser modificando segun la necesidad. Usa 'getAllByDate', 'add', 'update' , 'delete' , 'getByPelicula'
-    //mainLugar(actionLugar); // * Ejecuta la función principal con la acción definida
+    const actionLugar = "getAllByDate"; //* Acción por defecto el cual debe de ser modificando segun la necesidad. Usa 'getAllByDate', 'add', 'update' , 'delete' , 'getByPelicula'
+    mainLugar(actionLugar); // * Ejecuta la función principal con la acción definida
     /**
      *  //* Valor que muestra al filtrar por dia
      * @returns lugar por fecha: [
@@ -137,7 +137,7 @@ import { mainLugar, mainBoleta, mainAsientos, mainTarjetas, mainCliente } from "
     */
 
 
-    const actionCliente = "showUser"; //* Acción por defecto, modifícala según la necesidad. Usa 'create' , 'showUser' , 'updateUser' , 'allRol'.
+    const actionCliente = "updateUser"; //* Acción por defecto, modifícala según la necesidad. Usa 'create' , 'showUser' , 'updateUser' , 'allRol'.
     //mainCliente(actionCliente); // * Ejecuta la función principal con la acción definida
 
     /**
