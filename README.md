@@ -1,4 +1,4 @@
-# Selección de películas
+# 1) Selección de películas
 
 Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainLugar()`. En esa parte, defino una constante llamada `actionLugar`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos.
 
@@ -44,7 +44,7 @@ Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección 
 
 
 
-# Compra de Boletos
+# 2) Compra de Boletos
 
 Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainBoleta()`. En esa parte, defino una constante llamada `actionBoleta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
@@ -92,7 +92,9 @@ Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección
 | `updateLugar`                | *Actualiza la información de una boleta*                     |
 | `deleteLugar`                | *Elimina la boleta por su ID*                                |
 
-# Asignación de Asientos
+
+
+# 3) Asignación de Asientos
 
 Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainAsientos()`. En esa parte, defino una constante llamada `actionAsientos`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
@@ -116,7 +118,7 @@ Dentro de la función `mainAsientos`, manejo varias opciones según lo requiera 
 | `getReserva`        | *Permite la selección y reserva de asientos*  |
 | `returnReserva`     | *Cancela una reserva de asiento ya realizada* |
 
-Tengo un módulo llamado `asientos.js`, en el cual manejo el CRUD de mi colección `asientos`, estas son las funciones que usa:
+Tengo un módulo llamado `asientos.js`, en el cual manejo mi colección `asientos`, estas son las funciones que usa:
 
 | Nombre de la función    | Que hace?                                                    |
 | ----------------------- | ------------------------------------------------------------ |
@@ -124,7 +126,9 @@ Tengo un módulo llamado `asientos.js`, en el cual manejo el CRUD de mi colecci�
 | `revertAsientoInBoleta` | *Permite la cancelación de una reserva de asiento ya realizada* |
 | `updateAsientoInBoleta` | *Permite la selección y reserva de asientos para una proyección específica* |
 
-# Descuentos y Tarjetas VIP
+
+
+# 4) Descuentos y Tarjetas VIP
 
 Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `maintarjetas()`. En esa parte, defino una constante llamada `actionTarjeta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
@@ -146,14 +150,16 @@ Dentro de la función `maintarjetas`, manejo varias opciones según lo requiera 
 | ------------------- | --------------------------------------------------- |
 | `getDescuento`      | *Permite ver el precio con el descuento si aplica.* |
 
-Tengo un módulo llamado `tarjeta.js`, en el cual manejo el CRUD de mi colección `tarjeta`, estas son las funciones que usa:
+Tengo un módulo llamado `tarjeta.js`, en el cual manejo mi colección `tarjeta`, estas son las funciones que usa:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
 | `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
 | `priceDiscount`      | *Permite la verificación de la validez de una tarjeta VIP y aplica el descuento a su compra* |
 
-# Roles Definidos
+
+
+# 5) Roles Definidos
 
 Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainCliente()`. En esa parte, defino una constante llamada `actionCliente`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
@@ -181,7 +187,7 @@ Dentro de la función `mainCliente`, manejo varias opciones según lo requiera e
 | `updateUser `       | *Actualiza un nuevo usuario*                                 |
 | `allRol `           | *Muestra todos los usuarios por rol*                         |
 
-Tengo un módulo llamado `cliente.js`, en el cual manejo el CRUD de mi colección `cliente`, estas son las funciones que usa:
+Tengo un módulo llamado `cliente.js`, en el cual manejo mi colección `cliente`, estas son las funciones que usa:
 
 | Nombre de la función | Que hace?                                                    |
 | -------------------- | ------------------------------------------------------------ |
@@ -192,11 +198,15 @@ Tengo un módulo llamado `cliente.js`, en el cual manejo el CRUD de mi colecció
 | `UpdateInfoUser`     | *Actualiza el usuario por numero de identificacion*          |
 | `AllUsersRol`        | *Consulta todos los usuarios del sistema, con la posibilidad de filtrar por rol* |
 
-# Instalación librería validator.js
+
+
+# - Instalación librería validator.js
 
 Se instala la librería `validator.js` para realizar una validación más robusta de los correos electrónicos ingresados en la base de datos, evitando así el uso de patrones de expresión regular para este propósito
 
-# Creación del super usuario, administrador, usuario y usuario vip
+
+
+# - Creación del super usuario, administrador, usuario y usuario vip
 
 Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos de CineCampus.
 
@@ -214,7 +224,9 @@ Creación del administrador encargado de administrar la base de datos de CineCam
 db.createUser({
     user: "admin",
     pwd:"admin",
-    roles:[{role:"admindb",db:"CineCampus"}]
+    roles:[{role:"admindb",db:"CineCampus"},
+          { role: "userAdminAnyDatabase", db: "admin" },
+          { role: "dbAdminAnyDatabase", db: "admin" }]
 })
 ```
 
@@ -238,7 +250,7 @@ db.createUser({
 })
 ```
 
-# Creación del rol administrador
+# - Creación del rol administrador
 
 ```javascript
 db.createRole({
@@ -263,12 +275,12 @@ db.createRole({
         }
     ],
     roles:[ { role: "dbAdmin", db: "CineCampus" },
-					{ role: "readWrite", db: "CineCampus" },
+			{ role: "readWrite", db: "CineCampus" },
             { role: "userAdmin", db: "CineCampus" }]
 })
 ```
 
-# Creación del rol usuario estándar
+# - Creación del rol usuario estándar
 
 ```javascript
 db.createRole( {
@@ -298,7 +310,7 @@ db.createRole( {
 });
 ```
 
-# Creación del usuario vip
+# - Creación del usuario vip
 
 ```javascript
 db.createRole({
@@ -313,7 +325,7 @@ db.createRole({
 })
 ```
 
-# Valores para conectarse a la base de datos como administrador o como usuario en el archivo `.env`
+# - Valores para conectarse a la base de datos como administrador o como usuario en el archivo `.env`
 
 ```javascript
 MONGO_USER="admin"

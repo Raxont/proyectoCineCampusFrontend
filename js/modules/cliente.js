@@ -159,7 +159,7 @@ export class ClienteRepository extends connect {
       }; //? Se actualiza la informacion del usuario en MongoDB
 
       //* Ejecuta el comando de actualización
-      // console.log(await this.db.command(updateCommand));
+      console.log(await this.db.command(updateCommand));
       updateFields.estado = estado; //? Guarda la informacion en updateFields
       updateFields.nick = nick; //? Guarda la informacion en updateFields
       return await this.collection.updateOne(
