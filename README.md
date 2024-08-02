@@ -235,7 +235,7 @@ Creación del usuario del CineCampus.
 ```javascript
 db.createUser({
     user: "user",
-    pwd:"user",
+    pwd:"1234567890",
     roles:[{role:"usuarioEstandar",db:"CineCampus"}]
 })
 ```
@@ -294,11 +294,11 @@ db.createRole( {
     },
     {
       resource: { db: "CineCampus", collection: "boleta" },
-      actions: ["find", "insert"]
+      actions: ["find", "insert", "update", "remove",]
     },
     {
       resource: { db: "CineCampus", collection: "asientos" },
-      actions: ["find"]
+      actions: ["find", "insert", "update", "remove"]
     },
     {
       resource: { db: "CineCampus", collection: "cliente" },

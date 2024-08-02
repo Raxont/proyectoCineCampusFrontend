@@ -123,7 +123,7 @@ import { mainLugar, mainBoleta, mainAsientos, mainTarjetas, mainCliente } from "
     */
 
     const actionTarjeta = "getDescuento"; //* Acción por defecto el cual debe de ser modificando según la necesidad. Usa 'getDescuento'
-    //maintarjetas(actionTarjeta); // * Ejecuta la función principal con la acción definida
+    //mainTarjetas(actionTarjeta); // * Ejecuta la función principal con la acción definida
     /**
      *  //* Valor que muestra al realizar una reserva de un tarjeta
      * @returns tarjeta actualizado en boleta: 
