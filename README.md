@@ -1,133 +1,353 @@
-📕 **Título: CineCampus**
+# 1) Selección de películas
 
-------
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainLugar()`. En esa parte, defino una constante llamada `actionLugar`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos.
 
-**Tiempo de ejecución**: 4 Dias
+Estos son los datos que permite tomar la constante `actionLugar` :
 
-**Nivel de dificultad:** ★★★★☆
+- getAllByDate (Llama la funcion **getAllLugarWithPeliculaByDay**)
+- add (Llama la funcion **addLugar**)
+- update (Llama la funcion **updateLugar**)
+- delete (Llama la funcion **deleteLugar**)
+- getByPelicula (Llama la funcion **getLugaresByPelicula**)
 
-### **Problematica**
+# Lógica de mi código
 
-CineCampus es una empresa de entretenimiento que se especializa en ofrecer una experiencia de cine completa y personalizada. La empresa desea desarrollar una aplicación web que permita a los usuarios seleccionar películas, comprar boletos y asignar asientos de manera eficiente y cómoda. La aplicación también ofrecerá opciones de descuento para usuarios con tarjeta VIP y permitirá realizar compras en línea.
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
 
-### **Objetivo**
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `mainLugar`          | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+| `agregarlugar`       | *Función para agregar un lugar*                              |
+| `actualizarlugar`    | *Función para actualizar un lugar*                           |
+| `eliminarlugar`      | *Función para eliminar un lugar*                             |
 
-Desarrollar una serie de APIs para la aplicación web de CineCampus utilizando MongoDB como base de datos. Las APIs deberán gestionar la selección de películas, la compra de boletos, la asignación de asientos, y la implementación de descuentos para tarjetas VIP, con soporte para diferentes roles de usuario.
+Dentro de la función `mainLugar`, manejo varias opciones según lo requiera el usuario:
 
-### **Requisitos Funcionales**
+| Nombre de la opción | Que hace?                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `getAllByDate`      | *Permite la consulta de todas las películas disponibles en el catálogo, con detalles como título, género, duración y horarios de proyección* |
+| `add`               | *Agrega un nuevo lugar*                                      |
+| `update`            | *Actualiza la información de un lugar*                       |
+| `delete`            | *Elimina un lugar*                                           |
+| `getByPelicula`     | *Permite la consulta de información detallada sobre una película específica, incluyendo sinopsis.* |
 
-1. Selección de Películas:
+Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección `lugar`, estas son las funciones que usa:
 
-   - **API para Listar Películas:** Permitir la consulta de todas las películas disponibles en el catálogo, con detalles como título, género, duración y horarios de proyección.
-   - **API para Obtener Detalles de Película:** Permitir la consulta de información detallada sobre una película específica, incluyendo sinopsis.
+| Nombre de la función           | Que hace?                                                    |
+| ------------------------------ | ------------------------------------------------------------ |
+| `hasPermission`                | *Verifica permisos del usuario ingresado*                    |
+| `getAllLugarWithPeliculaByDay` | *Obtiene todos los lugares por fecha y une con la información de las películas.* PD: La fecha la obtengo con la actual |
+| `addLugar`                     | *Agrega un nuevo lugar*                                      |
+| `updateLugar`                  | *Actualiza la información de un lugar*                       |
+| `deleteLugar`                  | *Elimina un lugar por su ID*                                 |
+| `getLugaresByPelicula`         | *Filtra lugares por una película específica*                 |
 
-2. Compra de Boletos:
 
-   - **API para Comprar Boletos:** Permitir la compra de boletos para una película específica, incluyendo la selección de la fecha y la hora de la proyección.
-   - **API para Verificar Disponibilidad de Asientos:** Permitir la consulta de la disponibilidad de asientos en una sala para una proyección específica.
 
-3. Asignación de Asientos:
+# 2) Compra de Boletos
 
-   - **API para Reservar Asientos:** Permitir la selección y reserva de asientos para una proyección específica.
-   - **API para Cancelar Reserva de Asientos:** Permitir la cancelación de una reserva de asiento ya realizada.
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainBoleta()`. En esa parte, defino una constante llamada `actionBoleta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
-4. Descuentos y Tarjetas VIP:
+Estos son los datos que permite tomar la constante `actionBoleta` :
 
-   - **API para Aplicar Descuentos:** Permitir la aplicación de descuentos en la compra de boletos para usuarios con tarjeta VIP.
-   - **API para Verificar Tarjeta VIP:** Permitir la verificación de la validez de una tarjeta VIP durante el proceso de compra.
+- getAll (Llama la funcion **getAllboleta**)
+- add (Llama la funcion **agregarBoleta**)
+- update (Llama la funcion **actualizarBoleta**)
+- delete (Llama la funcion **eliminarBoleta**)
+- getByCliente (Llama la funcion **getBoletasWithFecha_Inicio**)
+- getAsientos (Llama la funcion **getAsientosAvailable**)
 
-5. Roles Definidos:
+# Lógica de mi código
 
-   **Administrador:** Tiene permisos completos para gestionar el sistema, incluyendo la venta de boletos en el lugar físico. Los administradores no están involucrados en las compras en línea realizadas por los usuarios.
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
 
-   **Usuario Estándar:** Puede comprar boletos en línea sin la intervención del administrador.
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `mainBoleta`         | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+| `agregarBoleta`      | *Función para agregar una boleta*                            |
+| `actualizarBoleta`   | *Función para actualizar una boleta*                         |
+| `eliminarBoleta`     | *Función para eliminar una boleta*                           |
 
-   **Usuario VIP:** Puede comprar boletos en línea con descuentos aplicables para titulares de tarjetas VIP.
+Dentro de la función `mainBoleta`, manejo varias opciones según lo requiera el usuario:
 
-   1. **API para Crear Usuario:** Permitir la creación de nuevos usuarios en el sistema, asignando roles y privilegios específicos (usuario estándar, usuario VIP o administrador).
+| Nombre de la opción | Que hace?                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `getAll`            | *Obtiene todas las boletas*                                  |
+| `agregarBoleta`     | *Agrega una nueva boleta*                                    |
+| `update`            | *Actualiza la información de una boleta*                     |
+| `delete`            | *Elimina una boleta*                                         |
+| `getByCliente`      | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar* |
+| `getAsientos`       | *Obtiene los asientos disponibles*                           |
 
-   2. **API para Obtener Detalles de Usuario:** Permitir la consulta de información detallada sobre un usuario, incluyendo su rol y estado de tarjeta VIP.
+Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección `boleta`, estas son las funciones que usa:
 
-   3. **API para Actualizar Rol de Usuario:** Permitir la actualización del rol de un usuario (por ejemplo, cambiar de usuario estándar a VIP, o viceversa).
+| Nombre de la función         | Que hace?                                                    |
+| ---------------------------- | ------------------------------------------------------------ |
+| `hasPermission`              | *Verifica permisos del usuario ingresado*                    |
+| `getAllboleta`               | *Obtiene todas las boletas*                                  |
+| `getboletaById`              | *Obtiene una boleta por ID*                                  |
+| `getBoletasWithFecha_Inicio` | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada boleta* |
+| `getAsientosAvailable`       | *Permite la consulta de la disponibilidad de asientos en una sala para una proyección específica* |
+| `addLugar`                   | *Agrega una nueva boleta*                                    |
+| `updateLugar`                | *Actualiza la información de una boleta*                     |
+| `deleteLugar`                | *Elimina la boleta por su ID*                                |
 
-   4. **API para Listar Usuarios:** Permitir la consulta de todos los usuarios del sistema, con la posibilidad de filtrar por rol (VIP, estándar o administrador).
 
-6. Compras en Línea:
 
-   - **API para Procesar Pagos:** Permitir el procesamiento de pagos en línea para la compra de boletos.
+# 3) Asignación de Asientos
 
-### **Requisitos Técnicos**
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainAsientos()`. En esa parte, defino una constante llamada `actionAsientos`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
-- **Base de Datos:** Utilizar MongoDB para el almacenamiento de datos relacionados con películas, boletos, asientos, usuarios y roles.
-- **Autenticación:** Implementar autenticación segura para el acceso a las APIs, utilizando roles de usuario para determinar los permisos y accesos (por ejemplo, usuarios VIP y usuarios estándar).
-- **Autorización de Roles:** Asegurar que las APIs y las operaciones disponibles estén adecuadamente restringidas según el rol del usuario (por ejemplo, aplicar descuentos solo a usuarios VIP).
-- **Documentación:** Proveer una documentación clara y completa para cada API, describiendo los endpoints, parámetros, y respuestas esperadas.
-- **Recursos**
-  - ![](https://i.ibb.co/SRdNPRr/draw-SQL-image-export-2024-07-25.png)
+Estos son los datos que permite tomar la constante `actionAsientos` :
 
-### **Rúbrica Evaluativa**
+- getReserva (Llama la funcion **updateAsientoInBoleta**)
+- returnReserva (Llama la funcion **revertAsientoInBoleta**)
 
-Los puntos a evaluar serán los siguientes:
+# Lógica de mi código
 
-### 1. Selección de Películas (20%)
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
 
-- **0 puntos:** No se implementa la funcionalidad para listar películas ni obtener detalles de una película.
-- **25 puntos:** La funcionalidad para listar películas o obtener detalles de una película está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para listar películas y obtener detalles de una película está implementada pero presenta errores menores o no proporciona todos los datos requeridos.
-- **75 puntos:** La funcionalidad para listar películas y obtener detalles de una película está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para listar películas y obtener detalles de una película está completamente implementada, es eficiente, y proporciona toda la información requerida de manera clara.
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `mainAsientos`       | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
 
-### 2. Compra de Boletos (20%)
+Dentro de la función `mainAsientos`, manejo varias opciones según lo requiera el usuario:
 
-- **0 puntos:** No se implementa la funcionalidad para comprar boletos ni verificar la disponibilidad de asientos.
-- **25 puntos:** La funcionalidad para comprar boletos o verificar la disponibilidad de asientos está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para comprar boletos y verificar la disponibilidad de asientos está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para comprar boletos y verificar la disponibilidad de asientos está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para comprar boletos y verificar la disponibilidad de asientos está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
+| Nombre de la opción | Que hace?                                     |
+| ------------------- | --------------------------------------------- |
+| `getReserva`        | *Permite la selección y reserva de asientos*  |
+| `returnReserva`     | *Cancela una reserva de asiento ya realizada* |
 
-### 3. Asignación de Asientos (20%)
+Tengo un módulo llamado `asientos.js`, en el cual manejo mi colección `asientos`, estas son las funciones que usa:
 
-- **0 puntos:** No se implementa la funcionalidad para reservar ni cancelar reservas de asientos.
-- **25 puntos:** La funcionalidad para reservar o cancelar reservas de asientos está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para reservar y cancelar reservas de asientos está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para reservar y cancelar reservas de asientos está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para reservar y cancelar reservas de asientos está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
+| Nombre de la función    | Que hace?                                                    |
+| ----------------------- | ------------------------------------------------------------ |
+| `hasPermission`         | *Verifica permisos del usuario ingresado*                    |
+| `revertAsientoInBoleta` | *Permite la cancelación de una reserva de asiento ya realizada* |
+| `updateAsientoInBoleta` | *Permite la selección y reserva de asientos para una proyección específica* |
 
-### 4. Descuentos y Tarjetas VIP (10%)
 
-- **0 puntos:** No se implementa la funcionalidad para aplicar descuentos ni verificar la validez de tarjetas VIP.
-- **25 puntos:** La funcionalidad para aplicar descuentos o verificar la validez de tarjetas VIP está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para aplicar descuentos y verificar la validez de tarjetas VIP está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para aplicar descuentos y verificar la validez de tarjetas VIP está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para aplicar descuentos y verificar la validez de tarjetas VIP está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
 
-### 5. Gestión de Usuarios y Roles (10%)
+# 4) Descuentos y Tarjetas VIP
 
-- **0 puntos:** No se implementa la funcionalidad para gestionar usuarios ni roles.
-- **25 puntos:** La funcionalidad para gestionar usuarios o roles está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para gestionar usuarios y roles está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para gestionar usuarios y roles está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para gestionar usuarios y roles está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `maintarjetas()`. En esa parte, defino una constante llamada `actionTarjeta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
 
-### 6. Compras en Línea (10%)
+Estos son los datos que permite tomar la constante `actionTarjeta` :
 
-- **0 puntos:** No se implementa la funcionalidad para procesar pagos ni enviar confirmaciones de compra.
-- **25 puntos:** La funcionalidad para procesar pagos o enviar confirmaciones de compra está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para procesar pagos y enviar confirmaciones de compra está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para procesar pagos y enviar confirmaciones de compra está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para procesar pagos y enviar confirmaciones de compra está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
+- getDescuento (Llama la funcion **priceDiscount**)
 
-### 7. Documentación y Entregables (10%)
+# Lógica de mi código
 
-- **0 puntos:** No se entrega la documentación requerida ni el código fuente en el repositorio de GitHub.
-- **25 puntos:** La documentación o el código fuente están incompletos o presentan errores significativos.
-- **50 puntos:** La documentación y el código fuente están mayormente completos, pero con algunos errores menores o faltantes.
-- **75 puntos:** La documentación y el código fuente están correctos, con pequeños problemas de claridad o detalles menores faltantes.
-- **100 puntos:** La documentación y el código fuente están completos, claros y bien organizados, proporcionando toda la información necesaria de manera eficiente.
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
 
-### GitHub y Entrega de Proyecto
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `maintarjetas`       | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
 
-- 🚨 **Cancelación o Anulación del Proyecto** : No se entregó ningún repositorio, su visualización está oculta (o no compartida con el Trainer) o hubo adulteración después de la fecha y hora establecida para su entrega, ***Evidencia de clonación o conocido como `fork` de algún repositorio, distribución y/o copia de dicho trabajo por cualquier medio de comunicación (verbal, digital, entre otras), se asumirá como cancelación del proyecto de manera definitiva.*** 🚨
-- **25 puntos**: Se creó el repositorio, pero en su rama principal no se encuentra el proyecto general ,al igual que algún archivo en relación al proyecto.
-- **100 puntos**: Se creó exitosamente el repositorio, donde en su rama principal se encuentra el proyecto general y sus archivos en relación a ello, con evidencia de la participación del equipo completo de manera periódica.
+Dentro de la función `maintarjetas`, manejo varias opciones según lo requiera el usuario:
 
+| Nombre de la opción | Que hace?                                           |
+| ------------------- | --------------------------------------------------- |
+| `getDescuento`      | *Permite ver el precio con el descuento si aplica.* |
+
+Tengo un módulo llamado `tarjeta.js`, en el cual manejo mi colección `tarjeta`, estas son las funciones que usa:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
+| `priceDiscount`      | *Permite la verificación de la validez de una tarjeta VIP y aplica el descuento a su compra* |
+
+
+
+# 5) Roles Definidos
+
+Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainCliente()`. En esa parte, defino una constante llamada `actionCliente`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
+
+Estos son los datos que permite tomar la constante `actionCliente` :
+
+- create (Llama la funcion **createUser**)
+- showUser (Llama la funcion **showInfoUser**)
+- updateUser (Llama la funcion **UpdateInfoUser**)
+- allRol (Llama la funcion **AllUsersRol**)
+
+# Lógica de mi código
+
+Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `mainCliente`        | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
+
+Dentro de la función `mainCliente`, manejo varias opciones según lo requiera el usuario:
+
+| Nombre de la opción | Que hace?                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| `create `           | *Crea un nuevo usuario.*                                     |
+| `showUser `         | *Muestra un usuario especifico junto a su tarjeta si aplica.* |
+| `updateUser `       | *Actualiza un nuevo usuario*                                 |
+| `allRol `           | *Muestra todos los usuarios por rol*                         |
+
+Tengo un módulo llamado `cliente.js`, en el cual manejo mi colección `cliente`, estas son las funciones que usa:
+
+| Nombre de la función | Que hace?                                                    |
+| -------------------- | ------------------------------------------------------------ |
+| `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
+| `whoUser`            | *Verifica cuál es el usuario*                                |
+| `createUser`         | *Crea el usuario en MongoDB y lo guarda en la colección 'cliente'* |
+| `showInfoUser`       | *Busca el ususario por numero de identificacion*             |
+| `UpdateInfoUser`     | *Actualiza el usuario por numero de identificacion*          |
+| `AllUsersRol`        | *Consulta todos los usuarios del sistema, con la posibilidad de filtrar por rol* |
+
+
+
+# - Instalación librería validator.js
+
+Se instala la librería `validator.js` para realizar una validación más robusta de los correos electrónicos ingresados en la base de datos, evitando así el uso de patrones de expresión regular para este propósito
+
+
+
+# - Creación del super usuario, administrador, usuario y usuario vip
+
+Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos de CineCampus.
+
+```javascript
+db.createUser({
+    user: "root",
+    pwd:passwordPrompt(),
+    roles:[{role:"root",db:"admin"}]
+})
+```
+
+Creación del administrador encargado de administrar la base de datos de CineCampus.
+
+```javascript
+db.createUser({
+    user: "admin",
+    pwd:"admin",
+    roles:[{role:"administrador",db:"CineCampus"},
+          { role: "userAdminAnyDatabase", db: "admin" },
+          { role: "dbAdminAnyDatabase", db: "admin" }]
+})
+```
+
+Creación del usuario del CineCampus.
+
+```javascript
+db.createUser({
+    user: "user",
+    pwd:"1234567890",
+    roles:[{role:"usuarioEstandar",db:"CineCampus"}]
+})
+```
+
+Creación del usuario vip del CineCampus.
+
+```javascript
+db.createUser({
+    user: "vip",
+    pwd:"vip",
+    roles:[{role:"usuarioVip",db:"CineCampus"}]
+})
+```
+
+# - Creación del rol administrador
+
+```javascript
+db.createRole({
+    role: "administrador",
+    privileges: [
+        {
+            resource: { db: "CineCampus", collection: "" },
+            actions: [
+                "find", "insert", "update", "remove",
+                "createCollection", "createIndex", "dropCollection",
+                "listCollections", "listIndexes", "dropIndex",
+                "createUser", "dropUser", "grantRole", "revokeRole", "updateUser"
+            ]
+        },
+        {
+            resource: { db: "CineCampus", collection: "system.users" },
+            actions: ["find", "insert", "update", "remove", "viewUser"]
+        },
+        {
+            resource: { db: "CineCampus", collection: "system.roles" },
+            actions: ["find", "insert", "update", "remove", "viewRole"]
+        }
+    ],
+    roles:[ { role: "dbAdmin", db: "CineCampus" },
+			{ role: "readWrite", db: "CineCampus" },
+            { role: "userAdmin", db: "CineCampus" },
+            { role: "dbOwner", db: "CineCampus" }
+          ]
+})
+```
+
+# - Creación del rol usuario estándar
+
+```javascript
+db.createRole( {
+  role:"usuarioEstandar",
+  privileges: [
+    {
+      resource: { db: "CineCampus", collection: "pelicula" },
+      actions: ["find"]
+    },
+    {
+      resource: { db: "CineCampus", collection: "boleta" },
+      actions: ["find", "insert", "update", "remove",]
+    },
+    {
+      resource: { db: "CineCampus", collection: "asientos" },
+      actions: ["find", "insert", "update", "remove"]
+    },
+    {
+      resource: { db: "CineCampus", collection: "cliente" },
+      actions: ["find", "update"]
+    },
+    {
+      resource: { db: "CineCampus", collection: "lugar" },
+      actions: ["find"]
+    }
+  ],
+    roles: []
+});
+```
+
+# - Creación del usuario vip
+
+```javascript
+db.createRole({
+  role: "usuarioVip",
+  privileges: [
+    {
+      resource: { db: "CineCampus", collection: "tarjeta" },
+      actions: ["find", "update"]
+    }
+  ],
+  roles: ["usuarioEstandar"]
+})
+```
+
+# - Valores para conectarse a la base de datos como administrador o como usuario en el archivo `.env`
+
+```javascript
+MONGO_USER="admin"
+MONGO_PORT=57340
+MONGO_PWD="admin"
+MONGO_HOST="mongodb://"
+MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
+MONGO_DB="CineCampus"
+USER_PERMISSIONS="view,add,update,delete"
+```
+
+```javascript
+MONGO_USER="user" (Puede usar al usuario "vip")
+MONGO_PORT=57340
+MONGO_PWD="user" (Clave del vip "vip")
+MONGO_HOST="mongodb://"
+MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
+MONGO_DB="CineCampus"
+USER_PERMISSIONS="view,add"
+```
+
+Los dos tipos de usuarios diferentes al administrador solo podrían ver y crear en las diferentes colecciones
