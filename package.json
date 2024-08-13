@@ -5,12 +5,14 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "node --watch --env-file=.env server/js/main.js -p"
+    "test": "node --watch --env-file=.env server/js/main.js -p",
+    "dev": "node --watch --env-file=.env app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.19.2",
     "mongo": "^0.1.0",
     "node": "^20.16.0",
     "validator": "^13.12.0"
