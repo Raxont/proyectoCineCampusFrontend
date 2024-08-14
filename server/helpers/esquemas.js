@@ -129,7 +129,6 @@
 }
 */
 
-
 /** //* Esquema pelicula
  * {
   "$jsonSchema": {

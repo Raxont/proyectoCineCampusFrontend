@@ -1,5 +1,5 @@
 const  {ObjectId}  = require("mongodb"); // Importa el constructor de ObjectId de MongoDB
-const  connect  = require("../../helpers/db/conexion"); // Importa la clase de conexión a la base de datos
+const  connect  = require("../../infrastructure/database/conexion"); // Importa la clase de conexión a la base de datos
 
 module.exports = class BoletaRepository extends connect {
   static instance; //  Instancia única del repositorio

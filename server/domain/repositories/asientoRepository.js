@@ -1,28 +1,17 @@
-const  {ObjectId}  = require("mongodb"); //  Importa el constructor de ObjectId de MongoDB
-const  connect  = require("../../helpers/db/conexion"); //  Importa la clase de conexión a la base de datos
+const { ObjectId } = require("mongodb");
+const connect = require("../../infrastructure/database/conexion");
 
-module.exports = class asientoRepository extends connect {
-  static instance; //  Instancia única del repositorio
-
+class AsientoRepository extends connect {
   constructor() {
-    if (typeof asientoRepository.instance === "object") {
-      return asientoRepository.instance; //  Retorna la instancia existente si ya está creada
+    if (typeof AsientoRepository.instance === "object") {
+      return AsientoRepository.instance;
     }
-    super(); //  Llama al constructor de la clase base
-    this.collection = this.db.collection("asientos"); //  Inicializa la colección de asientos en la base de datos
-    asientoRepository.instance = this; //  Guarda la instancia actual para futuras referencias
-    return this; //  Retorna la instancia del repositorio
+    super();
+    this.collection = this.db.collection("asientos");
+    AsientoRepository.instance = this;
+    return this;
   }
-
-  /**
-   * Verifica si el usuario tiene el permiso especificado
-   * @param {String} permission - Permiso requerido
-   * @returns {Boolean} - Retorna verdadero si el usuario tiene el permiso
-   */
-  hasPermission(permission) {
-    return this.permissions.includes(permission); //  Retorna el permiso
-  }
-
+  
   /**
    * Permite la cancelación de una reserva de asiento ya realizada
    * ? Valores a usar {idAsiento: new ObjectId("66a6d3fa1c9570011db88fdb"),idLugar: new ObjectId("66a579bb7b00907fab0aee94"),identificacionCliente: 1234567890}
@@ -143,4 +132,7 @@ module.exports = class asientoRepository extends connect {
       throw new Error("Error actualizando el asiento en la boleta"); //  Lanza un error en caso de fallo en la actualización
     }
   }
+
 }
+
+module.exports = AsientoRepository;
