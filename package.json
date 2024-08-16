@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "test": "node --watch --env-file=.env server/js/main.js -p",
-    "dev": "node --watch --env-file=.env app.js"
+    "dev": "node --watch --env-file=.env server/server.js"
   },
   "keywords": [],
   "author": "",

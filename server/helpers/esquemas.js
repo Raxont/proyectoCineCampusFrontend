@@ -3,14 +3,14 @@
   "$jsonSchema": {
     "bsonType": "object", // ? El tipo de dato debe ser un objeto
     "required": [// ? Campos obligatorios en el objeto
-    "identificación_cliente", 
+    "identificacion_cliente", 
     "id_lugar", 
     "fecha_adquisicion",
     "estado",
     "id_asiento"
     ], 
     "properties": { // ? Propiedades del objeto
-      "identificación_cliente": {
+      "identificacion_cliente": {
         "bsonType": "int", // ? El dato debe ser un entero
         "description": "El dato debe ser un entero de 10 dígitos", // ? Descripción de la propiedad
         "minimum": 1000000000, // ? Mínimo valor permitido (10 dígitos)

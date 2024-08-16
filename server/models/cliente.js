@@ -1,5 +1,5 @@
 const  {ObjectId}  = require("mongodb"); // Importa el constructor de ObjectId de MongoDB
-const  connect  = require("../../infrastructure/database/conexion");// Importa la clase de conexión a la base de datos
+const  connect  = require("../infrastructure/database/conexion");// Importa la clase de conexión a la base de datos
 const validator = require("validator"); // Importa la librería validator
 
 // Repositorio para la colección 'cliente'

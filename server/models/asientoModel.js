@@ -1,14 +1,14 @@
 const { ObjectId } = require("mongodb");
-const connect = require("../../infrastructure/database/conexion");
+const connect = require("../infrastructure/database/conexion");
 
-class AsientoRepository extends connect {
+class AsientoModel extends connect {
   constructor() {
-    if (typeof AsientoRepository.instance === "object") {
-      return AsientoRepository.instance;
+    if (typeof AsientoModel.instance === "object") {
+      return AsientoModel.instance;
     }
     super();
     this.collection = this.db.collection("asientos");
-    AsientoRepository.instance = this;
+    AsientoModel.instance = this;
     return this;
   }
   
@@ -23,10 +23,6 @@ class AsientoRepository extends connect {
    */
   async revertAsientoInBoleta(informacion) {
     const { idAsiento, idLugar, identificacionCliente } = informacion; // Desestructura el objeto 'informacion'
-
-    if (!this.hasPermission("update")) {
-      throw new Error("No tienes permiso para actualizar la boleta."); //  Lanza un error si el usuario no tiene el permiso necesario
-    }
 
     if (!ObjectId.isValid(idAsiento) || !ObjectId.isValid(idLugar)) {
       throw new Error("Formato de ObjectId inválido"); //  Lanza un error si el formato del ID no es válido
@@ -85,10 +81,6 @@ class AsientoRepository extends connect {
   async updateAsientoInBoleta(informacion) {
     const { idAsiento, idLugar, identificacionCliente } = informacion; // Desestructura el objeto 'informacion'
   
-    if (!this.hasPermission("update")) {
-      throw new Error("No tienes permiso para actualizar la boleta."); //  Lanza un error si el usuario no tiene el permiso necesario
-    }
-  
     if (!ObjectId.isValid(idAsiento) || !ObjectId.isValid(idLugar)) {
       throw new Error("Formato de ObjectId inválido"); //  Lanza un error si el formato del ID no es válido
     }
@@ -114,12 +106,13 @@ class AsientoRepository extends connect {
         { _id: objectIdAsiento },
         { $pull: { id_lugar: objectIdLugar } }
       );
+
       // Agrega el idAsiento en la colección de boleta usando la identificación_cliente para filtrar la boleta
       const resultadoBoleta=await this.db.collection("boleta").updateOne(
         { identificacion_cliente: identificacionCliente },
         { $push: { id_asiento: objectIdAsiento } }
       );
-  
+
       return {
         message: "Asiento actualizado correctamente en la boleta.",
         movimientos: {
@@ -135,4 +128,4 @@ class AsientoRepository extends connect {
 
 }
 
-module.exports = AsientoRepository;
+module.exports = AsientoModel;
