@@ -12,7 +12,7 @@ router.post('/returnReserva', (req, res) => asientoController.handleRequest(req,
 
 // Ruta para verificar la API
 router.get('/', (req, res) => {
-    res.send('Kevin la chupa');
+    res.send('Bienvenido a la seccion de asientos');
 });
 
 module.exports = router;

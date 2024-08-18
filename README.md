@@ -126,6 +126,42 @@ Tengo un módulo llamado `asientos.js`, en el cual manejo mi colección `asiento
 | `revertAsientoInBoleta` | *Permite la cancelación de una reserva de asiento ya realizada* |
 | `updateAsientoInBoleta` | *Permite la selección y reserva de asientos para una proyección específica* |
 
+# Datos a quemar 
+
+##### PETICION:  PUT
+
+##### URI: http://localhost:3000/asiento/getReserva
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+    "idAsiento": "66a6d3fa1c9570011db88fdc",
+    "idLugar": "66a52b6c89b4ae4007773f2c",
+    "identificacionCliente": 1234567890
+}
+```
+
+
+
+##### PETICION:  PUT
+
+##### URI: http://localhost:3000/asiento/returnReserva
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+    "idAsiento": "66a6d3fa1c9570011db88fdc",
+    "idLugar": "66a52b6c89b4ae4007773f2c",
+    "identificacionCliente": 1234567890
+}
+```
+
 
 
 # 4) Descuentos y Tarjetas VIP

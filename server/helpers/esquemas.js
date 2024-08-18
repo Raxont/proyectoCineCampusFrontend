@@ -209,36 +209,42 @@
 */
 
 /** //* Esquema asientos
- * {
-  "$jsonSchema": {
-    "bsonType": "object", // ? El tipo de dato debe ser un objeto
-    "required": [ // ? Campos obligatorios en el objeto
-      "tipo_fila",
-      "codigo",
-      "incremento",
-      "id_lugar"
+ *{
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'tipo_fila',
+      'codigo',
+      'incremento',
+      'id_lugar'
     ],
-    "properties": { // ? Propiedades del objeto
-      "tipo_fila": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "enum": ["premier", "general"], // ? Valores permitidos para el tipo de fila
-        "description": "Ingrese si es 'premier' o 'general'" // ? Descripción de la propiedad
+    properties: {
+      tipo_fila: {
+        bsonType: 'string',
+        'enum': [
+          'premier',
+          'general'
+        ],
+        description: 'Ingrese si es \'premier\' o \'general\''
       },
-      "codigo": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "pattern": "^[A-Z]\\d{2}$", // ? Expresión regular para validar el código del asiento (debe seguir el formato 'A01', 'B23', etc.)
-        "description": "El código del asiento debe seguir el formato 'A01', 'B23', etc." // ? Descripción de la propiedad
+      codigo: {
+        bsonType: 'string',
+        pattern: '^[A-Z]\\d{2}$',
+        description: 'El código del asiento debe seguir el formato \'A01\', \'B23\', etc.'
       },
-      "incremento": {
-        "bsonType": "double", // ? El dato debe ser un número de tipo double
-        "enum": [0, 0.10], // ? Valores permitidos para el incremento
-        "description": "Ingrese el número 0 o 0.10" // ? Descripción de la propiedad
+      incremento: {
+        bsonType: 'int',
+        'enum': [
+          0,
+          10
+        ],
+        description: 'Ingrese el número 0 o 10'
       },
-      "id_lugar": {
-        "bsonType": "array", // ? El dato debe ser de tipo array
-        "items": { // ? Cada elemento del arreglo
-          "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
-          "description": "Este dato tiene que ser ObjectID" // ? Descripción de la propiedad
+      id_lugar: {
+        bsonType: 'array',
+        items: {
+          bsonType: 'objectId',
+          description: 'Este dato tiene que ser ObjectID'
         }
       }
     }
