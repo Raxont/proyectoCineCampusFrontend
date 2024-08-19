@@ -42,6 +42,34 @@ Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección 
 | `deleteLugar`                  | *Elimina un lugar por su ID*                                 |
 | `getLugaresByPelicula`         | *Filtra lugares por una película específica*                 |
 
+# Datos a quemar 
+
+##### PETICION:  GET
+
+##### URI: http://localhost:3000/lugar/lugaresPorFecha?fechaInicioFiltro=2024-08-21
+
+##### HEADER: Content-Type : application/json
+
+#### Query:
+
+```json
+fechaInicioFiltro = 2024-08-21
+```
+
+
+
+##### PETICION:  GET
+
+##### URI: http://localhost:3000/lugar/lugaresPorPelicula?idPelicula=66a57941a0881522cdaabb9d
+
+##### HEADER: Content-Type : application/json
+
+#### Query:
+
+```json
+idPelicula = 66a57941a0881522cdaabb9d
+```
+
 
 
 # 2) Compra de Boletos

@@ -12,8 +12,8 @@ module.exports = class connect {
   static instance; // ! Instancia única de la clase
 
   constructor() {
-    if (typeof connect.instance === "object") {
-      return connect.instance; // ! Retorna la instancia existente si ya está creada
+    if (connect.instance) {
+      return connect.instance;
     }
     this.user = process.env.MONGO_USER; // ? Asigna el usuario desde las variables de entorno
     this.port = process.env.MONGO_PORT; // ? Asigna el puerto desde las variables de entorno
@@ -21,7 +21,6 @@ module.exports = class connect {
     this.#host = process.env.MONGO_HOST; // ? Asigna el host desde las variables de entorno
     this.#cluster = process.env.MONGO_CLUSTER; // ? Asigna el cluster desde las variables de entorno
     this.#dbName = process.env.MONGO_DB; // ? Asigna el nombre de la base de datos desde las variables de entorno
-    this.permissions = (process.env.USER_PERMISSIONS || "").split(","); // ? Asigna los permisos del usuario desde las variables de entorno
     this.#open(); // * Abre la conexión a la base de datos
     this.db = this.conexion.db(this.getDbName); // ? Asigna la base de datos a la conexión
     connect.instance = this; // ! Guarda la instancia actual para futuras referencias
@@ -72,6 +71,7 @@ module.exports = class connect {
   async #open() {
     this.conexion = new MongoClient(`${this.getHost}${this.user}:${this.getPass}@${this.getCluster}:${this.port}/${this.getDbName}`); // ? Crea una nueva instancia de MongoClient con la URI de conexión
     await this.conexion.connect(); // ? Establece la conexión con la base de datos
+    this.db = this.conexion.db(this.dbName);
   }
 
   //* Reconecta a la base de datos

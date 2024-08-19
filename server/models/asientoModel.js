@@ -3,13 +3,8 @@ const connect = require("../infrastructure/database/conexion");
 
 class AsientoModel extends connect {
   constructor() {
-    if (typeof AsientoModel.instance === "object") {
-      return AsientoModel.instance;
-    }
     super();
     this.collection = this.db.collection("asientos");
-    AsientoModel.instance = this;
-    return this;
   }
 
   async findAsientoById(idAsiento) {

@@ -1,5 +1,4 @@
 class AsientoDTO {
-    
     templateNotAsiento() {
         return {
             status: 404,
@@ -15,16 +14,58 @@ class AsientoDTO {
         };
     }
 
-    templateInvalidAction(arg) {
+    templateInvalidClient() {
         return {
-            status: 400,
-            message: arg || "Acción no válida"
+            status: 404,
+            message: "El usuario no tiene una boleta creada para la reserva."
         };
     }
 
-    templateListAsiento(arg) {
+    templateAsientoInBoleta() {
+        return {
+            status: 400,
+            message: "El asiento ya está registrado en la boleta."
+        };
+    }
+
+    templateLugarMismatch() {
+        return {
+            status: 400,
+            message: "El lugar no coincide con el registrado en la boleta."
+        };
+    }
+
+    templateAsientoNotInBoleta() {
+        return {
+            status: 400,
+            message: "El asiento no está registrado en la boleta."
+        };
+    }
+
+    templateUpdateSuccess() {
         return {
             status: 200,
+            message: "Asiento actualizado correctamente en la boleta."
+        };
+    }
+
+    templateRevertSuccess() {
+        return {
+            status: 200,
+            message: "Asiento revertido correctamente en la boleta."
+        };
+    }
+
+    templateErrorInternal() {
+        return {
+            status: 500,
+            message: "Error interno del servidor."
+        };
+    }
+
+    templateInvalidAction(arg) {
+        return {
+            status: 400,
             message: arg
         };
     }
