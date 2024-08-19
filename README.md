@@ -70,7 +70,7 @@ fechaInicioFiltro = 2024-08-21
 idPelicula = 66a57941a0881522cdaabb9d
 ```
 
-
+##### 
 
 # 2) Compra de Boletos
 
@@ -120,7 +120,95 @@ Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección
 | `updateLugar`                | *Actualiza la información de una boleta*                     |
 | `deleteLugar`                | *Elimina la boleta por su ID*                                |
 
+# Datos a quemar 
 
+### Obtener todas las boletas
+
+##### PETICION:  GET
+
+##### URI: http://localhost:3000/boleta/getAllBoletas
+
+##### HEADER: Content-Type : application/json
+
+### Obtener las boletas por cliente
+
+##### PETICION:  GET
+
+##### URI: http://localhost:3000/boleta/boletasPorCliente?identificacionCliente=1234567890
+
+##### HEADER: Content-Type : application/json
+
+#### Query:
+
+```json
+identificacionCliente = 1234567890
+```
+
+### Obtener los asientos disponibles
+
+##### PETICION:  GET
+
+##### URI: http://localhost:3000/boleta/asientosDisponibles?idLugar=66a52b6c89b4ae4007773f2c
+
+##### HEADER: Content-Type : application/json
+
+#### Query:
+
+```json
+idLugar = 66a52b6c89b4ae4007773f2c
+```
+
+### Agregar una nueva boleta
+
+##### PETICION:  POST
+
+##### URI: http://localhost:3000/boleta/agregarBoleta
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+  "identificacion_cliente": 1234512345,
+  "id_lugar":"66a579bb7b00907fab0aee94",
+  "fecha_adquisicion": "2024-08-19T12:00:00Z",
+  "estado": "fisico",
+  "id_asiento": []
+}
+```
+
+### Actualizar una boleta
+
+##### PETICION:  PUT
+
+##### URI: http://localhost:3000/boleta/actualizarBoleta/66c3955f80bb8b9f717d8746
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+    "estado": "en_linea"
+}
+```
+
+### Eliminar una boleta
+
+##### PETICION:  DELETE
+
+##### URI: http://localhost:3000/boleta/eliminarBoleta?idBoleta=66c3955f80bb8b9f717d8746
+
+##### HEADER: Content-Type : application/json
+
+#### Query:
+
+```json
+idBoleta = 66c3955f80bb8b9f717d8746
+```
+
+### 
 
 # 3) Asignación de Asientos
 
@@ -156,6 +244,8 @@ Tengo un módulo llamado `asientos.js`, en el cual manejo mi colección `asiento
 
 # Datos a quemar 
 
+### Reservar un asiento
+
 ##### PETICION:  PUT
 
 ##### URI: http://localhost:3000/asiento/getReserva
@@ -172,7 +262,7 @@ Tengo un módulo llamado `asientos.js`, en el cual manejo mi colección `asiento
 }
 ```
 
-
+### Cancelar la reserva de un asiento
 
 ##### PETICION:  PUT
 

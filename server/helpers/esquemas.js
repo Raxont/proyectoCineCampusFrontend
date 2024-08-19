@@ -1,39 +1,42 @@
 /** //* Esquema boleta
  * {
-  "$jsonSchema": {
-    "bsonType": "object", // ? El tipo de dato debe ser un objeto
-    "required": [// ? Campos obligatorios en el objeto
-    "identificacion_cliente", 
-    "id_lugar", 
-    "fecha_adquisicion",
-    "estado",
-    "id_asiento"
-    ], 
-    "properties": { // ? Propiedades del objeto
-      "identificacion_cliente": {
-        "bsonType": "int", // ? El dato debe ser un entero
-        "description": "El dato debe ser un entero de 10 dígitos", // ? Descripción de la propiedad
-        "minimum": 1000000000, // ? Mínimo valor permitido (10 dígitos)
-        "maximum": 9999999999 // ? Máximo valor permitido (10 dígitos)
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'identificacion_cliente',
+      'id_lugar',
+      'fecha_adquisicion',
+      'estado',
+      'id_asiento'
+    ],
+    properties: {
+      identificacion_cliente: {
+        bsonType: 'int',
+        description: 'El dato debe ser un entero de 10 dígitos',
+        minimum: 1000000000,
+        maximum: 9999999999
       },
-      "id_lugar": {
-        "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
-        "description": "Este dato tiene que ser ObjectID" // ? Descripción de la propiedad
+      id_lugar: {
+        bsonType: 'objectId',
+        description: 'Este dato tiene que ser ObjectID'
       },
-      "fecha_adquisicion": {
-        "bsonType": "date", // ? El dato debe ser una fecha en formato ISODate
-        "description": "La fecha debe ser formato ISODate" // ? Descripción de la propiedad
+      fecha_adquisicion: {
+        bsonType: 'date',
+        description: 'La fecha debe ser formato ISODate'
       },
-      "estado": {
-        "bsonType": "string", // ? El dato debe ser una fecha en formato ISODate
-        "enum": ["fisico", "en_linea"], // ? Valores permitidos
-        "description": "Solo puede ser fisico o en_linea" // ? Descripción de la propiedad
+      estado: {
+        bsonType: 'string',
+        'enum': [
+          'fisico',
+          'en_linea'
+        ],
+        description: 'Solo puede ser fisico o en_linea'
       },
-      "id_asiento": {
-        "bsonType": "array", // ? El dato debe ser de tipo array
-        "items": { // ? Cada elemento del arreglo
-          "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
-          "description": "Este dato tiene que ser ObjectID" // ? Descripción de la propiedad
+      id_asiento: {
+        bsonType: 'array',
+        items: {
+          bsonType: 'objectId',
+          description: 'Este dato tiene que ser ObjectID'
         }
       }
     }
@@ -43,49 +46,53 @@
 
 /** //* Esquema cliente
  * {
-  "$jsonSchema": {
-    "bsonType": "object", // ? El tipo de dato debe ser un objeto
-    "required": [ // ? Campos obligatorios en el objeto
-        "identificacion", 
-        "nombre", 
-        "nick", 
-        "email", 
-        "telefono", 
-        "estado"
-    ], 
-    "properties": { // ? Propiedades del objeto
-      "identificacion": {
-        "bsonType": "int", // ? El dato debe ser un entero
-        "description": "El dato debe ser un entero de 10 dígitos", // ? Descripción de la propiedad
-        "minimum": 1000000000, // ? Mínimo valor permitido (10 dígitos)
-        "maximum": 9999999999 // ? Máximo valor permitido (10 dígitos)
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'identificacion',
+      'nombre',
+      'nick',
+      'email',
+      'telefono',
+      'estado'
+    ],
+    properties: {
+      identificacion: {
+        bsonType: 'int',
+        description: 'El dato debe ser un entero de 10 dígitos',
+        minimum: 1000000000,
+        maximum: 9999999999
       },
-      "nombre": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "description": "No se aceptan caracteres especiales en el nombre", // ? Descripción de la propiedad
-        "pattern": "^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" // ? Expresión regular para validar el nombre
+      nombre: {
+        bsonType: 'string',
+        description: 'No se aceptan caracteres especiales en el nombre',
+        pattern: '^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$'
       },
-      "nick": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "description": "Debe tener entre 3 y 15 caracteres", // ? Descripción de la propiedad
-        "pattern": "^[A-Za-z0-9._]{3,15}$" // ? Expresión regular para validar el nick
+      nick: {
+        bsonType: 'string',
+        description: 'Debe tener entre 3 y 15 caracteres',
+        pattern: '^[A-Za-z0-9._]{3,15}$'
       },
-      "email": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "description": "Debe ser una dirección de correo electrónico válida" // ? Descripción de la propiedad
+      email: {
+        bsonType: 'string',
+        description: 'Debe ser una dirección de correo electrónico válida'
       },
-      "telefono": {
-        "bsonType": "array", // ? El dato debe ser un arreglo
-        "items": { // ? Cada elemento del arreglo
-          "bsonType": "string", // ? Debe ser una cadena de caracteres
-          "pattern": "^[1-9]\\d{9}$", // ? Expresión regular para validar el teléfono
-          "description": "El dato debe tener exactamente 10 números. Se permiten espacios opcionales" // ? Descripción de la propiedad
+      telefono: {
+        bsonType: 'array',
+        items: {
+          bsonType: 'string',
+          pattern: '^[1-9]\\d{9}$',
+          description: 'El dato debe tener exactamente 10 números. Se permiten espacios opcionales'
         }
       },
-      "estado": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "enum": ["admindb", "cliente","clienteVIP"], // ? Valores permitidos
-        "description": "Solo puede ser 'admindb' , 'cliente' , 'clienteVIP'" // ? Descripción de la propiedad
+      estado: {
+        bsonType: 'string',
+        'enum': [
+          'administrador',
+          'usuarioEstandar',
+          'usuarioVip'
+        ],
+        description: 'Solo puede ser \'administrador\' , \'usuarioEstandar\' , \'usuarioVip\''
       }
     }
   }
@@ -94,35 +101,38 @@
 
 /** //* Esquema tarjeta
  * {
-  "$jsonSchema": {
-    "bsonType": "object", // ? El tipo de dato debe ser un objeto
-    "required": [ // ? Campos obligatorios en el objeto
-        "numero", 
-        "identificacion_cliente", 
-        "fecha_expedicion", 
-        "estado"
-    ], 
-    "properties": { // ? Propiedades del objeto
-      "numero": {
-        "bsonType": "int", // ? El dato debe ser un entero
-        "description": "El numero de documento solo puede tener 6 dígitos", // ? Descripción de la propiedad
-        "minimum": 100000, // ? Mínimo valor permitido (6 dígitos)
-        "maximum": 999999 // ? Máximo valor permitido (6 dígitos)
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'numero',
+      'identificacion_cliente',
+      'fecha_expedicion',
+      'estado'
+    ],
+    properties: {
+      numero: {
+        bsonType: 'int',
+        description: 'El numero de documento solo puede tener 6 dígitos',
+        minimum: 100000,
+        maximum: 999999
       },
-      "identificacion_cliente": {
-        "bsonType": "int", // ? El dato debe ser un entero
-        "description": "El dato debe ser un entero de 10 dígitos", // ? Descripción de la propiedad
-        "minimum": 1000000000, // ? Mínimo valor permitido (10 dígitos)
-        "maximum": 9999999999 // ? Máximo valor permitido (10 dígitos)
+      identificacion_cliente: {
+        bsonType: 'int',
+        description: 'El dato debe ser un entero de 10 dígitos',
+        minimum: 1000000000,
+        maximum: 9999999999
       },
-      "fecha_expedicion": {
-        "bsonType": "date", // ? El dato debe ser una fecha en formato ISODate
-        "description": "La fecha debe ser en formato ISODate" // ? Descripción de la propiedad
+      fecha_expedicion: {
+        bsonType: 'date',
+        description: 'La fecha debe ser en formato ISODate'
       },
-      "estado": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "enum": ["activo", "vencido"], // ? Valores permitidos
-        "description": "El estado debe ser 'activo' o 'vencido'" // ? Descripción de la propiedad
+      estado: {
+        bsonType: 'string',
+        'enum': [
+          'activo',
+          'vencido'
+        ],
+        description: 'El estado debe ser \'activo\' o \'vencido\''
       }
     }
   }
@@ -131,38 +141,38 @@
 
 /** //* Esquema pelicula
  * {
-  "$jsonSchema": {
-    "bsonType": "object", // ? El tipo de dato debe ser un objeto
-    "required": [ // ? Campos obligatorios en el objeto
-      "titulo",
-      "genero",
-      "duracion",
-      "sinopsis"
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'titulo',
+      'genero',
+      'duracion',
+      'sinopsis'
     ],
-    "properties": { // ? Propiedades del objeto
-      "titulo": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "pattern": "^[A-Za-z0-9\\s\\-\\'\\\"()]{1,100}$", // ? Expresión regular para validar el título (1-100 caracteres)
-        "description": "El título no puede ser de más de 100 caracteres" // ? Descripción de la propiedad
+    properties: {
+      titulo: {
+        bsonType: 'string',
+        pattern: '^[A-Za-z0-9\\s\\-\\\'\\"()]{1,100}$',
+        description: 'El título no puede ser de más de 100 caracteres'
       },
-      "genero": {
-        "bsonType": "array", // ? El dato debe ser un arreglo
-        "items": { // ? Elementos del arreglo
-          "bsonType": "string", // ? Cada elemento del arreglo debe ser una cadena de caracteres
-          "pattern": "^[A-Za-z\\s\\-]{1,50}$", // ? Expresión regular para validar el género (1-50 caracteres)
-          "description": "El género no puede ser de más de 50 caracteres" // ? Descripción de la propiedad
+      genero: {
+        bsonType: 'array',
+        items: {
+          bsonType: 'string',
+          pattern: '^[A-Za-z\\s\\-]{1,50}$',
+          description: 'El género no puede ser de más de 50 caracteres'
         }
       },
-      "duracion": {
-        "bsonType": "int", // ? El dato debe ser un entero
-        "minimum": 1, // ? Mínimo valor permitido
-        "maximum": 999, // ? Máximo valor permitido
-        "description": "La duración no puede ser mayor a 999 ni menor a 1" // ? Descripción de la propiedad
+      duracion: {
+        bsonType: 'int',
+        minimum: 1,
+        maximum: 999,
+        description: 'La duración no puede ser mayor a 999 ni menor a 1'
       },
-      "sinopsis": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "pattern": "^[\\s\\S]{1,400}$", // ? Expresión regular para validar la sinopsis (1-400 caracteres)
-        "description": "La sinopsis no puede ser de más de 400 caracteres" // ? Descripción de la propiedad
+      sinopsis: {
+        bsonType: 'string',
+        pattern: '^[\\s\\S]{1,400}$',
+        description: 'La sinopsis no puede ser de más de 400 caracteres'
       }
     }
   }
@@ -171,37 +181,37 @@
 
 /** //* Esquema lugar
  * {
-  "$jsonSchema": {
-    "bsonType": "object", // ? El tipo de dato debe ser un objeto
-    "required": [ // ? Campos obligatorios en el objeto
-      "nombre",
-      "precio",
-      "fecha_inicio",
-      "fecha_fin",
-      "id_pelicula"
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'nombre',
+      'precio',
+      'fecha_inicio',
+      'fecha_fin',
+      'id_pelicula'
     ],
-    "properties": { // ? Propiedades del objeto
-      "nombre": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "pattern": "^Sala \\d{2}$", // ? Expresión regular para validar el nombre (debe seguir el formato 'Sala XX', donde XX son dos números)
-        "description": "El nombre de la sala debe seguir el formato 'Sala XX', donde XX son dos números" // ? Descripción de la propiedad
+    properties: {
+      nombre: {
+        bsonType: 'string',
+        pattern: '^Sala \\d{2}$',
+        description: 'El nombre de la sala debe seguir el formato \'Sala XX\', donde XX son dos números'
       },
-      "precio": {
-        "bsonType": "string", // ? El dato debe ser una cadena de caracteres
-        "pattern": "^[0-9]+(\\.[0-9]{1,2})?$", // ? Expresión regular para validar el precio (números y opcionalmente hasta dos decimales)
-        "description": "El precio solo puede contener números y opcionalmente hasta dos decimales" // ? Descripción de la propiedad
+      precio: {
+        bsonType: 'string',
+        pattern: '^[0-9]+(\\.[0-9]{1,2})?$',
+        description: 'El precio solo puede contener números y opcionalmente hasta dos decimales'
       },
-      "fecha_inicio": {
-        "bsonType": "date", // ? El dato debe ser una fecha en formato ISODate
-        "description": "Solo el formato ISODate es admitido" // ? Descripción de la propiedad
+      fecha_inicio: {
+        bsonType: 'date',
+        description: 'Solo el formato ISODate es admitido'
       },
-      "fecha_fin": {
-        "bsonType": "date", // ? El dato debe ser una fecha en formato ISODate
-        "description": "Solo el formato ISODate es admitido" // ? Descripción de la propiedad
+      fecha_fin: {
+        bsonType: 'date',
+        description: 'Solo el formato ISODate es admitido'
       },
-      "id_pelicula": {
-        "bsonType": "objectId", // ? El dato debe ser de tipo ObjectId
-        "description": "Solo el formato ObjectId es admitido" // ? Descripción de la propiedad
+      id_pelicula: {
+        bsonType: 'objectId',
+        description: 'Solo el formato ObjectId es admitido'
       }
     }
   }

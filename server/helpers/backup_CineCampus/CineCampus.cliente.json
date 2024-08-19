@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "66ac08b271e98161a66e6f8f"
+  },
+  "identificacion": 1234567890,
+  "nombre": "user a",
+  "nick": "user",
+  "email": "carlos_andres@gmail.com",
+  "telefono": [
+    "3139670075"
+  ],
+  "estado": "usuarioVip"
+},
+{
+  "_id": {
+    "$oid": "66c37521fed0139f5662e118"
+  },
+  "identificacion": 1234512345,
+  "nombre": "Juan Perez",
+  "nick": "juan123",
+  "email": "juan.perez@example.com",
+  "telefono": [
+    "1234567890"
+  ],
+  "estado": "usuarioEstandar"
+}]

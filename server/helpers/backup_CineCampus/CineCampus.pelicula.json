@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "66a57941a0881522cdaabb9d"
+  },
+  "titulo": "La gran aventura",
+  "genero": [
+    "Acción",
+    "Aventura"
+  ],
+  "duracion": 120,
+  "sinopsis": "En un mundo lleno de peligros, un héroe debe emprender una misión para salvar a su pueblo."
+},
+{
+  "_id": {
+    "$oid": "66ac3b54f0c3a666f6614814"
+  },
+  "titulo": "El Gran Escape",
+  "genero": [
+    "Aventura",
+    "Accion"
+  ],
+  "duracion": 120,
+  "sinopsis": "Un grupo de prisioneros de guerra planea una fuga masiva de un campo de concentración nazi."
+},
+{
+  "_id": {
+    "$oid": "66ac3b54f0c3a666f6614815"
+  },
+  "titulo": "Cazadores de Tesoros",
+  "genero": [
+    "Aventura",
+    "Comedia"
+  ],
+  "duracion": 105,
+  "sinopsis": "Un excéntrico equipo de cazadores de tesoros se embarca en una misión para encontrar un artefacto perdido."
+},
+{
+  "_id": {
+    "$oid": "66ac3b54f0c3a666f6614816"
+  },
+  "titulo": "Amor en los Tiempos del Colera",
+  "genero": [
+    "Drama",
+    "Romance"
+  ],
+  "duracion": 135,
+  "sinopsis": "Una historia de amor que se desarrolla en medio de la violencia y la enfermedad en una pequeña ciudad colombiana."
+},
+{
+  "_id": {
+    "$oid": "66ac3b73f0c3a666f6614818"
+  },
+  "titulo": "El Gran Escape",
+  "genero": [
+    "Aventura",
+    "Accion"
+  ],
+  "duracion": 120,
+  "sinopsis": "Un grupo de prisioneros de guerra planea una fuga masiva de un campo de concentración nazi."
+},
+{
+  "_id": {
+    "$oid": "66ac3b73f0c3a666f6614819"
+  },
+  "titulo": "Cazadores de Tesoros",
+  "genero": [
+    "Aventura",
+    "Comedia"
+  ],
+  "duracion": 105,
+  "sinopsis": "Un excéntrico equipo de cazadores de tesoros se embarca en una misión para encontrar un artefacto perdido."
+},
+{
+  "_id": {
+    "$oid": "66ac3b73f0c3a666f661481a"
+  },
+  "titulo": "Amor en los Tiempos del Colera",
+  "genero": [
+    "Drama",
+    "Romance"
+  ],
+  "duracion": 135,
+  "sinopsis": "Una historia de amor que se desarrolla en medio de la violencia y la enfermedad en una pequeña ciudad colombiana."
+},
+{
+  "_id": {
+    "$oid": "66ac3b73f0c3a666f661481b"
+  },
+  "titulo": "El Ultimo Guerrero",
+  "genero": [
+    "Accion",
+    "Fantasia"
+  ],
+  "duracion": 145,
+  "sinopsis": "Un guerrero solitario debe enfrentar a un ejército de criaturas mágicas para salvar su reino."
+}]

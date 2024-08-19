@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "66a52b6c89b4ae4007773f2c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-08-20T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-08-20T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66a57941a0881522cdaabb9d"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a579bb7b00907fab0aee94"
+  },
+  "nombre": "Sala 02",
+  "precio": "20.50",
+  "fecha_inicio": {
+    "$date": "2024-08-01T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-08-01T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66ac3b54f0c3a666f6614815"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a585133098ad52758cab05"
+  },
+  "nombre": "Sala 03",
+  "precio": "10.50",
+  "fecha_inicio": {
+    "$date": "2024-08-30T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-08-30T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66ac3b54f0c3a666f6614814"
+  }
+}]

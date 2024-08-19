@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "66ac3d3f559d4977c838a12d"
+  },
+  "identificacion_cliente": 1234567890,
+  "id_lugar": {
+    "$oid": "66a52b6c89b4ae4007773f2c"
+  },
+  "fecha_adquisicion": {
+    "$date": "2024-08-02T01:58:23.161Z"
+  },
+  "estado": "en_linea",
+  "id_asiento": []
+}]

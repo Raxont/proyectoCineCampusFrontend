@@ -1,0 +1,114 @@
+[{
+  "_id": {
+    "$oid": "66a6d3fa1c9570011db88fdb"
+  },
+  "tipo_fila": "premier",
+  "codigo": "A01",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a6d3fa1c9570011db88fdc"
+  },
+  "tipo_fila": "premier",
+  "codigo": "A02",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a6d3fa1c9570011db88fdd"
+  },
+  "tipo_fila": "premier",
+  "codigo": "A03",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a6d3fa1c9570011db88fde"
+  },
+  "tipo_fila": "general",
+  "codigo": "B01",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a6d3fa1c9570011db88fdf"
+  },
+  "tipo_fila": "general",
+  "codigo": "B02",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a6d3fa1c9570011db88fe0"
+  },
+  "tipo_fila": "general",
+  "codigo": "B03",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    }
+  ]
+}]

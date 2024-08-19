@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "66a9588b5a6b264ba0ae9006"
+  },
+  "numero": 123456,
+  "fecha_expedicion": {
+    "$date": "2024-07-28T00:00:00.000Z"
+  },
+  "estado": "activo",
+  "identificacion_cliente": 1234567890
+}]
