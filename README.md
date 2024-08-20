@@ -44,6 +44,8 @@ Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección 
 
 # Datos a quemar 
 
+### Filtrar los lugares por fecha deseada
+
 ##### PETICION:  GET
 
 ##### URI: http://localhost:3000/lugar/lugaresPorFecha?fechaInicioFiltro=2024-08-21
@@ -56,7 +58,7 @@ Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección 
 fechaInicioFiltro = 2024-08-21
 ```
 
-
+### Mostar la informacion completa de una pelicula
 
 ##### PETICION:  GET
 
@@ -70,7 +72,7 @@ fechaInicioFiltro = 2024-08-21
 idPelicula = 66a57941a0881522cdaabb9d
 ```
 
-##### 
+
 
 # 2) Compra de Boletos
 
@@ -208,7 +210,7 @@ idLugar = 66a52b6c89b4ae4007773f2c
 idBoleta = 66c3955f80bb8b9f717d8746
 ```
 
-### 
+
 
 # 3) Asignación de Asientos
 
@@ -311,7 +313,43 @@ Tengo un módulo llamado `tarjeta.js`, en el cual manejo mi colección `tarjeta`
 | `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
 | `priceDiscount`      | *Permite la verificación de la validez de una tarjeta VIP y aplica el descuento a su compra* |
 
+### Obtener el descuento si tiene una tarjeta
 
+##### PETICION:  POST
+
+##### URI: http://localhost:3000/tarjeta/getDescuento
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+  "idLugar":"66a52b6c89b4ae4007773f2c", 
+  "identificacionCliente": 1234567890
+}
+```
+
+### Agregar una nueva tarjeta VIP
+
+##### PETICION:  POST
+
+##### URI: http://localhost:3000/tarjeta/createTarjeta
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+  "identificacionCliente":1234512345, 
+  "numero": 654321,
+  "fecha_expedicion": "2024-08-19T00:00:00.000Z",
+  "estado": "activo"
+}
+```
+
+### 
 
 # 5) Roles Definidos
 
