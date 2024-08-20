@@ -1,20 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const ClienteController = require('../controllers/clienteController');
-
-const clienteController = new ClienteController();
+const {createUser, showInfoUser, updateUser, UsersRol} = require('../controllers/clienteController');
 
 // Ruta para crear un nuevo cliente
-router.post('/crear', (req, res) => clienteController.createUser(req, res));
+router.post('/crear', (req, res) => createUser(req, res));
 
 // Ruta para obtener la información de un cliente por identificación
-router.get('/info/:identificacion', (req, res) => clienteController.showInfoUser(req, res));
+router.get('/info/:identificacion', (req, res) => showInfoUser(req, res));
 
 // Ruta para actualizar la información de un cliente
-router.put('/actualizar', (req, res) => clienteController.updateUser(req, res));
+router.put('/actualizar', (req, res) => updateUser(req, res));
 
 // Ruta para obtener todos los clientes con un rol específico
-router.get('/rol/:rol', (req, res) => clienteController.UsersRol(req, res));
+router.get('/rol/:rol', (req, res) => UsersRol(req, res));
 
 // Ruta principal para clientes
 router.get('/', (req, res) => {

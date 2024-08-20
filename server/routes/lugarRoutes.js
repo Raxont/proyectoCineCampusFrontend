@@ -2,13 +2,11 @@ const express = require('express');
 const router = express.Router();
 const LugarController = require('../controllers/lugarController');
 
-const lugarController = new LugarController();
-
 // Ruta para obtener todos los lugares por fecha
-router.get('/lugaresPorFecha', (req, res) => lugarController.LugarRequest(req, res));
+router.get('/lugaresPorFecha', (req, res) => LugarController(req, res));
 
 // Ruta para obtener lugares por película específica
-router.get('/lugaresPorPelicula', (req, res) => lugarController.LugarRequest(req, res));
+router.get('/lugaresPorPelicula', (req, res) => LugarController(req, res));
 
 // Ruta para verificar la API
 router.get('/', (req, res) => {
