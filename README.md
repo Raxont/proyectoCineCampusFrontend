@@ -1,3 +1,89 @@
+# CineCampus
+
+Proyecto de una simulación de un cine en Node.js usando Express.js, con base de datos MongoDB Local
+
+Este proyecto cuenta con una selección para películas, compra de boletos, reserva de asientos, descuentos si son usuarios Vip, una creación de clientes para el manejo de la base de datos y un carrito de compras
+
+Es necesario tener instalado mongoDB, mongo shell y las herramientas de mongoDB:
+
+MongoDB:
+
+```http
+https://www.mongodb.com/try/download/community
+```
+
+Mongo Shell:
+
+```http
+https://www.mongodb.com/try/download/shell
+```
+
+Herramientas de mongoDB:
+
+```http
+https://www.mongodb.com/try/download/database-tools
+```
+
+
+
+## Instalación de mi proyecto
+
+Clonar el repo:
+
+```javascript
+git clone https://github.com/Raxont/Proyecto-Mongo-II.git
+```
+
+Dirigirse a la rama CommonJS:
+
+```javascript
+git checkout CommonJS
+```
+
+Instalar paquetes:
+
+```javascript
+npm i
+```
+
+Crear un .env para las variables de entorno
+
+```javascript
+cp .envTemplate .env
+```
+
+Crear la base de datos localmente con mongoDB y configurar el .env con los datos de su conexión
+
+```javascript
+MONGO_USER
+MONGO_PORT
+MONGO_PWD
+MONGO_HOST
+MONGO_CLUSTER
+MONGO_DB
+```
+
+importar la base de datos del backup_CineCampus:
+
+```javascript
+npm run import
+```
+
+Crea la conexión con un servidor local con Express.js y configura el .env con los datos de su conexion
+
+```javascript
+HOST
+PORT
+```
+
+Inicializar el proyecto
+
+```javascript
+npm run dev
+```
+
+
+
 # 1) Selección de películas
 
 Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainLugar()`. En esa parte, defino una constante llamada `actionLugar`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos.
@@ -448,13 +534,15 @@ Tengo un módulo llamado `cliente.js`, en el cual manejo mi colección `cliente`
 
 ##### HEADER: Content-Type : application/json
 
-### 
+
 
 # - Instalación librería validator.js
 
 Se instala la librería `validator.js` para realizar una validación más robusta de los correos electrónicos ingresados en la base de datos, evitando así el uso de patrones de expresión regular para este propósito
 
+# - Instalación paquete dotenv
 
+Se instala el paquete `dotenv` para cargar mis archivos a mi script con el cual estoy importando el backup de mi base de datos a mi base de datos local
 
 # - Creación del super usuario, administrador, usuario y usuario vip
 
@@ -587,7 +675,6 @@ MONGO_PWD="admin"
 MONGO_HOST="mongodb://"
 MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
 MONGO_DB="CineCampus"
-USER_PERMISSIONS="view,add,update,delete"
 ```
 
 ```javascript
@@ -597,7 +684,6 @@ MONGO_PWD="user" (Clave del vip "vip")
 MONGO_HOST="mongodb://"
 MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
 MONGO_DB="CineCampus"
-USER_PERMISSIONS="view,add"
 ```
 
 Los dos tipos de usuarios diferentes al administrador solo podrían ver y crear en las diferentes colecciones
