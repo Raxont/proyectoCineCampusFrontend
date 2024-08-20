@@ -1,6 +1,7 @@
 const express = require("express");
 
-const tarjetaRoutes = require("./routes/tarjetaRoutes")
+const clienteRoutes = require("./routes/clienteRoutes");
+// const tarjetaRoutes = require("./routes/tarjetaRoutes");
 //const boletaRoutes = require("./routes/boletaRoutes");
 // const lugarRoutes = require("./routes/lugarRoutes");
 // const asientoRoutes = require("./routes/asientoRoutes");
@@ -8,7 +9,9 @@ const tarjetaRoutes = require("./routes/tarjetaRoutes")
 const app = express();
 app.use(express.json());
 
-app.use("/tarjeta", tarjetaRoutes);
+
+app.use("/cliente", clienteRoutes);
+// app.use("/tarjeta", tarjetaRoutes);
 //app.use("/boleta", boletaRoutes);
 // app.use("/asiento", asientoRoutes);
 // app.use("/lugar", lugarRoutes);

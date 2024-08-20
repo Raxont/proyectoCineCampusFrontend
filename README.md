@@ -349,7 +349,7 @@ Tengo un módulo llamado `tarjeta.js`, en el cual manejo mi colección `tarjeta`
 }
 ```
 
-### 
+
 
 # 5) Roles Definidos
 
@@ -390,7 +390,65 @@ Tengo un módulo llamado `cliente.js`, en el cual manejo mi colección `cliente`
 | `UpdateInfoUser`     | *Actualiza el usuario por numero de identificacion*          |
 | `AllUsersRol`        | *Consulta todos los usuarios del sistema, con la posibilidad de filtrar por rol* |
 
+# Datos a quemar 
 
+### Crear un cliente
+
+##### PETICION:  POST
+
+##### URI: http://localhost:3000/cliente/crear
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+  "identificacion": 1234567899,
+  "nombre": "Juan Vip",
+  "nick": "juanvip",
+  "email": "juan.perez@example.com",
+  "telefono": ["1234567890"],
+  "estado": "usuarioVip"
+}
+```
+
+### Buscar un cliente por la identificacion
+
+##### PETICION:  GET
+
+##### URI: http://localhost:3000/cliente/info/1234567890
+
+##### HEADER: Content-Type : application/json
+
+### Actualizar un cliente
+
+##### PETICION:  PUT
+
+##### URI: http://localhost:3000/cliente/actualizar
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+  "identificacion": 1234567890,
+  "estado": "usuarioEstandar",
+  "nick": "user",
+  "email": "carlos_andres@gmail.co"
+}
+```
+
+### Obtener los clientes por rol
+
+##### PETICION:  GET
+
+##### URI: http://localhost:3000/cliente/rol/usuarioVip
+
+##### HEADER: Content-Type : application/json
+
+### 
 
 # - Instalación librería validator.js
 
