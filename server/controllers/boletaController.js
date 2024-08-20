@@ -11,14 +11,14 @@ const BoletaController = async (req, res) => {
 
   const { identificacionCliente, idLugar, idBoleta } = req.query;
   const boletaData = req.body;
-
+  const boletaModel = new BoletaModel();
+  const boletaDto = new BoletaDTO();
   try {
-    const boletaModel = new BoletaModel();
-    const boletaDto = new BoletaDTO();
+    
     // Validar existencia del identificacionCliente
     if (identificacionCliente) {
       if (!/^\d+$/.test(identificacionCliente)) {
-        return res.status(400).json(this.boletaDto.templateInvalidId());
+        return res.status(400).json(boletaDto.templateInvalidId());
       }
     }
 
@@ -28,62 +28,62 @@ const BoletaController = async (req, res) => {
 
     if (idLugar) {
       if (!ObjectId.isValid(idLugar)) {
-        return res.status(400).json(this.boletaDto.templateInvalidId());
+        return res.status(400).json(boletaDto.templateInvalidId());
       }
       lugarId = new ObjectId(idLugar);
     }
 
     if (idBoleta) {
       if (!ObjectId.isValid(idBoleta)) {
-        return res.status(400).json(this.boletaDto.templateInvalidId());
+        return res.status(400).json(boletaDto.templateInvalidId());
       }
       boletaId = new ObjectId(idBoleta);
     }
 
     if (req.url.includes("boletasPorCliente")) {
       // Obtener boletas por cliente
-      const resultados = await this.boletaModel.getBoletasByCliente(
+      const resultados = await boletaModel.getBoletasByCliente(
         identificacionCliente
       );
 
       if (resultados.length > 0) {
         return res
           .status(200)
-          .json(this.boletaDto.templateSuccess(resultados));
+          .json(boletaDto.templateSuccess(resultados));
       } else {
-        return res.status(404).json(this.boletaDto.templateBoletaNotFound());
+        return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
     }
     else if (req.url.includes("asientosDisponibles")) {
       // Obtener asientos disponibles en un lugar específico
-      const resultados = await this.boletaModel.getAsientosAvailable(idLugar);
+      const resultados = await boletaModel.getAsientosAvailable(idLugar);
 
       if (resultados.length > 0) {
         return res
           .status(200)
-          .json(this.boletaDto.templateSuccess(resultados));
+          .json(boletaDto.templateSuccess(resultados));
       } else {
         return res
           .status(404)
-          .json(this.boletaDto.templateNoSeatsAvailable());
+          .json(boletaDto.templateNoSeatsAvailable());
       }
     }
     else if (req.url.includes("getAllBoletas")) {
       // Obtener todas las boletas
-      const resultados = await this.boletaModel.getAllBoletas();
+      const resultados = await boletaModel.getAllBoletas();
 
       if (resultados.length > 0) {
         return res
           .status(200)
-          .json(this.boletaDto.templateSuccess(resultados));
+          .json(boletaDto.templateSuccess(resultados));
       } else {
-        return res.status(404).json(this.boletaDto.templateBoletaNotFound());
+        return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
     }
     else if (req.url.includes("agregarBoleta") && req.method === "POST") {
       // Agregar una nueva boleta
       if (!boletaData) {
-        return res.status(400).json(this.boletaDto.templateInvalidData());
+        return res.status(400).json(boletaDto.templateInvalidData());
       }
 
       // Convertir fecha en objeto Date
@@ -101,8 +101,8 @@ const BoletaController = async (req, res) => {
         boletaData.id_asiento = []; // Asegúrate de que sea un array vacío si no hay asientos
       }
 
-      const result = await this.boletaModel.addBoleta(boletaData);
-      return res.status(201).json(this.boletaDto.templateSuccess(result));
+      const result = await boletaModel.addBoleta(boletaData);
+      return res.status(201).json(boletaDto.templateSuccess(result));
     }
     else if (req.url.includes("actualizarBoleta") && req.method === "PUT") {
       // Obtener boletaId de req.params
@@ -110,7 +110,7 @@ const BoletaController = async (req, res) => {
 
       // Verificar si el boletaData existe
       if (!boletaId || !boletaData) {
-        return res.status(400).json(this.boletaDto.templateInvalidData());
+        return res.status(400).json(boletaDto.templateInvalidData());
       }
 
       // Verificar si boletaData tiene una fecha de adquisición y convertirla en un objeto Date
@@ -125,34 +125,34 @@ const BoletaController = async (req, res) => {
         boletaData.id_asiento = []; // Asegúrate de que sea un array vacío si no hay asientos
       }
 
-      const result = await this.boletaModel.updateBoleta(boletaId, boletaData);
+      const result = await boletaModel.updateBoleta(boletaId, boletaData);
       if (result.modifiedCount > 0) {
-        return res.status(200).json(this.boletaDto.templateSuccess(result));
+        return res.status(200).json(boletaDto.templateSuccess(result));
       } else {
-        return res.status(404).json(this.boletaDto.templateBoletaNotFound());
+        return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
     }
     else if (req.url.includes("eliminarBoleta") && req.method === "DELETE") {
       // Eliminar una boleta
       if (!idBoleta) {
-        return res.status(400).json(this.boletaDto.templateInvalidId());
+        return res.status(400).json(boletaDto.templateInvalidId());
       }
 
-      const result = await this.boletaModel.deleteBoleta(idBoleta);
+      const result = await boletaModel.deleteBoleta(idBoleta);
       if (result.deletedCount > 0) {
-        return res.status(200).json(this.boletaDto.templateSuccess(result));
+        return res.status(200).json(boletaDto.templateSuccess(result));
       } else {
-        return res.status(404).json(this.boletaDto.templateBoletaNotFound());
+        return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
     }
     else {
-      return res.status(400).json(this.boletaDto.templateInvalidAction());
+      return res.status(400).json(boletaDto.templateInvalidAction());
     }
   } catch (error) {
     console.error("Error en el controlador de boletas:", error);
     return res
       .status(500)
-      .json(this.boletaDto.templateError("Error interno del servidor"));
+      .json(boletaDto.templateError("Error interno del servidor"));
   }
 }
 

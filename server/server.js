@@ -17,5 +17,5 @@ app.use("/asiento", asientoRoutes);
 app.use("/lugar", lugarRoutes);
 
 app.listen(3000, () => {
-    console.log("Servidor escuchando en el puerto 3000");
+    console.log("Servidor escuchando en la uri http://localhost:3000");
 });

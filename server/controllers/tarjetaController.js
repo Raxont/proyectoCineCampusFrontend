@@ -13,35 +13,35 @@ const TarjetaRequest = async (req, res) => {
 
   // Validar el ObjectId del lugar
   if (!ObjectId.isValid(idLugar)) {
-    return res.status(400).json(this.tarjetaDto.templateInvalidId());
+    return res.status(400).json(tarjetaDto.templateInvalidId());
   }
 
   const objectIdLugar = new ObjectId(idLugar);
-
+  const tarjetaModel = new TarjetaModel();
+  const tarjetaDto = new TarjetaDTO();
   try {
-    const tarjetaModel = new TarjetaModel();
-    const tarjetaDto = new TarjetaDTO();
+    
     // Verificar si el cliente tiene una tarjeta activa
-    const tarjeta = await this.tarjetaModel.findTarjetaByClient(identificacionCliente);
+    const tarjeta = await tarjetaModel.findTarjetaByClient(identificacionCliente);
 
     if (!tarjeta) {
-      return res.status(404).json(this.tarjetaDto.templateTarjetaNotFound());
+      return res.status(404).json(tarjetaDto.templateTarjetaNotFound());
     }
 
     // Obtener el lugar relacionado con el ID proporcionado
-    const lugar = await this.tarjetaModel.findLugarById(objectIdLugar);
+    const lugar = await tarjetaModel.findLugarById(objectIdLugar);
 
     if (!lugar) {
-      return res.status(404).json(this.tarjetaDto.templateLugarNotFound());
+      return res.status(404).json(tarjetaDto.templateLugarNotFound());
     }
 
     // Calcular el precio con descuento si aplica
-    const { precioOriginal, precioConDescuento } = this.tarjetaModel.calculateDiscount(tarjeta, lugar);
+    const { precioOriginal, precioConDescuento } = tarjetaModel.calculateDiscount(tarjeta, lugar);
 
     // Actualizar el precio en la boleta asociada al cliente
-    const resultadoBoleta = await this.tarjetaModel.updateBoletaPrice(identificacionCliente, precioConDescuento);
+    const resultadoBoleta = await tarjetaModel.updateBoletaPrice(identificacionCliente, precioConDescuento);
 
-    return res.status(200).json(this.tarjetaDto.templateSuccess({
+    return res.status(200).json(tarjetaDto.templateSuccess({
       precioOriginal,
       precioConDescuento,
       resultadoBoleta
@@ -49,7 +49,7 @@ const TarjetaRequest = async (req, res) => {
 
   } catch (error) {
     console.error("Error en el controlador de tarjetas:", error);
-    return res.status(500).json(this.tarjetaDto.templateError("Error interno del servidor"));
+    return res.status(500).json(tarjetaDto.templateError("Error interno del servidor"));
   }
 }
 
@@ -71,19 +71,19 @@ const createTarjeta = async (req, res) => {
     const tarjetaModel = new TarjetaModel();
     const tarjetaDto = new TarjetaDTO();
     // Verificar si el cliente es usuarioVIP
-    const clienteVip = await this.tarjetaModel.findClienteVip(identificacionCliente);
+    const clienteVip = await tarjetaModel.findClienteVip(identificacionCliente);
 
     if (!clienteVip) {
-      return res.status(400).json(this.tarjetaDto.templateNotVip());
+      return res.status(400).json(tarjetaDto.templateNotVip());
     }
 
     // Intentar crear la tarjeta
-    const resultado = await this.tarjetaModel.insertTarjeta(tarjetaData);
+    const resultado = await tarjetaModel.insertTarjeta(tarjetaData);
 
-    return res.status(201).json(this.tarjetaDto.templateTarjetaCreada(resultado));
+    return res.status(201).json(tarjetaDto.templateTarjetaCreada(resultado));
   } catch (error) {
     console.error("Error al crear la tarjeta:", error);
-    return res.status(500).json(this.tarjetaDto.templateError("Error interno del servidor"));
+    return res.status(500).json(tarjetaDto.templateError("Error interno del servidor"));
   }
 }
 

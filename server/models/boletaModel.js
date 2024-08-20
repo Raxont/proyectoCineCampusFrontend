@@ -5,6 +5,7 @@ class BoletaModel extends connect {
   constructor() {
     super();
     this.collection = this.db.collection("boleta");
+    this.asientosCollection = this.db.collection("asientos");
   }
 
   async getAllBoletas() {
@@ -25,33 +26,13 @@ class BoletaModel extends connect {
 
   async getAsientosAvailable(id_lugar) {
     await this.reconnect();
+
+    const resultados = await this.asientosCollection.aggregate([
+      { $match: { id_lugar: new ObjectId(id_lugar) } },
+      { $project: { id_lugar: 0 ,_id:0} }
+    ]).toArray();
     
-
-    const pipeline = [
-        {
-            $match: { id_lugar: new ObjectId(id_lugar) }, //  Filtra por lugar
-        },
-        {
-          $lookup: {
-            from: "asientos", //  Nombre de la colección de asientos
-            localField: "id_lugar", //  Campo en la colección de boletas
-            foreignField: "id_lugar", //  Campo en la colección de asientos
-            as: "asientos", //  Nombre del campo en el resultado
-          },
-        },
-        {
-          $unwind: "$asientos", //  Descompone el array de asiento
-        },
-        {
-         $project: {
-            tipo_fila: "$asientos.tipo_fila", //  Incluye el campo tipo_fila en el resultado final
-            codigo: "$asientos.codigo", //  Incluye el campo codigo en el resultado final
-            incremento: "$asientos.incremento", //  Incluye el campo incremento en el resultado final
-          },
-        },
-      ];
-
-    const resultados = await this.collection.aggregate(pipeline).toArray();
+    
     await this.close();
     return resultados;
   }

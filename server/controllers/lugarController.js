@@ -10,23 +10,23 @@ const LugarRequest = async (req, res) => {
   }
 
   const { fechaInicioFiltro, idPelicula } = req.query;
-
+  const lugarModel = new LugarModel();
+  const lugarDto = new LugarDTO();
   try {
-    const lugarModel = new LugarModel();
-    const lugarDto = new LugarDTO();
+    
     // Validar existencia del idPelicula
     if (idPelicula) {
       if (!ObjectId.isValid(idPelicula)) {
         return res
           .status(400)
-          .json(this.lugarDto.templateInvalidId());
+          .json(lugarDto.templateInvalidId());
       }
 
-      const peliculaExiste = await this.lugarModel.getLugaresByPelicula(idPelicula);
+      const peliculaExiste = await lugarModel.getLugaresByPelicula(idPelicula);
       if (peliculaExiste.length === 0) {
         return res
           .status(404)
-          .json(this.lugarDto.templatePeliculaNotFound());
+          .json(lugarDto.templatePeliculaNotFound());
       }
     }
 
@@ -34,39 +34,39 @@ const LugarRequest = async (req, res) => {
     if (fechaInicioFiltro && isNaN(Date.parse(fechaInicioFiltro))) {
       return res
         .status(400)
-        .json(this.lugarDto.templateInvalidDate());
+        .json(lugarDto.templateInvalidDate());
     }
 
     if (req.url.includes("lugaresPorFecha")) {
       // Obtener todos los lugares por una fecha específica
-      const resultados = await this.lugarModel.getAllLugarWithPeliculaByDay(fechaInicioFiltro);
+      const resultados = await lugarModel.getAllLugarWithPeliculaByDay(fechaInicioFiltro);
 
       if (resultados.length > 0) {
-        return res.status(200).json(this.lugarDto.templateSuccess(resultados));
+        return res.status(200).json(lugarDto.templateSuccess(resultados));
       } else {
         return res
           .status(404)
-          .json(this.lugarDto.templateNoFunctionsForDate());
+          .json(lugarDto.templateNoFunctionsForDate());
       }
     } else if (req.url.includes("lugaresPorPelicula")) {
       // Obtener todos los lugares por una película específica
-      const resultados = await this.lugarModel.getLugaresByPelicula(idPelicula);
+      const resultados = await lugarModel.getLugaresByPelicula(idPelicula);
 
       if (resultados.length > 0) {
-        return res.status(200).json(this.lugarDto.templateSuccess(resultados));
+        return res.status(200).json(lugarDto.templateSuccess(resultados));
       } else {
         return res
           .status(404)
-          .json(this.lugarDto.templatePeliculaNotFound());
+          .json(lugarDto.templatePeliculaNotFound());
       }
     } else {
-      return res.status(400).json(this.lugarDto.templateInvalidAction());
+      return res.status(400).json(lugarDto.templateInvalidAction());
     }
   } catch (error) {
     console.error("Error en el controlador de lugares:", error);
     return res
       .status(500)
-      .json(this.lugarDto.templateError("Error interno del servidor"));
+      .json(lugarDto.templateError("Error interno del servidor"));
   }
 }
 
