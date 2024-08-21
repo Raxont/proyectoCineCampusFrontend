@@ -9,9 +9,6 @@ body {
     color: #fff;
     font-family: sans-serif;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .header {
@@ -53,33 +50,50 @@ body {
     color: #aaa;
 }
 
+.movie-soon{
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+}
+
 .section-title {
     font-size: 20px;
     font-weight: bold;
-    margin: 20px 0 10px 0;
+}
+
+.see-all {
+    color: #ff4500;
+    font-size: 14px;
+    cursor: pointer;
+    
 }
 
 .movie-list {
+    width: 100%;
+    height: 80vh;
+    
+    max-height: 50%;
+    overflow-x: scroll;
     display: flex;
-    overflow-x: auto;
-}
+    gap:20px;
+    }
 
 .movie-card {
-    min-width: 150px;
-    margin: 0 10px;
-    position: relative;
-    border-radius: 5px;
-}
-
-.movie-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    
+    /* background: red; */
     border-radius: 5px;
 }
 
-.movie-card .title {
-    position: absolute;
+ .movie-card img {
+    border-radius: 5px;
+} 
+
+ .movie-card .title {
     bottom: 10px;
     left: 10px;
     width: calc(100% - 20px);
@@ -91,32 +105,65 @@ body {
 }
 
 .movie-card .genre {
-    position: absolute;
+    
     bottom: 10px;
     right: 10px;
     font-size: 12px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 3px 5px;
     border-radius: 5px;
+} 
+
+.movie-comming{
+    display: flex; 
+    width: 90vw;
+    height: 10vh;
+    gap: 5%;
+    background: #272727;
+    align-items:center;
+    border-radius: 5px;
+}
+.movie-comming img{
+    height: 85%;
+    width: 25%;
+    /* background: blue; */
+    padding-left: 2%;
+}
+.movie-comming-content{
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    /* background: blue; */
 }
 
-.see-all {
-    color: #ff4500;
-    font-size: 14px;
-    cursor: pointer;
-    margin-bottom: 20px;
+.movie-comming-content .title{
+    left: 10px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.movie-comming-content .genre{
+    left: 10px;
+    width: 100%;
+    font-size: 18px;
 }
 
 .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 5vh;
-    /* position: fixed; */
-    bottom: 0;
-    background-color: #121212;
+    height: 10%;
+    border-radius: 15px 15px 0 0; /* Solo los bordes superiores redondeados */
+    background: #161616;
+    z-index: 1000; /* Asegura que el footer se mantenga encima de otros elementos */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Añade sombra para darle un efecto flotante */
 }
+
 
 .footer button {
     background-color: transparent;
@@ -124,6 +171,8 @@ body {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer button.active {
