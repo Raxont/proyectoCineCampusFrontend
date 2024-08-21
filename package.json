@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "node --watch --env-file=.env server/js/main.js -p",
     "dev": "node --watch --env-file=.env server/server.js",
     "import":"node server/helpers/backup_CineCampus/import.js"
   },

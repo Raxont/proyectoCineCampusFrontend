@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const BoletaController = require('../controllers/boletaController');
+const path = require("path")
 
 // Ruta para obtener todas las boletas
 router.get('/getAllBoletas', (req, res) => BoletaController(req, res));
@@ -21,8 +22,7 @@ router.put('/actualizarBoleta/:idBoleta', (req, res) => BoletaController(req, re
 router.delete('/eliminarBoleta', (req, res) => BoletaController(req, res));
 
 // Ruta para verificar la API
-router.get('/', (req, res) => {
-    res.send('Bienvenido a la sección de boletas');
-});
-
+router.get("/", (req,res)=>{
+    res.sendFile(path.join(__dirname, "../../",process.env.STATIC,"views/boleta.html"));
+})
 module.exports = router;

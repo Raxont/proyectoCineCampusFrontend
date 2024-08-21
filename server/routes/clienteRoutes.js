@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {createUser, showInfoUser, updateUser, UsersRol} = require('../controllers/clienteController');
+const path = require("path")
 
 // Ruta para crear un nuevo cliente
 router.post('/crear', (req, res) => createUser(req, res));
@@ -15,8 +16,9 @@ router.put('/actualizar', (req, res) => updateUser(req, res));
 router.get('/rol/:rol', (req, res) => UsersRol(req, res));
 
 // Ruta principal para clientes
-router.get('/', (req, res) => {
-    res.send('Bienvenido a la sección de clientes');
-});
+router.get("/", (req,res)=>{
+    res.sendFile(path.join(__dirname, "../../",process.env.STATIC,"views/cliente.html"));
+})
+
 
 module.exports = router;
