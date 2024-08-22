@@ -11,9 +11,23 @@ body {
     height: 100vh;
 }
 
+.main-container-soon,
+.main-container{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.main-container-soon{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 15%;
+    overflow-x: scroll;
+}
+
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px;
     width: 100%;
@@ -52,8 +66,9 @@ body {
 
 .movie-soon{
     display: flex;
-    width: 90vw;
+    width: 92vw;
     justify-content: space-between;
+    padding-left: 20px;
 }
 
 .section-title {
@@ -62,8 +77,8 @@ body {
 }
 
 .see-all {
-    color: #ff4500;
-    font-size: 14px;
+    color: red;
+    font-size: 18px;
     cursor: pointer;
     
 }
@@ -71,7 +86,6 @@ body {
 .movie-list {
     width: 100%;
     height: 80vh;
-    
     max-height: 50%;
     overflow-x: scroll;
     display: flex;
@@ -84,8 +98,6 @@ body {
     height: 100%;
     align-items: center;
     flex-direction: column;
-    
-    /* background: red; */
     border-radius: 5px;
 }
 
@@ -121,7 +133,7 @@ body {
     gap: 5%;
     background: #272727;
     align-items:center;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 .movie-comming img{
     height: 85%;
@@ -176,7 +188,7 @@ body {
 }
 
 .footer button.active {
-    color: #ff4500;
+    color: red;
 }
 
 .footer .icon {
