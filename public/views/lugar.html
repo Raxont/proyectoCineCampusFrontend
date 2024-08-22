@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="../css/lugar.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" defer></script>
     <title>Lugar </title>
 </head>
 <body>
@@ -17,59 +19,78 @@
 
         <input type="text" class="search-bar" placeholder="Search movie, cinema, genre...">
 
-        <div>
+        <div class="playing">
             <h2 class="section-title">Now playing</h2>
             <span class="see-all">See all</span>
         </div>
     </div>
-        <div class="movie-list">
-            <div class="movie-card">
-                <img src="../storage/Rectangle 4170.png" alt="Avatar 2 Poster">
-                <div class="title">Avatar: The Way of Water</div>
-                <div class="genre">Action, Adventure</div>
-            </div>
-            <div class="movie-card">
-                <img src="../storage/Rectangle 4170.png" alt="Puss in Boots Poster">
+    <div class="gallery js-flickity" data-flickity-options='{ 
+        "wrapAround": true,
+        "friction": 0.2,
+        "cellAlign": "center",
+        "autoPlay": 5000,
+        "pauseAutoPlayOnHover": true,
+        "prevNextButtons": false }'>
+            <div class="gallery-cell">
+                <img src="../storage/Rectangle 4170.webp" alt="Avatar 2 Poster">
                 <div class="title">Puss in Boots: The Last Wish</div>
-                <div class="genre">Animation, Adventure</div>
+                <div class="genre">Adventure</div>
             </div>
-            <div class="movie-card">
-                <img src="../storage/Rectangle 4170.png" alt="Fast X Poster">
-                <div class="title">Fast X</div>
-                <div class="genre">Action, Thriller</div>
+            <div class="gallery-cell">
+                <img src="../storage/Rectangle 4170.webp" alt="Puss in Boots Poster">
+                <div class="title">Puss in Boots: The Last Wish</div>
+                <div class="genre">Adventure</div>
             </div>
-            <div class="movie-card">
-                <img src="../storage/Rectangle 4170.png" alt="Fast X Poster">
-                <div class="title">Fast X</div>
-                <div class="genre">Action, Thriller</div>
+            <div class="gallery-cell">
+                <img src="../storage/Rectangle 4170.webp" alt="Fast X Poster">
+                <div class="title">Puss in Boots: The Last Wish</div>
+                <div class="genre">Adventure</div>
             </div>
-        </div>
-    
-        <div class="movie-soon">
-            <h2 class="section-title">Coming soon</h2>
-            <span class="see-all">See all</span>
-        </div>
-    <div class="main-container-soon">  
-        <div class="movie-comming">
-            <img src="../storage/Rectangle 10.png" alt="Fast X Poster">
-            <div class="movie-comming-content">
-                <div class="title">Furious 10 (2002)</div>
-                <div class="genre">Action, Thriller</div>
-            </div>   
-        </div>
-        <div class="movie-comming">
-            <img src="../storage/Rectangle 10.png" alt="Fast X Poster">
-            <div class="movie-comming-content">
-                <div class="title">Furious 10 (2002)</div>
-                <div class="genre">Action, Thriller</div>
-            </div>   
-        </div>
+            <div class="gallery-cell">
+                <img src="../storage/Rectangle 4170.webp" alt="Fast X Poster">
+                <div class="title">Puss in Boots: The Last Wish</div>
+                <div class="genre">Adventure</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="../storage/Rectangle 4170.webp" alt="Fast X Poster">
+                <div class="title">Puss in Boots: The Last Wish</div>
+                <div class="genre">Adventure</div>
+            </div>
     </div>
+    
+     <div class="main-container-soon">
+        <div class="container-soon">
+            <h2 class="section-title">Coming soon</h2>
+            <span class="see-all">See all</span> 
+        </div>
+            
+        <div class="movie-comming">
+            <img src="../storage/Rectangle 10.png" alt="Fast X Poster">
+            <div class="movie-comming-content">
+                <div class="title">Furious 10 (2002)</div>
+                <div class="genre">Action, Thriller</div>
+            </div>   
+        </div>
+        <div class="movie-comming">
+            <img src="../storage/Rectangle 10.png" alt="Fast X Poster">
+            <div class="movie-comming-content">
+                <div class="title">Furious 10 (2002)</div>
+                <div class="genre">Action, Thriller</div>
+            </div>   
+        </div>
+        <div class="movie-comming">
+            <img src="../storage/Rectangle 10.png" alt="Fast X Poster">
+            <div class="movie-comming-content">
+                <div class="title">Furious 10 (2002)</div>
+                <div class="genre">Action, Thriller</div>
+            </div>   
+        </div>
+    </div> 
     <footer class="footer">
-        <button class="active"><i class="icon">&#x1F3E0;</i> Home</button>
-        <button><i class="icon">&#x1F50D;</i> Browse</button>
-        <button><i class="icon">&#x1F3AA;</i> Tickets</button>
-        <button><i class="icon">&#x1F464;</i> Profile</button>
-    </footer>
+        <button class="active"><img src="../storage/Iconly.svg"> Home</button>
+        <button><img src="../storage/Vector.svg"> Browse</button>
+        <button><img src="../storage/Boarding pass.svg"> Tickets</button>
+        <button><img src="../storage/Profile.svg"> Profile</button>
+    </footer> 
 </body>
 </html>

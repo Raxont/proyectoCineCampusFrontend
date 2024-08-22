@@ -15,14 +15,7 @@ body {
 .main-container{
     padding-left: 20px;
     padding-top: 10px;
-}
-
-.main-container-soon{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 15%;
-    overflow-x: scroll;
+    padding-bottom: 20px;
 }
 
 .header {
@@ -50,7 +43,7 @@ body {
 }
 
 .search-bar {
-    width: 90%;
+    width: 95%;
     max-width: 400px;
     margin: 20px 0;
     padding: 10px;
@@ -64,13 +57,11 @@ body {
     color: #aaa;
 }
 
-.movie-soon{
-    display: flex;
-    width: 92vw;
+.playing{
+    display:flex;
+    width: 95%;
     justify-content: space-between;
-    padding-left: 20px;
 }
-
 .section-title {
     font-size: 20px;
     font-weight: bold;
@@ -78,53 +69,90 @@ body {
 
 .see-all {
     color: red;
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
-    
 }
 
-.movie-list {
-    width: 100%;
-    height: 80vh;
-    max-height: 50%;
-    overflow-x: scroll;
-    display: flex;
-    gap:20px;
-    }
-
-.movie-card {
-    width: 100%;
-    display: flex;
-    height: 100%;
+.gallery {
     align-items: center;
-    flex-direction: column;
+    height: 50%;
+}
+
+.gallery-cell {
+  width: 60%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  font-size: 80px;
+  color: white;
+}
+
+.flickity-page-dots {
+    bottom: 0px; 
+    text-align: center; 
+}
+
+.flickity-page-dots .dot {
+    background: white;
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%;
+    opacity: 1;
+    margin: 0 2px;
+}
+
+.flickity-page-dots .dot.is-selected {
+    background: red;
+    width: 27px; 
+    height: 10px; 
     border-radius: 5px;
 }
 
- .movie-card img {
+.gallery-cell img {
     border-radius: 5px;
-} 
+    width: 90%;
+}  
 
- .movie-card .title {
+.title {
     bottom: 10px;
     left: 10px;
     width: calc(100% - 20px);
     font-size: 14px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5);
+    
     padding: 5px;
     border-radius: 5px;
 }
 
-.movie-card .genre {
+.genre {
     
     bottom: 10px;
     right: 10px;
     font-size: 12px;
-    background-color: rgba(0, 0, 0, 0.5);
+    
     padding: 3px 5px;
     border-radius: 5px;
 } 
+.container-soon{
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+    padding-left: 0px;
+}
+
+.main-container-soon{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 22%;
+    overflow-x: scroll;
+    padding-bottom: 0px;
+}
 
 .movie-comming{
     display: flex; 
@@ -169,11 +197,12 @@ body {
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 10%;
-    border-radius: 15px 15px 0 0; /* Solo los bordes superiores redondeados */
+    height: 11%;
+    border-radius: 20px; 
     background: #161616;
-    z-index: 1000; /* Asegura que el footer se mantenga encima de otros elementos */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Añade sombra para darle un efecto flotante */
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    border: 1.5px solid #ffffff33;
 }
 
 
@@ -181,16 +210,19 @@ body {
     background-color: transparent;
     border: none;
     color: #fff;
-    font-size: 16px;
+    width: 10%;
+    height: 41%;
+    font-size: 12px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .footer button.active {
     color: red;
 }
 
-.footer .icon {
-    font-size: 24px;
+.footer button img{
+    font-size: 100px;
 }
