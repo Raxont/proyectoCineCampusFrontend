@@ -8,46 +8,81 @@ body {
     background-color: #121212;
     color: #fff;
     font-family: sans-serif;
-    height: 100vh;
+    height: 110vh;
 }
 
 .main-container-soon,
 .main-container{
     padding-left: 20px;
     padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 
 .header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 10px;
     width: 100%;
 }
 
 .header img {
-    width: 40px;
-    height: 40px;
+    width: 15%;
+    height: 15%;
     border-radius: 50%;
 }
 
-.header .title {
+.main-title{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-title small{
+    color: gray;
+}
+
+.main-title div{
     font-size: 18px;
     font-weight: bold;
 }
 
-.header .notification {
-    font-size: 24px;
-    cursor: pointer;
+.header button {
+    width: 10%;
+    height: 5vh;
+    background:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-color: rgba(255, 255, 255, 0.473);
+
+}
+
+.header button img{
+    height: 70%;
+    width: 70%;
+}
+
+.search-container {
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    height: 10vh;
+}
+
+.search-icon {
+    position: absolute; 
+    left: 10px;         
+    width: 20px;        
+    height: 20px;       
 }
 
 .search-bar {
     width: 95%;
-    max-width: 400px;
-    margin: 20px 0;
-    padding: 10px;
-    border-radius: 5px;
+    height: 60%;
+    
+    padding-left: 40px;
+    border-radius: 10px;
     border: 1px solid #444;
     background-color: #222;
     color: #fff;
@@ -75,14 +110,21 @@ body {
 
 .gallery {
     align-items: center;
-    height: 50%;
+    height: 55vh;
 }
+
+.flickity-viewport {
+    margin: 0 auto; /* Centra el carrusel en su contenedor */
+}
+
 
 .gallery-cell {
   width: 60%;
+  height: 90%;
   display:flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .gallery-cell:before {
@@ -93,7 +135,7 @@ body {
 }
 
 .flickity-page-dots {
-    bottom: 0px; 
+    bottom: 5%; 
     text-align: center; 
 }
 
@@ -115,43 +157,43 @@ body {
 
 .gallery-cell img {
     border-radius: 5px;
-    width: 90%;
+    width: 92%;
 }  
 
 .title {
-    bottom: 10px;
-    left: 10px;
-    width: calc(100% - 20px);
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
-    
-    padding: 5px;
-    border-radius: 5px;
+    max-width: 98%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .genre {
-    
-    bottom: 10px;
-    right: 10px;
-    font-size: 12px;
-    
-    padding: 3px 5px;
-    border-radius: 5px;
+   font-size: 16px;
+   color:gray;
 } 
+
+.title,
+.genre {
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
 .container-soon{
     display: flex;
-    width: 90vw;
+    width: 94vw;
     justify-content: space-between;
-    padding-left: 0px;
+    padding-left: 5%;
 }
 
 .main-container-soon{
     display: flex;
     flex-direction: column;
+    height: calc(60vh - 15%);
     gap: 10px;
-    max-height: 22%;
-    overflow-x: scroll;
-    padding-bottom: 0px;
+    padding-bottom: 20%;
+    overflow-y: auto;
 }
 
 .movie-comming{
@@ -177,15 +219,11 @@ body {
 }
 
 .movie-comming-content .title{
-    left: 10px;
-    width: 100%;
     font-size: 18px;
     font-weight: bold;
 }
 
 .movie-comming-content .genre{
-    left: 10px;
-    width: 100%;
     font-size: 18px;
 }
 
