@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="genre">${pelicula.genero.join(', ')}</div>
                     </div>
                 `).join('');
-                console.log('Contenido dinámico insertado:', galeriaContainer.innerHTML);
+                console.log('Contenido cartelera insertado:', galeriaContainer.innerHTML);
                 var flickityInstance = initializeFlickity();
 
                 if (flickityInstance) {
@@ -94,12 +94,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     function loadMovies2() {
         const today = new Date();
-        
-        const fechaInicio = today.toISOString().split('T')[0]; // Fecha de hoy en formato YYYY-MM-DD
+        const fechaInicial = new Date(today);
+        fechaInicial.setDate(today.getDate() + 14);
+        const fechaInicio = fechaInicial.toISOString().split('T')[0]; // Fecha de hoy en formato YYYY-MM-DD
 
         // Calcula la fecha final que es 14 días después de hoy
         const fechaFinal = new Date(today);
-        fechaFinal.setDate(today.getDate() + 14);
+        fechaFinal.setDate(today.getDate() + 100);
         const fechaFin = fechaFinal.toISOString().split('T')[0];
         console.log('Fecha inicial',fechaInicio);
         console.log('Fecha final',fechaFin);
@@ -109,13 +110,15 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const galeriaContainer = document.getElementById('movie-soon');
                 galeriaContainer.innerHTML = data.data.map(pelicula => `
-                    <div class="gallery-cell">
+                    <div class="movie-comming">
                         <img src="${pelicula.img}" alt="${pelicula.titulo}">
-                        <div class="title">${pelicula.titulo}</div>
-                        <div class="genre">${pelicula.genero.join(', ')}</div>
+                        <div class="movie-comming-content">
+                            <div class="title-soon">${pelicula.titulo}</div>
+                            <div class="genre-soon">${pelicula.genero.join(', ')}</div>
+                        </div>
                     </div>
                 `).join('');
-                console.log('Contenido dinámico insertado:', galeriaContainer.innerHTML);
+                console.log('Contenido soon insertado:', galeriaContainer.innerHTML);
             })
             .catch(error => console.error('Error:', error));
     }
