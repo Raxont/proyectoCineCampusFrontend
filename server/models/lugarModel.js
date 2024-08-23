@@ -7,12 +7,19 @@ class LugarModel extends connect {
     this.collection = this.db.collection("lugar");
   }
 
-  async getAllLugarWithPeliculaByDay(fechaInicioFiltro) {
+  async getAllLugarWithPeliculaByDay(fechaInicioFiltro, fechaFinFiltro) {
     await this.reconnect();
-    const filterDate = new Date(fechaInicioFiltro);
-    filterDate.setUTCHours(0, 0, 0, 0);
-
-    const filter = { fecha_inicio: { $gte: filterDate } };
+    const filterDateInicio = new Date(fechaInicioFiltro);
+    filterDateInicio.setUTCHours(0, 0, 0, 0);
+  
+    const filterDateFin = fechaFinFiltro ? new Date(fechaFinFiltro) : new Date();
+    filterDateFin.setUTCHours(23, 59, 59, 999);
+  
+    const filter = {
+      fecha_inicio: { $gte: filterDateInicio },
+      fecha_fin: { $lte: filterDateFin }
+    };
+  
     const pipeline = [
       { $match: filter },
       {
@@ -28,14 +35,12 @@ class LugarModel extends connect {
         $project: {
           titulo: "$pelicula.titulo",
           genero: "$pelicula.genero",
-          duracion: "$pelicula.duracion",
-          fecha_inicio: 1,
-          fecha_fin: 1,
-          _id: 0,
+          img: "$pelicula.img",
+          _id: "$pelicula._id"
         },
       },
     ];
-
+  
     const resultados = await this.collection.aggregate(pipeline).toArray();
     await this.close();
     return resultados;

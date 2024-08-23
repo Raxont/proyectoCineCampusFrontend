@@ -54,8 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function loadMovies() {
-        fetch('/lugar/peliculas')
-            .then(response => response.json())
+        const today = new Date();
+        const fechaInicio = today.toISOString().split('T')[0]; // Fecha de hoy en formato YYYY-MM-DD
+
+        // Calcula la fecha final que es 14 días después de hoy
+        const fechaFinal = new Date(today);
+        fechaFinal.setDate(today.getDate() + 14);
+        const fechaFin = fechaFinal.toISOString().split('T')[0];
+        console.log('Fecha inicial',fechaInicio);
+        console.log('Fecha final',fechaFin);
+        
+        fetch(`/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
+        .then(response => response.json())
             .then(data => {
                 const galeriaContainer = document.getElementById('galeria');
                 galeriaContainer.innerHTML = data.data.map(pelicula => `
@@ -65,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="genre">${pelicula.genero.join(', ')}</div>
                     </div>
                 `).join('');
-
+                console.log('Contenido dinámico insertado:', galeriaContainer.innerHTML);
                 var flickityInstance = initializeFlickity();
 
                 if (flickityInstance) {
@@ -79,4 +89,35 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     loadMovies();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    function loadMovies2() {
+        const today = new Date();
+        
+        const fechaInicio = today.toISOString().split('T')[0]; // Fecha de hoy en formato YYYY-MM-DD
+
+        // Calcula la fecha final que es 14 días después de hoy
+        const fechaFinal = new Date(today);
+        fechaFinal.setDate(today.getDate() + 14);
+        const fechaFin = fechaFinal.toISOString().split('T')[0];
+        console.log('Fecha inicial',fechaInicio);
+        console.log('Fecha final',fechaFin);
+        
+        fetch(`/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
+        .then(response => response.json())
+            .then(data => {
+                const galeriaContainer = document.getElementById('movie-soon');
+                galeriaContainer.innerHTML = data.data.map(pelicula => `
+                    <div class="gallery-cell">
+                        <img src="${pelicula.img}" alt="${pelicula.titulo}">
+                        <div class="title">${pelicula.titulo}</div>
+                        <div class="genre">${pelicula.genero.join(', ')}</div>
+                    </div>
+                `).join('');
+                console.log('Contenido dinámico insertado:', galeriaContainer.innerHTML);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    loadMovies2();
 });

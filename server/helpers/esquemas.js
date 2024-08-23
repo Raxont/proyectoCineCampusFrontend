@@ -147,7 +147,9 @@
       'titulo',
       'genero',
       'duracion',
-      'sinopsis'
+      'sinopsis',
+      'img',
+      'casting'
     ],
     properties: {
       titulo: {
@@ -173,10 +175,42 @@
         bsonType: 'string',
         pattern: '^[\\s\\S]{1,400}$',
         description: 'La sinopsis no puede ser de más de 400 caracteres'
+      },
+      img: {
+        bsonType: 'string',
+        pattern: '^[\\s\\S]{1,400}$',
+        description: 'Link de la imagen'
+      },
+      casting: {
+        bsonType: 'array',
+        items: {
+          bsonType: 'object',
+          required: [
+            'img',
+            'nombre',
+            'personaje'
+          ],
+          properties: {
+            img: {
+              bsonType: 'string',
+              pattern: '^[\\s\\S]{1,400}$',
+              description: 'Link de la imagen del casting'
+            },
+            nombre: {
+              bsonType: 'string',
+              description: 'Nombre del actor o actriz'
+            },
+            personaje: {
+              bsonType: 'string',
+              description: 'Nombre del personaje interpretado'
+            }
+          }
+        }
       }
     }
   }
 }
+
 */
 
 /** //* Esquema lugar

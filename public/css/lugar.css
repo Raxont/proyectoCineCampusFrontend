@@ -110,7 +110,7 @@ body {
 
 .gallery {
     align-items: center;
-    height: 55vh;
+    height: 50vh;
 }
 
 .flickity-viewport {
@@ -120,7 +120,7 @@ body {
 
 .gallery-cell {
   width: 60%;
-  height: 90%;
+  height: 95%;
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -156,8 +156,9 @@ body {
 }
 
 .gallery-cell img {
-    border-radius: 5px;
+    border-radius: 20px;
     width: 92%;
+    height: 80%;
 }  
 
 .title {

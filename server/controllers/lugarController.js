@@ -9,11 +9,11 @@ const LugarRequest = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { fechaInicioFiltro, idPelicula } = req.query;
+  const { fechaInicioFiltro, fechaFinFiltro, idPelicula } = req.query;
   const lugarModel = new LugarModel();
   const lugarDto = new LugarDTO();
+  
   try {
-    
     // Validar existencia del idPelicula
     if (idPelicula) {
       if (!ObjectId.isValid(idPelicula)) {
@@ -30,16 +30,24 @@ const LugarRequest = async (req, res) => {
       }
     }
 
-    // Validar formato ISODate si se proporciona una fecha
-    if (fechaInicioFiltro && isNaN(Date.parse(fechaInicioFiltro))) {
+    // Validar formato ISODate si se proporciona fechaInicioFiltro o fechaFinFiltro
+    if ((fechaInicioFiltro && isNaN(Date.parse(fechaInicioFiltro))) ||
+        (fechaFinFiltro && isNaN(Date.parse(fechaFinFiltro)))) {
       return res
         .status(400)
         .json(lugarDto.templateInvalidDate());
     }
 
     if (req.url.includes("lugaresPorFecha")) {
-      // Obtener todos los lugares por una fecha específica
-      const resultados = await lugarModel.getAllLugarWithPeliculaByDay(fechaInicioFiltro);
+      // Obtener todos los lugares por un rango de fechas
+      let resultados = await lugarModel.getAllLugarWithPeliculaByDay(fechaInicioFiltro, fechaFinFiltro);
+
+      // Eliminar datos duplicados utilizando un Set
+      resultados = resultados.filter((value, index, self) => 
+        index === self.findIndex((t) => (
+          t._id.toString() === value._id.toString() && t.name === value.name
+        ))
+      );
 
       if (resultados.length > 0) {
         return res.status(200).json(lugarDto.templateSuccess(resultados));
