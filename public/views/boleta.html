@@ -3,23 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/boleta.css">
+    <title>Movie Ticket</title>
+    
 </head>
 <body>
-    <div class="bg-card text-card-foreground p-4 rounded-lg shadow-lg max-w-xs mx-auto">
-        <img src="https://openui.fly.dev/openui/300x150.svg?text=Puss+In+Boots+The+Last+Wish" alt="Puss In Boots The Last Wish" class="w-full rounded-lg mb-4" />
-        <h2 class="text-xl font-bold mb-1">Puss In Boots The Last Wish</h2>
-        <p class="text-muted-foreground mb-2">Show this ticket at the entrance</p>
-        <div class="border-t border-border my-2"></div>
-        <div class="text-sm mb-1"><span class="font-semibold">Cinema:</span> HARTONO MALL 12</div>
-        <div class="text-sm mb-1"><span class="font-semibold">Date:</span> Sun, Feb 12th 2023</div>
-        <div class="text-sm mb-1"><span class="font-semibold">Time:</span> 13:00</div>
-        <div class="text-sm mb-1"><span class="font-semibold">Cinema Hall #:</span> Cinema A</div>
-        <div class="text-sm mb-1"><span class="font-semibold">Seat:</span> C5</div>
-        <div class="text-sm mb-1"><span class="font-semibold">Cost:</span> $26.99</div>
-        <div class="text-sm mb-1"><span class="font-semibold">Order ID:</span> 12345678</div>
-        <div class="border-t border-border my-2"></div>
-        <img aria-hidden="true" alt="barcode" src="https://openui.fly.dev/openui/300x50.svg?text=| | | | | | | | | | | | | | | | | |" class="w-full mt-4" />
-      </div>
+    <div class="ticket-container">
+        <div class="back-button">&larr;</div>
+        <div class="more-options">&bull;&bull;&bull;</div>
+        <div class="header">Ticket</div>
+        <div class="content">
+            <div class="movie-poster">
+                <img src="../storage/Rectangle 4170.webp" alt="Poster">
+            </div>
+        
+            <div class="movie-title">Puss In Boots: The Last Wish</div>
+            <div class="sub-text">Show this ticket at the entrance</div>
+
+            <hr class="linea-media">
+            
+            <div class="row">
+                <div class="info">
+                    <div class="info-title">Cinema</div>
+                    <div class="info-detail-name">HARTONO MALL 12</div>
+                </div>
+                <div class="img">
+                    <img src="../storage/Rectangle 10.png" alt="Cine">
+                </div>
+            </div>
+
+            <div class="row1">
+                <div class="info">
+                    <div class="info-title">Date</div>
+                    <div class="info-detail">Sun, Feb 12th 2023</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">Time</div>
+                    <div class="info-detail">13:00</div>
+                </div>
+            </div>
+
+            <div class="row2">
+                <div class="info">
+                    <div class="info-title">Cinema Hall #</div>
+                    <div class="info-detail">Cinema A</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">Seat</div>
+                    <div class="info-detail">C5</div>
+                </div>
+            </div>
+
+            <div class="row3">
+                <div class="info">
+                    <div class="info-title">Cost</div>
+                    <div class="info-detail">$26.99</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">Order ID</div>
+                    <div class="info-detail">12345678</div>
+                </div>
+            </div>
+            <div class="lineas">------------------</div>
+            <div class="barcode">
+                <img src="../storage/Barcode.svg" alt="Codigo de barras">
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

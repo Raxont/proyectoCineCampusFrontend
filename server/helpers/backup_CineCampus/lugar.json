@@ -1,33 +1,17 @@
 [{
   "_id": {
-    "$oid": "66a52b6c89b4ae4007773f2c"
-  },
-  "nombre": "Sala 01",
-  "precio": "12.50",
-  "fecha_inicio": {
-    "$date": "2024-08-20T10:00:00.000Z"
-  },
-  "fecha_fin": {
-    "$date": "2024-08-20T12:00:00.000Z"
-  },
-  "id_pelicula": {
-    "$oid": "66a57941a0881522cdaabb9d"
-  }
-},
-{
-  "_id": {
     "$oid": "66a579bb7b00907fab0aee94"
   },
   "nombre": "Sala 02",
   "precio": "20.50",
   "fecha_inicio": {
-    "$date": "2024-08-01T10:00:00.000Z"
+    "$date": "2024-09-05T10:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-08-01T12:00:00.000Z"
+    "$date": "2024-09-05T12:00:00.000Z"
   },
   "id_pelicula": {
-    "$oid": "66ac3b54f0c3a666f6614815"
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
   }
 },
 {
@@ -43,6 +27,86 @@
     "$date": "2024-08-30T12:00:00.000Z"
   },
   "id_pelicula": {
-    "$oid": "66ac3b54f0c3a666f6614814"
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a52b6c89b4ae4007773f2c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-08-31T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-08-31T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66c8f1773b9fd081fe7cc8ef"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-11-20T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-11-20T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66c8f18f3b9fd081fe7cc8f0"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-11-20T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-11-20T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-11-20T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-11-20T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66c8f1f63b9fd081fe7cc8f2"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-11-20T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-11-20T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
   }
 }]

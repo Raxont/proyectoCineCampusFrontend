@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111111;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.ticket-container {
+    background-color: #ffffff;
+    color: #000000;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+.header {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.back-button,
+.more-options {
+    position: absolute;
+    top: 20px;
+    font-size: 18px;
+    color: #666666;
+    cursor: pointer;
+}
+.back-button {
+    left: 20px;
+}
+.more-options {
+    right: 20px;
+}
+.movie-poster {
+    width: 100%;
+    height: 20vh;
+}
+.movie-poster img{
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.content {
+    padding: 20px;
+}
+.movie-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+.sub-text {
+    font-size: 16px;
+    color: #777777;
+    margin-bottom: 15px;
+}
+.info {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.info-title {
+    font-size: 12px;
+    color: #777777;
+    text-transform: uppercase;
+}
+.info-detail-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.info-detail {
+    font-size: 16px;
+    font-weight: bold;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.row1 {
+    width: 75.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.row2 {
+    width: 72%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.row3 {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.img{
+    width: 15%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.img img{
+    width: 100%;
+}
+
+.lineas {
+    width: 113%;
+    text-align: center;
+    font-family: monospace; /* Usa una fuente monoespaciada para que las líneas se alineen bien */
+    font-size: 35px;
+    margin-left:-20px;
+    line-height: 5px;
+    color: #cccccc;
+}
+
+.barcode {
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+}

@@ -76,6 +76,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `).join('');
                 console.log('Contenido cartelera insertado:', galeriaContainer.innerHTML);
+
+                // Añadir redirección después de insertar el contenido
+                galeriaContainer.querySelectorAll('.gallery-cell').forEach(element => {
+                    element.addEventListener('click', function () {
+                        window.location.href = 'http://localhost:3000/cliente';
+                    });
+                });
+
                 var flickityInstance = initializeFlickity();
 
                 if (flickityInstance) {
@@ -119,6 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `).join('');
                 console.log('Contenido soon insertado:', galeriaContainer.innerHTML);
+
+                // Añadir redirección después de insertar el contenido
+                galeriaContainer.querySelectorAll('.movie-comming').forEach(element => {
+                    element.addEventListener('click', function () {
+                        window.location.href = 'http://localhost:3000/cliente';
+                    });
+                });
             })
             .catch(error => console.error('Error:', error));
     }
