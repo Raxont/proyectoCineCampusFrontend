@@ -671,20 +671,15 @@ db.createRole({
 
 ```javascript
 MONGO_USER="admin"
-MONGO_PORT=57340
+MONGO_PORT=27017
 MONGO_PWD="admin"
 MONGO_HOST="mongodb://"
-MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
-MONGO_DB="CineCampus"
-```
+MONGO_CLUSTER="localhost"
+MONGO_DB="CineCampus_Camilo"
 
-```javascript
-MONGO_USER="user" (Puede usar al usuario "vip")
-MONGO_PORT=57340
-MONGO_PWD="user" (Clave del vip "vip")
-MONGO_HOST="mongodb://"
-MONGO_CLUSTER="roundhouse.proxy.rlwy.net"
-MONGO_DB="CineCampus"
+HOST="localhost"
+PORT=3000
+STATIC="public"
 ```
 
 Los dos tipos de usuarios diferentes al administrador solo podrían ver y crear en las diferentes colecciones
