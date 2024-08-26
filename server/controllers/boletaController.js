@@ -2,8 +2,10 @@ const { validationResult } = require("express-validator");
 const BoletaModel = require("../models/boletaModel");
 const BoletaDTO = require("../dto/boletaDto");
 const { ObjectId } = require("mongodb");
+const path = require("path");
 
-const BoletaController = async (req, res) => {
+const BoletaAPIController = async (req, res) => {
+  // La lógica existente para manejar las rutas de la API (JSON)
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -45,7 +47,7 @@ const BoletaController = async (req, res) => {
       const resultados = await boletaModel.getBoletasByCliente(
         identificacionCliente
       );
-
+      
       if (resultados.length > 0) {
         return res
           .status(200)
@@ -156,5 +158,26 @@ const BoletaController = async (req, res) => {
   }
 }
 
+// Nueva función para manejar la vista HTML
+const renderBoleta = async (req, res) => {
+  try {
+    const { identificacionCliente } = req.query;
+    const boletaModel = new BoletaModel();
 
-module.exports = BoletaController;
+    const boleta = await boletaModel.getBoletasByCliente(identificacionCliente);
+
+    if (boleta.length === 0) {
+      return res.status(404).send('Boleta no encontrada');
+    }
+
+    res.sendFile(path.join(__dirname, "../../", process.env.STATIC, "views/boleta.html"));
+  } catch (error) {
+    console.error("Error al renderizar la boleta:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+module.exports = {
+  BoletaAPIController,
+  renderBoleta
+};

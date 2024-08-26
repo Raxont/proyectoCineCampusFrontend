@@ -51,11 +51,12 @@ class TarjetaModel extends connect {
    */
   calculateDiscount(tarjeta, lugar) {
     const precioOriginal = lugar.precio;
-    let precioConDescuento = precioOriginal;
-
+    let redondeado = precioOriginal;
+    let precioConDescuento
     if (tarjeta) {
-      const descuento = 0.20; // Descuento del 20%
-      precioConDescuento = precioOriginal * (1 - descuento);
+      const descuento = 0.10; // Descuento del 10%
+      redondeado = precioOriginal * (1 - descuento);
+      precioConDescuento = Math.floor(redondeado);
     }
 
     return { precioOriginal, precioConDescuento };

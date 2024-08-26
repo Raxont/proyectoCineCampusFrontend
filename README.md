@@ -334,7 +334,7 @@ Tengo un módulo llamado `asientos.js`, en el cual manejo mi colección `asiento
 
 ### Reservar un asiento
 
-##### PETICION:  PUT
+##### PETICION:  POST
 
 ##### URI: http://localhost:3000/asiento/getReserva
 

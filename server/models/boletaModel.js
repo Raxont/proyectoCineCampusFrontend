@@ -17,12 +17,77 @@ class BoletaModel extends connect {
 
   async getBoletasByCliente(identificacion_cliente) {
     await this.reconnect();
-    const identificacion = +identificacion_cliente
-    let filter = { identificacion_cliente: identificacion };
-    const resultados = await this.collection.find(filter).toArray();
+    const identificacion = +identificacion_cliente;
+   
+    // Definir el pipeline de agregación
+    const pipeline = [
+        // Filtro por identificación del cliente
+        { $match: { identificacion_cliente: identificacion } },
+
+        // Unir con la colección 'asientos'
+        {
+            $lookup: {
+                from: 'asientos', // Nombre de la colección de asientos
+                localField: 'id_asiento',
+                foreignField: '_id',
+                as: 'asientos'
+            }
+        },
+        { $unwind: '$asientos' },
+
+        // Unir con la colección 'lugares'
+        {
+            $lookup: {
+                from: 'lugar', // Nombre de la colección de lugares
+                localField: 'id_lugar',
+                foreignField: '_id',
+                as: 'lugar'
+            }
+        },
+        { $unwind: '$lugar' },
+
+        // Unir con la colección 'peliculas'
+        {
+            $lookup: {
+                from: 'pelicula', // Nombre de la colección de películas
+                localField: 'lugar.id_pelicula',
+                foreignField: '_id',
+                as: 'pelicula'
+            }
+        },
+        { $unwind: '$pelicula' },
+
+        // Proyección de los campos deseados
+        {
+            $project: {
+                _id: 1,
+                estado: 1,
+                fecha_adquisicion: 1,
+                precio: 1,
+                asientos: {
+                    tipo_fila: '$asientos.tipo_fila',
+                    codigo: '$asientos.codigo',
+                    incremento: '$asientos.incremento'
+                },
+                lugar: {
+                    nombre: '$lugar.nombre',
+                    precio: '$lugar.precio',
+                    fecha_inicio: '$lugar.fecha_inicio',
+                    fecha_fin: '$lugar.fecha_fin'
+                },
+                pelicula: {
+                    titulo: '$pelicula.titulo',
+                    img: '$pelicula.img'
+                }
+            }
+        }
+    ];
+
+    const resultados = await this.collection.aggregate(pipeline).toArray();
+    console.log("Resultados: " ,resultados)
     await this.close();
     return resultados;
-  }
+}
 
   async getAsientosAvailable(id_lugar) {
     await this.reconnect();
