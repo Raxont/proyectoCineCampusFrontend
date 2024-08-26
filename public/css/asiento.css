@@ -1,5 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: black;
+    color: white;
+    padding-left: 10px;
+    font-family: sans-serif;
+}
+.ticket-container {
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.header {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.back-button,
+.more-options {
+    position: absolute;
+    top: 20px;
+    font-size: 18px;
+    color: #666666;
+    cursor: pointer;
+}
+.back-button {
+    left: 15px;
+}
+.more-options {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    right: 30px;
+}
+.screen{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .asientos{
-    padding: 0 15px;
+    padding: 15px 15px;
+    
+}
+#myform{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .asientos__normal{
     margin-bottom: 30px !important;
@@ -83,4 +135,109 @@
     content: attr(data-place);
     background: #CECECE ;
     cursor: default;
+}
+.asientos__menu{
+    display: flex;
+    justify-content: space-evenly;
+}
+.asientos__menu div{
+    display: flex;
+    gap:10px
+}
+.ciruclo3,
+.ciruclo2,
+.ciruclo1 {
+    width: 15px;
+    height: 15px;
+    background-color: gray;
+    border-radius: 50%;
+}
+.ciruclo2 {
+    background-color: white;
+}
+.ciruclo3 {
+    background-color: red;
+}
+.dates{
+    padding-left: 10px;
+    height: 35vh;
+    display:flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+}
+.time,
+.day{
+    display: flex;
+    gap:15px;
+    font-size: 20px;
+    height: 40%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden; 
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.day::-webkit-scrollbar, 
+.time::-webkit-scrollbar {
+    display: none; 
+}
+.container-day,
+.container-time{
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+    height: 70%;
+
+}
+.container-day{
+    width: 15vw;
+}
+.container-time{
+    width: 22vw;
+}
+.container-time .sub,
+.container-day .tittle{
+    color: gray;
+}
+.container-time .tittle,
+.container-day .sub{
+    font-weight: bold;
+    color: black;
+    font-size: 25px;
+}
+.selected {
+    border-radius: 5px;
+    background-color: red; 
+    color: white;
+}
+.selected .sub,
+.selected .tittle{
+    color: white;
+}
+footer {
+    display: flex;
+    width: 90%;
+    height: 6vh;
+    padding-left: 10px;
+    justify-content: space-between;
+    font-size: 20px;
+}
+.price{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.buy{
+    background: red;
+    width: 70%;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
 }

@@ -197,6 +197,10 @@ body {
     overflow-y: auto;
 }
 
+.main-container-soon::-webkit-scrollbar {
+    display: none; 
+}
+
 .movie-comming{
     display: flex; 
     width: 90vw;

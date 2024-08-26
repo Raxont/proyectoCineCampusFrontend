@@ -8,6 +8,14 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="ticket-container">
+        <div class="back-button"><img src="../storage/retroceder.svg" alt="Retroceder"></div>
+        <div class="more-options">&bull;&bull;&bull;</div>
+        <div class="header">Choose Seat</div>
+    </div>
+    <div class="screen">
+        <img src="../storage/Group 18102.svg" alt="Pantalla">
+    </div>
     <section class="asientos">
         <form id="myform">
             <article class="asientos__normal">
@@ -41,9 +49,9 @@
                         <input type="checkbox" name="seat" value="C1" id="C1"><label for="C1" data-place="1"></label>
                         <input type="checkbox" name="seat" value="C2" id="C2"><label for="C2" data-place="2"></label>
                         <input type="checkbox" name="seat" value="C3" id="C3"><label for="C3" data-place="3"></label>
-                        <input type="checkbox" checked name="seat" value="C4" id="C4"><label for="C4" data-place="4"></label>
+                        <input type="checkbox" name="seat" value="C4" id="C4"><label for="C4" data-place="4"></label>
                         <input type="checkbox" checked name="seat" value="C5" id="C5"><label for="C5" data-place="5"></label>
-                        <input type="checkbox" checked name="seat" value="C6" id="C6"><label for="C6" data-place="6"></label>
+                        <input type="checkbox" name="seat" value="C6" id="C6"><label for="C6" data-place="6"></label>
                         <input type="checkbox" name="seat" value="C7" id="C7"><label for="C7" data-place="7"></label>
                         <input type="checkbox" name="seat" value="C8" id="C8"><label for="C8" data-place="8"></label>
                         <input type="checkbox" name="seat" value="C9" id="C9"><label for="C9" data-place="9"></label>
@@ -94,18 +102,71 @@
             </article>
             <article class="asientos__menu">
                 <div>
-                    <small></small> <label>Available</label>
+                    <div class="ciruclo1"></div> <label>Available</label>
                 </div>
                 <div>
-                    <small></small> <label>Reserved</label>
+                    <div class="ciruclo2"></div> <label>Reserved</label>
                 </div>
                 <div>
-                    <small></small> <label>Selected</label>
+                    <div class="ciruclo3"></div> <label>Selected</label>
                 </div>
             </article>
-            <button type="submit">Enviar</button> <!-- Añade un botón de envío -->
+            <section class="dates">
+                <div class="day">
+                    <div class="container-day">
+                        <small class="tittle">Fri</small>
+                        <div class="sub">17</div>
+                    </div>
+                    <div class="container-day">
+                        <small class="tittle">Sat</small>
+                        <div class="sub">18</div>
+                    </div>
+                    <div class="container-day">
+                        <small class="tittle">Sun</small>
+                        <div class="sub">19</div>
+                    </div>
+                    <div class="container-day">
+                        <small class="tittle">Mon</small>
+                        <div class="sub">20</div>
+                    </div>
+                    <div class="container-day">
+                        <small class="tittle">Tue</small>
+                        <div class="sub">21</div>
+                    </div>
+                    <div class="container-day">
+                        <small class="tittle">Thur</small>
+                        <div class="sub">22</div>
+                    </div>
+                </div>
+                <div class="time">
+                    <div class="container-time">
+                        <div class="tittle">13:00</div>
+                        <small class="sub">$ 5.25 -3D</small>
+                    </div>
+                    <div class="container-time">
+                        <div class="tittle">15:45</div>
+                        <small class="sub">$ 5.99 -3D</small>
+                    </div>
+                    <div class="container-time">
+                        <div class="tittle">18:50</div>
+                        <small class="sub">$ 4.50 -3D</small>
+                    </div>
+                    <div class="container-time">
+                        <div class="tittle">20:30</div>
+                        <small class="sub">$ 6.5 -3D</small>
+                    </div>       
+                </div>
+            </section>
+            <footer>
+                <div class="price">
+                    <h4>Price</h4>
+                    <p>$24.99</p>
+                </div>
+                <button type="submit" class="buy">Buy Ticket</button>
+            </footer>
         </form>
     </section>
+    
 <script src="../js/module/asiento.js"></script>
 </body>
 </html>
