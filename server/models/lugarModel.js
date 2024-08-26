@@ -46,12 +46,18 @@ class LugarModel extends connect {
     return resultados;
   }
 
-  async getLugaresByPelicula(idPelicula) {
+  async getLugaresByPelicula(idPelicula, fechaInicioFiltro) {
     await this.reconnect();
     const peliculaId = new ObjectId(idPelicula);
-
+    const filterDateInicio = new Date(fechaInicioFiltro);
+    filterDateInicio.setUTCHours(0, 0, 0, 0);
     const pipeline = [
-      { $match: { id_pelicula: peliculaId } },
+      { 
+        $match: { 
+          id_pelicula: peliculaId,
+          fecha_inicio: { $gte: filterDateInicio }
+        } 
+      },
       {
         $lookup: {
           from: "pelicula",
@@ -69,7 +75,8 @@ class LugarModel extends connect {
           sinopsis: "$pelicula.sinopsis",
           fecha_inicio: 1,
           fecha_fin: 1,
-          _id: 0,
+          precio: 1,
+          _id: 1,
         },
       },
     ];
@@ -78,6 +85,7 @@ class LugarModel extends connect {
     await this.close();
     return resultados;
   }
+
 }
 
 module.exports = LugarModel;

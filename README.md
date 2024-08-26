@@ -148,14 +148,15 @@ fechaInicioFiltro = 2024-08-21
 
 ##### PETICION:  GET
 
-##### URI: http://localhost:3000/lugar/lugaresPorPelicula?idPelicula=66a57941a0881522cdaabb9d
+##### URI: http://localhost:3000/lugar/lugaresPorPelicula?idPelicula=66cb5c47e614e9a59c292521&fechaInicioFiltro=2024-11-01T10:00:00.000Z
 
 ##### HEADER: Content-Type : application/json
 
 #### Query:
 
 ```json
-idPelicula = 66a57941a0881522cdaabb9d
+idPelicula = 66cb5c47e614e9a59c292521
+fechaInicioFiltro=2024-11-01T10:00:00.000Z
 ```
 
 

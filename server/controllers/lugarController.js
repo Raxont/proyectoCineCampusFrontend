@@ -57,8 +57,8 @@ const LugarRequest = async (req, res) => {
           .json(lugarDto.templateNoFunctionsForDate());
       }
     } else if (req.url.includes("lugaresPorPelicula")) {
-      // Obtener todos los lugares por una película específica
-      const resultados = await lugarModel.getLugaresByPelicula(idPelicula);
+      // Obtener todos los lugares por una película específica y fechas
+      const resultados = await lugarModel.getLugaresByPelicula(idPelicula,fechaInicioFiltro);
 
       if (resultados.length > 0) {
         return res.status(200).json(lugarDto.templateSuccess(resultados));
