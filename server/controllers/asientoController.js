@@ -61,5 +61,24 @@ const AsientoController = async (req, res) => {
     }
 }
 
+// Nueva función para manejar la vista HTML
+const renderasiento = async (req, res) => {
+    try {
+      const { idPelicula, fechaInicioFiltro} = req.query;
+      const lugarModel = new LugarModel();
+  
+      const lugar = await lugarModel.getLugaresByPelicula(idPelicula,fechaInicioFiltro);
+  
+      if (lugar.length === 0) {
+        return res.status(404).send('Lugar no encontrado');
+      }
+  
+      res.sendFile(path.join(__dirname, "../../", process.env.STATIC, "views/asiento.html"));
+    } catch (error) {
+      console.error("Error al renderizar el asiento:", error);
+      res.status(500).send("Error interno del servidor");
+    }
+  };
 
-module.exports = AsientoController;
+
+module.exports = {AsientoController,renderasiento};

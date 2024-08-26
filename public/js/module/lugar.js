@@ -61,8 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const fechaFinal = new Date(today);
         fechaFinal.setDate(today.getDate() + 14);
         const fechaFin = fechaFinal.toISOString().split('T')[0];
-        console.log('Fecha inicial',fechaInicio);
-        console.log('Fecha final',fechaFin);
         
         fetch(`/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
         .then(response => response.json())
@@ -75,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="genre">${pelicula.genero.join(', ')}</div>
                     </div>
                 `).join('');
-                console.log('Contenido cartelera insertado:', galeriaContainer.innerHTML);
 
                 // Añadir redirección después de insertar el contenido
                 galeriaContainer.querySelectorAll('.gallery-cell').forEach(element => {
@@ -110,8 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const fechaFinal = new Date(today);
         fechaFinal.setDate(today.getDate() + 100);
         const fechaFin = fechaFinal.toISOString().split('T')[0];
-        console.log('Fecha inicial',fechaInicio);
-        console.log('Fecha final',fechaFin);
         
         fetch(`/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
         .then(response => response.json())
@@ -126,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     </div>
                 `).join('');
-                console.log('Contenido soon insertado:', galeriaContainer.innerHTML);
 
                 // Añadir redirección después de insertar el contenido
                 galeriaContainer.querySelectorAll('.movie-comming').forEach(element => {

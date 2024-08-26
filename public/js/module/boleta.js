@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const boleta = result.data[0]; // Accede al primer elemento del array
         console.log("Info del json de las boletas:", boleta);
         
-        let fechaISO = "2024-09-05T10:00:00.000Z"; // Ejemplo de fecha en formato ISO
+        let fechaISO = (boleta.lugar.fecha_inicio); // Ejemplo de fecha en formato ISO
         let fecha = new Date(fechaISO); // Convertir la fecha ISO a un objeto Date
         
         // Extraer la hora en formato UTC
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="info-detail">${boleta._id}</div>
                 </div>
             </div>
-            <div class="lineas">------------------</div>
+            <div class="lineas">----------------</div>
             <div class="barcode">
                 <img src="${boleta.barcodeUrl || '../storage/Barcode.svg'}" alt="Codigo de barras">
             </div>
