@@ -20,13 +20,6 @@ class BoletaDTO {
       };
     }
   
-    templateNoSeatsAvailable() {
-      return {
-        success: false,
-        message: "No hay asientos disponibles."
-      };
-    }
-  
     templateSuccess(data) {
       return {
         success: true,

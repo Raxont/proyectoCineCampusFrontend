@@ -15,7 +15,6 @@ router.get('/verBoleta', (req, res) => {
 router.get('/boletasPorCliente', (req, res) => BoletaAPIController(req, res));
 
 // Otras rutas de la API
-router.get('/asientosDisponibles', (req, res) => BoletaAPIController(req, res));
 router.post('/agregarBoleta', (req, res) => BoletaAPIController(req, res));
 router.put('/actualizarBoleta/:idBoleta', (req, res) => BoletaAPIController(req, res));
 router.delete('/eliminarBoleta', (req, res) => BoletaAPIController(req, res));

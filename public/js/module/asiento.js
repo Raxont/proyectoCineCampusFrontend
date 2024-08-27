@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idPelicula = urlParams.get('idPelicula');
@@ -13,11 +12,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     let selectedTime = null;
 
     try {
-        
-        const response = await fetch(`/lugar/lugaresPorPelicula?idPelicula=${idPelicula}&fechaInicioFiltro=${fechaInicioFiltro}`);
-        const result = await response.json();
+        // Fetch para obtener lugares por película
+        const lugaresResponse = await fetch(`/lugar/lugaresPorPelicula?idPelicula=${idPelicula}&fechaInicioFiltro=${fechaInicioFiltro}`);
+        const lugaresResult = await lugaresResponse.json();
 
-        if (response.status !== 200 || !result.data || result.data.length === 0) {
+        if (lugaresResponse.status !== 200 || !lugaresResult.data || lugaresResult.data.length === 0) {
             console.error('Funciones no encontradas para la película dada.');
             return;
         }
@@ -41,9 +40,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const daysData = {}; // Para almacenar horarios por fecha
 
-        console.log("base de datos:", result.data);
+        console.log("base de datos:", lugaresResult.data);
 
-        result.data.forEach(lugar => {
+        // Procesar los datos recibidos para los lugares
+        lugaresResult.data.forEach(lugar => {
             let fechaISO = lugar.fecha_inicio;
             let fecha = new Date(fechaISO);
 
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const times = timeContainer.querySelectorAll('.container-time');
             times.forEach(time => {
                 time.addEventListener('click', async function() {
-                    idLugar = time.getAttribute('data-id');
+                    const idLugar = time.getAttribute('data-id');
                     
                     if (selectedTime === time) {
                         selectedTime.classList.remove('selected');
@@ -132,68 +132,63 @@ document.addEventListener('DOMContentLoaded', async () => {
                         selectedTime = time;
                     }
                     if (selectedDay && selectedTime) {
-                        console.log('ID del lugar seleccionado:', idLugar);
-                        
-                        // Realizar la petición a la URI para obtener los asientos disponibles
+
+                        // Realizar la petición para obtener los asientos disponibles
                         try {
-                            const response = await fetch(`http://localhost:3000/boleta/asientosDisponibles?idLugar=${idLugar}`);
-                            if (!response.ok) {
-                                throw new Error('Error al obtener los asientos disponibles');
-                            }
-        
-                            const asientosDisponibles = await response.json();
-        
-                            // Generar el DOM con los asientos disponibles
-                            const asientosContainer = document.querySelector('.asientos__container'); // Asumiendo que existe este contenedor
-        
-                            // Limpiar el contenido previo
-                            asientosContainer.innerHTML = '';
-        
-                            // Crear los artículos de asientos basados en la información recibida
-                            asientosDisponibles.forEach(asiento => {
+                            const asientosResponse = await fetch(`/asiento/asientosDisponibles?idLugar=${idLugar}`);
+                            const asientosResult = await asientosResponse.json();
+
+                            console.log("asientosDisponibles", asientosResult);
+
+                            // Procesar la información recibida de los asientos
+                            const asientosContainer = document.querySelector('.asientos__container');
+                            asientosContainer.innerHTML = '';  // Limpiar contenido previo
+
+                            // Crear elementos para los asientos
+                            asientosResult.forEach(asiento => {
                                 const article = document.createElement('article');
                                 article.className = asiento.tipo === 'preferencial' ? 'asientos__preferenciales' : 'asientos__normal';
-        
+
                                 const divFila = document.createElement('div');
                                 divFila.setAttribute('fila', asiento.fila);
                                 
                                 const small = document.createElement('small');
                                 small.textContent = asiento.fila;
                                 divFila.appendChild(small);
-        
+
                                 const divAsientosLista = document.createElement('div');
                                 divAsientosLista.className = 'asientos__lista';
-        
+
                                 asiento.asientos.forEach(asiento => {
-                                    let contador=1;
+                                    let contador = 1;
                                     const input = document.createElement('input');
                                     input.type = 'checkbox';
                                     input.name = 'seat';
                                     input.value = asiento.codigo;
                                     input.id = asiento.codigo;
-        
+
                                     if (asiento.reservado) {
                                         input.disabled = true;
                                         input.classList.add('reserved');
                                     }
-        
+
                                     const label = document.createElement('label');
                                     label.setAttribute('for', asiento.codigo);
                                     label.setAttribute('data-place', contador);
-                                    contador+=1;
+                                    contador += 1;
                                     divAsientosLista.appendChild(input);
                                     divAsientosLista.appendChild(label);
                                 });
-        
+
                                 divFila.appendChild(divAsientosLista);
                                 article.appendChild(divFila);
-        
+
                                 // Añadir el artículo al contenedor principal
                                 asientosContainer.appendChild(article);
                             });
-        
+
                         } catch (error) {
-                            console.error('Error:', error);
+                            console.error('Error al obtener los asientos disponibles:', error);
                         }
                     }
                     updateButton();
@@ -208,7 +203,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        addEventListeners(); // Asegúrate de que esta función esté definida
+        // Inicializar los listeners
+        addEventListeners();
+
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
@@ -218,7 +215,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const myform = document.querySelector('#myform');
         const buyButton = document.querySelector('.buy');
 
-        // Verificar si el botón existe
         if (!buyButton) {
             console.error('Elemento con clase .buy no encontrado');
             return;
@@ -242,27 +238,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log('Day Sub enviado:', daySub);
                     console.log('Selected Time enviado:', timeTitle);
                     console.log('Time Sub enviado:', timeSub);
-
-                    // Aquí puedes enviar estos datos al servidor o manejarlos como quieras
                 } else {
-                    console.log('Form submission failed: day or time not selected.');
+                    console.error('Debe seleccionar un día y un horario antes de comprar.');
                 }
             });
         } else {
-            console.error('Elemento con ID myform no encontrado');
+            console.error('Formulario con ID myform no encontrado');
         }
     }
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Obtener el elemento con la clase 'back-button'
-    const backButton = document.querySelector('.back-button');
-
-    // Agregar un evento de clic al botón
-    backButton.addEventListener('click', function() {
-        // Redirigir a la URI deseada
-        window.location.href = 'http://localhost:3000/cliente';
-    });
 });

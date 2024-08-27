@@ -21,6 +21,13 @@ class AsientoDTO {
         };
     }
 
+    templateNoSeatsAvailable() {
+        return {
+          success: false,
+          message: "No hay asientos disponibles."
+        };
+    }
+
     templateAsientoInBoleta() {
         return {
             status: 400,
@@ -69,6 +76,13 @@ class AsientoDTO {
             message: arg
         };
     }
+
+    templateSuccess(data) {
+        return {
+          success: true,
+          data: data
+        };
+      }
 }
 
 module.exports = AsientoDTO;

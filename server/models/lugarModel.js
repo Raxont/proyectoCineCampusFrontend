@@ -4,7 +4,12 @@ const connect = require("../infrastructure/database/conexion");
 class LugarModel extends connect {
   constructor() {
     super();
-    this.collection = this.db.collection("lugar");
+    (async () => {
+        if (!this.db) {
+            await this.reconnect();
+        }
+        this.collection = this.getCollection("lugar");
+    })();
   }
 
   async getAllLugarWithPeliculaByDay(fechaInicioFiltro, fechaFinFiltro) {
@@ -42,7 +47,7 @@ class LugarModel extends connect {
     ];
   
     const resultados = await this.collection.aggregate(pipeline).toArray();
-    await this.close();
+    
     return resultados;
   }
 
@@ -82,7 +87,6 @@ class LugarModel extends connect {
     ];
 
     const resultados = await this.collection.aggregate(pipeline).toArray();
-    await this.close();
     return resultados;
   }
 

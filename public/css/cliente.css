@@ -1,0 +1,230 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: rgb(31, 30, 30);
+    width: 100%;
+    height: 100vh;
+}
+
+.top_selection{
+    /* background: red; */
+    width: 100%;
+    height: 15vw;
+    display: flex;
+    color: white;
+}
+
+.top_selection button{
+    width: 20%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+}
+
+.top_selection button:hover{
+    color: blue;
+}
+
+.top_selection button i{
+    font-size: 7vw;
+}
+
+.top_selection h3{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main{
+    width: 100%;
+    height: 80%;
+}
+
+.movie_selected{
+    /* background: yellow; */
+    width: 100%;
+    height: 100%;
+}
+
+.movie_image{
+    /* background: gray; */
+    width: 100%;
+    height: 35%;
+    padding: 2vw;
+}
+
+.movie_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3vw;
+}
+
+.movie_data{
+    /* background: blue; */
+    width: 100%;
+    height: 20%;
+}
+
+.movie_details{
+    /* background: lightgreen; */
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    padding: 2vw;
+}
+
+.movie_title_genre{
+    /* background: red;  */
+    width: 65%;
+    height: 100%;
+    color: white;
+}
+
+.movie_title_genre h3{
+    font-size: 4vw;
+}
+
+.movie_title_genre p{
+    font-size: 2.5vw;
+}
+
+.movie_trailer{
+    background: red;
+    width: 21%;
+    height: 80%;
+    border: none;
+    outline: none;
+    font-size: 2.2vw;
+    color: white;
+    word-spacing: 0.5vw;
+    border-radius: 0.9vw;
+}
+
+.movie_sinopsis{
+    background: rgb(31, 30, 30);
+    width: 100%;
+    height: 75%;
+    font-size: 3.5vw;
+    padding: 2vw 6vw;
+    color: white;
+}
+
+.movie_casting {
+    width: 100%;
+    padding: 0 5vw;
+    overflow: hidden; /* Oculta el contenido que se desborda del contenedor */
+}
+
+.movie_casting h3 {
+    width: 100%;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.carousel_cast {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    overflow-x: scroll; /* Permite el scroll horizontal */
+    scroll-behavior: smooth; /* Suaviza el desplazamiento */
+}
+
+.cast_member {
+    flex: 0 0 auto; /* Evita que los elementos se encogen, permitiendo el desplazamiento */
+    width: 40%; /* Ajusta según el tamaño que desees para cada elemento */
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 2.5vw;
+    gap: 2vw;
+    line-height: 3vw;
+}
+
+.carousel_cast::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en navegadores WebKit */
+}
+
+.cast_member img {
+    width: 10vw; 
+    height: auto;
+    border-radius: 50%;
+}
+
+.caster_details h4 {
+    font-size: 2.5vw;
+}
+
+.caster_details p {
+    font-size: 2.5vw;
+    color: gray;
+}
+
+.cinemas {
+    /* background: red; */
+    width: 100%;
+    height: 30%;
+    padding: 5vw;
+}
+
+.cinemas h3{
+    color: white;
+}
+
+.cinema-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    padding: 3vw 0vw;
+}
+
+.cinema-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    line-height: 5vw;
+    padding: 3vw;
+    border: 1px solid #333;
+    background-color: #2c2c2c;
+    border-radius: 3vw;
+}
+
+.cinema-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.cinema-details p {
+    font-size: 3vw;
+}
+
+.cinema-location {
+    color: #888;
+}
+
+footer {
+    padding: 5vw;
+    text-align: center;
+}
+
+.book-button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3vw;
+    padding: 4.5vw;
+    cursor: pointer;
+    font-size: 4vw;
+    width: 100%;
+}

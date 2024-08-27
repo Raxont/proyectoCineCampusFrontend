@@ -13,18 +13,23 @@ module.exports = class connect {
 
   constructor() {
     if (connect.instance) {
-      return connect.instance;
+        return connect.instance;
     }
-    this.user = process.env.MONGO_USER; // ? Asigna el usuario desde las variables de entorno
-    this.port = process.env.MONGO_PORT; // ? Asigna el puerto desde las variables de entorno
-    this.#pass = process.env.MONGO_PWD; // ? Asigna la contraseña desde las variables de entorno
-    this.#host = process.env.MONGO_HOST; // ? Asigna el host desde las variables de entorno
-    this.#cluster = process.env.MONGO_CLUSTER; // ? Asigna el cluster desde las variables de entorno
-    this.#dbName = process.env.MONGO_DB; // ? Asigna el nombre de la base de datos desde las variables de entorno
-    this.#open(); // * Abre la conexión a la base de datos
-    this.db = this.conexion.db(this.getDbName); // ? Asigna la base de datos a la conexión
-    connect.instance = this; // ! Guarda la instancia actual para futuras referencias
-    return this; // ! Retorna la instancia de la clase
+    this.user = process.env.MONGO_USER;
+    this.port = process.env.MONGO_PORT;
+    this.#pass = process.env.MONGO_PWD;
+    this.#host = process.env.MONGO_HOST;
+    this.#cluster = process.env.MONGO_CLUSTER;
+    this.#dbName = process.env.MONGO_DB;
+    connect.instance = this;
+    return this;
+  }
+
+  getCollection(collectionName) {
+    if (!this.db) {
+        throw new Error("Database connection is not initialized.");
+    }
+    return this.db.collection(collectionName);
   }
 
   //* Setter para la contraseña
@@ -69,10 +74,10 @@ module.exports = class connect {
 
   //* Abre la conexión a la base de datos
   async #open() {
-    this.conexion = new MongoClient(`${this.getHost}${this.user}:${this.getPass}@${this.getCluster}:${this.port}/${this.getDbName}`); // ? Crea una nueva instancia de MongoClient con la URI de conexión
-    await this.conexion.connect(); // ? Establece la conexión con la base de datos
-    this.db = this.conexion.db(this.dbName);
-  }
+    this.conexion = new MongoClient(`${this.getHost}${this.user}:${this.getPass}@${this.getCluster}:${this.port}/${this.getDbName}`);
+    await this.conexion.connect();
+    this.db = this.conexion.db(this.getDbName); // Asigna db después de la conexión
+}
 
   //* Reconecta a la base de datos
   async reconnect() {

@@ -4,27 +4,40 @@ const connect = require("../infrastructure/database/conexion");
 class AsientoModel extends connect {
   constructor() {
     super();
-    this.collection = this.db.collection("asientos");
+   
+    (async () => {
+        if (!this.db) {
+            await this.reconnect();
+        }
+        this.collection = this.getCollection("asientos");
+    })();
   }
-
+  
   async findAsientoById(idAsiento) {
-    await this.reconnect();
     const asiento = await this.collection.findOne({
       _id: new ObjectId(idAsiento),
     });
-    await this.close();
     return asiento;
   }
   
   async findBoletaByCliente(identificacionCliente) {
-    await this.reconnect();
     const boleta = await this.db.collection("boleta").findOne({ identificacion_cliente: identificacionCliente });
-    await this.close();
     return boleta;
-}
+  }
+
+  async getAsientosAvailable(idLugar) {
+    if (!this.collection) await this.connectToDatabase();
+    const resultados = await this.collection
+      .aggregate([
+        { $match: { id_lugar: new ObjectId(idLugar) } },
+        { $project: { id_lugar: 0, _id: 0 } },
+      ])
+      .toArray();
+    console.log(resultados)
+    return resultados;
+  }
 
   async updateAsientoInBoleta(idAsiento, idLugar, identificacionCliente) {
-    await this.reconnect();
     const objectIdAsiento = new ObjectId(idAsiento);
     const objectIdLugar = new ObjectId(idLugar);
 
@@ -38,16 +51,13 @@ class AsientoModel extends connect {
         { $push: { id_asiento: objectIdAsiento } }
     );
 
-    await this.close();
-
     return {
         asientoModificado: resultadoAsiento.modifiedCount > 0,
         boletaModificada: resultadoBoleta.modifiedCount > 0
     };
-}
+  }
 
   async revertAsientoInBoleta(idAsiento, idLugar, identificacionCliente) {
-    await this.reconnect();
     const objectIdAsiento = new ObjectId(idAsiento);
     const objectIdLugar = new ObjectId(idLugar);
 
@@ -62,8 +72,6 @@ class AsientoModel extends connect {
         { identificacion_cliente: identificacionCliente },
         { $pull: { id_asiento: objectIdAsiento } }
       );
-
-    await this.close();
 
     return {
       asientoModificado: resultadoAsiento.modifiedCount > 0,
