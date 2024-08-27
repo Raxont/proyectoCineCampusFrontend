@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const AsientoController = require('../controllers/asientoController');
+const {AsientoController,renderasiento} = require('../controllers/asientoController');
 const path = require("path")
 
 // Ruta para realizar la reserva
@@ -15,8 +15,8 @@ router.get('/verAsiento', (req, res) => {
 });
 
 // Ruta para verificar la API
-router.get("/", (req,res)=>{
-    res.sendFile(path.join(__dirname, "../../",process.env.STATIC,"views/asiento.html"));
-})
+router.get("/", (req, res) => {
+    res.send("API de asiento funcionando correctamente.");
+  });
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const TarjetaModel = require("../models/tarjetaModel.js");
 const TarjetaDTO = require("../dto/tarjetaDto.js");
+const BoletaModel = require("../models/boletaModel");
 const { ObjectId } = require("mongodb");
 
 const TarjetaRequest = async (req, res) => {
@@ -87,6 +88,23 @@ const createTarjeta = async (req, res) => {
   }
 }
 
+// Nueva función para manejar la vista HTML
+const renderTarjeta = async (req, res) => {
+  try {
+    const { identificacionCliente } = req.query;
+    const boletaModel = new BoletaModel();
 
+    const boleta = await boletaModel.getBoletasByCliente(identificacionCliente);
 
-module.exports = { TarjetaRequest, createTarjeta };
+    if (boleta.length === 0) {
+      return res.status(404).send('Boleta no encontrada');
+    }
+
+    res.sendFile(path.join(__dirname, "../../", process.env.STATIC, "views/tarjeta.html"));
+  } catch (error) {
+    console.error("Error al renderizar la boleta:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+module.exports = { TarjetaRequest, createTarjeta, renderTarjeta };

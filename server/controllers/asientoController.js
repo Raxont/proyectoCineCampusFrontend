@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const AsientoModel = require("../models/asientoModel");
 const AsientoDTO = require("../dto/asientoDto");
+const LugarModel = require("../models/lugarModel");
 
 const AsientoController = async (req, res) => {
     const errors = validationResult(req);

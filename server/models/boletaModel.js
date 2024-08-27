@@ -33,7 +33,6 @@ class BoletaModel extends connect {
                 as: 'asientos'
             }
         },
-        { $unwind: '$asientos' },
 
         // Unir con la colección 'lugares'
         {
@@ -65,11 +64,18 @@ class BoletaModel extends connect {
                 fecha_adquisicion: 1,
                 precio: 1,
                 asientos: {
-                    tipo_fila: '$asientos.tipo_fila',
-                    codigo: '$asientos.codigo',
-                    incremento: '$asientos.incremento'
+                    $map: {
+                        input: '$asientos',
+                        as: 'asiento',
+                        in: {
+                            codigo: '$$asiento.codigo',
+                            incremento: '$$asiento.incremento',
+                            tipo_fila: '$$asiento.tipo_fila'
+                        }
+                    }
                 },
                 lugar: {
+                    idLugar:'$lugar._id',
                     nombre: '$lugar.nombre',
                     precio: '$lugar.precio',
                     fecha_inicio: '$lugar.fecha_inicio',
@@ -77,17 +83,18 @@ class BoletaModel extends connect {
                 },
                 pelicula: {
                     titulo: '$pelicula.titulo',
-                    img: '$pelicula.img'
+                    img: '$pelicula.img',
+                    genero: '$pelicula.genero'
                 }
             }
         }
     ];
 
     const resultados = await this.collection.aggregate(pipeline).toArray();
-    console.log("Resultados: " ,resultados)
     await this.close();
     return resultados;
-}
+  }
+
 
   async getAsientosAvailable(id_lugar) {
     await this.reconnect();
