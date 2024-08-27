@@ -1,0 +1,331 @@
+@import url(variables.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background: #272727;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    color: white;
+}
+
+.back-button{
+    width: 20%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+}
+
+.header h3{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button{
+    width: 20%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+}
+
+.movie_data{
+    background: #272727;
+
+    width: 100%;
+    height: 50vw;
+    display: flex;
+}
+
+.movie_image{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 3vw;
+}
+
+.movie_image img{
+    width: 90%;
+    height: 85%;
+    object-fit: cover;
+    border-radius: 3vw;
+}
+
+.movie_details{
+    /* background: lightblue; */
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+.movie_title_genre{
+    /* background: lightcoral; */
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie_title_genre h4{
+    color: red;
+    font-size: 4vw;
+}
+
+.movie_title_genre p{
+    /* background: red; */
+    color: #ffffff80;
+    font-size: 3.7vw;
+}
+
+.movie_cine_date{
+    /* background: lightgreen; */
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie_cine_date h4{
+    height: 40%;
+    color: white;
+    font-size: 3.5vw;
+    text-transform: uppercase;
+}
+
+.movie_cine_date p{
+    /* background: green; */
+    color: #ffffff80;
+    font-size: 3.25vw;
+}
+
+.order_details{
+    background: black;
+    width: 100%;
+    height: 60vw;
+    padding: 5vw 0vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order_number{
+    /* background: lightblue; */
+    width: 90%;
+    height: 15%;
+    display: flex;
+    text-transform: uppercase;
+    gap: 1vw;
+}
+
+.order_number h4{
+    color:#ffffff80;
+    font-size: 3.5vw;
+    font-weight: bold;
+}
+
+.order_number p{
+    color: white;
+    font-weight: bold;
+    font-size: 3.5vw;
+}
+
+.order_tickets_seat{
+    /* background: lightpink; */
+    color:#ffffff80;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .3vw solid;
+    border-color: #ffffff80;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.order_typeSeat_price{
+    /* background: lightpink; */
+    color:#ffffff80;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .3vw solid;
+    border-color: #ffffff80;
+    font-weight: bold;
+}
+
+.order_typeSeat_price h4{
+    text-transform: uppercase;
+}
+
+.order_service_price{
+    /* background: lightpink; */
+    color:#ffffff80;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .3vw solid;
+    border-color: #ffffff80;
+    font-weight: bold;
+}
+
+.order_service_price h4{
+    text-transform: uppercase;
+}
+
+.payment_method{
+    background: black;
+    width: 100%;
+    height: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment_method h4{
+    /* background: red; */
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    font-size: 5vw;
+    font-weight: 550;
+    color: #FFFFFF;
+    padding: 0vw 5vw;
+}
+
+.payment_card{
+    background: #272727;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1vw;
+    border: #ffffff33 .5vw solid;
+    border-radius: 2vw;
+}
+
+.card_image{
+    /* background: black; */
+    width: 25%;
+    height: 100%;
+    padding: 0vw 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_image img{
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.card_detail{
+    /* background: lightblue; */
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card_detail h5{
+    /* background: lightcoral; */
+    width: 100%;
+    height: 35%;
+    font-size: 4.2vw;
+    padding: 0vw 2.5vw;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.card_detail p{
+    /* background: lightgreen; */
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 3.2vw;
+    padding: 0vw 1.6vw;
+    color: #FFFFFF;
+}
+
+.radio-button input[type="radio"] {
+    width: 5vw;
+    height: 5vw;
+    accent-color: red;
+}
+
+.timer {
+    background-color: #4b0000;
+    width: 90%;
+    height: 20%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3vw;
+    margin-top: 3vw;
+    padding: 0vw 5vw;
+}
+
+.timer .timer_text {
+    color: #dbd9d9;
+}
+
+.timer .time {
+    color: #ff3333;
+    font-weight: bold;
+}
+
+.footer{
+    background: black;
+    width: 100%;
+    height: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy-ticket {
+    width: 90%;
+    height: 40%;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 2vw;
+    font-size: 4vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-ticket:hover {
+    background-color: #ff3333;
+}
