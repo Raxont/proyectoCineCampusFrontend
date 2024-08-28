@@ -40,11 +40,11 @@ class TarjetaModel {
   /**
    * Calcula el precio con descuento si aplica
    * @param {Object} tarjeta - Objeto de la tarjeta del cliente
-   * @param {Object} lugar - Objeto del lugar
+   * @param {Object} boleta - Objeto del lugar
    * @returns {Object} - Precio original y precio con descuento
    */
-  calculateDiscount(tarjeta, lugar) {
-    const precioOriginal = lugar.precio;
+  calculateDiscount(tarjeta, boleta) {
+    const precioOriginal = boleta.precio;
     let precioConDescuento = precioOriginal;
 
     if (tarjeta) {

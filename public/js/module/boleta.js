@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="info-detail-name">${boleta.lugar.nombre}</div>
                 </div>
                 <div class="img">
-                    <img src="${boleta.lugar.logoUrl || '../storage/default_cinema_logo.png'}" alt="Cine">
+                    <img src="${boleta.lugar.logoUrl || '../storage/Rectangle 376.png'}" alt="Cine">
                 </div>
             </div>
 

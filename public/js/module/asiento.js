@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             times.forEach(time => {
                 time.addEventListener('click', async function() {
                     const idLugar = time.getAttribute('data-id');
-                    
                     if (selectedTime === time) {
                         selectedTime.classList.remove('selected');
                         selectedTime = null;
@@ -300,6 +299,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                         
                         const boletaResult = await boletaResponse.json();
+                        const idboleta=boletaResult.data.insertedId
                         if (boletaResponse.ok) {
                             // Luego, agregar los asientos
                             const asientosResponse = await fetch('/asiento/getReserva', {
@@ -333,8 +333,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                                             idLugar: "66a585133098ad52758cab05",
                                         })
                                     });
-                                    
-                                    const asientosResulta = await asientosResponsed.json();
+                                    await fetch(`/boleta/eliminarBoleta?idBoleta=${idboleta}`,{
+                                        method:'DELETE'
+                                    })
+                                   
+                                    // const asientosResulta = await asientosResponsed.json();
                                 }   
                             } else {
                                 console.error('Error al reservar asientos:', asientosResult);

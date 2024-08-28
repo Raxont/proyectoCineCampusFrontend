@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             wrapAround: true,
             friction: 0.2,
             cellAlign: 'center',
-            autoPlay: 5000,
+            autoPlay: 4000,
             pauseAutoPlayOnHover: true,
             prevNextButtons: false
         });

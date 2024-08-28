@@ -57,7 +57,6 @@ const AsientoController = async (req, res) => {
             if (!boleta) {
                 return res.status(404).json(asientoDto.templateInvalidClient());
             }
-            console.log('Paso la verificacion de usuarios');
             
             // Verificar si los asientos no están en la boleta
             const asientosNoExistentes = idAsientos.filter(id => 
@@ -66,9 +65,7 @@ const AsientoController = async (req, res) => {
             if (asientosNoExistentes.length > 0) {
                 return res.status(400).json(asientoDto.templateAsientoNotInBoleta());
             }
-            console.log('Paso la verificacion de asientos');
             
-
             // Revertir los asientos en la boleta
             const resultado = await asientoModel.revertAsientoInBoleta(idAsientos, idLugar, identificacionCliente);
             console.log('Paso la reversion de asientos en boleta');
