@@ -1,13 +1,17 @@
 const { ObjectId } = require("mongodb");
 const connect = require("../infrastructure/database/conexion");
 
-class TarjetaModel extends connect {
+class TarjetaModel {
   constructor() {
-    super();
-    this.collection = this.db.collection("tarjeta");
-    this.lugarCollection = this.db.collection("lugar");
-    this.boletaCollection = this.db.collection("boleta");
-    this.clienteCollection = this.db.collection("cliente");
+    this.dbConnection = new connect();
+  }
+
+  async init() {
+    await this.dbConnection.init(); // Asegúrate de inicializar la conexión
+    this.collection = this.dbConnection.getCollection("tarjeta");
+    this.lugarCollection = this.dbConnection.getCollection("lugar");
+    this.boletaCollection = this.dbConnection.getCollection("boleta");
+    this.clienteCollection = this.dbConnection.getCollection("cliente");
   }
 
   /**
@@ -16,16 +20,11 @@ class TarjetaModel extends connect {
    * @returns {Object|null} - Tarjeta activa del cliente o null si no se encuentra
    */
   async findTarjetaByClient(identificacionCliente) {
-    await this.reconnect();
-    try {
-      const tarjeta = await this.collection.findOne({
-        identificacion_cliente: identificacionCliente,
-        estado: "activo"
-      });
-      return tarjeta;
-    } finally {
-      await this.close();
-    }
+    const tarjeta = await this.collection.findOne({
+      identificacion_cliente: identificacionCliente,
+      estado: "activo"
+    });
+    return tarjeta;
   }
 
   /**
@@ -34,13 +33,8 @@ class TarjetaModel extends connect {
    * @returns {Object|null} - Lugar con el ID dado o null si no se encuentra
    */
   async findLugarById(idLugar) {
-    await this.reconnect();
-    try {
-      const lugar = await this.lugarCollection.findOne({ _id: idLugar });
-      return lugar;
-    } finally {
-      await this.close();
-    }
+    const lugar = await this.lugarCollection.findOne({ _id: new ObjectId(idLugar) });
+    return lugar;
   }
 
   /**
@@ -51,12 +45,11 @@ class TarjetaModel extends connect {
    */
   calculateDiscount(tarjeta, lugar) {
     const precioOriginal = lugar.precio;
-    let redondeado = precioOriginal;
-    let precioConDescuento
+    let precioConDescuento = precioOriginal;
+
     if (tarjeta) {
       const descuento = 0.10; // Descuento del 10%
-      redondeado = precioOriginal * (1 - descuento);
-      precioConDescuento = Math.floor(redondeado);
+      precioConDescuento = Math.floor(precioOriginal * (1 - descuento));
     }
 
     return { precioOriginal, precioConDescuento };
@@ -69,51 +62,35 @@ class TarjetaModel extends connect {
    * @returns {Object} - Resultado de la operación de actualización
    */
   async updateBoletaPrice(identificacionCliente, nuevoPrecio) {
-    await this.reconnect();
-    try {
-      const resultado = await this.boletaCollection.updateOne(
-        { identificacion_cliente: identificacionCliente },
-        { $set: { precio: nuevoPrecio } }
-      );
-      return resultado;
-    } finally {
-      await this.close();
-    }
+    const resultado = await this.boletaCollection.updateOne(
+      { identificacion_cliente: identificacionCliente },
+      { $set: { precio: nuevoPrecio } }
+    );
+    return resultado;
   }
   
-   /**
+  /**
    * Inserta una nueva tarjeta en la base de datos
    * @param {Object} tarjetaData - Datos de la tarjeta a crear
    * @returns {Object} - Resultado de la creación de la tarjeta
    */
-   async insertTarjeta(tarjetaData) {
-    await this.reconnect();
-    try {
-      const resultado = await this.collection.insertOne(tarjetaData);
-      return resultado;
-    } finally {
-      await this.close();
-    }
+  async insertTarjeta(tarjetaData) {
+    const resultado = await this.collection.insertOne(tarjetaData);
+    return resultado;
   }
 
   /**
-   * Verifica si el cliente es un usuarioVIP
+   * Verifica si el cliente es un usuario VIP
    * @param {Number} identificacionCliente - Identificación del cliente
    * @returns {Object|null} - Datos del cliente si es VIP, o null si no lo es
    */
   async findClienteVip(identificacionCliente) {
-    await this.reconnect();
-    try {
-      const cliente = await this.clienteCollection.findOne({
-        identificacion: identificacionCliente,
-        estado: "usuarioVip"
-      });
-      return cliente;
-    } finally {
-      await this.close();
-    }
+    const cliente = await this.clienteCollection.findOne({
+      identificacion: identificacionCliente,
+      estado: "usuarioVip"
+    });
+    return cliente;
   }
-
 }
 
 module.exports = TarjetaModel;

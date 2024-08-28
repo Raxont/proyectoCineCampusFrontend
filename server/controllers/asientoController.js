@@ -14,6 +14,7 @@ const AsientoController = async (req, res) => {
     console.log("Asiento Model",asientoModel.constructor.name)
     const asientoDto = new AsientoDTO();
     try {
+        await asientoModel.init();
         if (req.url.includes('getReserva')) {
             // Verificar si el usuario existe en la colección boleta
             const boleta = await asientoModel.findBoletaByCliente(identificacionCliente);
@@ -64,6 +65,15 @@ const AsientoController = async (req, res) => {
             } else {
               return res.status(404).json(asientoDto.templateNoSeatsAvailable());
             }
+          }
+          else if (req.url.includes("getAsientos")) {
+            // Obtener asientos disponibles en un lugar específico
+            const resultados = await asientoModel.getAllAsiento();
+            if (resultados.length > 0) {
+              return res.status(200).json(asientoDto.templateSuccess(resultados));
+            } else {
+              return res.status(404).json(asientoDto.templateNoSeatsAvailable());
+            }
           } else {
             
             return res.status(400).json(asientoDto.templateInvalidAction("Acción no válida"));
@@ -79,6 +89,7 @@ const AsientoController = async (req, res) => {
 const renderasiento = async (req, res) => {
     const lugarModel = new LugarModel();
     try {
+      await lugarModel.init();
       const { idPelicula, fechaInicioFiltro} = req.query;
       
   
@@ -92,7 +103,7 @@ const renderasiento = async (req, res) => {
       console.error("Error al renderizar el asiento:", error);
       res.status(500).send("Error interno del servidor");
     }
-  };
+};
 
 
 module.exports = {AsientoController,renderasiento};

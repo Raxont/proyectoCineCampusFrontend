@@ -1,11 +1,15 @@
 const { MongoClient } = require('mongodb');
 const connect = require('../infrastructure/database/conexion');
 
-class PeliculaModel extends connect {
+class PeliculaModel{
     constructor() {
-        super();
-        this.collection = this.db.collection('pelicula');
-    }
+        this.dbConnection = new connect();
+      }
+    
+      async init() {
+        await this.dbConnection.init(); // Asegúrate de inicializar la conexión
+        this.collection = this.dbConnection.getCollection("pelicula");
+      }
 
     async getAllPeliculas() {
         await this.reconnect();

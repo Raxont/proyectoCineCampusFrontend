@@ -1,39 +1,41 @@
 const { ObjectId } = require("mongodb");
 const connect = require("../infrastructure/database/conexion");
 
-class AsientoModel extends connect {
+class AsientoModel {
   constructor() {
-    super();
-   
-    (async () => {
-        if (!this.db) {
-            await this.reconnect();
-        }
-        this.collection = this.getCollection("asientos");
-    })();
+    this.dbConnection = new connect();
   }
-  
+
+  async init() {
+    await this.dbConnection.init(); // Asegúrate de inicializar la conexión
+    this.collection = this.dbConnection.getCollection("asientos");
+  }
+
+  async getAllAsiento(){
+    const resultados = await this.collection.find({}).toArray();
+    return resultados;
+  }
   async findAsientoById(idAsiento) {
     const asiento = await this.collection.findOne({
       _id: new ObjectId(idAsiento),
     });
     return asiento;
   }
-  
+
   async findBoletaByCliente(identificacionCliente) {
-    const boleta = await this.db.collection("boleta").findOne({ identificacion_cliente: identificacionCliente });
+    const boleta = await this.dbConnection
+      .getCollection("boleta")
+      .findOne({ identificacion_cliente: identificacionCliente });
     return boleta;
   }
 
   async getAsientosAvailable(idLugar) {
-    if (!this.collection) await this.connectToDatabase();
     const resultados = await this.collection
       .aggregate([
         { $match: { id_lugar: new ObjectId(idLugar) } },
         { $project: { id_lugar: 0, _id: 0 } },
       ])
       .toArray();
-    console.log(resultados)
     return resultados;
   }
 
@@ -42,18 +44,20 @@ class AsientoModel extends connect {
     const objectIdLugar = new ObjectId(idLugar);
 
     const resultadoAsiento = await this.collection.updateOne(
-        { _id: objectIdAsiento },
-        { $pull: { id_lugar: objectIdLugar } }
+      { _id: objectIdAsiento },
+      { $pull: { id_lugar: objectIdLugar } }
     );
 
-    const resultadoBoleta = await this.db.collection("boleta").updateOne(
+    const resultadoBoleta = await this.dbConnection
+      .getCollection("boleta")
+      .updateOne(
         { identificacion_cliente: identificacionCliente },
         { $push: { id_asiento: objectIdAsiento } }
-    );
+      );
 
     return {
-        asientoModificado: resultadoAsiento.modifiedCount > 0,
-        boletaModificada: resultadoBoleta.modifiedCount > 0
+      asientoModificado: resultadoAsiento.modifiedCount > 0,
+      boletaModificada: resultadoBoleta.modifiedCount > 0,
     };
   }
 
@@ -66,8 +70,8 @@ class AsientoModel extends connect {
       { $push: { id_lugar: objectIdLugar } }
     );
 
-    const resultadoBoleta = await this.db
-      .collection("boleta")
+    const resultadoBoleta = await this.dbConnection
+      .getCollection("boleta")
       .updateOne(
         { identificacion_cliente: identificacionCliente },
         { $pull: { id_asiento: objectIdAsiento } }

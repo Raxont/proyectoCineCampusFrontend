@@ -1,63 +1,191 @@
 [{
   "_id": {
-    "$oid": "66a6d3fa1c9570011db88fdb"
+    "$oid": "66ceb69c92c1c164ce4a03e4"
   },
-  "tipo_fila": "premier",
+  "tipo_fila": "general",
   "codigo": "A01",
-  "incremento": 10,
+  "incremento": 0,
   "id_lugar": [
-    {
-      "$oid": "66a585133098ad52758cab05"
-    },
     {
       "$oid": "66a579bb7b00907fab0aee94"
     },
     {
       "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
     }
   ]
 },
 {
   "_id": {
-    "$oid": "66a6d3fa1c9570011db88fdc"
+    "$oid": "66ceb69c92c1c164ce4a03e5"
   },
-  "tipo_fila": "premier",
+  "tipo_fila": "general",
   "codigo": "A02",
-  "incremento": 10,
+  "incremento": 0,
   "id_lugar": [
     {
       "$oid": "66a579bb7b00907fab0aee94"
     },
     {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
       "$oid": "66a585133098ad52758cab05"
     },
     {
-      "$oid": "66a52b6c89b4ae4007773f2c"
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
     }
   ]
 },
 {
   "_id": {
-    "$oid": "66a6d3fa1c9570011db88fdd"
+    "$oid": "66ceb69c92c1c164ce4a03e6"
   },
-  "tipo_fila": "premier",
+  "tipo_fila": "general",
   "codigo": "A03",
-  "incremento": 10,
+  "incremento": 0,
   "id_lugar": [
     {
       "$oid": "66a579bb7b00907fab0aee94"
     },
     {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
       "$oid": "66a585133098ad52758cab05"
     },
     {
-      "$oid": "66a52b6c89b4ae4007773f2c"
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
     }
   ]
 },
 {
   "_id": {
-    "$oid": "66a6d3fa1c9570011db88fde"
+    "$oid": "66ceb69c92c1c164ce4a03e7"
+  },
+  "tipo_fila": "general",
+  "codigo": "A04",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03e8"
+  },
+  "tipo_fila": "general",
+  "codigo": "A05",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03e9"
   },
   "tipo_fila": "general",
   "codigo": "B01",
@@ -67,16 +195,34 @@
       "$oid": "66a579bb7b00907fab0aee94"
     },
     {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
       "$oid": "66a585133098ad52758cab05"
     },
     {
-      "$oid": "66a52b6c89b4ae4007773f2c"
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
     }
   ]
 },
 {
   "_id": {
-    "$oid": "66a6d3fa1c9570011db88fdf"
+    "$oid": "66ceb69c92c1c164ce4a03ea"
   },
   "tipo_fila": "general",
   "codigo": "B02",
@@ -86,16 +232,34 @@
       "$oid": "66a579bb7b00907fab0aee94"
     },
     {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
       "$oid": "66a585133098ad52758cab05"
     },
     {
-      "$oid": "66a52b6c89b4ae4007773f2c"
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
     }
   ]
 },
 {
   "_id": {
-    "$oid": "66a6d3fa1c9570011db88fe0"
+    "$oid": "66ceb69c92c1c164ce4a03eb"
   },
   "tipo_fila": "general",
   "codigo": "B03",
@@ -105,10 +269,1427 @@
       "$oid": "66a579bb7b00907fab0aee94"
     },
     {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
       "$oid": "66a585133098ad52758cab05"
     },
     {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03ec"
+  },
+  "tipo_fila": "general",
+  "codigo": "B04",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
       "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03ed"
+  },
+  "tipo_fila": "general",
+  "codigo": "B05",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03ee"
+  },
+  "tipo_fila": "general",
+  "codigo": "B06",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03ef"
+  },
+  "tipo_fila": "general",
+  "codigo": "B07",
+  "incremento": 0,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f0"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C01",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f1"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C02",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f2"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C03",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f3"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C04",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f4"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C05",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f5"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C06",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f6"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C07",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f7"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C08",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f8"
+  },
+  "tipo_fila": "premier",
+  "codigo": "C09",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66a585133098ad52758cab05"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03f9"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D01",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03fa"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D02",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03fb"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D03",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03fc"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D04",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03fd"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D05",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03fe"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D06",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a03ff"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D07",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0400"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D08",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0401"
+  },
+  "tipo_fila": "premier",
+  "codigo": "D09",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0402"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E01",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0403"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E02",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0404"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E03",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0405"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E04",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0406"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E05",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0407"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E06",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0408"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E07",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0409"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E08",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a040a"
+  },
+  "tipo_fila": "premier",
+  "codigo": "E09",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a040b"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F01",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a040c"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F02",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a040d"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F03",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a040e"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F04",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a040f"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F05",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0410"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F06",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0411"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F07",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0412"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F08",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ceb69c92c1c164ce4a0413"
+  },
+  "tipo_fila": "premier",
+  "codigo": "F09",
+  "incremento": 10,
+  "id_lugar": [
+    {
+      "$oid": "66a579bb7b00907fab0aee94"
+    },
+    {
+      "$oid": "66a52b6c89b4ae4007773f2c"
+    },
+    {
+      "$oid": "66c8f1773b9fd081fe7cc8ef"
+    },
+    {
+      "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    },
+    {
+      "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    },
+    {
+      "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    },
+    {
+      "$oid": "66ce7ec292c1c164ce4a02c0"
+    },
+    {
+      "$oid": "66ce82d992c1c164ce4a02c1"
     }
   ]
 }]

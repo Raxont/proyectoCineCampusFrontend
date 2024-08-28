@@ -10,13 +10,16 @@ const createUser = async (req, res) => {
   }
 
   const { identificacion, nombre, nick, email, telefono, estado } = req.body;
-
+  const clienteDto = new ClienteDTO();
+  
   if (!validator.isEmail(email)) {
     return res.status(400).json(clienteDto.templateError("El correo electrónico ingresado no es válido."));
   }
+
   const clienteModel = new ClienteModel();
-  const clienteDto = new ClienteDTO();
   try {
+    // Inicializar la conexión
+    await clienteModel.init();
     
     // Intentar crear el usuario
     const resultado = await clienteModel.createUser({
@@ -27,6 +30,7 @@ const createUser = async (req, res) => {
       telefono,
       estado
     });
+
     return res.status(201).json(clienteDto.templateSuccessCreate(resultado));
   } catch (error) {
     console.error("Error al crear el usuario:", error);
@@ -41,19 +45,22 @@ const showInfoUser = async (req, res) => {
   }
 
   const { identificacion } = req.params;
-
+  const clienteDto = new ClienteDTO();
+  
   // Validar que la identificación es un entero
   const id = parseInt(identificacion, 10);
   if (isNaN(id) || id < 1000000000 || id > 9999999999) {
     return res.status(400).json(clienteDto.templateInvalidId());
   }
 
+  const clienteModel = new ClienteModel();
   try {
-    const clienteModel = new ClienteModel();
-    const clienteDto = new ClienteDTO();
+    // Inicializar la conexión
+    await clienteModel.init();
+    
     // Intentar obtener la información del usuario
     const resultado = await clienteModel.showInfoUser(id);
-
+    
     return res.status(200).json(clienteDto.templateSuccessInfo(resultado));
   } catch (error) {
     console.error("Error al obtener la información del usuario:", error);
@@ -68,7 +75,8 @@ const updateUser = async (req, res) => {
   }
 
   const { identificacion, estado, nick, nombre, email, telefono } = req.body;
-
+  const clienteDto = new ClienteDTO();
+  
   if (!validator.isEmail(email)) {
     return res.status(400).json(clienteDto.templateError("El correo electrónico ingresado no es válido."));
   }
@@ -83,21 +91,23 @@ const updateUser = async (req, res) => {
     return res.status(400).json(clienteDto.templateInvalidId());
   }
 
-  // Verificar si la identificación ya existe en la base de datos
-  const clienteExistentePorId = await clienteModel.showInfoUser(identificacion);
-  if (!clienteExistentePorId) {
-    return res.status(404).json(clienteDto.templateError("La identificación proporcionada no existe."));
-  }
-
-  // Verifica si el nick proporcionado existe en la base de datos
-  const userWithNick = await clienteModel.findUserByNick(nick);
-  if (!userWithNick) {
-    return res.status(404).json(clienteDto.templateError("El nick proporcionado no existe en la base de datos."));
-  }
-
+  const clienteModel = new ClienteModel();
   try {
-    const clienteModel = new ClienteModel();
-    const clienteDto = new ClienteDTO();
+    // Inicializar la conexión
+    await clienteModel.init();
+    
+    // Verificar si la identificación ya existe en la base de datos
+    const clienteExistentePorId = await clienteModel.showInfoUser(id);
+    if (!clienteExistentePorId) {
+      return res.status(404).json(clienteDto.templateError("La identificación proporcionada no existe."));
+    }
+
+    // Verifica si el nick proporcionado existe en la base de datos
+    const userWithNick = await clienteModel.findUserByNick(nick);
+    if (!userWithNick) {
+      return res.status(404).json(clienteDto.templateError("El nick proporcionado no existe en la base de datos."));
+    }
+
     // Intentar actualizar el usuario
     const resultado = await clienteModel.updateInfoUser({
       identificacion: id,
@@ -122,10 +132,13 @@ const UsersRol = async (req, res) => {
   }
 
   const { rol } = req.params;
-
+  const clienteDto = new ClienteDTO();
+  
+  const clienteModel = new ClienteModel();
   try {
-    const clienteModel = new ClienteModel();
-    const clienteDto = new ClienteDTO();
+    // Inicializar la conexión
+    await clienteModel.init();
+    
     // Intentar obtener todos los usuarios con el rol especificado
     const resultado = await clienteModel.allUsersRol(rol);
 
@@ -135,6 +148,5 @@ const UsersRol = async (req, res) => {
     return res.status(500).json(clienteDto.templateError("Error interno del servidor"));
   }
 }
-
 
 module.exports = { createUser, showInfoUser, updateUser, UsersRol };

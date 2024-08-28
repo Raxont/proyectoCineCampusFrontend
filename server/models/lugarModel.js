@@ -1,30 +1,29 @@
 const { ObjectId } = require("mongodb");
 const connect = require("../infrastructure/database/conexion");
 
-class LugarModel extends connect {
+class LugarModel {
   constructor() {
-    super();
-    (async () => {
-        if (!this.db) {
-            await this.reconnect();
-        }
-        this.collection = this.getCollection("lugar");
-    })();
+    this.dbConnection = new connect();
+  }
+
+  async init() {
+    await this.dbConnection.init(); // Asegúrate de inicializar la conexión
+    this.collection = this.dbConnection.getCollection("lugar");
   }
 
   async getAllLugarWithPeliculaByDay(fechaInicioFiltro, fechaFinFiltro) {
-    await this.reconnect();
+    await this.init();
     const filterDateInicio = new Date(fechaInicioFiltro);
     filterDateInicio.setUTCHours(0, 0, 0, 0);
-  
+
     const filterDateFin = fechaFinFiltro ? new Date(fechaFinFiltro) : new Date();
     filterDateFin.setUTCHours(23, 59, 59, 999);
-  
+
     const filter = {
       fecha_inicio: { $gte: filterDateInicio },
       fecha_fin: { $lte: filterDateFin }
     };
-  
+
     const pipeline = [
       { $match: filter },
       {
@@ -45,23 +44,23 @@ class LugarModel extends connect {
         },
       },
     ];
-  
+
     const resultados = await this.collection.aggregate(pipeline).toArray();
-    
     return resultados;
   }
 
   async getLugaresByPelicula(idPelicula, fechaInicioFiltro) {
-    await this.reconnect();
+    await this.init();
     const peliculaId = new ObjectId(idPelicula);
     const filterDateInicio = new Date(fechaInicioFiltro);
     filterDateInicio.setUTCHours(0, 0, 0, 0);
+
     const pipeline = [
-      { 
-        $match: { 
+      {
+        $match: {
           id_pelicula: peliculaId,
           fecha_inicio: { $gte: filterDateInicio }
-        } 
+        }
       },
       {
         $lookup: {
@@ -89,7 +88,6 @@ class LugarModel extends connect {
     const resultados = await this.collection.aggregate(pipeline).toArray();
     return resultados;
   }
-
 }
 
 module.exports = LugarModel;

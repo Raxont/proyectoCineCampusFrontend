@@ -19,9 +19,10 @@ const TarjetaRequest = async (req, res) => {
 
   const objectIdLugar = new ObjectId(idLugar);
   const tarjetaModel = new TarjetaModel();
+  console.log("tarjetaModel Model",tarjetaModel.constructor.name)
   const tarjetaDto = new TarjetaDTO();
   try {
-    
+    await tarjetaModel.init()
     // Verificar si el cliente tiene una tarjeta activa
     const tarjeta = await tarjetaModel.findTarjetaByClient(identificacionCliente);
 

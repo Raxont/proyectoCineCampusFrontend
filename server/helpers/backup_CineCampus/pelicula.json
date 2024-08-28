@@ -1,96 +1,164 @@
 [{
   "_id": {
-    "$oid": "66a57941a0881522cdaabb9d"
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
   },
-  "titulo": "La gran aventura",
+  "titulo": "Alien Romulus",
   "genero": [
-    "Acción",
-    "Aventura"
+    "Sci-Fi",
+    "Horror"
+  ],
+  "duracion": 90,
+  "sinopsis": "En un planeta lejano, un grupo de colonos se enfrenta a una nueva amenaza alienígena que podría poner en peligro la supervivencia de la humanidad.",
+  "img": "https://posters.movieposterdb.com/24_03/2024/18412256/l_alien-romulus-movie-poster_740eb569.jpg",
+  "casting": [
+    {
+      "img": "https://images.movieposterdb.com/profile_images/5097044/t_34045611_isabela-merced.jpg",
+      "nombre": "Isabela Mercad",
+      "personaje": "Juni"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/8314228/t_fa8bfc09_cailee-spaeny.jpg",
+      "nombre": "Cailee Spaeny",
+      "personaje": "Carla"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/8850556/t_3e87766d_archie-renaux.jpg",
+      "nombre": "Archie Renaux",
+      "personaje": "Pedro"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/9657438/t_4f8d7491_david-jonsson.jpg",
+      "nombre": "David Jonsson",
+      "personaje": "Carlos"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  },
+  "titulo": "Deadpool and Wolverine",
+  "genero": [
+    "Sci-Fi",
+    "Action",
+    "Comedy"
+  ],
+  "duracion": 90,
+  "sinopsis": " Wolverine se está recuperando de sus heridas cuando se cruza con el bocazas Deadpool. Ambos se unen para derrotar a un enemigo común.",
+  "img": "https://posters.movieposterdb.com/24_04/2024/6263850/l_deadpool-wolverine-movie-poster_269f8e79.jpg",
+  "casting": [
+    {
+      "img": "https://images.movieposterdb.com/profile_images/982/t_a3406fc1_josh-brolin.jpg",
+      "nombre": "Josh Brolin",
+      "personaje": "Cable"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/5351/t_9e9e1d79_ryan-reynolds.jpg",
+      "nombre": "Ryan Reynolds",
+      "personaje": "Wade Wilson"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/1072555/t_849ff8d1_morena-baccarin.jpg",
+      "nombre": "Morena Baccarin",
+      "personaje": "Vanessa"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/413168/t_264d9f39_hugh-jackman.jpg",
+      "nombre": "Hugh Jackman",
+      "personaje": "Logan"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  },
+  "titulo": "Mi villano favorito 4",
+  "genero": [
+    "Animation",
+    "Adventure",
+    "Comedy"
+  ],
+  "duracion": 90,
+  "sinopsis": " Gru, Lucy, Margo, Edith y Agnes dan la bienvenida a un nuevo miembro a la familia, Gru Jr., que está decidido a atormentar a su padre. Gru se enfrenta a un nuevo enemigo, Maxime Le Mal y su novia Valentina, y la familia se ve obligada a huir.",
+  "casting": [
+    {
+      "img": "https://images.movieposterdb.com/profile_images/136797/t_b97f0d53_steve-carell.jpg",
+      "nombre": "Steve Carell",
+      "personaje": "Gru"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/1325419/t_ed3f2fd3_kristen-wiig.jpg",
+      "nombre": "Kristen Wiig",
+      "personaje": "Lucy Wilde"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/1388927/t_4d99c01f_miranda-cosgrove.jpg",
+      "nombre": "Miranda Cosgrove",
+      "personaje": "Margo"
+    }
+  ],
+  "img": "https://posters.movieposterdb.com/24_02/2024/7510222/l_despicable-me-4-movie-poster_3c4ff16e.jpg"
+},
+{
+  "_id": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  },
+  "titulo": "Twister",
+  "genero": [
+    "Action",
+    "Adventure",
+    "Thriller"
   ],
   "duracion": 120,
-  "sinopsis": "En un mundo lleno de peligros, un héroe debe emprender una misión para salvar a su pueblo."
+  "sinopsis": "Una actualización de la película de 1996 'Twister', que se centró en un par de cazadores de tormentas que arriesgan sus vidas en un intento de probar un sistema de alerta meteorológica experimental.",
+  "img": "https://posters.movieposterdb.com/24_02/2024/12584954/l_twisters-movie-poster_a76b8a6c.jpg",
+  "casting": [
+    {
+      "img": "https://images.movieposterdb.com/profile_images/1412974/t_2b9c624e_glen-powell.jpg",
+      "nombre": "Glen Powell",
+      "personaje": "Tyler Owens"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/8402992/t_6c475bba_daisy-edgar-jones.jpg",
+      "nombre": "Daisy Edgar-Jones",
+      "personaje": "Kate Cooper"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/3297040/t_c7f6db4f_manini-gupta.jpg",
+      "nombre": "Manini Gupta",
+      "personaje": "Shanty"
+    }
+  ]
 },
 {
   "_id": {
-    "$oid": "66ac3b54f0c3a666f6614814"
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
   },
-  "titulo": "El Gran Escape",
+  "titulo": "Harold y el crayon morado",
   "genero": [
-    "Aventura",
-    "Accion"
+    "Family",
+    "Adventure",
+    "Comedy"
   ],
   "duracion": 120,
-  "sinopsis": "Un grupo de prisioneros de guerra planea una fuga masiva de un campo de concentración nazi."
-},
-{
-  "_id": {
-    "$oid": "66ac3b54f0c3a666f6614815"
-  },
-  "titulo": "Cazadores de Tesoros",
-  "genero": [
-    "Aventura",
-    "Comedia"
-  ],
-  "duracion": 105,
-  "sinopsis": "Un excéntrico equipo de cazadores de tesoros se embarca en una misión para encontrar un artefacto perdido."
-},
-{
-  "_id": {
-    "$oid": "66ac3b54f0c3a666f6614816"
-  },
-  "titulo": "Amor en los Tiempos del Colera",
-  "genero": [
-    "Drama",
-    "Romance"
-  ],
-  "duracion": 135,
-  "sinopsis": "Una historia de amor que se desarrolla en medio de la violencia y la enfermedad en una pequeña ciudad colombiana."
-},
-{
-  "_id": {
-    "$oid": "66ac3b73f0c3a666f6614818"
-  },
-  "titulo": "El Gran Escape",
-  "genero": [
-    "Aventura",
-    "Accion"
-  ],
-  "duracion": 120,
-  "sinopsis": "Un grupo de prisioneros de guerra planea una fuga masiva de un campo de concentración nazi."
-},
-{
-  "_id": {
-    "$oid": "66ac3b73f0c3a666f6614819"
-  },
-  "titulo": "Cazadores de Tesoros",
-  "genero": [
-    "Aventura",
-    "Comedia"
-  ],
-  "duracion": 105,
-  "sinopsis": "Un excéntrico equipo de cazadores de tesoros se embarca en una misión para encontrar un artefacto perdido."
-},
-{
-  "_id": {
-    "$oid": "66ac3b73f0c3a666f661481a"
-  },
-  "titulo": "Amor en los Tiempos del Colera",
-  "genero": [
-    "Drama",
-    "Romance"
-  ],
-  "duracion": 135,
-  "sinopsis": "Una historia de amor que se desarrolla en medio de la violencia y la enfermedad en una pequeña ciudad colombiana."
-},
-{
-  "_id": {
-    "$oid": "66ac3b73f0c3a666f661481b"
-  },
-  "titulo": "El Ultimo Guerrero",
-  "genero": [
-    "Accion",
-    "Fantasia"
-  ],
-  "duracion": 145,
-  "sinopsis": "Un guerrero solitario debe enfrentar a un ejército de criaturas mágicas para salvar su reino."
+  "sinopsis": " En su libro, el aventurero Harold puede hacer que cualquier cosa cobre vida con solo dibujarla. Cuando crece y se dibuja a si mismo fuera de las páginas del libro y entra en el mundo fisico, Harold descubre que tiene mucho que aprender sobre la vida real.",
+  "img": "https://posters.movieposterdb.com/24_03/2023/1609486/l_harold-and-the-purple-crayon-movie-poster_0b6351d7.jpg",
+  "casting": [
+    {
+      "img": "https://images.movieposterdb.com/profile_images/1382762/t_b127656b_elizabeth-becka.jpg",
+      "nombre": "Elizabeth Becka",
+      "personaje": "Sra. Barnaby"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/2179201/t_3d819a58_grace-junot.jpg",
+      "nombre": "Gracia Junot",
+      "personaje": "Yasmin"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/5372988/t_3aeb3183_catherine-davis.jpg",
+      "nombre": "Catalina Davis",
+      "personaje": "Kat"
+    }
+  ]
 }]

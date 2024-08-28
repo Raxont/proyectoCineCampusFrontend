@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         boleta = result.data[0]; // Accede al primer elemento del array
-        console.log(boleta);
 
         let fechaISO = boleta.lugar.fecha_inicio;
         let fecha = new Date(fechaISO);
@@ -100,21 +99,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener el elemento con la clase 'back-button'
-            const backButton = document.querySelector('.buy-ticket');
-        
-            // Agregar un evento de clic al botón
-            backButton.addEventListener('click', function() {
-                // Redirigir a la URI deseada
-                window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
-            });
-        });
-
     } catch (error) {
         console.error('Error al hacer la solicitud:', error);
     }
 
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el elemento con la clase 'back-button'
+    const urlParams = new URLSearchParams(window.location.search);
+    const backButton = document.querySelector('.buy-ticket');
+    const identificacionCliente = urlParams.get('identificacionCliente');
+
+    // Agregar un evento de clic al botón
+    backButton.addEventListener('click', function() {
+        // Redirigir a la URI deseada
+        window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Agregar un evento de clic al botón
     backButton.addEventListener('click', function() {
         // Redirigir a la URI deseada
-        window.location.href = 'http://localhost:3000/lugar';
+        window.location.href = 'http://localhost:3000/asiento/verAsiento?idPelicula=66c8f6913b9fd081fe7cc8f5&fechaInicioFiltro=2024-10-01T10:00:00.000Z';
     });
 });
 

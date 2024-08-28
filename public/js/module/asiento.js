@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idPelicula = urlParams.get('idPelicula');
     const fechaInicioFiltro = urlParams.get('fechaInicioFiltro');
-
+    
     if (!idPelicula || !fechaInicioFiltro) {
         console.error('Parámetros no proporcionados.');
         return;
@@ -40,8 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const daysData = {}; // Para almacenar horarios por fecha
 
-        console.log("base de datos:", lugaresResult.data);
-
         // Procesar los datos recibidos para los lugares
         lugaresResult.data.forEach(lugar => {
             let fechaISO = lugar.fecha_inicio;
@@ -68,11 +66,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Crear HTML para los días sin duplicados
         const daysHTML = Object.keys(daysData).map(fechaFormateada => {
-            const [diaSemana, diaMes] = fechaFormateada.split(' ');
+            const [diaSemana, diaMes,dia] = fechaFormateada.split(' ');
             return `
                 <div class="container-day" data-fecha="${fechaFormateada}">
                     <small class="tittle">${diaSemana}</small>
-                    <div class="sub">${diaMes}</div>
+                    <div class="sub">${dia}</div>
                 </div>
             `;
         }).join('');
@@ -131,62 +129,89 @@ document.addEventListener('DOMContentLoaded', async () => {
                         time.classList.add('selected');
                         selectedTime = time;
                     }
+        
                     if (selectedDay && selectedTime) {
-
-                        // Realizar la petición para obtener los asientos disponibles
+                        console.log(idLugar);
                         try {
+                            const allasiento = await fetch(`/asiento/getAsientos`);
                             const asientosResponse = await fetch(`/asiento/asientosDisponibles?idLugar=${idLugar}`);
+        
                             const asientosResult = await asientosResponse.json();
-
-                            console.log("asientosDisponibles", asientosResult);
-
+                            const getasientos = await allasiento.json();
+                            
+                            if (!asientosResult.success || asientosResult.data.length === 0) {
+                                console.error('No hay asientos disponibles');
+                                return;
+                            }
+                            if (!getasientos.success || getasientos.data.length === 0) {
+                                console.error('No hay asientos en la base de datos');
+                                return;
+                            }
+        
                             // Procesar la información recibida de los asientos
-                            const asientosContainer = document.querySelector('.asientos__container');
+                            const asientosContainer = document.getElementById('asientos');
                             asientosContainer.innerHTML = '';  // Limpiar contenido previo
-
-                            // Crear elementos para los asientos
-                            asientosResult.forEach(asiento => {
+        
+                            // Agrupar asientos por filas (ej: A, B, C, etc.)
+                            const asientosPorFila = {};
+                            getasientos.data.forEach(asiento => {
+                                const fila = asiento.codigo.charAt(0); // Obtener la letra de la fila (A, B, etc.)
+                                if (!asientosPorFila[fila]) {
+                                    asientosPorFila[fila] = [];
+                                }
+                                asientosPorFila[fila].push(asiento);
+                            });
+        
+                            // Crear elementos HTML por cada fila
+                            Object.keys(asientosPorFila).forEach(fila => {
                                 const article = document.createElement('article');
-                                article.className = asiento.tipo === 'preferencial' ? 'asientos__preferenciales' : 'asientos__normal';
-
+                                article.className = asientosPorFila[fila][0].tipo_fila === 'premier' ? 'asientos__preferenciales' : 'asientos__normal';
+        
                                 const divFila = document.createElement('div');
-                                divFila.setAttribute('fila', asiento.fila);
-                                
+                                divFila.setAttribute('fila', fila);
+        
                                 const small = document.createElement('small');
-                                small.textContent = asiento.fila;
+                                small.textContent = fila;
                                 divFila.appendChild(small);
-
+        
                                 const divAsientosLista = document.createElement('div');
                                 divAsientosLista.className = 'asientos__lista';
-
-                                asiento.asientos.forEach(asiento => {
-                                    let contador = 1;
+        
+                                let contador = 1;
+                                asientosPorFila[fila].forEach(asiento => {
                                     const input = document.createElement('input');
                                     input.type = 'checkbox';
                                     input.name = 'seat';
                                     input.value = asiento.codigo;
                                     input.id = asiento.codigo;
-
-                                    if (asiento.reservado) {
-                                        input.disabled = true;
-                                        input.classList.add('reserved');
+        
+                                    // Inicialmente marcar todos como reservados
+                                    input.disabled = true;
+                                    input.classList.add('reserved');
+        
+                                    // Si el asiento está disponible para el idLugar actual, quitar la clase reserved y habilitarlo
+                                    const asientoDisponible = asientosResult.data.find(a => a.codigo === asiento.codigo);
+                                    if (asientoDisponible) {
+                                        input.disabled = false;
+                                        input.classList.remove('reserved');
                                     }
-
+        
                                     const label = document.createElement('label');
                                     label.setAttribute('for', asiento.codigo);
                                     label.setAttribute('data-place', contador);
                                     contador += 1;
+                                    
                                     divAsientosLista.appendChild(input);
                                     divAsientosLista.appendChild(label);
                                 });
-
+        
                                 divFila.appendChild(divAsientosLista);
                                 article.appendChild(divFila);
-
+        
                                 // Añadir el artículo al contenedor principal
                                 asientosContainer.appendChild(article);
                             });
-
+        
                         } catch (error) {
                             console.error('Error al obtener los asientos disponibles:', error);
                         }
@@ -213,18 +238,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Lógica para el formulario
     function addEventListeners() {
         const myform = document.querySelector('#myform');
-        const buyButton = document.querySelector('.buy');
-
-        if (!buyButton) {
-            console.error('Elemento con clase .buy no encontrado');
-            return;
-        }
-
         if (myform) {
             myform.addEventListener('submit', (e) => {
                 e.preventDefault();
                 if (selectedDay && selectedTime) {
                     const input = new FormData(e.target);
+                    console.log("input",input);
                     const seat = [];
                     for (let [name, value] of input) seat.unshift(value);
 
@@ -238,6 +257,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log('Day Sub enviado:', daySub);
                     console.log('Selected Time enviado:', timeTitle);
                     console.log('Time Sub enviado:', timeSub);
+
                 } else {
                     console.error('Debe seleccionar un día y un horario antes de comprar.');
                 }
@@ -245,5 +265,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             console.error('Formulario con ID myform no encontrado');
         }
+        
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el elemento con la clase 'buy'
+    const buyButton = document.querySelector('.buy');
+    if (!buyButton) {
+        console.error('Elemento con clase .buy no encontrado');
+        return;
+    }
+    // Agregar un evento de clic al botón
+    buyButton.addEventListener('click', function() {
+        // Redirigir a la URI deseada
+        // window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=1234567890`;
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el elemento con la clase 'back-button'
+    const backButton = document.querySelector('.back-button');
+    // Agregar un evento de clic al botón
+    backButton.addEventListener('click', function() {
+        // Redirigir a la URI deseada
+        window.location.href = `http://localhost:3000/lugar`;
+    });
+});
+
+

@@ -5,7 +5,6 @@ const { ObjectId } = require("mongodb");
 const path = require("path");
 
 const BoletaAPIController = async (req, res) => {
-  // La lógica existente para manejar las rutas de la API (JSON)
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -13,45 +12,43 @@ const BoletaAPIController = async (req, res) => {
 
   const { identificacionCliente, idLugar, idBoleta } = req.query;
   const boletaData = req.body;
-  const boletaModel = new BoletaModel();
   const boletaDto = new BoletaDTO();
+  const boletaModel = new BoletaModel();
+
   try {
+    // Inicializar la conexión
+    await boletaModel.init();
+
     // Validar existencia del identificacionCliente
-    if (identificacionCliente) {
-      if (!/^\d+$/.test(identificacionCliente)) {
-        return res.status(400).json(boletaDto.templateInvalidId());
-      }
+    if (identificacionCliente && !/^\d+$/.test(identificacionCliente)) {
+      return res.status(400).json(boletaDto.templateInvalidId());
     }
 
     // Convertir idLugar e idBoleta en ObjectId si están presentes
     let lugarId = null;
     let boletaId = null;
 
-    if (idLugar) {
-      if (!ObjectId.isValid(idLugar)) {
-        return res.status(400).json(boletaDto.templateInvalidId());
-      }
+    if (idLugar && !ObjectId.isValid(idLugar)) {
+      return res.status(400).json(boletaDto.templateInvalidId());
+    } else if (idLugar) {
       lugarId = new ObjectId(idLugar);
     }
 
-    if (idBoleta) {
-      if (!ObjectId.isValid(idBoleta)) {
-        return res.status(400).json(boletaDto.templateInvalidId());
-      }
+    if (idBoleta && !ObjectId.isValid(idBoleta)) {
+      return res.status(400).json(boletaDto.templateInvalidId());
+    } else if (idBoleta) {
       boletaId = new ObjectId(idBoleta);
     }
 
     if (req.url.includes("boletasPorCliente")) {
       // Obtener boletas por cliente
-      const resultados = await boletaModel.getBoletasByCliente(
-        identificacionCliente
-      );
+      const resultados = await boletaModel.getBoletasByCliente(identificacionCliente);
       if (resultados.length > 0) {
         return res.status(200).json(boletaDto.templateSuccess(resultados));
       } else {
         return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
-    }  else if (req.url.includes("getAllBoletas")) {
+    } else if (req.url.includes("getAllBoletas")) {
       // Obtener todas las boletas
       const resultados = await boletaModel.getAllBoletas();
       if (resultados.length > 0) {
@@ -82,7 +79,7 @@ const BoletaAPIController = async (req, res) => {
 
       const result = await boletaModel.addBoleta(boletaData);
       return res.status(201).json(boletaDto.templateSuccess(result));
-      } else if (req.url.includes("actualizarBoleta") && req.method === "PUT") {
+    } else if (req.url.includes("actualizarBoleta") && req.method === "PUT") {
       // Obtener boletaId de req.params
       const boletaId = req.params.idBoleta;
 
@@ -109,7 +106,7 @@ const BoletaAPIController = async (req, res) => {
       } else {
         return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
-      } else if (req.url.includes("eliminarBoleta") && req.method === "DELETE") {
+    } else if (req.url.includes("eliminarBoleta") && req.method === "DELETE") {
       // Eliminar una boleta
       if (!idBoleta) {
         return res.status(400).json(boletaDto.templateInvalidId());
@@ -121,9 +118,9 @@ const BoletaAPIController = async (req, res) => {
       } else {
         return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
-      } else {
+    } else {
       return res.status(400).json(boletaDto.templateInvalidAction());
-      }
+    }
   } catch (error) {
     console.error("Error en el controlador de boletas:", error);
     return res
@@ -138,6 +135,9 @@ const renderBoleta = async (req, res) => {
   try {
     const { identificacionCliente } = req.query;
 
+    // Inicializar la conexión
+    await boletaModel.init();
+    
     const boleta = await boletaModel.getBoletasByCliente(identificacionCliente);
 
     if (boleta.length === 0) {

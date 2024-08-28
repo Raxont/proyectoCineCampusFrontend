@@ -11,9 +11,11 @@ const LugarRequest = async (req, res) => {
 
   const { fechaInicioFiltro, fechaFinFiltro, idPelicula } = req.query;
   const lugarModel = new LugarModel();
+  console.log("lugarModel Model",lugarModel.constructor.name)
   const lugarDto = new LugarDTO();
   
   try {
+    await lugarModel.init();
     // Validar existencia del idPelicula
     if (idPelicula) {
       if (!ObjectId.isValid(idPelicula)) {

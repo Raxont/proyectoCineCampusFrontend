@@ -35,6 +35,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const ticketDiv = document.getElementById('ticket');
 
+        // Crear la lista de códigos de asientos
+        const asientosTexto = boleta.asientos.map(asiento => asiento.codigo || 'N/A').join(', ');
+
+
         ticketDiv.innerHTML = `
             <div class="movie-poster">
                 <img src="${boleta.pelicula.img}" alt="Poster">
@@ -71,9 +75,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="info-title">Cinema Hall #</div>
                     <div class="info-detail">${boleta.lugar.nombre || 'N/A'}</div>
                 </div>
-                <div class="info">
+                <div class="info2">
                     <div class="info-title">Seat</div>
-                    <div class="info-detail">${boleta.asientos.codigo || 'N/A'}</div>
+                    <div class="info-detail">${asientosTexto || 'N/A'}</div>
                 </div>
             </div>
 
@@ -99,11 +103,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener el elemento con la clase 'back-button'
+    const urlParams = new URLSearchParams(window.location.search);
     const backButton = document.querySelector('.back-button');
-
+    const identificacionCliente = urlParams.get('identificacionCliente');
+    if (!identificacionCliente) {
+        console.error('Identificación del cliente no proporcionada.');
+        return;
+    }
     // Agregar un evento de clic al botón
     backButton.addEventListener('click', function() {
         // Redirigir a la URI deseada
-        window.location.href = 'http://localhost:3000/tarjeta';
+        window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=${identificacionCliente}`;
     });
 });

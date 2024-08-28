@@ -1,26 +1,22 @@
 const { ObjectId } = require("mongodb");
 const connect = require("../infrastructure/database/conexion");
 
-class BoletaModel extends connect {
+class BoletaModel {
   constructor() {
-    super();
-    (async () => {
-        if (!this.db) {
-            await this.reconnect();
-        }
-        this.collection = this.getCollection("boleta");
-    })();
+    this.dbConnection = new connect();
+  }
+
+  async init() {
+    await this.dbConnection.init(); // Asegúrate de inicializar la conexión
+    this.collection = this.dbConnection.getCollection("boleta");
   }
 
   async getAllBoletas() {
-    if (!this.collection) await this.connectToDatabase();
     const resultados = await this.collection.find({}).toArray();
-    
     return resultados;
   }
 
   async getBoletasByCliente(identificacion_cliente) {
-    if (!this.collection) await this.connectToDatabase();
     const identificacion = +identificacion_cliente;
 
     const pipeline = [
@@ -89,28 +85,22 @@ class BoletaModel extends connect {
   }
 
   async addBoleta(boletaData) {
-    if (!this.collection) await this.connectToDatabase();
     const result = await this.collection.insertOne(boletaData);
-    
     return result;
   }
 
   async updateBoleta(id, updatedData) {
-    if (!this.collection) await this.connectToDatabase();
     const filter = { _id: new ObjectId(id) };
     const update = { $set: updatedData };
 
     const result = await this.collection.updateOne(filter, update);
-    
     return result;
   }
 
   async deleteBoleta(id) {
-    if (!this.collection) await this.connectToDatabase();
     const filter = { _id: new ObjectId(id) };
 
     const result = await this.collection.deleteOne(filter);
-    
     return result;
   }
 }
