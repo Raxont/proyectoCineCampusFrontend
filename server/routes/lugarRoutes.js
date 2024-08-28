@@ -7,6 +7,9 @@ const path = require("path")
 // Ruta para obtener todos los lugares por fecha
 router.get('/lugaresPorFecha', (req, res) => LugarController(req, res));
 
+// Ruta para obtener un lugar en especifico
+router.get('/getInfoLugar', (req, res) => LugarController(req, res));
+
 // Ruta para obtener lugares por película específica
 router.get('/lugaresPorPelicula', (req, res) => LugarController(req, res));
 

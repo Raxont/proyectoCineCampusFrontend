@@ -10,28 +10,26 @@ const TarjetaRequest = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { idLugar, identificacionCliente } = req.body;
+  let { idLugar, identificacionCliente } = req.body;
 
   // Validar el ObjectId del lugar
   if (!ObjectId.isValid(idLugar)) {
     return res.status(400).json(tarjetaDto.templateInvalidId());
   }
-
-  const objectIdLugar = new ObjectId(idLugar);
+  
   const tarjetaModel = new TarjetaModel();
-  console.log("tarjetaModel Model",tarjetaModel.constructor.name)
   const tarjetaDto = new TarjetaDTO();
   try {
     await tarjetaModel.init()
+    identificacionCliente = Number(identificacionCliente);
     // Verificar si el cliente tiene una tarjeta activa
     const tarjeta = await tarjetaModel.findTarjetaByClient(identificacionCliente);
-
     if (!tarjeta) {
       return res.status(404).json(tarjetaDto.templateTarjetaNotFound());
     }
-
+    
     // Obtener el lugar relacionado con el ID proporcionado
-    const lugar = await tarjetaModel.findLugarById(objectIdLugar);
+    const lugar = await tarjetaModel.findLugarById(idLugar);
 
     if (!lugar) {
       return res.status(404).json(tarjetaDto.templateLugarNotFound());

@@ -10,6 +10,12 @@ class LugarModel {
     await this.dbConnection.init(); // Asegúrate de inicializar la conexión
     this.collection = this.dbConnection.getCollection("lugar");
   }
+  async getLugar(idLugar){
+    await this.init();
+    const Id = new ObjectId(idLugar);
+    const resultados = await this.collection.find({_id:Id}).toArray();
+    return resultados;
+  }
 
   async getAllLugarWithPeliculaByDay(fechaInicioFiltro, fechaFinFiltro) {
     await this.init();

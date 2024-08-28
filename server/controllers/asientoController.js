@@ -22,9 +22,6 @@ const AsientoController = async (req, res) => {
 
         if (req.url.includes('getReserva')) {
           const idAsientos = idAsiento.map(id => new ObjectId(id));
-
-          
-          console.log("Id Lugar del getReserva Controller:",idLugar);
           
           // Verifica si el usuario existe en la colección boleta
           const boleta = await asientoModel.findBoletaByCliente(identificacionCliente);
@@ -55,22 +52,28 @@ const AsientoController = async (req, res) => {
           }
       } else if (req.url.includes('returnReserva')) {
             // Verificar si el usuario existe en la colección boleta
+            const idAsientos = idAsiento.map(id => new ObjectId(id));
             const boleta = await asientoModel.findBoletaByCliente(identificacionCliente);
             if (!boleta) {
                 return res.status(404).json(asientoDto.templateInvalidClient());
             }
-
+            console.log('Paso la verificacion de usuarios');
+            
             // Verificar si los asientos no están en la boleta
-            const asientosNoExistentes = idAsiento.filter(id => 
+            const asientosNoExistentes = idAsientos.filter(id => 
                 !(boleta.id_asiento && boleta.id_asiento.some(asiento => asiento.equals(id)))
             );
             if (asientosNoExistentes.length > 0) {
                 return res.status(400).json(asientoDto.templateAsientoNotInBoleta());
             }
+            console.log('Paso la verificacion de asientos');
+            
 
             // Revertir los asientos en la boleta
-            const resultado = await asientoModel.revertAsientoInBoleta(idAsiento, idLugar, identificacionCliente);
+            const resultado = await asientoModel.revertAsientoInBoleta(idAsientos, idLugar, identificacionCliente);
+            console.log('Paso la reversion de asientos en boleta');
             
+
             if (resultado.asientosModificados && resultado.boletaModificada) {
                 return res.status(200).json(asientoDto.templateRevertSuccess());
             } else {

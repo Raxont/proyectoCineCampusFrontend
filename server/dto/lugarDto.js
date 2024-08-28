@@ -34,6 +34,13 @@ class LugarDTO {
     };
   }
 
+  templateLugarNotFound() {
+    return {
+      status: 404,
+      message: "No se encontró el lugar deseado.",
+    };
+  }
+
   templateNoFunctionsForDate() {
     return {
       status: 404,

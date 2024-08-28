@@ -131,16 +131,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
         
                     if (selectedDay && selectedTime) {
-                        console.log(idLugar);
                         try {
                             const allasiento = await fetch(`/asiento/getAsientos`);
                             const asientosResponse = await fetch(`/asiento/asientosDisponibles?idLugarq=${idLugar}`);
         
                             const asientosResult = await asientosResponse.json();
-                            const getasientos = await allasiento.json();
-                            console.log("Asientos Disponibles:",asientosResult)
-                            console.log('Asientos completos',getasientos);
-                            
+                            const getasientos = await allasiento.json();           
                             
                             if (!asientosResult.success || asientosResult.data.length === 0) {
                                 console.error('No hay asientos disponibles');
@@ -188,6 +184,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     input.value = asiento.codigo;
                                     input.id = asiento.codigo;
                                     input.setAttribute('data-id', asiento._id)
+                                    input.setAttribute('data-incremento', asiento.incremento)
         
                                     // Inicialmente marcar todos como reservados
                                     input.disabled = true;
@@ -249,6 +246,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const input = new FormData(e.target);
                     const seats = [];
                     const seatIds = [];
+                    let seatprice=0;
 
                     // Itera sobre el FormData para obtener los valores
                     for (let [name, value] of input) {
@@ -261,23 +259,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                             if (checkbox) {
                                 const seatId = checkbox.getAttribute('data-id'); // Obtener el _id
                                 seatIds.push(seatId);
+                                let seattotal = checkbox.getAttribute('data-incremento'); // Obtener el incremento
+                                seattotal=Number(seattotal);
+                                seatprice+=seattotal;
                             }
                         }
                     }
-                    
-                    const dayTitle = selectedDay.querySelector('.tittle').textContent;
-                    const daySub = selectedDay.querySelector('.sub').textContent;
-                    const timeTitle = selectedTime.querySelector('.tittle').textContent;
-                    const timeSub = selectedTime.querySelector('.sub').textContent;
-
-                    console.log('Asientos id',seatIds);
-                    console.log("Asiento enviado:", seats);
-                    console.log('Selected Day enviado:', dayTitle);
-                    console.log('Day Sub enviado:', daySub);
-                    console.log('Selected Time enviado:', timeTitle);
-                    console.log('Time Sub enviado:', timeSub);
                    
                     try {
+                        // Buscar el lugar
+                        const infoLugar = await fetch(`/lugar/getInfoLugar?idLugar=66a585133098ad52758cab05`);
+                        const lugarResult = await infoLugar.json();
+                        const lugar=lugarResult.data[0];
+                        const valor=Number(lugar.precio);
+                        let cantidadAsientos=seatIds.length
+                        const total=valor*cantidadAsientos;
+                        const precio=total+seatprice
                         // Crear la boleta
                         const boletaResponse = await fetch('/boleta/agregarBoleta', {
                             method: 'POST',
@@ -287,16 +284,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                             body: JSON.stringify({
                                 identificacion_cliente: 1234567890,
                                 id_lugar: "66a585133098ad52758cab05",
-                                fecha_adquisicion: new Date().toISOString(), // Asegúrate de usar el formato ISO
+                                fecha_adquisicion: new Date().toISOString(), 
                                 estado: "fisico",
-                                id_asiento: [] // Puedes dejar esto vacío por ahora
+                                id_asiento: [],
+                                precio:precio
                             })
                         });
-                    
+                        
+                        const price = document.querySelector('.price');
+                        if(price){
+                            price.innerHTML = `
+                                <h4>Price</h4>
+                                <p>$${precio.toFixed(2)}</p>
+                            `;
+                        }
+                        
                         const boletaResult = await boletaResponse.json();
                         if (boletaResponse.ok) {
-                            console.log('Boleta creada:', boletaResult);
-                    
                             // Luego, agregar los asientos
                             const asientosResponse = await fetch('/asiento/getReserva', {
                                 method: 'POST',
@@ -304,15 +308,34 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     'Content-Type': 'application/json'
                                 },
                                 body: JSON.stringify({
-                                    idAsiento: seatIds, // Asegúrate de que `seatIds` esté definido correctamente
+                                    idAsiento: seatIds,
                                     identificacionCliente: 1234567890,
                                     idLugar: "66a585133098ad52758cab05",
                                 })
                             });
-                    
+                            
                             const asientosResult = await asientosResponse.json();
                             if (asientosResponse.ok) {
-                                console.log('Asientos reservados:', asientosResult);
+                                const userConfirmed = confirm(`El precio es $${precio}. ¿Desea continuar con la reserva del asiento?`);
+
+                                if (userConfirmed) {
+                                    // Redirige a la página de boleta si el usuario confirma
+                                    window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=1234567890`;
+                                } else {
+                                    const asientosResponsed = await fetch('/asiento/returnReserva', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            idAsiento: seatIds,
+                                            identificacionCliente: 1234567890,
+                                            idLugar: "66a585133098ad52758cab05",
+                                        })
+                                    });
+                                    
+                                    const asientosResulta = await asientosResponsed.json();
+                                }   
                             } else {
                                 console.error('Error al reservar asientos:', asientosResult);
                             }
@@ -328,20 +351,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
     }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Obtener el elemento con la clase 'buy'
-    const buyButton = document.querySelector('.buy');
-    if (!buyButton) {
-        console.error('Elemento con clase .buy no encontrado');
-        return;
-    }
-    // Agregar un evento de clic al botón
-    buyButton.addEventListener('click', function() {
-        // Redirigir a la URI deseada
-        // window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=1234567890`;
-    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -45,11 +45,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             </article>
         `;
 
-        // Poblar sección order_details
         const orderDetailsSection = document.querySelector('.order_details');
         const asientosCodes = Array.isArray(boleta.asientos) 
             ? boleta.asientos.map(asiento => asiento.codigo).join(', ') 
-            : boleta.asientos.codigo; // Adaptado si asientos no es un array
+            : boleta.asientos.codigo; 
+        let asientosPrice = Array.isArray(boleta.asientos) 
+            ? boleta.asientos.reduce((total, asiento) => total + asiento.incremento, 0)
+            : boleta.asientos.precio;
+        boleta.lugar.precio=Number(boleta.lugar.precio)
+        asientosPrice += boleta.lugar.precio;
+        
         
         orderDetailsSection.innerHTML = `
             <article class="order_number">
@@ -62,70 +67,57 @@ document.addEventListener('DOMContentLoaded', async () => {
             </article>
             <article class="order_typeSeat_price">
                 <h4>Regular Seat</h4>
-                <p>$${boleta.precio+=boleta.precio}</p>
+                <p>${asientosPrice}</p>
             </article>
             <article class="order_service_price">
                 <h4>Service Fee</h4>
                 <p>$1.99 x${Array.isArray(boleta.asientos) ? boleta.asientos.length : 0}</p>
             </article>
         `;
-
-        // Manejar el clic en el botón
+        
+         // Manejar el clic en el botón
         document.getElementById('buy').addEventListener('click', async () => {
+            const radioButton = document.querySelector('.radio-button input[type="radio"]');
             const url = 'http://localhost:3000/tarjeta/getDescuento';
             const data = {
-                idLugar: boleta.lugar.idLugar, // Asegúrate de que `idLugar` esté correctamente obtenido del objeto `boleta`
+                idLugar: boleta.lugar.idLugar, 
                 identificacionCliente: identificacionCliente
             };
 
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
+            if (radioButton.checked) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
 
-                if (response.ok) {
-                    const responseData = await response.json();
-                    // Maneja la respuesta aquí
-                    console.log('Descuento recibido:', responseData);
-                } else {
-                    console.error('Error:', response.statusText);
+                    if (response.ok) {
+                        window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
+                    } else {
+                        console.error('Error:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error al hacer la solicitud:', error);
                 }
-            } catch (error) {
-                console.error('Error al hacer la solicitud:', error);
+            } else {
+                window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
             }
         });
 
     } catch (error) {
         console.error('Error al hacer la solicitud:', error);
     }
-
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Obtener el elemento con la clase 'back-button'
-    const urlParams = new URLSearchParams(window.location.search);
-    const backButton = document.querySelector('.buy-ticket');
-    const identificacionCliente = urlParams.get('identificacionCliente');
-
-    // Agregar un evento de clic al botón
-    backButton.addEventListener('click', function() {
-        // Redirigir a la URI deseada
-        window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
-    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener el elemento con la clase 'back-button'
     const backButton = document.querySelector('.back-button');
-
     // Agregar un evento de clic al botón
     backButton.addEventListener('click', function() {
         // Redirigir a la URI deseada
-        window.location.href = 'http://localhost:3000/asiento/verAsiento?idPelicula=66c8f6913b9fd081fe7cc8f5&fechaInicioFiltro=2024-10-01T10:00:00.000Z';
+        window.location.href = `http://localhost:3000/lugar`;
     });
 });
-

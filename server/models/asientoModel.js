@@ -44,8 +44,6 @@ class AsientoModel {
         // Convierte los IDs de asientos y el ID de lugar a ObjectId
         const objectIdsAsientos = idAsientos.map(idAsiento => new ObjectId(idAsiento));
         const objectIdLugar = new ObjectId(idLugar);
-        console.log("Id Asientos a modificar",objectIdsAsientos)
-        console.log('Id Lugar a eliminar',idLugar);
         
         // Actualiza los asientos, eliminando el lugar de cada asiento
         const resultadoAsientos = await this.collection.updateMany(
@@ -72,12 +70,15 @@ class AsientoModel {
   }
 
 
-  async revertAsientoInBoleta(idAsiento, idLugar, identificacionCliente) {
-    const objectIdAsiento = new ObjectId(idAsiento);
+  async revertAsientoInBoleta(idAsientos, idLugar, identificacionCliente) {
+    const objectIdsAsientos = idAsientos.map(idAsiento => new ObjectId(idAsiento));
     const objectIdLugar = new ObjectId(idLugar);
-
-    const resultadoAsiento = await this.collection.updateOne(
-      { _id: objectIdAsiento },
+    console.log("idAsientos:",objectIdsAsientos)
+    console.log("idLugar:", objectIdLugar)
+    console.log('identificacionCliente',identificacionCliente);
+    
+    const resultadoAsiento = await this.collection.updateMany(
+      { _id: objectIdsAsientos },
       { $push: { id_lugar: objectIdLugar } }
     );
 
@@ -85,7 +86,7 @@ class AsientoModel {
       .getCollection("boleta")
       .updateOne(
         { identificacion_cliente: identificacionCliente },
-        { $pull: { id_asiento: objectIdAsiento } }
+        { $pull: { id_asiento: objectIdsAsientos } }
       );
 
     return {

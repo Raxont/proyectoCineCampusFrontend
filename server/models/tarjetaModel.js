@@ -66,6 +66,7 @@ class TarjetaModel {
       { identificacion_cliente: identificacionCliente },
       { $set: { precio: nuevoPrecio } }
     );
+
     return resultado;
   }
   

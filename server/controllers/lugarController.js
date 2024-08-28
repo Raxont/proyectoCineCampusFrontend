@@ -9,9 +9,8 @@ const LugarRequest = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { fechaInicioFiltro, fechaFinFiltro, idPelicula } = req.query;
+  const { fechaInicioFiltro, fechaFinFiltro, idPelicula, idLugar } = req.query;
   const lugarModel = new LugarModel();
-  console.log("lugarModel Model",lugarModel.constructor.name)
   const lugarDto = new LugarDTO();
   
   try {
@@ -68,6 +67,17 @@ const LugarRequest = async (req, res) => {
         return res
           .status(404)
           .json(lugarDto.templatePeliculaNotFound());
+      }
+    }else if (req.url.includes("getInfoLugar")) {
+      // Obtener todos los lugares por una película específica y fechas
+      const resultados = await lugarModel.getLugar(idLugar);
+
+      if (resultados.length > 0) {
+        return res.status(200).json(lugarDto.templateSuccess(resultados));
+      } else {
+        return res
+          .status(404)
+          .json(lugarDto.templateLugarNotFound());
       }
     } else {
       return res.status(400).json(lugarDto.templateInvalidAction());

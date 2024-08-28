@@ -4,7 +4,6 @@ const PeliculaDTO = require('../dto/peliculaDto');
 const PeliculaRequest = async (req, res) => {
     const peliculaModel = new PeliculaModel();
     const peliculaDto = new PeliculaDTO();
-    console.log("peliculaModel Model",peliculaModel.constructor.name)
     try {
         await peliculaModel.init();
         const peliculas = await peliculaModel.getAllPeliculas();
