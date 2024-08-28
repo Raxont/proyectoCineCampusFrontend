@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Crear HTML para los días sin duplicados
         const daysHTML = Object.keys(daysData).map(fechaFormateada => {
-            const [diaSemana, diaMes,dia] = fechaFormateada.split(' ');
+            const [diaSemana, diaMes, dia] = fechaFormateada.split(' ');
             return `
                 <div class="container-day" data-fecha="${fechaFormateada}">
                     <small class="tittle">${diaSemana}</small>
@@ -134,10 +134,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                         console.log(idLugar);
                         try {
                             const allasiento = await fetch(`/asiento/getAsientos`);
-                            const asientosResponse = await fetch(`/asiento/asientosDisponibles?idLugar=${idLugar}`);
+                            const asientosResponse = await fetch(`/asiento/asientosDisponibles?idLugarq=${idLugar}`);
         
                             const asientosResult = await asientosResponse.json();
                             const getasientos = await allasiento.json();
+                            console.log("Asientos Disponibles:",asientosResult)
+                            console.log('Asientos completos',getasientos);
+                            
                             
                             if (!asientosResult.success || asientosResult.data.length === 0) {
                                 console.error('No hay asientos disponibles');
@@ -184,6 +187,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     input.name = 'seat';
                                     input.value = asiento.codigo;
                                     input.id = asiento.codigo;
+                                    input.setAttribute('data-id', asiento._id)
         
                                     // Inicialmente marcar todos como reservados
                                     input.disabled = true;
@@ -239,33 +243,90 @@ document.addEventListener('DOMContentLoaded', async () => {
     function addEventListeners() {
         const myform = document.querySelector('#myform');
         if (myform) {
-            myform.addEventListener('submit', (e) => {
+            myform.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 if (selectedDay && selectedTime) {
                     const input = new FormData(e.target);
-                    console.log("input",input);
-                    const seat = [];
-                    for (let [name, value] of input) seat.unshift(value);
+                    const seats = [];
+                    const seatIds = [];
 
+                    // Itera sobre el FormData para obtener los valores
+                    for (let [name, value] of input) {
+                        // Si el campo es de tipo checkbox y su valor es una cadena de texto
+                        if (name === 'seat' && typeof value === 'string') {
+                            seats.push(value);
+                            
+                            // Encuentra el input checkbox correspondiente en el DOM
+                            const checkbox = document.querySelector(`input[type="checkbox"][value="${value}"]`);
+                            if (checkbox) {
+                                const seatId = checkbox.getAttribute('data-id'); // Obtener el _id
+                                seatIds.push(seatId);
+                            }
+                        }
+                    }
+                    
                     const dayTitle = selectedDay.querySelector('.tittle').textContent;
                     const daySub = selectedDay.querySelector('.sub').textContent;
                     const timeTitle = selectedTime.querySelector('.tittle').textContent;
                     const timeSub = selectedTime.querySelector('.sub').textContent;
 
-                    console.log("Asiento enviado:", seat);
+                    console.log('Asientos id',seatIds);
+                    console.log("Asiento enviado:", seats);
                     console.log('Selected Day enviado:', dayTitle);
                     console.log('Day Sub enviado:', daySub);
                     console.log('Selected Time enviado:', timeTitle);
                     console.log('Time Sub enviado:', timeSub);
-
+                   
+                    try {
+                        // Crear la boleta
+                        const boletaResponse = await fetch('/boleta/agregarBoleta', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                identificacion_cliente: 1234567890,
+                                id_lugar: "66a585133098ad52758cab05",
+                                fecha_adquisicion: new Date().toISOString(), // Asegúrate de usar el formato ISO
+                                estado: "fisico",
+                                id_asiento: [] // Puedes dejar esto vacío por ahora
+                            })
+                        });
+                    
+                        const boletaResult = await boletaResponse.json();
+                        if (boletaResponse.ok) {
+                            console.log('Boleta creada:', boletaResult);
+                    
+                            // Luego, agregar los asientos
+                            const asientosResponse = await fetch('/asiento/getReserva', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    idAsiento: seatIds, // Asegúrate de que `seatIds` esté definido correctamente
+                                    identificacionCliente: 1234567890,
+                                    idLugar: "66a585133098ad52758cab05",
+                                })
+                            });
+                    
+                            const asientosResult = await asientosResponse.json();
+                            if (asientosResponse.ok) {
+                                console.log('Asientos reservados:', asientosResult);
+                            } else {
+                                console.error('Error al reservar asientos:', asientosResult);
+                            }
+                        } else {
+                            console.error('Error al crear la boleta:', boletaResult);
+                        }
+                    } catch (error) {
+                        console.error('Error en la operación:', error);
+                    }
                 } else {
-                    console.error('Debe seleccionar un día y un horario antes de comprar.');
+                    alert('Por favor selecciona un día y una hora.');
                 }
             });
-        } else {
-            console.error('Formulario con ID myform no encontrado');
         }
-        
     }
 });
 

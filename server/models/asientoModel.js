@@ -39,27 +39,38 @@ class AsientoModel {
     return resultados;
   }
 
-  async updateAsientoInBoleta(idAsiento, idLugar, identificacionCliente) {
-    const objectIdAsiento = new ObjectId(idAsiento);
-    const objectIdLugar = new ObjectId(idLugar);
+  async updateAsientoInBoleta(idAsientos, idLugar, identificacionCliente) {
+    try {
+        // Convierte los IDs de asientos y el ID de lugar a ObjectId
+        const objectIdsAsientos = idAsientos.map(idAsiento => new ObjectId(idAsiento));
+        const objectIdLugar = new ObjectId(idLugar);
+        console.log("Id Asientos a modificar",objectIdsAsientos)
+        console.log('Id Lugar a eliminar',idLugar);
+        
+        // Actualiza los asientos, eliminando el lugar de cada asiento
+        const resultadoAsientos = await this.collection.updateMany(
+            { _id: { $in: objectIdsAsientos } },
+            { $pull: { id_lugar: objectIdLugar } }
+        );
 
-    const resultadoAsiento = await this.collection.updateOne(
-      { _id: objectIdAsiento },
-      { $pull: { id_lugar: objectIdLugar } }
-    );
+        // Actualiza la boleta agregando los IDs de asiento
+        const resultadoBoleta = await this.dbConnection
+            .getCollection("boleta")
+            .updateOne(
+                { identificacion_cliente: identificacionCliente },
+                { $push: { id_asiento: { $each: objectIdsAsientos } } }
+            );
 
-    const resultadoBoleta = await this.dbConnection
-      .getCollection("boleta")
-      .updateOne(
-        { identificacion_cliente: identificacionCliente },
-        { $push: { id_asiento: objectIdAsiento } }
-      );
-
-    return {
-      asientoModificado: resultadoAsiento.modifiedCount > 0,
-      boletaModificada: resultadoBoleta.modifiedCount > 0,
-    };
+        return {
+            asientosModificados: resultadoAsientos.modifiedCount > 0,
+            boletaModificada: resultadoBoleta.modifiedCount > 0,
+        };
+    } catch (error) {
+        console.error("Error al actualizar los asientos en la boleta:", error);
+        throw error; // O maneja el error de acuerdo a tus necesidades
+    }
   }
+
 
   async revertAsientoInBoleta(idAsiento, idLugar, identificacionCliente) {
     const objectIdAsiento = new ObjectId(idAsiento);
