@@ -7,7 +7,8 @@
       'id_lugar',
       'fecha_adquisicion',
       'estado',
-      'id_asiento'
+      'id_asiento',
+      'precio'
     ],
     properties: {
       identificacion_cliente: {
@@ -38,6 +39,13 @@
           bsonType: 'objectId',
           description: 'Este dato tiene que ser ObjectID'
         }
+      },
+      precio: {
+        bsonType: [
+          'int',
+          'double'
+        ],
+        description: 'Este dato puede ser un entero o un número decimal'
       }
     }
   }

@@ -82,51 +82,155 @@ Inicializar el proyecto
 npm run dev
 ```
 
+## Arquitectura carpetas
+
+## Public (Front End)
+
+### 	css (Estilos de la web)
+
+#### 		asiento.css
+
+#### 		boleta.css
+
+#### 		cliente.css
+
+#### 		lugar.css
+
+#### 		tarjeta.jss
+
+### 	js (Scripts)
+
+#### 		module
+
+##### 			asiento.js
+
+##### 			boleta.js
+
+##### 			cliente.js
+
+##### 			lugar.js
+
+##### 			tarjeta.js
+
+#### 		main.js
+
+### 	storage (almacenamiento imagenes)
+
+### 	views (Otras vistas html)
+
+#### 		asiento.html
+
+#### 		boleta.html
+
+#### 		cliente.html
+
+#### 		lugar.html
+
+#### 		sincliente.html
+
+#### 		tarjeta.html
+
+### 	index.html
+
+## Server (Back End)
+
+### 	controllers (Maneja la lógica de la aplicación)
+
+#### 		asientoController.js
+
+#### 		boletaController.js
+
+#### 		clienteController.js
+
+#### 		lugarController.js
+
+#### 		peliculaController.js
+
+#### 		tarjetaController.js
+
+### 	dto (Template de mensajes)
+
+#### 		asientoDto.js
+
+#### 		boletaDto.js
+
+#### 		clienteDto.js
+
+#### 		lugarDto.js
+
+#### 		peliculaDto.js
+
+#### 		tarjetaDto.js
+
+### 	helpers (Backup de la base de datos y esquemas de validación)
+
+#### 		backup_CineCampus
+
+##### 			asientos.json
+
+##### 			boleta.json
+
+##### 			cliente.json
+
+##### 			import.js (Script para importar el backup a mongoDB localmente)
+
+##### 			lugar.json
+
+##### 			pelicula.json
+
+##### 			tarjeta.json
+
+#### 		esquemas.js
+
+### 	infrastructure/database (Conexión con mi base de datos)
+
+#### 		conexion.js
+
+### 	models (Interactúa con la base de datos y realiza operaciones relacionadas con los datos)
+
+#### 		asientoModel.js
+
+#### 		boletaModel.js
+
+#### 		clienteModel.js
+
+#### 		lugarModel.js
+
+#### 		peliculaModel.js
+
+#### 		tarjetaModel.js
+
+### 	routes (Define y maneja las rutas HTTP específicas que el servidor puede aceptar)
+
+#### 		asientoRoutes.js
+
+#### 		boletaRoutes.js
+
+#### 		clienteRoutes.js
+
+#### 		lugarRoutes.js
+
+#### 		peliculaRoutes.js
+
+#### 		tarjetaRoutes.js
+
+#### 	server.js (Punto de entrada para el backend)
+
+### .env (Manejo la variables de entorno)
+
+### .envTemplate (Template de las variables de entorno)
 
 
-# 1) Selección de películas
 
-Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainLugar()`. En esa parte, defino una constante llamada `actionLugar`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos.
+# 1) Selección de Funciones
 
-Estos son los datos que permite tomar la constante `actionLugar` :
+Esta es la sección principal de mi página web. Para acceder a ella, utiliza la siguiente URI:
 
-- getAllByDate (Llama la funcion **getAllLugarWithPeliculaByDay**)
-- add (Llama la funcion **addLugar**)
-- update (Llama la funcion **updateLugar**)
-- delete (Llama la funcion **deleteLugar**)
-- getByPelicula (Llama la funcion **getLugaresByPelicula**)
+```http
+http://localhost:3000/lugar
+```
 
-# Lógica de mi código
 
-Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
-
-| Nombre de la función | Que hace?                                                    |
-| -------------------- | ------------------------------------------------------------ |
-| `mainLugar`          | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
-| `agregarlugar`       | *Función para agregar un lugar*                              |
-| `actualizarlugar`    | *Función para actualizar un lugar*                           |
-| `eliminarlugar`      | *Función para eliminar un lugar*                             |
-
-Dentro de la función `mainLugar`, manejo varias opciones según lo requiera el usuario:
-
-| Nombre de la opción | Que hace?                                                    |
-| ------------------- | ------------------------------------------------------------ |
-| `getAllByDate`      | *Permite la consulta de todas las películas disponibles en el catálogo, con detalles como título, género, duración y horarios de proyección* |
-| `add`               | *Agrega un nuevo lugar*                                      |
-| `update`            | *Actualiza la información de un lugar*                       |
-| `delete`            | *Elimina un lugar*                                           |
-| `getByPelicula`     | *Permite la consulta de información detallada sobre una película específica, incluyendo sinopsis.* |
-
-Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección `lugar`, estas son las funciones que usa:
-
-| Nombre de la función           | Que hace?                                                    |
-| ------------------------------ | ------------------------------------------------------------ |
-| `hasPermission`                | *Verifica permisos del usuario ingresado*                    |
-| `getAllLugarWithPeliculaByDay` | *Obtiene todos los lugares por fecha y une con la información de las películas.* PD: La fecha la obtengo con la actual |
-| `addLugar`                     | *Agrega un nuevo lugar*                                      |
-| `updateLugar`                  | *Actualiza la información de un lugar*                       |
-| `deleteLugar`                  | *Elimina un lugar por su ID*                                 |
-| `getLugaresByPelicula`         | *Filtra lugares por una película específica*                 |
 
 # Datos a quemar 
 
@@ -134,80 +238,155 @@ Tengo un módulo llamado `lugar.js`, en el cual manejo el CRUD de mi colección 
 
 ##### PETICION:  GET
 
-##### URI: http://localhost:3000/lugar/lugaresPorFecha?fechaInicioFiltro=2024-08-21
+##### URI: http://localhost:3000/lugar/lugaresPorFecha?fechaInicioFiltro=2024-08-01&fechaFinFiltro=2024-11-01
 
 ##### HEADER: Content-Type : application/json
 
 #### Query:
 
 ```json
-fechaInicioFiltro = 2024-08-21
+fechaInicioFiltro = 2024-08-01
+fechaFinFiltro = 2024-11-01
 ```
 
-### Mostar la informacion completa de una pelicula
+# 2) Información de una película
+
+Para acceder a ella, utiliza la siguiente URI:
+
+```http
+http://localhost:3000/cliente?peliculaId=66c8e3983b9fd081fe7cc8e3
+```
+
+
+
+# Datos a quemar 
+
+### Mostar la información completa de una película
 
 ##### PETICION:  GET
 
-##### URI: http://localhost:3000/lugar/lugaresPorPelicula?idPelicula=66cb5c47e614e9a59c292521&fechaInicioFiltro=2024-11-01T10:00:00.000Z
+##### URI: http://localhost:3000/lugar/lugaresPorPelicula?idPelicula=66c8e3983b9fd081fe7cc8e3&fechaInicioFiltro=2024-08-01T10:00:00Z
 
 ##### HEADER: Content-Type : application/json
 
 #### Query:
 
 ```json
-idPelicula = 66cb5c47e614e9a59c292521
-fechaInicioFiltro=2024-11-01T10:00:00.000Z
+idPelicula = 66c8e3983b9fd081fe7cc8e3
+fechaInicioFiltro = 2024-08-01T10:00:00Z
 ```
 
 
 
-# 2) Compra de Boletos
+# 3) Asignación de Asientos
 
-Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainBoleta()`. En esa parte, defino una constante llamada `actionBoleta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
+Para acceder a ella, utiliza la siguiente URI:
 
-Estos son los datos que permite tomar la constante `actionBoleta` :
+```http
+http://localhost:3000/asiento/verAsiento?idPelicula=66c8e3983b9fd081fe7cc8e3&fechaInicioFiltro=2024-08-01T00:00:00Z
+```
 
-- getAll (Llama la funcion **getAllboleta**)
-- add (Llama la funcion **agregarBoleta**)
-- update (Llama la funcion **actualizarBoleta**)
-- delete (Llama la funcion **eliminarBoleta**)
-- getByCliente (Llama la funcion **getBoletasWithFecha_Inicio**)
-- getAsientos (Llama la funcion **getAsientosAvailable**)
 
-# Lógica de mi código
 
-Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento con estas funciones:
+# Datos a quemar 
 
-| Nombre de la función | Que hace?                                                    |
-| -------------------- | ------------------------------------------------------------ |
-| `mainBoleta`         | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
-| `agregarBoleta`      | *Función para agregar una boleta*                            |
-| `actualizarBoleta`   | *Función para actualizar una boleta*                         |
-| `eliminarBoleta`     | *Función para eliminar una boleta*                           |
+### Reservar un asiento
 
-Dentro de la función `mainBoleta`, manejo varias opciones según lo requiera el usuario:
+##### PETICION:  POST
 
-| Nombre de la opción | Que hace?                                                    |
-| ------------------- | ------------------------------------------------------------ |
-| `getAll`            | *Obtiene todas las boletas*                                  |
-| `agregarBoleta`     | *Agrega una nueva boleta*                                    |
-| `update`            | *Actualiza la información de una boleta*                     |
-| `delete`            | *Elimina una boleta*                                         |
-| `getByCliente`      | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada lugar* |
-| `getAsientos`       | *Obtiene los asientos disponibles*                           |
+##### URI: http://localhost:3000/asiento/getReserva
 
-Tengo un módulo llamado `boleta.js`, en el cual manejo el CRUD de mi colección `boleta`, estas son las funciones que usa:
+##### HEADER: Content-Type : application/json
 
-| Nombre de la función         | Que hace?                                                    |
-| ---------------------------- | ------------------------------------------------------------ |
-| `hasPermission`              | *Verifica permisos del usuario ingresado*                    |
-| `getAllboleta`               | *Obtiene todas las boletas*                                  |
-| `getboletaById`              | *Obtiene una boleta por ID*                                  |
-| `getBoletasWithFecha_Inicio` | *Obtiene boletas por identificación de cliente y trae la fecha de inicio de cada boleta* |
-| `getAsientosAvailable`       | *Permite la consulta de la disponibilidad de asientos en una sala para una proyección específica* |
-| `addLugar`                   | *Agrega una nueva boleta*                                    |
-| `updateLugar`                | *Actualiza la información de una boleta*                     |
-| `deleteLugar`                | *Elimina la boleta por su ID*                                |
+#### BODY:
+
+```json
+{
+    "idAsiento": ["66a6d3fa1c9570011db88fdc"],
+    "idLugar": "66a579bb7b00907fab0aee94",
+    "identificacionCliente": 1234567890
+}
+```
+
+### Cancelar la reserva de un asiento
+
+##### PETICION:  PUT
+
+##### URI: http://localhost:3000/asiento/returnReserva
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+    "idAsiento": "66a6d3fa1c9570011db88fdc",
+    "idLugar": "66a579bb7b00907fab0aee94",
+    "identificacionCliente": 1234567890
+}
+```
+
+
+
+# 4) Descuentos y Tarjetas VIP
+
+Para acceder a ella, utiliza la siguiente URI:
+
+```http
+http://localhost:3000/tarjeta/verBoleta?identificacionCliente=1234567890
+```
+
+# Datos a quemar 
+
+### Obtener el descuento si tiene una tarjeta
+
+##### PETICION:  POST
+
+##### URI: http://localhost:3000/tarjeta/getDescuento
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+  "idboleta":"66d084bff8f6456b810691c6", 
+  "identificacionCliente": 1234567890
+}
+```
+
+### Agregar una nueva tarjeta VIP
+
+##### PETICION:  POST
+
+##### URI: http://localhost:3000/tarjeta/createTarjeta
+
+##### HEADER: Content-Type : application/json
+
+#### BODY:
+
+```json
+{
+  "identificacionCliente":1234512345, 
+  "numero": 654321,
+  "fecha_expedicion": "2024-08-19T00:00:00.000Z",
+  "estado": "activo"
+}
+```
+
+
+
+
+
+# 5) Compra de Boletos
+
+Para acceder a ella, utiliza la siguiente URI:
+
+```http
+http://localhost:3000/boleta/verBoleta?identificacionCliente=1234567890
+```
+
+
 
 # Datos a quemar 
 
@@ -261,9 +440,10 @@ idLugar = 66a52b6c89b4ae4007773f2c
 {
   "identificacion_cliente": 1234512345,
   "id_lugar":"66a579bb7b00907fab0aee94",
-  "fecha_adquisicion": "2024-08-19T12:00:00Z",
+  "fecha_adquisicion": "2024-08-29T12:00:00Z",
   "estado": "fisico",
-  "id_asiento": []
+  "id_asiento": [],
+  "precio":30
 }
 ```
 
@@ -271,7 +451,7 @@ idLugar = 66a52b6c89b4ae4007773f2c
 
 ##### PETICION:  PUT
 
-##### URI: http://localhost:3000/boleta/actualizarBoleta/66c3955f80bb8b9f717d8746
+##### URI: http://localhost:3000/boleta/actualizarBoleta/66d0a0462bc3287eb528ff52
 
 ##### HEADER: Content-Type : application/json
 
@@ -299,183 +479,9 @@ idBoleta = 66c3955f80bb8b9f717d8746
 
 
 
-# 3) Asignación de Asientos
+# 6) Roles Definidos
 
-Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainAsientos()`. En esa parte, defino una constante llamada `actionAsientos`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
-
-Estos son los datos que permite tomar la constante `actionAsientos` :
-
-- getReserva (Llama la funcion **updateAsientoInBoleta**)
-- returnReserva (Llama la funcion **revertAsientoInBoleta**)
-
-# Lógica de mi código
-
-Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
-
-| Nombre de la función | Que hace?                                                    |
-| -------------------- | ------------------------------------------------------------ |
-| `mainAsientos`       | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
-
-Dentro de la función `mainAsientos`, manejo varias opciones según lo requiera el usuario:
-
-| Nombre de la opción | Que hace?                                     |
-| ------------------- | --------------------------------------------- |
-| `getReserva`        | *Permite la selección y reserva de asientos*  |
-| `returnReserva`     | *Cancela una reserva de asiento ya realizada* |
-
-Tengo un módulo llamado `asientos.js`, en el cual manejo mi colección `asientos`, estas son las funciones que usa:
-
-| Nombre de la función    | Que hace?                                                    |
-| ----------------------- | ------------------------------------------------------------ |
-| `hasPermission`         | *Verifica permisos del usuario ingresado*                    |
-| `revertAsientoInBoleta` | *Permite la cancelación de una reserva de asiento ya realizada* |
-| `updateAsientoInBoleta` | *Permite la selección y reserva de asientos para una proyección específica* |
-
-# Datos a quemar 
-
-### Reservar un asiento
-
-##### PETICION:  POST
-
-##### URI: http://localhost:3000/asiento/getReserva
-
-##### HEADER: Content-Type : application/json
-
-#### BODY:
-
-```json
-{
-    "idAsiento": "66a6d3fa1c9570011db88fdc",
-    "idLugar": "66a52b6c89b4ae4007773f2c",
-    "identificacionCliente": 1234567890
-}
-```
-
-### Cancelar la reserva de un asiento
-
-##### PETICION:  PUT
-
-##### URI: http://localhost:3000/asiento/returnReserva
-
-##### HEADER: Content-Type : application/json
-
-#### BODY:
-
-```json
-{
-    "idAsiento": "66a6d3fa1c9570011db88fdc",
-    "idLugar": "66a52b6c89b4ae4007773f2c",
-    "identificacionCliente": 1234567890
-}
-```
-
-
-
-# 4) Descuentos y Tarjetas VIP
-
-Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `maintarjetas()`. En esa parte, defino una constante llamada `actionTarjeta`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
-
-Estos son los datos que permite tomar la constante `actionTarjeta` :
-
-- getDescuento (Llama la funcion **priceDiscount**)
-
-# Lógica de mi código
-
-Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
-
-| Nombre de la función | Que hace?                                                    |
-| -------------------- | ------------------------------------------------------------ |
-| `maintarjetas`       | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
-
-Dentro de la función `maintarjetas`, manejo varias opciones según lo requiera el usuario:
-
-| Nombre de la opción | Que hace?                                           |
-| ------------------- | --------------------------------------------------- |
-| `getDescuento`      | *Permite ver el precio con el descuento si aplica.* |
-
-Tengo un módulo llamado `tarjeta.js`, en el cual manejo mi colección `tarjeta`, estas son las funciones que usa:
-
-| Nombre de la función | Que hace?                                                    |
-| -------------------- | ------------------------------------------------------------ |
-| `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
-| `priceDiscount`      | *Permite la verificación de la validez de una tarjeta VIP y aplica el descuento a su compra* |
-
-### Obtener el descuento si tiene una tarjeta
-
-##### PETICION:  POST
-
-##### URI: http://localhost:3000/tarjeta/getDescuento
-
-##### HEADER: Content-Type : application/json
-
-#### BODY:
-
-```json
-{
-  "idLugar":"66a52b6c89b4ae4007773f2c", 
-  "identificacionCliente": 1234567890
-}
-```
-
-### Agregar una nueva tarjeta VIP
-
-##### PETICION:  POST
-
-##### URI: http://localhost:3000/tarjeta/createTarjeta
-
-##### HEADER: Content-Type : application/json
-
-#### BODY:
-
-```json
-{
-  "identificacionCliente":1234512345, 
-  "numero": 654321,
-  "fecha_expedicion": "2024-08-19T00:00:00.000Z",
-  "estado": "activo"
-}
-```
-
-
-
-# 5) Roles Definidos
-
-Si desea usar esta sección puede dirigirse al archivo `main.js`. Luego, baje a la sección donde llamo a la función `mainCliente()`. En esa parte, defino una constante llamada `actionCliente`, cuyo valor varía dependiendo de lo que desee hacer con la base de datos. 
-
-Estos son los datos que permite tomar la constante `actionCliente` :
-
-- create (Llama la funcion **createUser**)
-- showUser (Llama la funcion **showInfoUser**)
-- updateUser (Llama la funcion **UpdateInfoUser**)
-- allRol (Llama la funcion **AllUsersRol**)
-
-# Lógica de mi código
-
-Tengo un modulo llamado `funciones.js`, donde manejo la lógica principal de mi proyecto utilizando los módulos creados específicamente para este propósito. Cuento estas funciones:
-
-| Nombre de la función | Que hace?                                                    |
-| -------------------- | ------------------------------------------------------------ |
-| `mainCliente`        | *Función principal que ejecuta diferentes acciones basadas en el parámetro 'action'* |
-
-Dentro de la función `mainCliente`, manejo varias opciones según lo requiera el usuario:
-
-| Nombre de la opción | Que hace?                                                    |
-| ------------------- | ------------------------------------------------------------ |
-| `create `           | *Crea un nuevo usuario.*                                     |
-| `showUser `         | *Muestra un usuario especifico junto a su tarjeta si aplica.* |
-| `updateUser `       | *Actualiza un nuevo usuario*                                 |
-| `allRol `           | *Muestra todos los usuarios por rol*                         |
-
-Tengo un módulo llamado `cliente.js`, en el cual manejo mi colección `cliente`, estas son las funciones que usa:
-
-| Nombre de la función | Que hace?                                                    |
-| -------------------- | ------------------------------------------------------------ |
-| `hasPermission`      | *Verifica permisos del usuario ingresado*                    |
-| `whoUser`            | *Verifica cuál es el usuario*                                |
-| `createUser`         | *Crea el usuario en MongoDB y lo guarda en la colección 'cliente'* |
-| `showInfoUser`       | *Busca el ususario por numero de identificacion*             |
-| `UpdateInfoUser`     | *Actualiza el usuario por numero de identificacion*          |
-| `AllUsersRol`        | *Consulta todos los usuarios del sistema, con la posibilidad de filtrar por rol* |
+Para utilizar esta sección, puede realizar las peticiones mediante herramientas como Thunder Client, Insomnia u otras similares.
 
 # Datos a quemar 
 
@@ -545,7 +551,7 @@ Se instala la librería `validator.js` para realizar una validación más robust
 
 Se instala el paquete `dotenv` para cargar mis archivos a mi script con el cual estoy importando el backup de mi base de datos a mi base de datos local
 
-# - Creación del super usuario, administrador, usuario y usuario vip
+# - Creación del super usuario
 
 Creación del super-usuario encargado de administrar el servidor donde esta alojado la base de datos de CineCampus.
 
@@ -554,38 +560,6 @@ db.createUser({
     user: "root",
     pwd:passwordPrompt(),
     roles:[{role:"root",db:"admin"}]
-})
-```
-
-Creación del administrador encargado de administrar la base de datos de CineCampus.
-
-```javascript
-db.createUser({
-    user: "admin",
-    pwd:"admin",
-    roles:[{role:"administrador",db:"CineCampus"},
-          { role: "userAdminAnyDatabase", db: "admin" },
-          { role: "dbAdminAnyDatabase", db: "admin" }]
-})
-```
-
-Creación del usuario del CineCampus.
-
-```javascript
-db.createUser({
-    user: "user",
-    pwd:"1234567890",
-    roles:[{role:"usuarioEstandar",db:"CineCampus"}]
-})
-```
-
-Creación del usuario vip del CineCampus.
-
-```javascript
-db.createUser({
-    user: "vip",
-    pwd:"vip",
-    roles:[{role:"usuarioVip",db:"CineCampus"}]
 })
 ```
 
@@ -667,19 +641,18 @@ db.createRole({
 })
 ```
 
-# - Valores para conectarse a la base de datos como administrador o como usuario en el archivo `.env`
+# - Valores para conectarse a la base de datos como super administrador `.env`
 
 ```javascript
-MONGO_USER="admin"
+MONGO_USER="root"
 MONGO_PORT=27017
-MONGO_PWD="admin"
+MONGO_PWD="Clave creada para el root"
 MONGO_HOST="mongodb://"
 MONGO_CLUSTER="localhost"
-MONGO_DB="CineCampus_Camilo"
+MONGO_DB="admin"
 
 HOST="localhost"
 PORT=3000
 STATIC="public"
 ```
 
-Los dos tipos de usuarios diferentes al administrador solo podrían ver y crear en las diferentes colecciones
