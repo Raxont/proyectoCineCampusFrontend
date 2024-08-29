@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const galeriaContainer = document.getElementById('galeria');
                 galeriaContainer.innerHTML = data.data.map(pelicula => `
-                    <div class="gallery-cell">
+                    <div class="gallery-cell" data-id="${pelicula._id}">
                         <img src="${pelicula.img}" alt="${pelicula.titulo}">
                         <div class="title">${pelicula.titulo}</div>
                         <div class="genre">${pelicula.genero.join(', ')}</div>
@@ -77,7 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Añadir redirección después de insertar el contenido
                 galeriaContainer.querySelectorAll('.gallery-cell').forEach(element => {
                     element.addEventListener('click', function () {
-                        window.location.href = 'http://localhost:3000/cliente';
+                        const peliculaId = this.getAttribute('data-id');
+                        window.location.href = `http://localhost:3000/cliente?peliculaId=${peliculaId}`;
                     });
                 });
 
@@ -113,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const galeriaContainer = document.getElementById('movie-soon');
                 galeriaContainer.innerHTML = data.data.map(pelicula => `
-                    <div class="movie-comming">
+                    <div class="movie-comming" data-id="${pelicula._id}">
                         <img src="${pelicula.img}" alt="${pelicula.titulo}">
                         <div class="movie-comming-content">
                             <div class="title-soon">${pelicula.titulo}</div>
@@ -125,7 +126,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Añadir redirección después de insertar el contenido
                 galeriaContainer.querySelectorAll('.movie-comming').forEach(element => {
                     element.addEventListener('click', function () {
-                        window.location.href = 'http://localhost:3000/cliente';
+                        const peliculaId = this.getAttribute('data-id');
+                        window.location.href = `http://localhost:3000/cliente?peliculaId=${peliculaId}`;
                     });
                 });
             })

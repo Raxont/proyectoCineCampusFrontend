@@ -37,5 +37,5 @@ let config ={
 };
 
 app.listen(config, () => {
-    console.log(`Servidor escuchando en http://${config.host}:${config.port}`);	
+    console.log(`Servidor escuchando en http://${config.host}:${config.port}/lugar`);	
 });
