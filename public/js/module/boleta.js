@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <div class="row">
                 <div class="info">
                     <div class="info-title">Cinema</div>
-                    <div class="info-detail-name">${boleta.lugar.nombre}</div>
+                    <div class="info-detail-name">Cine Campus</div>
                 </div>
                 <div class="img">
                     <img src="${boleta.lugar.logoUrl || '../storage/Rectangle 376.png'}" alt="Cine">
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="info-title">Cost</div>
                     <div class="info-detail">$${boleta.precio}</div>
                 </div>
-                <div class="info">
+                <div class="info2">
                     <div class="info-title">Order ID</div>
                     <div class="info-detail">${boleta._id}</div>
                 </div>

@@ -7,6 +7,7 @@ const tarjetaRoutes = require("./routes/tarjetaRoutes");
 const boletaRoutes = require("./routes/boletaRoutes");
 const lugarRoutes = require("./routes/lugarRoutes");
 const asientoRoutes = require("./routes/asientoRoutes");
+const peliculaRoutes = require("./routes/peliculaRoutes");
 
 app.use(express.json());
 
@@ -25,6 +26,14 @@ app.use("/tarjeta", tarjetaRoutes);
 app.use("/boleta", boletaRoutes);
 app.use("/lugar", lugarRoutes);
 app.use("/asiento", asientoRoutes);
+app.use("/pelicula", peliculaRoutes);
+
+// Exponer la variable de entorno para usarla como idenficacion
+app.get('/api/config', (req, res) => {
+    res.json({
+        identificacion: process.env.MONGO_PWD,
+    });
+});
 
 app.use((req, res, next) => {
     req.__dirname = __dirname;

@@ -67,9 +67,11 @@ const createTarjeta = async (req, res) => {
     estado
   };
 
+  const tarjetaModel = new TarjetaModel();
+  const tarjetaDto = new TarjetaDTO();
   try {
-    const tarjetaModel = new TarjetaModel();
-    const tarjetaDto = new TarjetaDTO();
+    await tarjetaModel.init()
+   
     // Verificar si el cliente es usuarioVIP
     const clienteVip = await tarjetaModel.findClienteVip(identificacionCliente);
 
@@ -89,9 +91,11 @@ const createTarjeta = async (req, res) => {
 
 // Nueva función para manejar la vista HTML
 const renderTarjeta = async (req, res) => {
+  const boletaModel = new BoletaModel();
   try {
+    await tarjetaModel.init()
     const { identificacionCliente } = req.query;
-    const boletaModel = new BoletaModel();
+    
 
     const boleta = await boletaModel.getBoletasByCliente(identificacionCliente);
 

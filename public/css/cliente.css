@@ -55,6 +55,10 @@ body {
     height: 100%;
 }
 
+.container-movie{
+    width: 100%;
+}
+
 .movie_image{
     /* background: gray; */
     width: 100%;

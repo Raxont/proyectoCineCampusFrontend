@@ -1,22 +1,22 @@
-const { MongoClient } = require('mongodb');
-const connect = require('../infrastructure/database/conexion');
+const { ObjectId } = require("mongodb");
+const connect = require("../infrastructure/database/conexion");
 
-class PeliculaModel{
-    constructor() {
-        this.dbConnection = new connect();
-      }
-    
-      async init() {
-        await this.dbConnection.init(); // Asegúrate de inicializar la conexión
-        this.collection = this.dbConnection.getCollection("pelicula");
-      }
+class PeliculaModel {
+  constructor() {
+    this.dbConnection = new connect();
+  }
 
-    async getAllPeliculas() {
-        await this.reconnect();
-        const peliculas = await this.collection.find({}).toArray();
-        await this.close();
-        return peliculas;
-    }
+  async init() {
+    await this.dbConnection.init(); // Asegúrate de inicializar la conexión
+    this.collection = this.dbConnection.getCollection("pelicula");
+  }
+
+  async findPeliculaById(idPelicula) {
+    const pelicula = await this.collection.findOne({
+      _id: new ObjectId(idPelicula),
+    });
+    return pelicula;
+  }
 }
 
 module.exports = PeliculaModel;

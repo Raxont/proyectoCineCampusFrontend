@@ -19,6 +19,9 @@ router.get('/rol/:rol', (req, res) => UsersRol(req, res));
 router.get("/", (req,res)=>{
     res.sendFile(path.join(__dirname, "../../",process.env.STATIC,"views/cliente.html"));
 })
+router.get("/sin", (req,res)=>{
+    res.sendFile(path.join(__dirname, "../../",process.env.STATIC,"views/sincliente.html"));
+})
 
 
 module.exports = router;

@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idPelicula = urlParams.get('idPelicula');
     const fechaInicioFiltro = urlParams.get('fechaInicioFiltro');
-    
     if (!idPelicula || !fechaInicioFiltro) {
         console.error('Parámetros no proporcionados.');
         return;
@@ -93,17 +92,27 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                     day.classList.add('selected');
                     selectedDay = day;
-
+                    
                     // Mostrar las horas correspondientes al día seleccionado
-                    const timesHTML = daysData[fechaSeleccionada].map(({ hora, precio, idLugar }) => `
-                        <div class="container-time" data-id="${idLugar}">
-                            <div class="tittle">${hora}</div>
-                            <small class="sub">$${precio} -3D</small>
-                        </div>
-                    `).join('');
-
+                    const timesHTML = daysData[fechaSeleccionada].map(({ hora, precio, idLugar }) => {
+                        // Determinar el sufijo a añadir al precio basado en el valor de 'precio'
+                        let precioTexto;
+                        if (precio === "10.50") {
+                            precioTexto = `$${precio} -2D`;
+                        } else if (precio === "20.50") {
+                            precioTexto = `$${precio} -3D`;
+                        } 
+                
+                        return `
+                            <div class="container-time" data-id="${idLugar}">
+                                <div class="tittle">${hora}</div>
+                                <small class="sub">${precioTexto}</small>
+                            </div>
+                        `;
+                    }).join('');
+                
                     timeContainer.innerHTML = timesHTML;
-
+                
                     // Re-agregar event listeners para las horas después de actualizar el HTML
                     addTimeEventListeners();
                 }
@@ -150,10 +159,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                             const asientosContainer = document.getElementById('asientos');
                             asientosContainer.innerHTML = '';  // Limpiar contenido previo
         
-                            // Agrupar asientos por filas (ej: A, B, C, etc.)
+                            // Agrupar asientos por filas 
                             const asientosPorFila = {};
                             getasientos.data.forEach(asiento => {
-                                const fila = asiento.codigo.charAt(0); // Obtener la letra de la fila (A, B, etc.)
+                                const fila = asiento.codigo.charAt(0); // Obtener la letra de la fila 
                                 if (!asientosPorFila[fila]) {
                                     asientosPorFila[fila] = [];
                                 }
@@ -217,6 +226,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                     }
                     updateButton();
+                    // Inicializar los listeners
+                    addEventListeners(idLugar);
                 });
             });
         }
@@ -228,16 +239,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        // Inicializar los listeners
-        addEventListeners();
-
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
 
     // Lógica para el formulario
-    function addEventListeners() {
+    async function addEventListeners(idLugar) {
         const myform = document.querySelector('#myform');
+
+        const response = await fetch('/api/config');
+        const array = await response.json();
+        cliente=Number(array.identificacion)
+
         if (myform) {
             myform.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -267,13 +280,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                    
                     try {
                         // Buscar el lugar
-                        const infoLugar = await fetch(`/lugar/getInfoLugar?idLugar=66a585133098ad52758cab05`);
+                        const infoLugar = await fetch(`/lugar/getInfoLugar?idLugar=${idLugar}`);
                         const lugarResult = await infoLugar.json();
                         const lugar=lugarResult.data[0];
                         const valor=Number(lugar.precio);
                         let cantidadAsientos=seatIds.length
                         const total=valor*cantidadAsientos;
                         const precio=total+seatprice
+                        
                         // Crear la boleta
                         const boletaResponse = await fetch('/boleta/agregarBoleta', {
                             method: 'POST',
@@ -281,8 +295,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                identificacion_cliente: 1234567890,
-                                id_lugar: "66a585133098ad52758cab05",
+                                identificacion_cliente: cliente,
+                                id_lugar: idLugar,
                                 fecha_adquisicion: new Date().toISOString(), 
                                 estado: "fisico",
                                 id_asiento: [],
@@ -309,8 +323,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 },
                                 body: JSON.stringify({
                                     idAsiento: seatIds,
-                                    identificacionCliente: 1234567890,
-                                    idLugar: "66a585133098ad52758cab05",
+                                    identificacionCliente: cliente,
+                                    idLugar: idLugar,
                                 })
                             });
                             
@@ -320,7 +334,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                                 if (userConfirmed) {
                                     // Redirige a la página de boleta si el usuario confirma
-                                    window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=1234567890`;
+                                    window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=${cliente}`;
                                 } else {
                                     const asientosResponsed = await fetch('/asiento/returnReserva', {
                                         method: 'POST',
@@ -329,8 +343,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                                         },
                                         body: JSON.stringify({
                                             idAsiento: seatIds,
-                                            identificacionCliente: 1234567890,
-                                            idLugar: "66a585133098ad52758cab05",
+                                            identificacionCliente: cliente,
+                                            idLugar: idLugar,
                                         })
                                     });
                                     await fetch(`/boleta/eliminarBoleta?idBoleta=${idboleta}`,{
@@ -361,8 +375,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const backButton = document.querySelector('.back-button');
     // Agregar un evento de clic al botón
     backButton.addEventListener('click', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const idPelicula = urlParams.get('idPelicula');
         // Redirigir a la URI deseada
-        window.location.href = `http://localhost:3000/lugar`;
+        window.location.href = `http://localhost:3000/cliente?peliculaId=${idPelicula}`;
     });
 });
 

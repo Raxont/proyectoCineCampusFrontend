@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 galeriaContainer.querySelectorAll('.movie-comming').forEach(element => {
                     element.addEventListener('click', function () {
                         const peliculaId = this.getAttribute('data-id');
-                        window.location.href = `http://localhost:3000/cliente?peliculaId=${peliculaId}`;
+                        window.location.href = `http://localhost:3000/cliente/sin?peliculaId=${peliculaId}`;
                     });
                 });
             })
