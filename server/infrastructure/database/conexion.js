@@ -8,6 +8,10 @@ module.exports = class connect {
   #cluster; 
   #dbName; 
 
+  /**
+   * Constructor de la clase `connect`.
+   * Inicializa las variables de configuración de la base de datos utilizando las variables de entorno.
+   */
   constructor() {
     this.user = process.env.MONGO_USER;
     this.port = process.env.MONGO_PORT;
@@ -19,6 +23,11 @@ module.exports = class connect {
     this.db = null; // Inicialmente null
   }
 
+  /**
+   * Inicializa la conexión a la base de datos MongoDB.
+   * Crea una nueva instancia de MongoClient y se conecta a la base de datos si no está ya conectada.
+   * @returns {Promise<void>}
+   */
   async init() {
     if (!this.conexion) { // Solo abre si no está ya abierta
       this.conexion = new MongoClient(
@@ -30,6 +39,13 @@ module.exports = class connect {
     }
   }
 
+  /**
+   * Obtiene una colección de la base de datos.
+   * Lanza un error si la conexión a la base de datos no está inicializada.
+   * @param {string} collectionName - Nombre de la colección a obtener.
+   * @returns {Collection} - La colección solicitada.
+   * @throws {Error} - Lanza un error si la conexión a la base de datos no está inicializada.
+   */
   getCollection(collectionName) {
     if (!this.db) {
       throw new Error("Database connection is not initialized.");
@@ -37,6 +53,11 @@ module.exports = class connect {
     return this.db.collection(collectionName);
   }
 
+  /**
+   * Cierra la conexión a la base de datos MongoDB.
+   * Establece `conexion` y `db` a null después de cerrar la conexión.
+   * @returns {Promise<void>}
+   */
   async close() {
     if (this.conexion) {
       await this.conexion.close();

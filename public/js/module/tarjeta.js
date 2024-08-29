@@ -1,33 +1,42 @@
+// Espera a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', async () => {
+    // Obtiene los parámetros de la URL de la página actual
     const urlParams = new URLSearchParams(window.location.search);
     const identificacionCliente = urlParams.get('identificacionCliente');
+    
+    // Verifica si se ha proporcionado la identificación del cliente
     if (!identificacionCliente) {
         console.error('Identificación del cliente no proporcionada.');
         return;
     }
 
-    let boleta = null;
+    let boleta = null; // Variable para almacenar la boleta
+
     try {
+        // Realiza una solicitud a la API para obtener la boleta del cliente
         const response = await fetch(`/boleta/boletasPorCliente?identificacionCliente=${identificacionCliente}`);
         const result = await response.json();
 
+        // Verifica si la solicitud fue exitosa y si se encontró una boleta
         if (!result.success || result.data.length === 0) {
             console.error('Boleta no encontrada');
             return;
         }
 
-        boleta = result.data[0]; 
+        boleta = result.data[0]; // Asigna la boleta encontrada a la variable
         
+        // Convierte la fecha de inicio del lugar a un objeto Date y formatea la hora
         let fechaISO = boleta.lugar.fecha_inicio;
         let fecha = new Date(fechaISO);
         let horas = fecha.getUTCHours().toString().padStart(2, '0');
         let minutos = fecha.getUTCMinutes().toString().padStart(2, '0');
         let hora = `${horas}:${minutos}`;
 
+        // Configura las opciones para formatear la fecha
         let opcionesFecha = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' };
         let fechaFormateada = fecha.toLocaleDateString('en-US', opcionesFecha);
         
-        // Poblar sección movie_data
+        // Pobla la sección con la información de la película
         const movieDataSection = document.querySelector('.movie_data');
         movieDataSection.innerHTML = `
             <article class="movie_image">
@@ -45,6 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </article>
         `;
 
+        // Pobla la sección con los detalles del pedido
         const orderDetailsSection = document.querySelector('.order_details');
         const asientosCodes = Array.isArray(boleta.asientos) 
             ? boleta.asientos.map(asiento => asiento.codigo).join(', ') 
@@ -69,9 +79,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             </article>
         `;
         
-         // Manejar el clic en el botón
+        // Maneja el clic en el botón "buy" para aplicar descuento
         document.getElementById('buy').addEventListener('click', async () => {
-            const checkBox  = document.getElementById('custom-radio');
+            const checkBox  = document.getElementById('custom-radio'); // Obtiene el checkbox para aplicar descuento
             const url = 'http://localhost:3000/tarjeta/getDescuento';
             const data = {
                 idboleta: boleta._id, 
@@ -80,6 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (checkBox.checked) {
                 try {
+                    // Realiza una solicitud para obtener descuento si el checkbox está marcado
                     const response = await fetch(url, {
                         method: 'POST',
                         headers: {
@@ -89,30 +100,33 @@ document.addEventListener('DOMContentLoaded', async () => {
                     });
 
                     if (response.ok) {
+                        // Redirige a la página de la boleta si el descuento es exitoso
                         window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
                     } else {
                         console.error('Error:', response.statusText);
-                        alert("El cliente no tiene una tarjeta activa")
+                        alert("El cliente no tiene una tarjeta activa");
                     }
                 } catch (error) {
                     console.error('Error al hacer la solicitud:', error);
                 }
             } else {
+                // Redirige a la página de la boleta si el descuento no es aplicado
                 window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
             }
         });
 
     } catch (error) {
-        console.error('Error al hacer la solicitud:', error);
+        console.error('Error al hacer la solicitud:', error); // Maneja errores de la solicitud
     }
 });
 
+// Maneja el evento de clic en el botón de retroceso
 document.addEventListener('DOMContentLoaded', function() {
-    // Obtener el elemento con la clase 'back-button'
+    // Obtiene el elemento con la clase 'back-button'
     const backButton = document.querySelector('.back-button');
-    // Agregar un evento de clic al botón
+    // Agrega un evento de clic al botón
     backButton.addEventListener('click', function() {
-        // Redirigir a la URI deseada
+        // Redirige a la URI deseada
         window.location.href = `http://localhost:3000/lugar`;
     });
 });
