@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Obtiene los parámetros de la URL de la página actual
     const urlParams = new URLSearchParams(window.location.search);
     const identificacionCliente = urlParams.get('identificacionCliente');
-    
+    const idLugar = urlParams.get('idLugar');
     // Verifica si se ha proporcionado la identificación del cliente
     if (!identificacionCliente) {
         console.error('Identificación del cliente no proporcionada.');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Realiza una solicitud a la API para obtener la boleta del cliente
-        const response = await fetch(`/boleta/boletasPorCliente?identificacionCliente=${identificacionCliente}`);
+        const response = await fetch(`/boleta/getBoletasByClienteAndLugar?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`);
         const result = await response.json();
 
         // Verifica si la solicitud fue exitosa y si se encontró una boleta
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                     if (response.ok) {
                         // Redirige a la página de la boleta si el descuento es exitoso
-                        window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
+                        window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`;
                     } else {
                         console.error('Error:', response.statusText);
                         alert("El cliente no tiene una tarjeta activa");
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             } else {
                 // Redirige a la página de la boleta si el descuento no es aplicado
-                window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
+                window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`;
             }
         });
 

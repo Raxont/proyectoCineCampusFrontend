@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                                     if (userConfirmed) {
                                         // Redirige a la página de boleta si el usuario confirma
-                                        window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=${cliente}`;
+                                        window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=${cliente}&idLugar=${idLugar}`;
                                     } else {
                                         const asientosResponsed = await fetch('/asiento/returnReserva', {
                                             method: 'POST',

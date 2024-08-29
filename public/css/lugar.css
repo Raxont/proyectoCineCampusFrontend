@@ -13,20 +13,21 @@ body {
 
 .main-container-soon,
 .main-container{
-    padding-left: 20px;
+    padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 0px;
+    padding-right: 30px;
 }
 
 .header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
 .header img {
-    width: 15%;
+    width: 16%;
     height: 15%;
     border-radius: 50%;
 }
@@ -35,19 +36,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.main-title small{
-    color: gray;
+    padding-right: 10px;
 }
 
 .main-title div{
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
 }
 
 .header button {
-    width: 10%;
+    width: 12%;
     height: 5vh;
     background:none;
     display: flex;
@@ -78,7 +76,7 @@ body {
 }
 
 .search-bar {
-    width: 95%;
+    width: 100%;
     height: 60%;
     
     padding-left: 40px;
@@ -94,7 +92,7 @@ body {
 
 .playing{
     display:flex;
-    width: 95%;
+    width: 100%;
     justify-content: space-between;
 }
 .section-title {
@@ -109,8 +107,8 @@ body {
 }
 
 .gallery {
-    align-items: center;
-    height: 50vh;
+   padding-top: 8%;
+    height: 60vh;
 }
 
 .flickity-viewport {
@@ -124,7 +122,7 @@ body {
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   cursor: pointer;
 }
 
@@ -184,9 +182,9 @@ body {
 
 .container-soon{
     display: flex;
-    width: 94vw;
+    width: 93vw;
     justify-content: space-between;
-    padding-left: 5%;
+    padding-left: 7%;
 }
 
 .main-container-soon{
@@ -203,8 +201,7 @@ body {
 
 .movie-comming{
     display: flex; 
-    width: 90vw;
-    height: 10vh;
+    height: 8vh;
     gap: 5%;
     background: #272727;
     align-items:center;

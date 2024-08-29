@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Obtener el ID del cliente desde los parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
     const identificacionCliente = urlParams.get('identificacionCliente');
-    
+    const idLugar = urlParams.get('idLugar');
     // Verificar si se proporcionó la identificación del cliente
     if (!identificacionCliente) {
         console.error('Identificación del cliente no proporcionada.');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Hacer una solicitud para obtener los datos de la boleta del cliente
-        const response = await fetch(`/boleta/boletasPorCliente?identificacionCliente=${identificacionCliente}`);
+        const response = await fetch(`/boleta/getBoletasByClienteAndLugar?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`);
         const result = await response.json();
         
         // Verificar que la solicitud fue exitosa y que se encontraron boletas

@@ -154,11 +154,11 @@ const BoletaAPIController = async (req, res) => {
 const renderBoleta = async (req, res) => {
   const boletaModel = new BoletaModel();
   try {
-    const { identificacionCliente } = req.query;
+    const { identificacionCliente,idLugar } = req.query;
 
     await boletaModel.init(); // Inicializa el modelo de boleta
     
-    const boleta = await boletaModel.getBoletasByCliente(identificacionCliente);
+    const boleta = await boletaModel.getBoletasByClienteAndLugar(identificacionCliente,idLugar);
 
     if (boleta.length === 0) {
       return res.status(404).send("Boleta no encontrada"); // Retorna error si no se encuentra la boleta

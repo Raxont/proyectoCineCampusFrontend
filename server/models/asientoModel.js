@@ -45,10 +45,10 @@ class AsientoModel {
    * @param {Number|string} identificacionCliente - Identificación del cliente.
    * @returns {Promise<Object|null>} - La boleta encontrada o null si no existe.
    */
-  async findBoletaByCliente(identificacionCliente) {
+  async findBoletaByCliente(identificacionCliente,idLugar) {
     const boleta = await this.dbConnection
       .getCollection("boleta")
-      .findOne({ identificacion_cliente: identificacionCliente });
+      .findOne({ identificacion_cliente: identificacionCliente, id_lugar:idLugar });
     return boleta;
   }
 
@@ -91,7 +91,7 @@ class AsientoModel {
       const resultadoBoleta = await this.dbConnection
         .getCollection("boleta")
         .updateOne(
-          { identificacion_cliente: identificacionCliente },
+          { identificacion_cliente: identificacionCliente,id_lugar:idLugar },
           { $push: { id_asiento: { $each: objectIdsAsientos } } }
         );
 
@@ -128,7 +128,7 @@ class AsientoModel {
     const resultadoBoleta = await this.dbConnection
       .getCollection("boleta")
       .updateOne(
-        { identificacion_cliente: identificacionCliente },
+        { identificacion_cliente: identificacionCliente,id_lugar:idLugar },
         { $pull: { id_asiento: { $in: objectIdsAsientos } } }
       );
 

@@ -115,10 +115,10 @@ const renderTarjeta = async (req, res) => {
   const boletaModel = new BoletaModel();
   try {
     await tarjetaModel.init(); // Inicializa el modelo de tarjeta
-    const { identificacionCliente } = req.query; // Obtiene la identificación del cliente de los parámetros de consulta
+    const { identificacionCliente,idLugar } = req.query; // Obtiene la identificación del cliente de los parámetros de consulta
 
     // Obtiene las boletas asociadas al cliente
-    const boleta = await boletaModel.getBoletasByCliente(identificacionCliente);
+    const boleta = await boletaModel.getBoletasByClienteAndLugar(identificacionCliente,idLugar);
     if (boleta.length === 0) {
       return res.status(404).send('Boleta no encontrada'); // Retorna error si no se encuentra la boleta
     }

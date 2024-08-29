@@ -28,19 +28,11 @@ const AsientoController = async (req, res) => {
         if (req.url.includes('getReserva')) {
             // Acción para obtener reservas
             const idAsientos = idAsiento.map(id => new ObjectId(id)); // Convierte los IDs de los asientos a ObjectId
-            
+            idLugar= new ObjectId(idLugar)
             // Verifica si el usuario existe en la colección boleta
-            const boleta = await asientoModel.findBoletaByCliente(identificacionCliente);
+            const boleta = await asientoModel.findBoletaByCliente(identificacionCliente,idLugar);
             if (!boleta) {
                 return res.status(404).json(asientoDto.templateInvalidClient()); // Retorna error si no se encuentra el cliente
-            }
-        
-            // Verifica si los asientos ya están en la boleta
-            const asientosExistentes = idAsientos.filter(id => 
-                boleta.id_asiento && boleta.id_asiento.some(asiento => asiento.equals(id))
-            );
-            if (asientosExistentes.length > 0) {
-                return res.status(400).json(asientoDto.templateAsientoInBoleta()); // Retorna error si los asientos ya están en la boleta
             }
         
             // Actualiza los asientos en la boleta
