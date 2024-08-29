@@ -74,10 +74,6 @@ class AsientoModel {
     const objectIdsAsientos = idAsientos.map(idAsiento => new ObjectId(idAsiento));
     const objectIdLugar = new ObjectId(idLugar);
 
-    console.log("idAsientos:", objectIdsAsientos);
-    console.log("idLugar:", objectIdLugar);
-    console.log('identificacionCliente', identificacionCliente);
-
     identificacionCliente = Number(identificacionCliente);
 
     // Intenta actualizar los asientos con el idLugar
@@ -86,8 +82,6 @@ class AsientoModel {
         { $push: { id_lugar: objectIdLugar } }
     );
 
-    console.log('resultadoAsiento.modifiedCount:', resultadoAsiento.modifiedCount);
-
     // Elimina los id_asiento de la boleta
     const resultadoBoleta = await this.dbConnection
         .getCollection("boleta")
@@ -95,8 +89,6 @@ class AsientoModel {
             { identificacion_cliente: identificacionCliente },
             { $pull: { id_asiento: { $in: objectIdsAsientos } } }
         );
-
-    console.log('resultadoBoleta.modifiedCount:', resultadoBoleta.modifiedCount);
 
     return {
         asientoModificado: resultadoAsiento.modifiedCount > 0,

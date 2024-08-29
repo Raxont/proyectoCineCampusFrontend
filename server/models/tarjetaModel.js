@@ -7,7 +7,7 @@ class TarjetaModel {
   }
 
   async init() {
-    await this.dbConnection.init(); // Asegúrate de inicializar la conexión
+    await this.dbConnection.init();
     this.collection = this.dbConnection.getCollection("tarjeta");
     this.boletaCollection = this.dbConnection.getCollection("boleta");
     this.clienteCollection = this.dbConnection.getCollection("cliente");

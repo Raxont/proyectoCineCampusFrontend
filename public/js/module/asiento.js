@@ -287,77 +287,85 @@ document.addEventListener('DOMContentLoaded', async () => {
                         let cantidadAsientos=seatIds.length
                         const total=valor*cantidadAsientos;
                         const precio=total+seatprice
-                        
-                        // Crear la boleta
-                        const boletaResponse = await fetch('/boleta/agregarBoleta', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                identificacion_cliente: cliente,
-                                id_lugar: idLugar,
-                                fecha_adquisicion: new Date().toISOString(), 
-                                estado: "fisico",
-                                id_asiento: [],
-                                precio:precio
-                            })
+
+                        const findboleta = await fetch(`/boleta/getBoletasByClienteAndLugar?idLugar=${idLugar}&identificacionCliente=${cliente}`, {
+                            method: 'GET'
                         });
                         
-                        const price = document.querySelector('.price');
-                        if(price){
-                            price.innerHTML = `
-                                <h4>Price</h4>
-                                <p>$${precio.toFixed(2)}</p>
-                            `;
-                        }
-                        
-                        const boletaResult = await boletaResponse.json();
-                        const idboleta=boletaResult.data.insertedId
-                        if (boletaResponse.ok) {
-                            // Luego, agregar los asientos
-                            const asientosResponse = await fetch('/asiento/getReserva', {
+                        if(findboleta.ok){
+                            console.log('El cliente ya tiene creada una boleta con esa funcion, usa otra cuenta para reservar mas asientos para esta funcion.');
+                             return;
+                        }else{
+                             // Crear la boleta
+                            const boletaResponse = await fetch('/boleta/agregarBoleta', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'
                                 },
                                 body: JSON.stringify({
-                                    idAsiento: seatIds,
-                                    identificacionCliente: cliente,
-                                    idLugar: idLugar,
+                                    identificacion_cliente: cliente,
+                                    id_lugar: idLugar,
+                                    fecha_adquisicion: new Date().toISOString(), 
+                                    estado: "fisico",
+                                    id_asiento: [],
+                                    precio:precio
                                 })
                             });
-                            
-                            const asientosResult = await asientosResponse.json();
-                            if (asientosResponse.ok) {
-                                const userConfirmed = confirm(`El precio es $${precio}. ¿Desea continuar con la reserva del asiento?`);
-
-                                if (userConfirmed) {
-                                    // Redirige a la página de boleta si el usuario confirma
-                                    window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=${cliente}`;
-                                } else {
-                                    const asientosResponsed = await fetch('/asiento/returnReserva', {
-                                        method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify({
-                                            idAsiento: seatIds,
-                                            identificacionCliente: cliente,
-                                            idLugar: idLugar,
-                                        })
-                                    });
-                                    await fetch(`/boleta/eliminarBoleta?idBoleta=${idboleta}`,{
-                                        method:'DELETE'
-                                    })
-                                   
-                                    // const asientosResulta = await asientosResponsed.json();
-                                }   
-                            } else {
-                                console.error('Error al reservar asientos:', asientosResult);
+                            const price = document.querySelector('.price');
+                            if(price){
+                                price.innerHTML = `
+                                    <h4>Price</h4>
+                                    <p>$${precio.toFixed(2)}</p>
+                                `;
                             }
-                        } else {
-                            console.error('Error al crear la boleta:', boletaResult);
+                            
+                            const boletaResult = await boletaResponse.json();
+                            const idboleta=boletaResult.data.insertedId
+                            if (boletaResponse.ok) {
+                                // Luego, agregar los asientos
+                                const asientosResponse = await fetch('/asiento/getReserva', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        idAsiento: seatIds,
+                                        identificacionCliente: cliente,
+                                        idLugar: idLugar,
+                                    })
+                                });
+                                
+                                const asientosResult = await asientosResponse.json();
+                                if (asientosResponse.ok) {
+                                    const userConfirmed = confirm(`El precio es $${precio}. ¿Desea continuar con la reserva del asiento?`);
+
+                                    if (userConfirmed) {
+                                        // Redirige a la página de boleta si el usuario confirma
+                                        window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=${cliente}`;
+                                    } else {
+                                        const asientosResponsed = await fetch('/asiento/returnReserva', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify({
+                                                idAsiento: seatIds,
+                                                identificacionCliente: cliente,
+                                                idLugar: idLugar,
+                                            })
+                                        });
+                                        await fetch(`/boleta/eliminarBoleta?idBoleta=${idboleta}`,{
+                                            method:'DELETE'
+                                        })
+                                    
+                                        // const asientosResulta = await asientosResponsed.json();
+                                    }   
+                                } else {
+                                    console.error('Error al reservar asientos:', asientosResult);
+                                }
+                            } else {
+                                console.error('Error al crear la boleta:', boletaResult);
+                            }
                         }
                     } catch (error) {
                         console.error('Error en la operación:', error);

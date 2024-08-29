@@ -36,14 +36,9 @@ const AsientoController = async (req, res) => {
               return res.status(400).json(asientoDto.templateAsientoInBoleta());
           }
       
-          // Verificar si el id_lugar en la boleta coincide con el idLugar ingresado
-          if (!boleta.id_lugar || !boleta.id_lugar.equals(idLugar)) {
-              return res.status(400).json(asientoDto.templateLugarMismatch());
-          }
       
           // Actualizar los asientos en la boleta
           const resultado = await asientoModel.updateAsientoInBoleta(idAsientos, idLugar, identificacionCliente);
-          console.log(resultado);
           if (resultado.asientosModificados && resultado.boletaModificada) {
               return res.status(200).json(asientoDto.templateUpdateSuccess());
           } else {
@@ -67,8 +62,6 @@ const AsientoController = async (req, res) => {
             
             // Revertir los asientos en la boleta
             const resultado = await asientoModel.revertAsientoInBoleta(idAsientos, idLugar, identificacionCliente);
-            console.log('Paso la reversion de asientos en boleta');
-            
 
             if (resultado.asientosModificados && resultado.boletaModificada) {
                 return res.status(200).json(asientoDto.templateRevertSuccess());

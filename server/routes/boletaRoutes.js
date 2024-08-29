@@ -14,6 +14,9 @@ router.get('/verBoleta', (req, res) => {
 // Ruta para obtener boletas por cliente en JSON
 router.get('/boletasPorCliente', (req, res) => BoletaAPIController(req, res));
 
+// Ruta para obtener boletas por cliente y id lugar en JSON
+router.get('/getBoletasByClienteAndLugar', (req, res) => BoletaAPIController(req, res));
+
 // Otras rutas de la API
 router.post('/agregarBoleta', (req, res) => BoletaAPIController(req, res));
 router.put('/actualizarBoleta/:idBoleta', (req, res) => BoletaAPIController(req, res));

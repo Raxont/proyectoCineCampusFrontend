@@ -48,7 +48,16 @@ const BoletaAPIController = async (req, res) => {
       } else {
         return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
-    } else if (req.url.includes("getAllBoletas")) {
+
+    } else if (req.url.includes("getBoletasByClienteAndLugar")) {
+      // Obtener boleta por cliente y id lugar
+      const resultados = await boletaModel.getBoletasByClienteAndLugar(identificacionCliente,idLugar);
+      if (resultados.length > 0) {
+        return res.status(200).json(boletaDto.templateSuccess(resultados));
+      } else {
+        return res.status(404).json(boletaDto.templateBoletaNotFound());
+      }
+    }else if (req.url.includes("getAllBoletas")) {
       // Obtener todas las boletas
       const resultados = await boletaModel.getAllBoletas();
       if (resultados.length > 0) {

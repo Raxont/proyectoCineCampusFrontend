@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}`;
                     } else {
                         console.error('Error:', response.statusText);
+                        alert("El cliente no tiene una tarjeta activa")
                     }
                 } catch (error) {
                     console.error('Error al hacer la solicitud:', error);
