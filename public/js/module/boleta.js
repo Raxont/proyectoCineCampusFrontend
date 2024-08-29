@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         const boleta = result.data[0]; // Accede al primer elemento del array
-        console.log("Info del json de las boletas:", boleta);
         
         let fechaISO = (boleta.lugar.fecha_inicio); // Ejemplo de fecha en formato ISO
         let fecha = new Date(fechaISO); // Convertir la fecha ISO a un objeto Date
@@ -29,9 +28,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Extraer la fecha en formato "Thu Sep 05 2024"
         let opcionesFecha = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' };
         let fechaFormateada = fecha.toLocaleDateString('en-US', opcionesFecha); // Cambia 'en-US' si prefieres otro formato local
-        
-        console.log("Hora:", hora); // Salida: 10:00
-        console.log("Fecha:", fechaFormateada); // Salida: Thu Sep 05 2024
 
         const ticketDiv = document.getElementById('ticket');
 

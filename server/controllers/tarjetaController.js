@@ -10,10 +10,10 @@ const TarjetaRequest = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  let { idLugar, identificacionCliente } = req.body;
+  let { idboleta, identificacionCliente } = req.body;
 
   // Validar el ObjectId del lugar
-  if (!ObjectId.isValid(idLugar)) {
+  if (!ObjectId.isValid(idboleta)) {
     return res.status(400).json(tarjetaDto.templateInvalidId());
   }
   
@@ -29,14 +29,14 @@ const TarjetaRequest = async (req, res) => {
     }
     
     // Obtener el lugar relacionado con el ID proporcionado
-    const lugar = await tarjetaModel.findLugarById(idLugar);
+    const boleta = await tarjetaModel.findBoletaById(idboleta);
 
-    if (!lugar) {
-      return res.status(404).json(tarjetaDto.templateLugarNotFound());
+    if (!boleta) {
+      return res.status(404).json(tarjetaDto.templateBoletaNotFound());
     }
 
     // Calcular el precio con descuento si aplica
-    const { precioOriginal, precioConDescuento } = tarjetaModel.calculateDiscount(tarjeta, lugar);
+    const { precioOriginal, precioConDescuento } = tarjetaModel.calculateDiscount(tarjeta, boleta);
 
     // Actualizar el precio en la boleta asociada al cliente
     const resultadoBoleta = await tarjetaModel.updateBoletaPrice(identificacionCliente, precioConDescuento);

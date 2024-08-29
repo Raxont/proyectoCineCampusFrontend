@@ -276,11 +276,28 @@ body{
     color: #FFFFFF;
 }
 
-.radio-button input[type="radio"] {
-    width: 5vw;
-    height: 5vw;
-    accent-color: red;
+.radio-button input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
 }
+
+.radio-button input[type="checkbox"]:checked::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
 
 .timer {
     background-color: #4b0000;

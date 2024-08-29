@@ -6,7 +6,7 @@ class TarjetaDTO {
     templateInvalidId() {
       return {
         status: "error",
-        message: "ID inválido proporcionado. Asegúrese de que el ID del lugar sea correcto."
+        message: "ID inválido proporcionado. Asegúrese de que el ID de la boleta sea correcto."
       };
     }
   
@@ -25,10 +25,10 @@ class TarjetaDTO {
      * Mensaje para lugar no encontrado
      * @returns {Object} - Mensaje de error para lugar no encontrado
      */
-    templateLugarNotFound() {
+    templateBoletaNotFound() {
       return {
         status: "error",
-        message: "Lugar no encontrado. Verifique que el ID del lugar sea correcto."
+        message: "Boleta no encontrado. Verifique que el ID de la boleta sea correcto."
       };
     }
   

@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        boleta = result.data[0]; // Accede al primer elemento del array
-
+        boleta = result.data[0]; 
+        
         let fechaISO = boleta.lugar.fecha_inicio;
         let fecha = new Date(fechaISO);
         let horas = fecha.getUTCHours().toString().padStart(2, '0');
@@ -49,12 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const asientosCodes = Array.isArray(boleta.asientos) 
             ? boleta.asientos.map(asiento => asiento.codigo).join(', ') 
             : boleta.asientos.codigo; 
-        let asientosPrice = Array.isArray(boleta.asientos) 
-            ? boleta.asientos.reduce((total, asiento) => total + asiento.incremento, 0)
-            : boleta.asientos.precio;
-        boleta.lugar.precio=Number(boleta.lugar.precio)
-        asientosPrice += boleta.lugar.precio;
-        
         
         orderDetailsSection.innerHTML = `
             <article class="order_number">
@@ -67,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </article>
             <article class="order_typeSeat_price">
                 <h4>Regular Seat</h4>
-                <p>${asientosPrice}</p>
+                <p>$${boleta.precio}</p>
             </article>
             <article class="order_service_price">
                 <h4>Service Fee</h4>
@@ -77,14 +71,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         
          // Manejar el clic en el botón
         document.getElementById('buy').addEventListener('click', async () => {
-            const radioButton = document.querySelector('.radio-button input[type="radio"]');
+            const checkBox  = document.getElementById('custom-radio');
             const url = 'http://localhost:3000/tarjeta/getDescuento';
             const data = {
-                idLugar: boleta.lugar.idLugar, 
+                idboleta: boleta._id, 
                 identificacionCliente: identificacionCliente
             };
 
-            if (radioButton.checked) {
+            if (checkBox.checked) {
                 try {
                     const response = await fetch(url, {
                         method: 'POST',

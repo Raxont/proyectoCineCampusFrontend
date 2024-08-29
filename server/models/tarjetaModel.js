@@ -9,7 +9,6 @@ class TarjetaModel {
   async init() {
     await this.dbConnection.init(); // Asegúrate de inicializar la conexión
     this.collection = this.dbConnection.getCollection("tarjeta");
-    this.lugarCollection = this.dbConnection.getCollection("lugar");
     this.boletaCollection = this.dbConnection.getCollection("boleta");
     this.clienteCollection = this.dbConnection.getCollection("cliente");
   }
@@ -28,13 +27,13 @@ class TarjetaModel {
   }
 
   /**
-   * Encuentra un lugar por su ID
-   * @param {ObjectId} idLugar - ID del lugar
-   * @returns {Object|null} - Lugar con el ID dado o null si no se encuentra
+   * Encuentra una boleta por su ID
+   * @param {ObjectId} idboleta - ID de la boleta
+   * @returns {Object|null} - Boleta con el ID dado o null si no se encuentra
    */
-  async findLugarById(idLugar) {
-    const lugar = await this.lugarCollection.findOne({ _id: new ObjectId(idLugar) });
-    return lugar;
+  async findBoletaById(idboleta) {
+    const boleta = await this.boletaCollection.findOne({ _id: new ObjectId(idboleta) });
+    return boleta;
   }
 
   /**
@@ -49,7 +48,7 @@ class TarjetaModel {
 
     if (tarjeta) {
       const descuento = 0.10; // Descuento del 10%
-      precioConDescuento = Math.floor(precioOriginal * (1 - descuento));
+      precioConDescuento = precioOriginal * (1 - descuento);
     }
 
     return { precioOriginal, precioConDescuento };
