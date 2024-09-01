@@ -157,7 +157,8 @@
       'duracion',
       'sinopsis',
       'img',
-      'casting'
+      'casting',
+      'trailerId'
     ],
     properties: {
       titulo: {
@@ -214,6 +215,11 @@
             }
           }
         }
+      },
+      trailerId: {
+        bsonType: 'string',
+        pattern: '^[A-Za-z0-9_-]+(?:\\?.*)?$',
+        description: 'Debe ser un ID de tráiler de YouTube válido'
       }
     }
   }

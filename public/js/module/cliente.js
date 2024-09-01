@@ -51,6 +51,31 @@ document.addEventListener('DOMContentLoaded', async () => {
                 carouselCast.appendChild(castMember);
             });
 
+            // Agregar funcionalidad al botón de trailer
+            const trailerButton = document.querySelector('.movie_trailer');
+            let trailerVisible = false;
+
+            trailerButton.addEventListener('click', () => {
+                const movieImageContainer = document.querySelector('.movie_image');
+                
+                if (!trailerVisible) {
+                    // Cambiar la imagen por el video
+                    movieImageContainer.innerHTML = `
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${pelicula.trailerId}" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                    `;
+                    trailerButton.textContent = "Quitar Tráiler";
+                } else {
+                    // Volver a mostrar la imagen
+                    movieImageContainer.innerHTML = `<img src="${pelicula.img}" alt="${pelicula.titulo}">`;
+                    trailerButton.textContent = "▶ Watch Trailer";
+                }
+
+                trailerVisible = !trailerVisible;
+            });
+
             // Agregar funcionalidad al botón de reserva
             const bookButtons = document.querySelectorAll('.book-button');
 
@@ -78,6 +103,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error al hacer la solicitud:', error);
     }
 });
+
 
 // Espera a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', function() {

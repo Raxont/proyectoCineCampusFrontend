@@ -31,7 +31,8 @@
       "nombre": "David Jonsson",
       "personaje": "Carlos"
     }
-  ]
+  ],
+  "trailerId": "5nWH2Pd-x-c?playlist=5nWH2Pd-x-c&autoplay=1&iv_load_policy=3&loop=1&start="
 },
 {
   "_id": {
@@ -67,7 +68,8 @@
       "nombre": "Hugh Jackman",
       "personaje": "Logan"
     }
-  ]
+  ],
+  "trailerId": "uDzfa0w86Vw?playlist=uDzfa0w86Vw&autoplay=1&iv_load_policy=3&loop=1&start="
 },
 {
   "_id": {
@@ -98,7 +100,8 @@
       "personaje": "Margo"
     }
   ],
-  "img": "https://posters.movieposterdb.com/24_02/2024/7510222/l_despicable-me-4-movie-poster_3c4ff16e.jpg"
+  "img": "https://posters.movieposterdb.com/24_02/2024/7510222/l_despicable-me-4-movie-poster_3c4ff16e.jpg",
+  "trailerId": "I0_qFoptZ4Y?playlist=I0_qFoptZ4Y&autoplay=1&iv_load_policy=3&loop=1&start="
 },
 {
   "_id": {
@@ -129,7 +132,8 @@
       "nombre": "Manini Gupta",
       "personaje": "Shanty"
     }
-  ]
+  ],
+  "trailerId": "r-faf-bxqB8?playlist=r-faf-bxqB8&autoplay=1&iv_load_policy=3&loop=1&start="
 },
 {
   "_id": {
@@ -160,5 +164,6 @@
       "nombre": "Catalina Davis",
       "personaje": "Kat"
     }
-  ]
+  ],
+  "trailerId": "T4bvKwP870A?playlist=T4bvKwP870A&autoplay=1&iv_load_policy=3&loop=1&start="
 }]
