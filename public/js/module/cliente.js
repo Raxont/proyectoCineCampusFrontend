@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
                     `;
-                    trailerButton.textContent = "Quitar Tráiler";
+                    trailerButton.textContent = "Remove Trailer";
                 } else {
                     // Volver a mostrar la imagen
                     movieImageContainer.innerHTML = `<img src="${pelicula.img}" alt="${pelicula.titulo}">`;

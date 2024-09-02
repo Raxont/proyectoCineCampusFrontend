@@ -1,42 +1,37 @@
-// Espera a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', async () => {
-    // Obtiene los parámetros de la URL de la página actual
     const urlParams = new URLSearchParams(window.location.search);
     const identificacionCliente = urlParams.get('identificacionCliente');
     const idLugar = urlParams.get('idLugar');
-    // Verifica si se ha proporcionado la identificación del cliente
+
     if (!identificacionCliente) {
         console.error('Identificación del cliente no proporcionada.');
         return;
     }
 
-    let boleta = null; // Variable para almacenar la boleta
-
+    let boleta = null;
     try {
-        // Realiza una solicitud a la API para obtener la boleta del cliente
         const response = await fetch(`/boleta/getBoletasByClienteAndLugar?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`);
         const result = await response.json();
 
-        // Verifica si la solicitud fue exitosa y si se encontró una boleta
         if (!result.success || result.data.length === 0) {
             console.error('Boleta no encontrada');
             return;
         }
 
-        boleta = result.data[0]; // Asigna la boleta encontrada a la variable
+        boleta = result.data[0];
+        const cantidad=Array.isArray(boleta.asientos) ? boleta.asientos.length : 0
+        const tasa_servicio=1.99*cantidad
+        let precioOriginal = boleta.precio;
         
-        // Convierte la fecha de inicio del lugar a un objeto Date y formatea la hora
         let fechaISO = boleta.lugar.fecha_inicio;
         let fecha = new Date(fechaISO);
         let horas = fecha.getUTCHours().toString().padStart(2, '0');
         let minutos = fecha.getUTCMinutes().toString().padStart(2, '0');
         let hora = `${horas}:${minutos}`;
 
-        // Configura las opciones para formatear la fecha
         let opcionesFecha = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' };
         let fechaFormateada = fecha.toLocaleDateString('en-US', opcionesFecha);
         
-        // Pobla la sección con la información de la película
         const movieDataSection = document.querySelector('.movie_data');
         movieDataSection.innerHTML = `
             <article class="movie_image">
@@ -54,44 +49,43 @@ document.addEventListener('DOMContentLoaded', async () => {
             </article>
         `;
 
-        // Pobla la sección con los detalles del pedido
         const orderDetailsSection = document.querySelector('.order_details');
         const asientosCodes = Array.isArray(boleta.asientos) 
             ? boleta.asientos.map(asiento => asiento.codigo).join(', ') 
             : boleta.asientos.codigo; 
-        
+
         orderDetailsSection.innerHTML = `
             <article class="order_number">
                 <h4>Order Number :</h4>
                 <p>${boleta._id}</p>
             </article>
             <article class="order_tickets_seat">
-                <h4>${Array.isArray(boleta.asientos) ? boleta.asientos.length : 1} Ticket(s)</h4>
+                <h4>${Array.isArray(boleta.asientos) ? boleta.asientos.length : 0} Ticket(s)</h4>
                 <p>${asientosCodes}</p>
             </article>
             <article class="order_typeSeat_price">
                 <h4>Regular Seat</h4>
-                <p>$${boleta.precio}</p>
+                <p id="precioBoleta">$${precioOriginal}</p>
             </article>
             <article class="order_service_price">
                 <h4>Service Fee</h4>
                 <p>$1.99 x${Array.isArray(boleta.asientos) ? boleta.asientos.length : 0}</p>
             </article>
         `;
-        
-        // Maneja el clic en el botón "buy" para aplicar descuento
-        document.getElementById('buy').addEventListener('click', async () => {
-            const checkBox  = document.getElementById('custom-radio'); // Obtiene el checkbox para aplicar descuento
-            const url = 'http://localhost:3000/tarjeta/getDescuento';
+
+        document.getElementById('custom-radio').addEventListener('change', async (event) => {
+            const checkBox = event.target;
+            const urlDescuento = 'http://localhost:3000/tarjeta/getDescuento';
+            const urlActualizarBoleta = `http://localhost:3000/boleta/actualizarBoleta/${boleta._id}`;
+            
             const data = {
-                idboleta: boleta._id, 
+                idboleta: boleta._id,
                 identificacionCliente: identificacionCliente
             };
 
             if (checkBox.checked) {
                 try {
-                    // Realiza una solicitud para obtener descuento si el checkbox está marcado
-                    const response = await fetch(url, {
+                    const response = await fetch(urlDescuento, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -100,23 +94,74 @@ document.addEventListener('DOMContentLoaded', async () => {
                     });
 
                     if (response.ok) {
-                        // Redirige a la página de la boleta si el descuento es exitoso
-                        window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`;
+                        const descuento = await response.json();
+                        const descuentoData = descuento.detalles.precioOriginal.precioConDescuento;
+
+                        // Actualiza el precio en la boleta y la base de datos
+                        boleta.precio = descuentoData;
+                        document.getElementById('precioBoleta').textContent = `$${boleta.precio}`;
+                        
+                        await fetch(urlActualizarBoleta, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ precio: boleta.precio })
+                        });
                     } else {
                         console.error('Error:', response.statusText);
                         alert("El cliente no tiene una tarjeta activa");
+                        checkBox.checked = false;
                     }
                 } catch (error) {
                     console.error('Error al hacer la solicitud:', error);
+                    checkBox.checked = false;
                 }
             } else {
-                // Redirige a la página de la boleta si el descuento no es aplicado
-                window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`;
+                // Restablece el precio original en la boleta y la base de datos
+                document.getElementById('precioBoleta').textContent = `$${precioOriginal}`;
+                
+                await fetch(urlActualizarBoleta, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ precio: precioOriginal })
+                });
             }
         });
 
+        document.getElementById('buy').addEventListener('click', async() => {     
+            const urlActualizarBoleta = `http://localhost:3000/boleta/actualizarBoleta/${boleta._id}`;
+            let precioOriginal = boleta.precio;
+            await fetch(urlActualizarBoleta, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ precio: boleta.precio+tasa_servicio })
+            });
+            
+            const userConfirmed = confirm(`El precio total con la tarifa de servicios es $${boleta.precio+tasa_servicio} ¿Desea continuar con la reserva del asiento?`);
+            if (userConfirmed) {
+                // Redirige a la página de boleta si el usuario confirma
+                window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`;
+            } else {
+                // Redirige a la página de la boleta si el descuento no es aplicado
+                await fetch(urlActualizarBoleta, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ precio: precioOriginal })
+                });
+                return;
+            }
+            
+        });
+
     } catch (error) {
-        console.error('Error al hacer la solicitud:', error); // Maneja errores de la solicitud
+        console.error('Error al hacer la solicitud:', error);
     }
 });
 

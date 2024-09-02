@@ -1,9 +1,361 @@
 [{
   "_id": {
-    "$oid": "66a579bb7b00907fab0aee94"
+    "$oid": "66d5143b210ea2fc33469a71"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a72"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a73"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a74"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a75"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a76"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a77"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a78"
   },
   "nombre": "Sala 02",
-  "precio": "20.50",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a79"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a7a"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a7b"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a7c"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a7d"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a7e"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a7f"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a80"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a81"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a82"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a83"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a84"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a85"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a86"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a87"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
   "fecha_inicio": {
     "$date": "2024-09-05T10:00:00.000Z"
   },
@@ -16,15 +368,431 @@
 },
 {
   "_id": {
-    "$oid": "66a52b6c89b4ae4007773f2c"
+    "$oid": "66d5143b210ea2fc33469a88"
   },
   "nombre": "Sala 01",
   "precio": "12.50",
   "fecha_inicio": {
-    "$date": "2024-08-31T10:00:00.000Z"
+    "$date": "2024-09-05T12:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-08-31T12:00:00.000Z"
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a89"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a8a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a8b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a8c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a8d"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a8e"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a8f"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a90"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a91"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a92"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a93"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a94"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a95"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a96"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a97"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a98"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a99"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a9a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a9b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a9c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a9d"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a9e"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469a9f"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469aa0"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5143b210ea2fc33469aa1"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8e3983b9fd081fe7cc8e3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aa2"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T10:00:00.000Z"
   },
   "id_pelicula": {
     "$oid": "66c8eb8f3b9fd081fe7cc8e8"
@@ -32,95 +800,3135 @@
 },
 {
   "_id": {
-    "$oid": "66c8f1773b9fd081fe7cc8ef"
+    "$oid": "66d514b6210ea2fc33469aa3"
   },
   "nombre": "Sala 01",
   "precio": "12.50",
   "fecha_inicio": {
-    "$date": "2024-11-20T12:00:00.000Z"
+    "$date": "2024-09-02T10:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-11-20T14:00:00.000Z"
+    "$date": "2024-09-02T12:00:00.000Z"
   },
   "id_pelicula": {
-    "$oid": "66c8ec783b9fd081fe7cc8ea"
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
   }
 },
 {
   "_id": {
-    "$oid": "66c8f18f3b9fd081fe7cc8f0"
+    "$oid": "66d514b6210ea2fc33469aa4"
   },
   "nombre": "Sala 01",
   "precio": "12.50",
   "fecha_inicio": {
-    "$date": "2024-11-20T14:00:00.000Z"
+    "$date": "2024-09-02T12:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-11-20T16:00:00.000Z"
+    "$date": "2024-09-02T14:00:00.000Z"
   },
   "id_pelicula": {
-    "$oid": "66c8ec783b9fd081fe7cc8ea"
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
   }
 },
 {
   "_id": {
-    "$oid": "66a585133098ad52758cab05"
+    "$oid": "66d514b6210ea2fc33469aa5"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aa6"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aa7"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aa8"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aa9"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aaa"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aab"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aac"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aad"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aae"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aaf"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ab0"
   },
   "nombre": "Sala 03",
-  "precio": "10.50",
+  "precio": "20",
   "fecha_inicio": {
-    "$date": "2024-11-20T10:00:00.000Z"
+    "$date": "2024-09-04T08:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-11-20T12:00:00.000Z"
+    "$date": "2024-09-04T10:00:00.000Z"
   },
   "id_pelicula": {
-    "$oid": "66c8f6913b9fd081fe7cc8f5"
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
   }
 },
 {
   "_id": {
-    "$oid": "66c8f1cf3b9fd081fe7cc8f1"
+    "$oid": "66d514b6210ea2fc33469ab1"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ab2"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ab3"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ab4"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ab5"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ab6"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ab7"
   },
   "nombre": "Sala 01",
   "precio": "12.50",
   "fecha_inicio": {
-    "$date": "2024-11-20T16:00:00.000Z"
+    "$date": "2024-09-05T08:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-11-20T18:00:00.000Z"
+    "$date": "2024-09-05T10:00:00.000Z"
   },
   "id_pelicula": {
-    "$oid": "66c8f6913b9fd081fe7cc8f5"
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
   }
 },
 {
   "_id": {
-    "$oid": "66c8f1f63b9fd081fe7cc8f2"
+    "$oid": "66d514b6210ea2fc33469ab8"
   },
   "nombre": "Sala 01",
   "precio": "12.50",
   "fecha_inicio": {
-    "$date": "2024-11-20T18:00:00.000Z"
+    "$date": "2024-09-05T10:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-11-20T20:00:00.000Z"
+    "$date": "2024-09-05T12:00:00.000Z"
   },
   "id_pelicula": {
-    "$oid": "66c8f6913b9fd081fe7cc8f5"
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
   }
 },
 {
   "_id": {
-    "$oid": "66ce7ec292c1c164ce4a02c0"
+    "$oid": "66d514b6210ea2fc33469ab9"
   },
-  "nombre": "Sala 04",
-  "precio": "20.50",
+  "nombre": "Sala 01",
+  "precio": "12.50",
   "fecha_inicio": {
-    "$date": "2024-09-01T00:00:00.000Z"
+    "$date": "2024-09-05T12:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-09-01T02:00:00.000Z"
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aba"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469abb"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469abc"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469abd"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469abe"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469abf"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac0"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac1"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac2"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac3"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac4"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac5"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac6"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac7"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac8"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ac9"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469aca"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469acb"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469acc"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469acd"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ace"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469acf"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ad0"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ad1"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514b6210ea2fc33469ad2"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8eb8f3b9fd081fe7cc8e8"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ad3"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ad4"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ad5"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ad6"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ad7"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ad8"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ad9"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ada"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469adb"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469adc"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469add"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ade"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469adf"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae0"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae1"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae2"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae3"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae4"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae5"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae6"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae7"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae8"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469ae9"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469aea"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469aeb"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469aec"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469aed"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469aee"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469aef"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af0"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af1"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af2"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af3"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af4"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af5"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af6"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af7"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af8"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469af9"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469afa"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469afb"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469afc"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469afd"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469afe"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469aff"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469b00"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469b01"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469b02"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514c9210ea2fc33469b03"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8ec783b9fd081fe7cc8ea"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b04"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b05"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b06"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b07"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b08"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b09"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b0a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b0b"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b0c"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b0d"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b0e"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b0f"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b10"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b11"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b12"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b13"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b14"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b15"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b16"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b17"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b18"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b19"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b1a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b1b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b1c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b1d"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b1e"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b1f"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b20"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b21"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b22"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b23"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b24"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b25"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b26"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b27"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b28"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b29"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b2a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b2b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b2c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b2d"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b2e"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b2f"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b30"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b31"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b32"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b33"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d514ea210ea2fc33469b34"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b35"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b36"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b37"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b38"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b39"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b3a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b3b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-02T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-02T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b3c"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b3d"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b3e"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b3f"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b40"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b41"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b42"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-03T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-03T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b43"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b44"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b45"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b46"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b47"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b48"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b49"
+  },
+  "nombre": "Sala 03",
+  "precio": "20",
+  "fecha_inicio": {
+    "$date": "2024-09-04T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-04T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b4a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b4b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b4c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b4d"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b4e"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b4f"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b50"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-05T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-05T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b51"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b52"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b53"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b54"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b55"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b56"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b57"
+  },
+  "nombre": "Sala 02",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-06T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-06T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b58"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b59"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b5a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b5b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b5c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b5d"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b5e"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-07T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-07T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b5f"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b60"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b61"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b62"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b63"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b64"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d5150c210ea2fc33469b65"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-08T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-08T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52dba210ea2fc33469b96"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T10:00:00.000Z"
   },
   "id_pelicula": {
     "$oid": "66c8f2b03b9fd081fe7cc8f3"
@@ -128,15 +3936,207 @@
 },
 {
   "_id": {
-    "$oid": "66ce82d992c1c164ce4a02c1"
+    "$oid": "66d52dba210ea2fc33469b97"
   },
-  "nombre": "Sala 02",
-  "precio": "20.50",
+  "nombre": "Sala 01",
+  "precio": "12.50",
   "fecha_inicio": {
-    "$date": "2024-11-21T10:00:00.000Z"
+    "$date": "2024-09-23T10:00:00.000Z"
   },
   "fecha_fin": {
-    "$date": "2024-11-21T12:00:00.000Z"
+    "$date": "2024-09-23T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52dba210ea2fc33469b98"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52dba210ea2fc33469b99"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52dba210ea2fc33469b9a"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52dba210ea2fc33469b9b"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52dba210ea2fc33469b9c"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T22:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f2b03b9fd081fe7cc8f3"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52ddd210ea2fc33469b9d"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T08:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T10:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52ddd210ea2fc33469b9e"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T10:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T12:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52ddd210ea2fc33469b9f"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T12:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T14:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52ddd210ea2fc33469ba0"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T14:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T16:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52ddd210ea2fc33469ba1"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T16:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T18:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52ddd210ea2fc33469ba2"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T18:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T20:00:00.000Z"
+  },
+  "id_pelicula": {
+    "$oid": "66c8f6913b9fd081fe7cc8f5"
+  }
+},
+{
+  "_id": {
+    "$oid": "66d52ddd210ea2fc33469ba3"
+  },
+  "nombre": "Sala 01",
+  "precio": "12.50",
+  "fecha_inicio": {
+    "$date": "2024-09-23T20:00:00.000Z"
+  },
+  "fecha_fin": {
+    "$date": "2024-09-23T22:00:00.000Z"
   },
   "id_pelicula": {
     "$oid": "66c8f6913b9fd081fe7cc8f5"

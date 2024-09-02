@@ -95,31 +95,27 @@ const BoletaAPIController = async (req, res) => {
       const result = await boletaModel.addBoleta(boletaData);
       return res.status(201).json(boletaDto.templateSuccess(result)); // Retorna éxito en la adición de la boleta
     } else if (req.url.includes("actualizarBoleta") && req.method === "PUT") {
-      // Obtener boletaId de req.params
       const boletaId = req.params.idBoleta;
-
-      // Verificar si el boletaData existe
+  
       if (!boletaId || !boletaData) {
-        return res.status(400).json(boletaDto.templateInvalidData()); // Retorna error si faltan datos o id de boleta
+          return res.status(400).json(boletaDto.templateInvalidData());
       }
-
+  
       // Verificar si boletaData tiene una fecha de adquisición y convertirla en un objeto Date
       if (boletaData.fecha_adquisicion) {
-        boletaData.fecha_adquisicion = new Date(boletaData.fecha_adquisicion);
+          boletaData.fecha_adquisicion = new Date(boletaData.fecha_adquisicion);
       }
-
-      // Convertir id_asiento en array de ObjectId
+  
+      // Convertir id_asiento en array de ObjectId solo si está presente en boletaData
       if (boletaData.id_asiento && boletaData.id_asiento.length > 0) {
-        boletaData.id_asiento = boletaData.id_asiento.map((id) => new ObjectId(id));
-      } else {
-        boletaData.id_asiento = []; // Asegúrate de que sea un array vacío si no hay asientos
+          boletaData.id_asiento = boletaData.id_asiento.map((id) => new ObjectId(id));
       }
-
+  
       const result = await boletaModel.updateBoleta(boletaId, boletaData);
       if (result.modifiedCount > 0) {
-        return res.status(200).json(boletaDto.templateSuccess(result)); // Retorna éxito en la actualización de la boleta
+          return res.status(200).json(boletaDto.templateSuccess(result));
       } else {
-        return res.status(404).json(boletaDto.templateBoletaNotFound()); // Retorna error si no se encuentra la boleta para actualizar
+          return res.status(404).json(boletaDto.templateBoletaNotFound());
       }
     } else if (req.url.includes("eliminarBoleta") && req.method === "DELETE") {
       // Eliminar una boleta

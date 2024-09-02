@@ -7,7 +7,7 @@
     "Sci-Fi",
     "Horror"
   ],
-  "duracion": 90,
+  "duracion": 120,
   "sinopsis": "En un planeta lejano, un grupo de colonos se enfrenta a una nueva amenaza alienígena que podría poner en peligro la supervivencia de la humanidad.",
   "img": "https://posters.movieposterdb.com/24_03/2024/18412256/l_alien-romulus-movie-poster_740eb569.jpg",
   "casting": [
@@ -44,7 +44,7 @@
     "Action",
     "Comedy"
   ],
-  "duracion": 90,
+  "duracion": 120,
   "sinopsis": " Wolverine se está recuperando de sus heridas cuando se cruza con el bocazas Deadpool. Ambos se unen para derrotar a un enemigo común.",
   "img": "https://posters.movieposterdb.com/24_04/2024/6263850/l_deadpool-wolverine-movie-poster_269f8e79.jpg",
   "casting": [
@@ -81,7 +81,7 @@
     "Adventure",
     "Comedy"
   ],
-  "duracion": 90,
+  "duracion": 120,
   "sinopsis": " Gru, Lucy, Margo, Edith y Agnes dan la bienvenida a un nuevo miembro a la familia, Gru Jr., que está decidido a atormentar a su padre. Gru se enfrenta a un nuevo enemigo, Maxime Le Mal y su novia Valentina, y la familia se ve obligada a huir.",
   "casting": [
     {
@@ -166,4 +166,77 @@
     }
   ],
   "trailerId": "T4bvKwP870A?playlist=T4bvKwP870A&autoplay=1&iv_load_policy=3&loop=1&start="
+},
+{
+  "_id": {
+    "$oid": "66d506ee210ea2fc33469a3e"
+  },
+  "titulo": "The Crow",
+  "genero": [
+    "Action",
+    "Crime",
+    "Fantasy"
+  ],
+  "duracion": 120,
+  "sinopsis": "Eric Draven y Shelly Webster son brutalmente asesinados cuando los demonios de su oscuro pasado les alcanzan. Ante la oportunidad de sacrificarse para salvar a su verdadero amor, Eric se propone vengarse despiadadamente de sus asesinos, atravesando el mundo de los vivos y los muertos para saldar sus deudas.",
+  "img": "https://posters.movieposterdb.com/24_05/2024/1340094/l_the-crow-movie-poster_dc755402.jpg",
+  "casting": [
+    {
+      "img": "https://images.movieposterdb.com/profile_images/803889/t_877f9ff4_bill-skarsgard.jpg",
+      "nombre": "Bill Skarsgard",
+      "personaje": "Eric Draven"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/12542507/t_d689842b_isabella-wei.jpg",
+      "nombre": "Isabella Wei",
+      "personaje": "Zadie"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/1983387/t_912957d9_david-bowles.jpg",
+      "nombre": "David Bowles",
+      "personaje": "Wickham"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/13070795/t_8f441361_paul-a-maynard.jpg",
+      "nombre": "Paul A Maynard",
+      "personaje": "Malcolm, Card Dealer"
+    }
+  ],
+  "trailerId": "nuJsaUQ1GjE?playlist=nuJsaUQ1GjE&autoplay=1&iv_load_policy=3&loop=1&start="
+},
+{
+  "_id": {
+    "$oid": "66d5096c210ea2fc33469a3f"
+  },
+  "titulo": "Blink Twice",
+  "genero": [
+    "Mystery",
+    "Thriller"
+  ],
+  "duracion": 120,
+  "sinopsis": "Cuando el magnate de la tecnología Slater King conoce a la camarera Frida en su gala de recaudación de fondos, saltan chispas. Él la invita a acompañarle a él y a sus amigos a unas vacaciones de ensueño en su isla privada. Un auténtico paraíso. Las noches salvajes se mezclan con mañanas bañadas por el sol y todo el mundo se lo pasa en grande. Nadie quiere que el viaje termine, pero cuando empiezan a suceder cosas extrañas, Frida intuye que algo anda mal en ese lugar. Tendrá que descubrir la verdad si quiere salir viva de la fiesta.",
+  "img": "https://posters.movieposterdb.com/24_08/2024/14858658/l_blink-twice-movie-poster_08399576.png",
+  "casting": [
+    {
+      "img": "https://images.movieposterdb.com/profile_images/1475594/t_e859df65_channing-tatum.jpg",
+      "nombre": "Channing Tatum",
+      "personaje": "Slater King"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/5350/t_cac2d37b_simon-rex.jpg",
+      "nombre": "Simon Rex",
+      "personaje": "Cody"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/2630554/t_a9b34ab4_tiffany-persons.jpg",
+      "nombre": "Tiffany Persons",
+      "personaje": "Interviewer"
+    },
+    {
+      "img": "https://images.movieposterdb.com/profile_images/385391/t_294843e1_aaron-himelstein.jpg",
+      "nombre": "Aaron Himelstein",
+      "personaje": "Asshole Manager"
+    }
+  ],
+  "trailerId": "n58FlV79URs?playlist=n58FlV79URs&autoplay=1&iv_load_policy=3&loop=1&start="
 }]

@@ -76,8 +76,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             const [diaSemana, diaMes, dia] = fechaFormateada.split(' ');
             return `
                 <div class="container-day" data-fecha="${fechaFormateada}">
-                    <small class="tittle">${diaSemana}</small>
-                    <div class="sub">${dia}</div>
+                    <small class="tittle">${diaMes}</small>
+                    <div class="sub">${diaSemana}</div>
+                    <div class="sub">${dia}</div>     
                 </div>
             `;
         }).join('');
@@ -105,9 +106,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const timesHTML = daysData[fechaSeleccionada].map(({ hora, precio, idLugar }) => {
                         // Determina el sufijo del precio basado en el valor de 'precio'
                         let precioTexto;
-                        if (precio === "10.50") {
+                        if (precio === "12.50") {
                             precioTexto = `$${precio} -2D`;
-                        } else if (precio === "20.50") {
+                        } else if (precio === "20") {
                             precioTexto = `$${precio} -3D`;
                         } 
                 
