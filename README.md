@@ -31,7 +31,7 @@ https://www.mongodb.com/try/download/database-tools
 Clonar el repo:
 
 ```javascript
-git clone https://github.com/Raxont/Proyecto-Mongo-II.git
+git clone https://github.com/Raxont/proyectoCineCampusFrontend.git
 ```
 
 Dirigirse a la rama CommonJS:
@@ -249,6 +249,8 @@ fechaInicioFiltro = 2024-08-01
 fechaFinFiltro = 2024-11-01
 ```
 
+
+
 # 2) Información de una película
 
 Para acceder a ella, utiliza la siguiente URI:
@@ -336,6 +338,8 @@ Para acceder a ella, utiliza la siguiente URI:
 http://localhost:3000/tarjeta/verBoleta?identificacionCliente=1234567890
 ```
 
+
+
 # Datos a quemar 
 
 ### Obtener el descuento si tiene una tarjeta
@@ -373,8 +377,6 @@ http://localhost:3000/tarjeta/verBoleta?identificacionCliente=1234567890
   "estado": "activo"
 }
 ```
-
-
 
 
 
@@ -482,6 +484,8 @@ idBoleta = 66c3955f80bb8b9f717d8746
 # 6) Roles Definidos
 
 Para utilizar esta sección, puede realizar las peticiones mediante herramientas como Thunder Client, Insomnia u otras similares.
+
+
 
 # Datos a quemar 
 
