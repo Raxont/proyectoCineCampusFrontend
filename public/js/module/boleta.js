@@ -97,9 +97,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
             <div class="lineas">----------------</div>
             <div class="barcode">
-                <img src="${boleta.barcodeUrl || '../storage/Barcode.svg'}" alt="Codigo de barras">
+                <img id="barcode" alt="Codigo de barras">
             </div>
         `;
+        // Generar el código de barras usando JSBarcode
+        JsBarcode("#barcode", boleta._id, {
+            format: "CODE128",
+            width: 2,
+            height: 70,
+            lineColor: "#000",
+            displayValue: false
+        });
     } catch (error) {
         // Manejar cualquier error que ocurra durante la solicitud
         console.error('Error al hacer la solicitud:', error);
