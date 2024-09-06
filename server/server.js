@@ -45,3 +45,13 @@ app.use((req, res, next) => {
     req.__dirname = __dirname;
     next();
 });
+
+// Configuración del servidor y puerto
+const config = {
+    port: process.env.PORT || 4000,  // Render asigna dinámicamente este puerto
+};
+
+// Inicia el servidor y muestra el mensaje de éxito en la consola
+app.listen(config.port, () => {
+    console.log(`Servidor escuchando en el puerto ${config.port}`);
+});
