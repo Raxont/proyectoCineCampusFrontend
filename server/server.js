@@ -45,14 +45,3 @@ app.use((req, res, next) => {
     req.__dirname = __dirname;
     next();
 });
-
-// Configuración del servidor y puerto
-const config = {
-    host: process.env.HOST || "localhost",
-    port: process.env.PORT || 3000,
-};
-
-// Inicia el servidor y muestra el mensaje de éxito en la consola
-app.listen(config.port, config.host, () => {
-    console.log(`Servidor escuchando en http://${config.host}:${config.port}/lugar`);
-});

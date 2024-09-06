@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
+  "start": "node server/server.js",
   "dev": "node --watch server/server.js",
   "import": "node server/helpers/backup_CineCampus/import.js"
   },
