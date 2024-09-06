@@ -30,10 +30,7 @@ module.exports = class connect {
     if (!this.conexion) { // Solo abre si no está ya abierta
       const uri = `mongodb://${this.user}:${this.#pass}@${this.#host}:${this.port}/${this.#dbName}?ssl=true&replicaSet=cinecampus-5595-rs0&tlsAllowInvalidCertificates=true`;
 
-      this.conexion = new MongoClient(uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
+      this.conexion = new MongoClient(uri);
       
       await this.conexion.connect();
       this.db = this.conexion.db(this.#dbName);
