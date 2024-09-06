@@ -36,7 +36,7 @@ app.use("/pelicula", peliculaRoutes);
 // Configuración de la ruta para exponer la variable de entorno
 app.get('/api/config', (req, res) => {
     res.json({
-        nick: process.env.MONGO_USER, 
+        nick: process.env.MONGO_USER
     });
 });
 
@@ -49,10 +49,10 @@ app.use((req, res, next) => {
 // Configuración del servidor y puerto
 const config = {
     port: process.env.PORT || 3000,  // Render asigna dinámicamente este puerto
-    // host: process.env.HOST || "localhost", // Render usa localhost en caso de no recibir una variable de entorno
+    host: process.env.HOST || "localhost", // Render usa localhost en caso de no recibir una variable de entorno
 };
 
 // Inicia el servidor y muestra el mensaje de éxito en la consola
 app.listen(config.port, () => {
-    console.log(`Servidor escuchando en el puerto ${config.port}`);
+    console.log(`Servidor escuchando en el puerto ${config.port} y host ${config.host}`);
 });

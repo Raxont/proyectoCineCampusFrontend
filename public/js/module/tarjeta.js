@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const identificacionCliente = urlParams.get('identificacionCliente');
     const idLugar = urlParams.get('idLugar');
 
-    const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = "https://proyectocinecampusfrontend.onrender.com";
     // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
 
     if (!identificacionCliente) {
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Maneja el evento de clic en el botón de retroceso
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = "https://proyectocinecampusfrontend.onrender.com";
     // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Obtiene el elemento con la clase 'back-button'
     const backButton = document.querySelector('.back-button');

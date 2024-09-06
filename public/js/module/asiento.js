@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idPelicula = urlParams.get('idPelicula');
     const fechaInicioFiltro = urlParams.get('fechaInicioFiltro');
-    const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = "https://proyectocinecampusfrontend.onrender.com";
     // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
 
     // Verifica que los parámetros necesarios estén presentes
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = "https://proyectocinecampusfrontend.onrender.com";
     // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Obtiene el botón de retroceso
     const backButton = document.querySelector('.back-button');

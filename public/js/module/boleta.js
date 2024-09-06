@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const identificacionCliente = urlParams.get('identificacionCliente');
     const idLugar = urlParams.get('idLugar');
-    const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = "https://proyectocinecampusfrontend.onrender.com";
     // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Verificar si se proporcionó la identificación del cliente
     if (!identificacionCliente) {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Espera a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = "https://proyectocinecampusfrontend.onrender.com";
     // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Obtener el elemento con la clase 'back-button'
     const backButton = document.querySelector('.back-button');
