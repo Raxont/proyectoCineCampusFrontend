@@ -9,7 +9,7 @@ router.post('/crear', (req, res) => createUser(req, res));
 
 //! Ruta para obtener la información de un cliente por identificación
 // Procesa las solicitudes GET en '/info/:identificacion' utilizando el controlador para mostrar la información del cliente
-router.get('/info/:identificacion', (req, res) => showInfoUser(req, res));
+router.get('/info/:nick', (req, res) => showInfoUser(req, res));
 
 //! Ruta para actualizar la información de un cliente
 // Procesa las solicitudes PUT en '/actualizar' utilizando el controlador para actualizar la información del cliente

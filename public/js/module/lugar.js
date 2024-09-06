@@ -1,5 +1,7 @@
 // Espera a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', function () {
+    // const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
 
     // Función para obtener la identificación desde el servidor
     async function obtenerIdentificacion() {
@@ -7,11 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Obtiene la identificación del cliente desde la API
             const response = await fetch('/api/config');
             const data = await response.json();
-    
-            // Asegúrate de que la identificación se obtenga correctamente y sea un número
-            const cliente = Number(data.identificacion);
-    
-            return cliente;
+
+            return data;
         } catch (error) {
             console.error('Error al obtener la identificación:', error);
             return null;  // Devuelve null en caso de error para manejarlo adecuadamente
@@ -19,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Función para obtener la información del cliente usando la identificación
-    function obtenerInfoCliente(identificacion) {
-        return fetch(`http://localhost:3000/cliente/info/${identificacion}`)
+    function obtenerInfoCliente(nick) {
+        return fetch(`${apiUrl}/cliente/info/${nick}`)
             .then(response => response.json())
             .then(data => {return data.resultado})
             .catch(error => console.error('Error al obtener la información del cliente:', error));
@@ -107,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fechaFinal.setDate(today.getDate() + 14);
         const fechaFin = fechaFinal.toISOString().split('T')[0];
 
-        fetch(`/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
+        fetch(`${apiUrl}/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
             .then(response => response.json())
             .then(data => {
                 const galeriaContainer = document.getElementById('galeria');
@@ -122,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 galeriaContainer.querySelectorAll('.gallery-cell').forEach(element => {
                     element.addEventListener('click', function () {
                         const peliculaId = this.getAttribute('data-id');
-                        window.location.href = `http://localhost:3000/cliente?peliculaId=${peliculaId}`;
+                        window.location.href = `${apiUrl}/cliente?peliculaId=${peliculaId}`;
                     });
                 });
 
@@ -149,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fechaFinal.setDate(today.getDate() + 100);
         const fechaFin = fechaFinal.toISOString().split('T')[0];
 
-        fetch(`/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
+        fetch(`${apiUrl}/lugar/lugaresPorFecha?fechaInicioFiltro=${encodeURIComponent(fechaInicio)}&fechaFinFiltro=${encodeURIComponent(fechaFin)}`)
             .then(response => response.json())
             .then(data => {
                 const galeriaContainer = document.getElementById('movie-soon');
@@ -166,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 galeriaContainer.querySelectorAll('.movie-comming').forEach(element => {
                     element.addEventListener('click', function () {
                         const peliculaId = this.getAttribute('data-id');
-                        window.location.href = `http://localhost:3000/cliente/sin?peliculaId=${peliculaId}`;
+                        window.location.href = `${apiUrl}/cliente/sin?peliculaId=${peliculaId}`;
                     });
                 });
             })

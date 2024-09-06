@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const identificacionCliente = urlParams.get('identificacionCliente');
     const idLugar = urlParams.get('idLugar');
+    // const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Verificar si se proporcionó la identificación del cliente
     if (!identificacionCliente) {
         console.error('Identificación del cliente no proporcionada.');
@@ -12,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Hacer una solicitud para obtener los datos de la boleta del cliente
-        const response = await fetch(`/boleta/getBoletasByClienteAndLugar?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`);
+        const response = await fetch(`${apiUrl}/boleta/getBoletasByClienteAndLugar?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`);
         const result = await response.json();
         
         // Verificar que la solicitud fue exitosa y que se encontraron boletas
@@ -122,6 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Agregar un evento de clic al botón de retroceso
     backButton.addEventListener('click', function() {
         // Redirigir a la URI deseada
-        window.location.href = `http://localhost:3000/lugar`;
+        window.location.href = `${apiUrl}/lugar`;
     });
 });

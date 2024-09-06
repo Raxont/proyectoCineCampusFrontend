@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idPelicula = urlParams.get('idPelicula');
     const fechaInicioFiltro = urlParams.get('fechaInicioFiltro');
+    // const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
 
     // Verifica que los parámetros necesarios estén presentes
     if (!idPelicula || !fechaInicioFiltro) {
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Solicita los lugares disponibles para la película y la fecha especificada
-        const lugaresResponse = await fetch(`/lugar/lugaresPorPelicula?idPelicula=${idPelicula}&fechaInicioFiltro=${fechaInicioFiltro}`);
+        const lugaresResponse = await fetch(`${apiUrl}/lugar/lugaresPorPelicula?idPelicula=${idPelicula}&fechaInicioFiltro=${fechaInicioFiltro}`);
         const lugaresResult = await lugaresResponse.json();
 
         // Verifica si la respuesta fue exitosa y contiene datos
@@ -150,8 +152,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (selectedDay && selectedTime) {
                         try {
                             // Solicita la lista de asientos y la disponibilidad para el lugar seleccionado
-                            const allasiento = await fetch(`/asiento/getAsientos`);
-                            const asientosResponse = await fetch(`/asiento/asientosDisponibles?idLugarq=${idLugar}`);
+                            const allasiento = await fetch(`${apiUrl}/asiento/getAsientos`);
+                            const asientosResponse = await fetch(`${apiUrl}/asiento/asientosDisponibles?idLugarq=${idLugar}`);
         
                             const asientosResult = await asientosResponse.json();
                             const getasientos = await allasiento.json();           
@@ -291,7 +293,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                    
                     try {
                         // Busca la información del lugar
-                        const infoLugar = await fetch(`/lugar/getInfoLugar?idLugar=${idLugar}`);
+                        const infoLugar = await fetch(`${apiUrl}/lugar/getInfoLugar?idLugar=${idLugar}`);
                         const lugarResult = await infoLugar.json();
                         const lugar = lugarResult.data[0];
                         const valor = Number(lugar.precio);
@@ -300,7 +302,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         const precio = total + seatprice;
 
                         // Verifica si el cliente ya tiene una boleta para el lugar
-                        const findboleta = await fetch(`/boleta/getBoletasByClienteAndLugar?idLugar=${idLugar}&identificacionCliente=${cliente}`, {
+                        const findboleta = await fetch(`${apiUrl}/boleta/getBoletasByClienteAndLugar?idLugar=${idLugar}&identificacionCliente=${cliente}`, {
                             method: 'GET'
                         });
                         
@@ -309,7 +311,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             return;
                         } else {
                             // Crea la boleta
-                            const boletaResponse = await fetch('/boleta/agregarBoleta', {
+                            const boletaResponse = await fetch(`${apiUrl}/boleta/agregarBoleta`, {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'
@@ -335,7 +337,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             const idboleta = boletaResult.data.insertedId;
                             if (boletaResponse.ok) {
                                 // Luego, agrega los asientos
-                                const asientosResponse = await fetch('/asiento/getReserva', {
+                                const asientosResponse = await fetch(`${apiUrl}/asiento/getReserva`, {
                                     method: 'POST',
                                     headers: {
                                         'Content-Type': 'application/json'
@@ -353,9 +355,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                                     if (userConfirmed) {
                                         // Redirige a la página de boleta si el usuario confirma
-                                        window.location.href = `http://localhost:3000/tarjeta/verBoleta?identificacionCliente=${cliente}&idLugar=${idLugar}`;
+                                        window.location.href = `${apiUrl}/tarjeta/verBoleta?identificacionCliente=${cliente}&idLugar=${idLugar}`;
                                     } else {
-                                        const asientosResponsed = await fetch('/asiento/returnReserva', {
+                                        const asientosResponsed = await fetch(`${apiUrl}/asiento/returnReserva`, {
                                             method: 'POST',
                                             headers: {
                                                 'Content-Type': 'application/json'
@@ -366,7 +368,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                                 idLugar: idLugar,
                                             })
                                         });
-                                        await fetch(`/boleta/eliminarBoleta?idBoleta=${idboleta}`, {
+                                        await fetch(`${apiUrl}/boleta/eliminarBoleta?idBoleta=${idboleta}`, {
                                             method: 'DELETE'
                                         });
                                     }   
@@ -396,6 +398,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);
         const idPelicula = urlParams.get('idPelicula');
         // Redirige a la URI deseada
-        window.location.href = `http://localhost:3000/cliente?peliculaId=${idPelicula}`;
+        window.location.href = `${apiUrl}/cliente?peliculaId=${idPelicula}`;
     });
 });

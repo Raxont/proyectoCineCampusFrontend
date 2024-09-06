@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const identificacionCliente = urlParams.get('identificacionCliente');
     const idLugar = urlParams.get('idLugar');
 
+    // const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
+
     if (!identificacionCliente) {
         console.error('Identificación del cliente no proporcionada.');
         return;
@@ -10,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let boleta = null;
     try {
-        const response = await fetch(`/boleta/getBoletasByClienteAndLugar?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`);
+        const response = await fetch(`${apiUrl}/boleta/getBoletasByClienteAndLugar?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`);
         const result = await response.json();
 
         if (!result.success || result.data.length === 0) {
@@ -75,8 +78,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         document.getElementById('custom-radio').addEventListener('change', async (event) => {
             const checkBox = event.target;
-            const urlDescuento = 'http://localhost:3000/tarjeta/getDescuento';
-            const urlActualizarBoleta = `http://localhost:3000/boleta/actualizarBoleta/${boleta._id}`;
+            const urlDescuento = `${apiUrl}/tarjeta/getDescuento`;
+            const urlActualizarBoleta = `${apiUrl}/boleta/actualizarBoleta/${boleta._id}`;
             
             const data = {
                 idboleta: boleta._id,
@@ -132,7 +135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         document.getElementById('buy').addEventListener('click', async() => {     
-            const urlActualizarBoleta = `http://localhost:3000/boleta/actualizarBoleta/${boleta._id}`;
+            const urlActualizarBoleta = `${apiUrl}/boleta/actualizarBoleta/${boleta._id}`;
             let precioOriginal = boleta.precio;
             await fetch(urlActualizarBoleta, {
                 method: 'PUT',
@@ -145,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const userConfirmed = confirm(`El precio total con la tarifa de servicios es $${boleta.precio+tasa_servicio} ¿Desea continuar con la reserva del asiento?`);
             if (userConfirmed) {
                 // Redirige a la página de boleta si el usuario confirma
-                window.location.href = `http://localhost:3000/boleta/verBoleta?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`;
+                window.location.href = `${apiUrl}/boleta/verBoleta?identificacionCliente=${identificacionCliente}&idLugar=${idLugar}`;
             } else {
                 // Redirige a la página de la boleta si el descuento no es aplicado
                 await fetch(urlActualizarBoleta, {
@@ -172,6 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Agrega un evento de clic al botón
     backButton.addEventListener('click', function() {
         // Redirige a la URI deseada
-        window.location.href = `http://localhost:3000/lugar`;
+        window.location.href = `${apiUrl}/lugar`;
     });
 });

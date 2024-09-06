@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const peliculaId = urlParams.get('peliculaId');
 
     // Construir la URL para obtener los datos de la película
-    const url = `http://localhost:3000/pelicula/getPeliculaById?idPelicula=${peliculaId}`;
+    // const apiUrl = process.env.APP_API_URL ;
+    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
+    const url = `${apiUrl}/pelicula/getPeliculaById?idPelicula=${peliculaId}`;
 
     try {
         // Hacer la petición para obtener los datos de la película
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const today = now.toISOString().split('.')[0] + 'Z'; 
 
                     // Construir la URL de redirección para la selección de asientos
-                    const redirectUrl = `http://localhost:3000/asiento/verAsiento?idPelicula=${peliculaId}&fechaInicioFiltro=${today}`;
+                    const redirectUrl = `${apiUrl}/asiento/verAsiento?idPelicula=${peliculaId}&fechaInicioFiltro=${today}`;
 
                     // Redirigir a la nueva URL
                     window.location.href = redirectUrl;
@@ -112,6 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Agregar un evento de clic al botón para redirigir a la URI deseada
     backButton.addEventListener('click', function() {
-        window.location.href = `http://localhost:3000/lugar`;
+        window.location.href = `${apiUrl}/lugar`;
     });
 });

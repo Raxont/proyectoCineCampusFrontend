@@ -58,22 +58,18 @@ const showInfoUser = async (req, res) => {
     return res.status(400).json({ errors: errors.array() }); // Retorna errores de validación
   }
 
-  const { identificacion } = req.params;
-  const clienteDto = new ClienteDTO();
+  const nick = req.params.nick;
   
-  // Validar que la identificación es un entero y está en el rango adecuado
-  const id = parseInt(identificacion, 10);
-  if (isNaN(id) || id < 1000000000 || id > 9999999999) {
-    return res.status(400).json(clienteDto.templateInvalidId()); // Retorna error si la identificación no es válida
-  }
-
+  console.log("🚀 ~ showInfoUser ~ nick:", JSON.stringify(nick, null, 2))
+  
+  const clienteDto = new ClienteDTO();
   const clienteModel = new ClienteModel();
   try {
     await clienteModel.init(); // Inicializa el modelo de cliente
     
     // Intentar obtener la información del usuario
-    const resultado = await clienteModel.showInfoUser(id);
-    
+    const resultado = await clienteModel.findUserByNick(nick);
+    console.log("🚀 ~ showInfoUser ~ resultado:", resultado)
     return res.status(200).json(clienteDto.templateSuccessInfo(resultado)); // Retorna la información del usuario
   } catch (error) {
     console.error("Error al obtener la información del usuario:", error);

@@ -1,16 +1,5 @@
 class ClienteDTO {
     /**
-     * Mensaje para datos inválidos
-     * @returns {Object} - Mensaje de error para datos inválidos
-     */
-    templateInvalidId() {
-      return {
-        status: "error",
-        message: "ID inválido proporcionado. Asegúrese de que el ID del cliente sea correcto."
-      };
-    }
-  
-    /**
      * Mensaje para cliente no encontrado
      * @returns {Object} - Mensaje de error para cliente no encontrado
      */
