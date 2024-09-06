@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const identificacionCliente = urlParams.get('identificacionCliente');
     const idLugar = urlParams.get('idLugar');
 
-    // const apiUrl = process.env.APP_API_URL ;
-    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
+    const apiUrl = process.env.APP_API_URL ;
+    // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
 
     if (!identificacionCliente) {
         console.error('Identificación del cliente no proporcionada.');
@@ -170,6 +170,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Maneja el evento de clic en el botón de retroceso
 document.addEventListener('DOMContentLoaded', function() {
+    const apiUrl = process.env.APP_API_URL ;
+    // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Obtiene el elemento con la clase 'back-button'
     const backButton = document.querySelector('.back-button');
     // Agrega un evento de clic al botón

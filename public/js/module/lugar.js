@@ -1,7 +1,7 @@
 // Espera a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', function () {
-    // const apiUrl = process.env.APP_API_URL ;
-    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
+    const apiUrl = process.env.APP_API_URL ;
+    // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
 
     // Función para obtener la identificación desde el servidor
     async function obtenerIdentificacion() {

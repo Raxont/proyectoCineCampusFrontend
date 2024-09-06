@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const peliculaId = urlParams.get('peliculaId');
 
     // Construir la URL para obtener los datos de la película
-    // const apiUrl = process.env.APP_API_URL ;
-    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
+    const apiUrl = process.env.APP_API_URL ;
+    // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     const url = `${apiUrl}/pelicula/getPeliculaById?idPelicula=${peliculaId}`;
 
     try {
@@ -109,6 +109,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Espera a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', function() {
+    const apiUrl = process.env.APP_API_URL ;
+    // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Obtener el elemento con la clase 'back-button'
     const backButton = document.querySelector('.back-button');
     

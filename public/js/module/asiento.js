@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idPelicula = urlParams.get('idPelicula');
     const fechaInicioFiltro = urlParams.get('fechaInicioFiltro');
-    // const apiUrl = process.env.APP_API_URL ;
-    const apiUrl = 'http://localhost:3000';  // Para desarrollo local
+    const apiUrl = process.env.APP_API_URL ;
+    // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
 
     // Verifica que los parámetros necesarios estén presentes
     if (!idPelicula || !fechaInicioFiltro) {
@@ -256,6 +256,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error al obtener los datos:', error);
     }
 
+    async function obtenerInfoCliente(nick) {
+        return fetch(`${apiUrl}/cliente/info/${nick}`)
+            .then(response => response.json())
+            .then(data => {return data.resultado})
+            .catch(error => console.error('Error al obtener la información del cliente:', error));
+    }
+
     // Lógica para el formulario
     async function addEventListeners(idLugar) {
         const myform = document.querySelector('#myform');
@@ -263,7 +270,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Obtiene la identificación del cliente
         const response = await fetch('/api/config');
         const array = await response.json();
-        cliente = Number(array.identificacion);
+        const nick = array.nick;
+        const usuario = await obtenerInfoCliente(nick);
+        const cliente=Number(usuario.identificacion);
+        // Función para obtener la información del cliente usando la identificación
+    
 
         if (myform) {
             myform.addEventListener('submit', async (e) => {
@@ -391,6 +402,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    const apiUrl = process.env.APP_API_URL ;
+    // const apiUrl = 'http://localhost:3000';  // Para desarrollo local
     // Obtiene el botón de retroceso
     const backButton = document.querySelector('.back-button');
     // Agrega un evento de clic al botón
