@@ -1,12 +1,11 @@
 const { MongoClient } = require("mongodb");
 
 module.exports = class connect {
-  user; 
-  port; 
-  #pass; 
-  #host; 
-  #cluster; 
-  #dbName; 
+  user;
+  port;
+  #pass;
+  #host;
+  #dbName;
 
   /**
    * Constructor de la clase `connect`.
@@ -17,7 +16,6 @@ module.exports = class connect {
     this.port = process.env.MONGO_PORT;
     this.#pass = process.env.MONGO_PWD;
     this.#host = process.env.MONGO_HOST;
-    this.#cluster = process.env.MONGO_CLUSTER;
     this.#dbName = process.env.MONGO_DB;
     this.conexion = null; // Inicialmente null
     this.db = null; // Inicialmente null
@@ -30,10 +28,13 @@ module.exports = class connect {
    */
   async init() {
     if (!this.conexion) { // Solo abre si no está ya abierta
-      this.conexion = new MongoClient(
-        `${this.#host}${this.user}:${this.#pass}@${this.#cluster}:${this.port}/${this.#dbName}`,
-        { useNewUrlParser: true, useUnifiedTopology: true }
-      );
+      const uri = `mongodb://${this.user}:${this.#pass}@${this.#host}:${this.port}/${this.#dbName}?ssl=true&replicaSet=cinecampus-5595-rs0&tlsAllowInvalidCertificates=true`;
+
+      this.conexion = new MongoClient(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      
       await this.conexion.connect();
       this.db = this.conexion.db(this.#dbName);
     }
@@ -65,4 +66,4 @@ module.exports = class connect {
       this.db = null;
     }
   }
-}
+};

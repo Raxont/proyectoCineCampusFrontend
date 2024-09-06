@@ -1,0 +1,26 @@
+name: run
+
+on: push
+
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run version checks
+        run: |
+          node --version
+          npm --version
+
+      - name: Run dev script
+        run: npm run dev
