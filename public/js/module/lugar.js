@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Obtiene la identificación del cliente desde la API
             const response = await fetch('/api/config');
             const data = await response.json();
-
-            return data;
+            return data.nick;
         } catch (error) {
             console.error('Error al obtener la identificación:', error);
             return null;  // Devuelve null en caso de error para manejarlo adecuadamente

@@ -60,16 +60,12 @@ const showInfoUser = async (req, res) => {
 
   const nick = req.params.nick;
   
-  console.log("🚀 ~ showInfoUser ~ nick:", JSON.stringify(nick, null, 2))
-  
   const clienteDto = new ClienteDTO();
   const clienteModel = new ClienteModel();
   try {
     await clienteModel.init(); // Inicializa el modelo de cliente
-    
     // Intentar obtener la información del usuario
     const resultado = await clienteModel.findUserByNick(nick);
-    console.log("🚀 ~ showInfoUser ~ resultado:", resultado)
     return res.status(200).json(clienteDto.templateSuccessInfo(resultado)); // Retorna la información del usuario
   } catch (error) {
     console.error("Error al obtener la información del usuario:", error);
