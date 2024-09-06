@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const path = require("path")
+const path = require("path");
+require('dotenv').config();
 
 // Rutas de diferentes módulos
 const clienteRoutes = require("./routes/clienteRoutes");
@@ -46,12 +47,12 @@ app.use((req, res, next) => {
 });
 
 // Configuración del servidor y puerto
-let config = {
+const config = {
     host: process.env.HOST || "localhost",
     port: process.env.PORT || 3000,
 };
 
 // Inicia el servidor y muestra el mensaje de éxito en la consola
-app.listen(config, () => {
-    console.log(`Servidor escuchando en http://${config.host}:${config.port}/lugar`);	
+app.listen(config.port, config.host, () => {
+    console.log(`Servidor escuchando en http://${config.host}:${config.port}/lugar`);
 });
